@@ -5,8 +5,8 @@
   
   <entry>
     <title>《SQL必知必会》学习记录1</title>
-    <link href="/JoneLn.github.io/2021/05/11/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/"/>
-    <url>/JoneLn.github.io/2021/05/11/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/</url>
+    <link href="/2021/05/11/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/"/>
+    <url>/2021/05/11/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/</url>
     
     <content type="html"><![CDATA[<h1 id="第一章-了解SQL"><a href="#第一章-了解SQL" class="headerlink" title="第一章 了解SQL"></a>第一章 了解SQL</h1><h2 id="什么是数据库"><a href="#什么是数据库" class="headerlink" title="什么是数据库"></a>什么是数据库</h2><p>数据库(database):  保存有组织的数据的容器，通常指一个文件或者一组文件。</p><p>数据库管理系统(DBMS):数据库软件。</p><p>表(table)：某种特定类型的结构化清单。储存在表中的数据是同一类型的数据和清单。</p><blockquote><p>同一数据库下，表名唯一。<br>同一表下，数据类型同一。</p></blockquote><p>列(column)：表中的一个字段。所有表都是由一个或多个列组成。</p><p>行(row)：数据按照行来存储，每一行为一条记录。</p><p>主键(primary key)：一列（或一组列），其值能够唯一标识表中的每一行。</p><blockquote><p>主键列中每一行记录都不重复，具有唯一性；<br>任意两行都不具有相同的主键值；<br>每一行也必须具有一个主键值；<br>主键值不允许为NULL值；<br>主键值不能重用（即使删除了某一行记录也不能将该记录的主键值赋予其他记录）。</p></blockquote><h2 id="什么是SQL"><a href="#什么是SQL" class="headerlink" title="什么是SQL"></a>什么是SQL</h2><p>SQL的全拼为<em>Structured Query Language</em>，发音为字母<strong>S-Q-L</strong>或者英文单词<strong>sequel</strong>，这是一种专门用来与数据库沟通的语言。</p><blockquote><p>这是语言，和python\C++\Java等一样属于计算机语言，虽然是不同功能的语言。</p></blockquote>]]></content>
     
@@ -30,8 +30,8 @@
   
   <entry>
     <title>画龙七式</title>
-    <link href="/JoneLn.github.io/2021/05/10/%E7%94%BB%E9%BE%99%E4%B8%83%E5%BC%8F%E5%86%99%E4%BD%9C%E6%B3%95/"/>
-    <url>/JoneLn.github.io/2021/05/10/%E7%94%BB%E9%BE%99%E4%B8%83%E5%BC%8F%E5%86%99%E4%BD%9C%E6%B3%95/</url>
+    <link href="/2021/05/10/%E7%94%BB%E9%BE%99%E4%B8%83%E5%BC%8F%E5%86%99%E4%BD%9C%E6%B3%95/"/>
+    <url>/2021/05/10/%E7%94%BB%E9%BE%99%E4%B8%83%E5%BC%8F%E5%86%99%E4%BD%9C%E6%B3%95/</url>
     
     <content type="html"><![CDATA[<h1 id="画龙七式写作法"><a href="#画龙七式写作法" class="headerlink" title="画龙七式写作法"></a>画龙七式写作法</h1><h2 id="第一式-冥想"><a href="#第一式-冥想" class="headerlink" title="第一式  冥想"></a>第一式  冥想</h2><p>在画龙正式开始前，首先要做的不是去做，而是去想。这一片文章的写作目的、写作目标和写作方式等。</p><h2 id="第二式-画骨"><a href="#第二式-画骨" class="headerlink" title="第二式  画骨"></a>第二式  画骨</h2><p>画龙画虎难画骨，画骨这一节可谓是重中之重，甚至直接决定了你的文章的质量。什么是文章的骨？拿我现在写的这一片综述性质的文章来说，文章的骨也就是框架，并不是你这一篇综述里每一篇文章具体写的是什么，而在于，你如何选择的文章，以及文章大致写的是什么。</p><p>这一节的表现形式就是标题，把每一篇文章的标题罗列出来，画骨就算完成了。</p><h2 id="第三式-充肌"><a href="#第三式-充肌" class="headerlink" title="第三式  充肌"></a>第三式  充肌</h2><p>本节的目标在于充实你的文章的骨架。</p><p>就本综述而言，大致包括每一篇文章的关键词、主客体、研究方法和核心观点等。</p><h2 id="第四式-描皮"><a href="#第四式-描皮" class="headerlink" title="第四式  描皮"></a>第四式  描皮</h2><p>“皮”就是最外部的表现形式了，也是对于文章的直观区分。而皮与皮之间既有相似连续性又有相对中断性，就如本综述所想，在众多文章中寻找其继承性如同一理论，同一问题下的A对B的补充；又如针对同一问题的不同研究方法、不同视角的对立或相互论证。</p><h2 id="第五式-雕头"><a href="#第五式-雕头" class="headerlink" title="第五式  雕头"></a>第五式  雕头</h2><p>头是统领。雕头即是对前述步骤的总结与概括。</p><h2 id="第六式-收尾"><a href="#第六式-收尾" class="headerlink" title="第六式  收尾"></a>第六式  收尾</h2><p>尾部最不受关注，但却最能提升龙像精气神的地方。收尾要注意灵活。具体到综述中，可评、可述、可点、可叹。</p><h2 id="第七式-点睛"><a href="#第七式-点睛" class="headerlink" title="第七式  点睛"></a>第七式  点睛</h2><p>人人说画龙点睛，这眼睛一点，龙即飞走。所以这眼睛可点，但不可让人看见你点。搜着藏着自己看，不要发表出来。因为这一部分，对应的综述中，就是对自己的研究的参悟。也就是自己本文章对自己研究的重要性。</p>]]></content>
     
@@ -55,8 +55,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="/JoneLn.github.io/2021/05/10/hello-world/"/>
-    <url>/JoneLn.github.io/2021/05/10/hello-world/</url>
+    <link href="/2021/05/10/hello-world/"/>
+    <url>/2021/05/10/hello-world/</url>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
