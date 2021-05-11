@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>《SQL必知必会》学习记录2</title>
+    <link href="/2021/05/11/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%952/"/>
+    <url>/2021/05/11/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%952/</url>
+    
+    <content type="html"><![CDATA[<h1 id="第二章-检索数据"><a href="#第二章-检索数据" class="headerlink" title="第二章 检索数据"></a>第二章 检索数据</h1><p>这一章介绍的是<em>SQL</em>最简单的<em>SELECT</em>语句。</p><p>在开始正文之前，首先介绍两条必备知识。</p><blockquote><p>多条SQL语句必须一分号（;）分割；<br>SQL语句不区分大小写。</p></blockquote><p>1.检索单个列</p><blockquote><p>select column_name<br>from table_name;</p></blockquote><p>或者</p><blockquote><p>select column_name from table_name;</p></blockquote><p>2.检索多个列</p><blockquote><p>select c1_name, c2_name<br>from table_name;</p></blockquote><p>3.检索所有列</p><blockquote><p>select *<br>from table_name;</p></blockquote><p>4.检索某一列中不同的值，即剔除重复值。<br>——比如，在供应产品表中每个供应商有多条记录，但是，我只想看我们一共有多少供应商，不想同一个供应商重复多次出现。</p><blockquote><p>select distinct c_name<br>from table_name;</p></blockquote><p> <strong>注意</strong>:<em>distinct</em>作用于其后的所有列</p><blockquote><p>select distinct c1_name, c2_name, c3_name<br>from table_name;</p></blockquote><p>5.限制结果<br>—–限制返回结果的行数，比如返回从第3行开始的两条记录。<br><strong>目前主要学习的是MySQL，故以下公式可在MySQL上运行，但是在其他数据库管理系统上不一定可以运行。</strong></p><blockquote><p>select c1_name, c2_name<br>from table_name<br>limit 2 offset 3;</p></blockquote><blockquote><p>select c1_name, c2_name<br>from table_name<br>limit 3, 2;</p></blockquote><p>上述公式都表示返回的结果从第三行开始，一共返回两行记录。若第三行后没有记录则返回一行。<br><strong>编程人员熟知，计算机是从0开始的，所以本处第三行是我们所看见的表格中的第四行。</strong></p><p>6 使用注释<br>—–在SQL语句中主要提供了三种注释方法。</p><p>单行注释：</p><blockquote><p>– 两杠加空格为单行注释</p><h1 id="单行注释"><a href="#单行注释" class="headerlink" title="单行注释"></a>单行注释</h1></blockquote><p>多行注释：</p><blockquote><p>/* 多行注释<br>任意位置*/</p></blockquote><p>以上即为第二章内容。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>MySQL</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>《SQL必知必会》学习记录1</title>
     <link href="/2021/05/11/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/"/>
     <url>/2021/05/11/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/</url>
