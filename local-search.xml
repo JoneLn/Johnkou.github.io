@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>《SQL必知必会》学习记录3</title>
+    <link href="/2021/05/11/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%953/"/>
+    <url>/2021/05/11/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%953/</url>
+    
+    <content type="html"><![CDATA[<h1 id="第三章-排序检索数据"><a href="#第三章-排序检索数据" class="headerlink" title="第三章 排序检索数据"></a>第三章 排序检索数据</h1><h2 id="排序数据"><a href="#排序数据" class="headerlink" title="排序数据"></a>排序数据</h2><blockquote><p>select column_name<br>from table_name<br>order by column123_name;</p></blockquote><p>按照column123_name这一列的数字+字母顺序对输出结果column_name这一列进行排序。</p><p>关系数据库设计理论认为，如果不明确规定排序顺序，则不应该假定检索出来的数据的顺序有任何意义。</p><blockquote><p><strong>ORDER BY语句若存在，则必须为该命令的最后一个指令。</strong></p></blockquote><h2 id="按多个列排序"><a href="#按多个列排序" class="headerlink" title="按多个列排序"></a>按多个列排序</h2><blockquote><p>select c1_name<br>from t1_name<br>order by c1_name, c2_name;</p></blockquote><p>首先按照c1_name的数字字母进行排序，若c1_name列各值唯一，绝不相同，则仅按照c1_name顺序对选择结果进行排序；</p><p>当且仅当c1_name列存在相同值时，才会再按照c2_name列的排序方式对c1_name相同值的记录进行排序。</p><h2 id="按列位置排序"><a href="#按列位置排序" class="headerlink" title="按列位置排序"></a>按列位置排序</h2><blockquote><p>select c1_name<br>from t1_name<br>order by 1，2;</p></blockquote><p>这一个大概不怎么用了，我在MySQL上操作的时候没有成功，而且，在知乎也没有搜到这一条指令。</p><p>而且，我想我也不会再使用这一条命令，因为如若按照书本上来说，这一条命令很奇怪。他首先按照2列进行排序，再按照1列进行排序。</p><h2 id="指定排序方向"><a href="#指定排序方向" class="headerlink" title="指定排序方向"></a>指定排序方向</h2><p>在DEMS中，当使用ORDER BY指令时，默认检索数据排序方式为升序（ASC），也就是0-9-A-Z（不区分大小写）。</p><p>当然，我们也可以使用降序指令，指定排序方向。</p><blockquote><p>select c1_name<br>from t1_name<br>order by c1_name DESC, c2_name;</p></blockquote><p>首先按照c1_name列进行降序排序，若有重复值，按照c2_name进行升序排序。</p><blockquote><p>select c1_name<br>from t1_name<br>order by c1_name, c2_name DESC;</p></blockquote><p>首先按照c1_name列进行升序排序，若有重复值，按照c2_name进行降序排序。</p><blockquote><p>DESC只作用于直接位于其前的一个列名。</p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>MySQL</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>《SQL必知必会》学习记录2</title>
     <link href="/2021/05/11/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%952/"/>
     <url>/2021/05/11/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%952/</url>

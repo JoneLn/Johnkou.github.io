@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>《SQL必知必会》学习记录2 - JoneLn</title>
+  <title>《SQL必知必会》学习记录3 - JoneLn</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="《SQL必知必会》学习记录2">
+            <span class="h2" id="subtitle" title="《SQL必知必会》学习记录3">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-05-11 16:47" pubdate>
-        2021年5月11日 下午
+      <time datetime="2021-05-11 19:43" pubdate>
+        2021年5月11日 晚上
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      399 字
+      446 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      5
        分钟
     </span>
   
@@ -225,56 +225,40 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">《SQL必知必会》学习记录2</h1>
+            <h1 style="display: none">《SQL必知必会》学习记录3</h1>
             
             <div class="markdown-body">
-              <h1 id="第二章-检索数据"><a href="#第二章-检索数据" class="headerlink" title="第二章 检索数据"></a>第二章 检索数据</h1><p>这一章介绍的是<em>SQL</em>最简单的<em>SELECT</em>语句。</p>
-<p>在开始正文之前，首先介绍两条必备知识。</p>
-<blockquote>
-<p>多条SQL语句必须一分号（;）分割；<br>SQL语句不区分大小写。</p>
+              <h1 id="第三章-排序检索数据"><a href="#第三章-排序检索数据" class="headerlink" title="第三章 排序检索数据"></a>第三章 排序检索数据</h1><h2 id="排序数据"><a href="#排序数据" class="headerlink" title="排序数据"></a>排序数据</h2><blockquote>
+<p>select column_name<br>from table_name<br>order by column123_name;</p>
 </blockquote>
-<p>1.检索单个列</p>
+<p>按照column123_name这一列的数字+字母顺序对输出结果column_name这一列进行排序。</p>
+<p>关系数据库设计理论认为，如果不明确规定排序顺序，则不应该假定检索出来的数据的顺序有任何意义。</p>
 <blockquote>
-<p>select column_name<br>from table_name;</p>
+<p><strong>ORDER BY语句若存在，则必须为该命令的最后一个指令。</strong></p>
 </blockquote>
-<p>或者</p>
-<blockquote>
-<p>select column_name from table_name;</p>
+<h2 id="按多个列排序"><a href="#按多个列排序" class="headerlink" title="按多个列排序"></a>按多个列排序</h2><blockquote>
+<p>select c1_name<br>from t1_name<br>order by c1_name, c2_name;</p>
 </blockquote>
-<p>2.检索多个列</p>
-<blockquote>
-<p>select c1_name, c2_name<br>from table_name;</p>
+<p>首先按照c1_name的数字字母进行排序，若c1_name列各值唯一，绝不相同，则仅按照c1_name顺序对选择结果进行排序；</p>
+<p>当且仅当c1_name列存在相同值时，才会再按照c2_name列的排序方式对c1_name相同值的记录进行排序。</p>
+<h2 id="按列位置排序"><a href="#按列位置排序" class="headerlink" title="按列位置排序"></a>按列位置排序</h2><blockquote>
+<p>select c1_name<br>from t1_name<br>order by 1，2;</p>
 </blockquote>
-<p>3.检索所有列</p>
+<p>这一个大概不怎么用了，我在MySQL上操作的时候没有成功，而且，在知乎也没有搜到这一条指令。</p>
+<p>而且，我想我也不会再使用这一条命令，因为如若按照书本上来说，这一条命令很奇怪。他首先按照2列进行排序，再按照1列进行排序。</p>
+<h2 id="指定排序方向"><a href="#指定排序方向" class="headerlink" title="指定排序方向"></a>指定排序方向</h2><p>在DEMS中，当使用ORDER BY指令时，默认检索数据排序方式为升序（ASC），也就是0-9-A-Z（不区分大小写）。</p>
+<p>当然，我们也可以使用降序指令，指定排序方向。</p>
 <blockquote>
-<p>select *<br>from table_name;</p>
+<p>select c1_name<br>from t1_name<br>order by c1_name DESC, c2_name;</p>
 </blockquote>
-<p>4.检索某一列中不同的值，即剔除重复值。<br>——比如，在供应产品表中每个供应商有多条记录，但是，我只想看我们一共有多少供应商，不想同一个供应商重复多次出现。</p>
+<p>首先按照c1_name列进行降序排序，若有重复值，按照c2_name进行升序排序。</p>
 <blockquote>
-<p>select distinct c_name<br>from table_name;</p>
+<p>select c1_name<br>from t1_name<br>order by c1_name, c2_name DESC;</p>
 </blockquote>
-<p> <strong>注意</strong>:<em>distinct</em>作用于其后的所有列</p>
+<p>首先按照c1_name列进行升序排序，若有重复值，按照c2_name进行降序排序。</p>
 <blockquote>
-<p>select distinct c1_name, c2_name, c3_name<br>from table_name;</p>
+<p>DESC只作用于直接位于其前的一个列名。</p>
 </blockquote>
-<p>5.限制结果<br>—–限制返回结果的行数，比如返回从第3行开始的两条记录。<br><strong>目前主要学习的是MySQL，故以下公式可在MySQL上运行，但是在其他数据库管理系统上不一定可以运行。</strong></p>
-<blockquote>
-<p>select c1_name, c2_name<br>from table_name<br>limit 2 offset 3;</p>
-</blockquote>
-<blockquote>
-<p>select c1_name, c2_name<br>from table_name<br>limit 3, 2;</p>
-</blockquote>
-<p>上述公式都表示返回的结果从第三行开始，一共返回两行记录。若第三行后没有记录则返回一行。<br><strong>编程人员熟知，计算机是从0开始的，所以本处第三行是我们所看见的表格中的第四行。</strong></p>
-<p>6 使用注释<br>—–在SQL语句中主要提供了三种注释方法。</p>
-<p>单行注释：</p>
-<blockquote>
-<p>– 两杠加空格为单行注释</p>
-<h1 id="单行注释"><a href="#单行注释" class="headerlink" title="单行注释"></a>单行注释</h1></blockquote>
-<p>多行注释：</p>
-<blockquote>
-<p>/* 多行注释<br>任意位置*/</p>
-</blockquote>
-<p>以上即为第二章内容。</p>
 
             </div>
             <hr>
@@ -309,18 +293,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/05/11/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%953/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">《SQL必知必会》学习记录3</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/05/11/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/">
-                        <span class="hidden-mobile">《SQL必知必会》学习记录1</span>
+                      <a href="/2021/05/11/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%952/">
+                        <span class="hidden-mobile">《SQL必知必会》学习记录2</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
