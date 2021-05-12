@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>《SQL必知必会》学习记录4</title>
+    <link href="/2021/05/12/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954/"/>
+    <url>/2021/05/12/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954/</url>
+    
+    <content type="html"><![CDATA[<h1 id="第四章-过滤数据"><a href="#第四章-过滤数据" class="headerlink" title="第四章 过滤数据"></a>第四章 过滤数据</h1><p>这一节课比较简单，只是关于WHERE子句的简单介绍。但是呢，介绍起来很简单，使用起来作用很大。</p><h2 id="使用WHERE子句"><a href="#使用WHERE子句" class="headerlink" title="使用WHERE子句"></a>使用WHERE子句</h2><p>先来一个简单的列子开开胃。</p><blockquote><p>select c1<br>from table1<br>where c2 = 3;</p></blockquote><p>这一看就知道什么意思了吧。显示c2=3时的所有c1列的记录。</p><p>那么如果我们想要检索的是某一列等于某个字符串而非数字的情况该如何操作呢？</p><blockquote><p>select c1<br>from table1<br>where c2 = “我爱罗”；</p></blockquote><p>**注意相等检验为字符串时需要加双引号。</p><p>甚至于以我们目前的知识还可以把前面几章串联起来。</p><blockquote><p>select c1_name, c2_name<br>from table1_name<br>where c3_name = 5<br>order by c1_name DESC;</p></blockquote><p>在实际中，由于数据库中数据量之大，我们很少需要检索表中的所有行，此时，对数据进行过滤显得尤为重要。</p><h2 id="WHERE子句操作符"><a href="#WHERE子句操作符" class="headerlink" title="WHERE子句操作符"></a>WHERE子句操作符</h2><p>在前面通过一个例子，我们也知道了WHERE子句大概怎么用。下面呢，列出了WHERE所有的条件操作符。</p><table><thead><tr><th align="center">操作符</th><th>说明</th><th align="center">操作符</th><th>说明</th></tr></thead><tbody><tr><td align="center">=</td><td>等于</td><td align="center">&gt;</td><td>大于</td></tr><tr><td align="center">&lt;&gt;</td><td>不等于</td><td align="center">&gt;=</td><td>大于等于</td></tr><tr><td align="center">!=</td><td>不等于</td><td align="center">!&gt;</td><td>不大于</td></tr><tr><td align="center">&lt;</td><td>小于</td><td align="center">BETWEEN</td><td>在两者之间</td></tr><tr><td align="center">&lt;=</td><td>小于等于</td><td align="center">IS NULL</td><td>为NULL值</td></tr><tr><td align="center">!&lt;</td><td>不小于</td><td align="center"></td><td></td></tr></tbody></table><p>等于或者不等于之类的操作符与上面的例子一样的使用，这里再解释一下<strong>BETWEEN</strong>和<strong>IS NULL</strong>条件操作符。</p><blockquote><p>select c1<br>from table1<br>where c2 between 4 and 10；</p></blockquote><p>使用between操作符需要设定好范围内最小值和最大值。</p><blockquote><p>select c1<br>from table<br>where c2 is null;</p></blockquote><p>在企业数据库中，由于各种原因，某一条记录中的某一列可能没有被赋值，于是成为空值。使用该指令可以检索出某一列的空值行。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>MySQL</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>《SQL必知必会》学习记录3</title>
     <link href="/2021/05/11/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%953/"/>
     <url>/2021/05/11/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%953/</url>
