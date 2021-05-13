@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>《SQL必知必会》学习记录6</title>
+    <link href="/2021/05/13/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%956/"/>
+    <url>/2021/05/13/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%956/</url>
+    
+    <content type="html"><![CDATA[<h1 id="第六课-用通配符进行过滤"><a href="#第六课-用通配符进行过滤" class="headerlink" title="第六课 用通配符进行过滤"></a>第六课 用通配符进行过滤</h1><p>通配符进行过滤是是在WHERE指令中使用的对前面几章所学的过滤规则的补充，主要是由于前面所学的过滤规则必须使用已知的特定的准确的值。</p><p>当我们只知道一个词，但是想要找到包含这个词的数据值时，通配符就有了作用。</p><p>本课介绍三种用以过滤的通配符：百分号% 及下划线 _ 和方括号[]。</p><h2 id="LIKE操作符"><a href="#LIKE操作符" class="headerlink" title="LIKE操作符"></a>LIKE操作符</h2><blockquote><p>通配符(wildcard)：用来匹配值的一部分的特殊字符。</p></blockquote><blockquote><p>搜索模式(search pattern)：由字面值、通配符或两者组合构成的搜索条件。</p></blockquote><blockquote><p>为在搜索子句中使用通配符，必须使用LIKE操作符。</p></blockquote><blockquote><p>通配符只能用于文本字段（字符串）。</p></blockquote><h3 id="百分号-通配符"><a href="#百分号-通配符" class="headerlink" title="百分号(%)通配符"></a>百分号(%)通配符</h3><blockquote><p>百分号(%)通配符表示任何字符出现任意次数。</p></blockquote><p>使用方法如下：</p><blockquote><p>select prod_name<br>from products<br>WHERE prod_name LIKE ‘fish%’;</p></blockquote><ul><li>与前面的指令不同在于LIKE实际上是动词，因此不需要等于号(=)。</li><li>有的DEMS在搜索时区分大小写，因此通配符中可能会出现’fish%’&lt;&gt;’Fish%’的情况。</li><li>通配符不匹配空值(NULL)</li><li>%不仅可以放在后面，还可以放在需要匹配的单词的前面，中间，都可以。</li><li>一个(%)代表多个字符。</li></ul><h3 id="下划线-通配符"><a href="#下划线-通配符" class="headerlink" title="下划线(_)通配符"></a>下划线(_)通配符</h3><p>下划线(_)通配符与百分号(%)通配符的作用功能一样，但它只匹配单个字符，而不是多个字符。</p><p>即每一个(_)代表一个字符，遇到特殊情况可以多写两个，但是，不好区分写了几个，最好少用。</p><blockquote><p>select prod_name, prod_id<br>from products<br>where prod_name like ‘__ inch bear toy’;</p></blockquote><ul><li>一个(_)只能代表一个字符，比如上面指令的输出结果只能是类似于’12 inch bear toy’的prod_name被过滤出来，但是’8 inch bear toy’就被排除在外了</li></ul><h3 id="方括号-通配符"><a href="#方括号-通配符" class="headerlink" title="方括号([])通配符"></a>方括号([])通配符</h3><blockquote><p>只有ACCESS和SQL Sever 支持该通配符。</p></blockquote><p>干巴巴的解释比较费劲，下面直接看一个例子。</p><blockquote><p>select cust_name<br>from customs<br>where cust_name like ‘[JM]%’;</p></blockquote><p>输出结果：</p><blockquote><h2 id="cust-name"><a href="#cust-name" class="headerlink" title="cust_name"></a>cust_name</h2><p>Jone ln<br>Joko leon<br>Mike Joe</p></blockquote><p>实际上也就是一个OR的功能。</p><blockquote><p>‘[JM]%’ = J% OR M%</p></blockquote><h2 id="使用通配符的技巧"><a href="#使用通配符的技巧" class="headerlink" title="使用通配符的技巧"></a>使用通配符的技巧</h2><p>SQL的通配符有用但是代价就是耗时更长。</p><ul><li>不要过度使用通配符。如果其他操作符可以到达相同作用，应使用其他操作符。</li><li>在确实需要使用通配符时，尽量不要放在搜索模式的开始处，在开始处搜索起来最慢。</li><li>仔细注意通配符的位置以及实际数据中的空格。如果放错地方，可能不会返回想要的数据。</li></ul><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>通配符虽好，可不要贪杯哦！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>MySQL</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>《SQL必知必会》学习记录5</title>
     <link href="/2021/05/12/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%955/"/>
     <url>/2021/05/12/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%955/</url>
