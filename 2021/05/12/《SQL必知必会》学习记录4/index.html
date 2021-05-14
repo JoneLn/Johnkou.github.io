@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      452 字
+      454 字
     </span>
   
 
@@ -230,19 +230,16 @@
             <div class="markdown-body">
               <h1 id="第四课-过滤数据"><a href="#第四课-过滤数据" class="headerlink" title="第四课 过滤数据"></a>第四课 过滤数据</h1><p>这一节课比较简单，只是关于WHERE子句的简单介绍。但是呢，介绍起来很简单，使用起来作用很大。</p>
 <h2 id="使用WHERE子句"><a href="#使用WHERE子句" class="headerlink" title="使用WHERE子句"></a>使用WHERE子句</h2><p>先来一个简单的列子开开胃。</p>
-<blockquote>
-<p>select c1<br>from table1<br>where c2 = 3;</p>
-</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1<br><span class="hljs-keyword">from</span> table1<br><span class="hljs-keyword">where</span> c2 <span class="hljs-operator">=</span> <span class="hljs-number">3</span>;<br></code></pre></td></tr></table></figure>
+
 <p>这一看就知道什么意思了吧。显示c2=3时的所有c1列的记录。</p>
 <p>那么如果我们想要检索的是某一列等于某个字符串而非数字的情况该如何操作呢？</p>
-<blockquote>
-<p>select c1<br>from table1<br>where c2 = “我爱罗”；</p>
-</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1<br><span class="hljs-keyword">from</span> table1<br><span class="hljs-keyword">where</span> c2 <span class="hljs-operator">=</span> &quot;我爱罗&quot;；<br></code></pre></td></tr></table></figure>
+
 <p>**注意相等检验为字符串时需要加双引号。</p>
 <p>甚至于以我们目前的知识还可以把前面几章串联起来。</p>
-<blockquote>
-<p>select c1_name, c2_name<br>from table1_name<br>where c3_name = 5<br>order by c1_name DESC;</p>
-</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name, c2_name<br><span class="hljs-keyword">from</span> table1_name<br><span class="hljs-keyword">where</span> c3_name <span class="hljs-operator">=</span> <span class="hljs-number">5</span><br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> c1_name <span class="hljs-keyword">DESC</span>;<br></code></pre></td></tr></table></figure>
+
 <p>在实际中，由于数据库中数据量之大，我们很少需要检索表中的所有行，此时，对数据进行过滤显得尤为重要。</p>
 <h2 id="WHERE子句操作符"><a href="#WHERE子句操作符" class="headerlink" title="WHERE子句操作符"></a>WHERE子句操作符</h2><p>在前面通过一个例子，我们也知道了WHERE子句大概怎么用。下面呢，列出了WHERE所有的条件操作符。</p>
 <table>
@@ -292,13 +289,11 @@
 </tr>
 </tbody></table>
 <p>等于或者不等于之类的操作符与上面的例子一样的使用，这里再解释一下<strong>BETWEEN</strong>和<strong>IS NULL</strong>条件操作符。</p>
-<blockquote>
-<p>select c1<br>from table1<br>where c2 between 4 and 10；</p>
-</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1<br><span class="hljs-keyword">from</span> table1<br><span class="hljs-keyword">where</span> c2 <span class="hljs-keyword">between</span> <span class="hljs-number">4</span> <span class="hljs-keyword">and</span> <span class="hljs-number">10</span>；<br></code></pre></td></tr></table></figure>
+
 <p>使用between操作符需要设定好范围内最小值和最大值。</p>
-<blockquote>
-<p>select c1<br>from table<br>where c2 is null;</p>
-</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1<br><span class="hljs-keyword">from</span> <span class="hljs-keyword">table</span><br><span class="hljs-keyword">where</span> c2 <span class="hljs-keyword">is</span> <span class="hljs-keyword">null</span>;<br></code></pre></td></tr></table></figure>
+
 <p>在企业数据库中，由于各种原因，某一条记录中的某一列可能没有被赋值，于是成为空值。使用该指令可以检索出某一列的空值行。</p>
 
             </div>
@@ -309,7 +304,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/MySQL/">MySQL</a>
+                      <a class="hover-with-bg" href="/categories/SQL/">SQL</a>
                     
                   </div>
                 

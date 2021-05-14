@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>《SQL必知必会》学习记录3 - JoneLn</title>
+  <title>《SQL必知必会》学习记录7 - JoneLn</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="《SQL必知必会》学习记录3">
+            <span class="h2" id="subtitle" title="《SQL必知必会》学习记录7">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-05-11 19:43" pubdate>
-        2021年5月11日 晚上
+      <time datetime="2021-05-14 08:43" pubdate>
+        2021年5月14日 早上
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      446 字
+      1.1k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      12
        分钟
     </span>
   
@@ -225,35 +225,56 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">《SQL必知必会》学习记录3</h1>
+            <h1 style="display: none">《SQL必知必会》学习记录7</h1>
             
             <div class="markdown-body">
-              <h1 id="第三课-排序检索数据"><a href="#第三课-排序检索数据" class="headerlink" title="第三课 排序检索数据"></a>第三课 排序检索数据</h1><h2 id="排序数据"><a href="#排序数据" class="headerlink" title="排序数据"></a>排序数据</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> column_name<br><span class="hljs-keyword">from</span> table_name<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> column123_name;<br></code></pre></td></tr></table></figure>
-
-<p>按照column123_name这一列的数字+字母顺序对输出结果column_name这一列进行排序。</p>
-<p>关系数据库设计理论认为，如果不明确规定排序顺序，则不应该假定检索出来的数据的顺序有任何意义。</p>
+              <h1 id="第七课-创建计算字段"><a href="#第七课-创建计算字段" class="headerlink" title="第七课 创建计算字段"></a>第七课 创建计算字段</h1><p>前面几章，除去DISTINCT指令，其他全部指令都是在主语句（select…from…）之后，添加条件指令（限制，排序，过滤）。那么说在主语句有没有什么骚操作呢？</p>
+<p>请看本章，SELECT语句内的爱恨情仇。</p>
+<h2 id="计算字段"><a href="#计算字段" class="headerlink" title="计算字段"></a>计算字段</h2><p>计算字段是运行时在SELECT语句内创建的。</p>
 <blockquote>
-<p><strong>ORDER BY语句若存在，则必须为该命令的最后一个指令。</strong></p>
+<p>字段(field)基本上与列(column)的意思相同，经常相互使用，不过数据库列一般成为列，而术语字段通常与计算字段一起使用。</p>
 </blockquote>
-<h2 id="按多个列排序"><a href="#按多个列排序" class="headerlink" title="按多个列排序"></a>按多个列排序</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name<br><span class="hljs-keyword">from</span> t1_name<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> c1_name, c2_name;<br></code></pre></td></tr></table></figure>
-
-<p>首先按照c1_name的数字字母进行排序，若c1_name列各值唯一，绝不相同，则仅按照c1_name顺序对选择结果进行排序；</p>
-<p>当且仅当c1_name列存在相同值时，才会再按照c2_name列的排序方式对c1_name相同值的记录进行排序。</p>
-<h2 id="按列位置排序"><a href="#按列位置排序" class="headerlink" title="按列位置排序"></a>按列位置排序</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name<br><span class="hljs-keyword">from</span> t1_name<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> <span class="hljs-number">1</span>，<span class="hljs-number">2</span>;<br></code></pre></td></tr></table></figure>
-
-<p>这一个大概不怎么用了，我在MySQL上操作的时候没有成功，而且，在知乎也没有搜到这一条指令。</p>
-<p>而且，我想我也不会再使用这一条命令，因为如若按照书本上来说，这一条命令很奇怪。他首先按照2列进行排序，再按照1列进行排序。</p>
-<h2 id="指定排序方向"><a href="#指定排序方向" class="headerlink" title="指定排序方向"></a>指定排序方向</h2><p>在DEMS中，当使用ORDER BY指令时，默认检索数据排序方式为升序（ASC），也就是0-9-A-Z（不区分大小写）。</p>
-<p>当然，我们也可以使用降序指令，指定排序方向。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name<br><span class="hljs-keyword">from</span> t1_name<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> c1_name <span class="hljs-keyword">DESC</span>, c2_name;<br></code></pre></td></tr></table></figure>
-
-<p>首先按照c1_name列进行降序排序，若有重复值，按照c2_name进行升序排序。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name<br><span class="hljs-keyword">from</span> t1_name<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> c1_name, c2_name <span class="hljs-keyword">DESC</span>;<br></code></pre></td></tr></table></figure>
-
-<p>首先按照c1_name列进行升序排序，若有重复值，按照c2_name进行降序排序。</p>
+<p>为什么使用计算字段呢？或者说什么情况下使用计算字段呢？</p>
+<ul>
+<li>需要显示公司名，同时显示公司地址，但是这两个信息存储在不同表列中。</li>
+<li>公司名和公司地址这两个字段在同一各表列中，但是在打印程序时需要把他们作为有恰当格式的一个字段检索出来。</li>
+<li>列数据中大小写混合，但是在打印中需要把所有数据按大写表示出来。</li>
+<li>需要根据表数据进行加减乘除等运算（总价格等）。</li>
+</ul>
+<p>在上面几个例子中，我们发现，储存在表中的数据往往并不与现实中的需求一一对应。我们需要直接从数据库中检索出转换、计算或格式化过的数据，而不是检索出数据，然后再在客户端应用程序中二次操作，重新格式化。</p>
+<p>简单归纳为拼接字段与算术计算。</p>
+<p>这，就是计算字段所起到的作用。</p>
+<h2 id="拼接字段"><a href="#拼接字段" class="headerlink" title="拼接字段"></a>拼接字段</h2><h3 id="字段拼接"><a href="#字段拼接" class="headerlink" title="字段拼接"></a>字段拼接</h3><p>字段拼接即将同一表列中两个及以上的字段的数据拼接为一个整体进行输出表示。</p>
 <blockquote>
-<p>DESC只作用于直接位于其前的一个列名。</p>
+<p>在不同DEMS中，略有差异。</p>
 </blockquote>
+<p>Access 和 SQL Server 中的字段拼接：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> cust_id <span class="hljs-operator">+</span> <span class="hljs-string">&#x27;(&#x27;</span> <span class="hljs-operator">+</span> cust_name <span class="hljs-operator">+</span> <span class="hljs-string">&#x27;)&#x27;</span><br><span class="hljs-keyword">from</span> customers<br>limit <span class="hljs-number">2</span>, <span class="hljs-number">3</span>;<br></code></pre></td></tr></table></figure>
+
+<p>DB2, Oracle, PostgreSQL, SQLite 和 Open Office Base中的字段拼接：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> cust_id <span class="hljs-operator">||</span> <span class="hljs-string">&#x27;(&#x27;</span> <span class="hljs-operator">||</span> cust_name <span class="hljs-operator">||</span> <span class="hljs-string">&#x27;)&#x27;</span><br><span class="hljs-keyword">from</span> customers<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> cust_id;<br></code></pre></td></tr></table></figure>
+<p>相信大多数朋友已经看出来两者的区别了，就是拼接符号分别为<code>+</code>和 <code>||</code>。</p>
+<p>但是还有一类DBMS具有和这两类的拼接方式不一样，这就是MySQL 和 MarialDB。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> concat (cust_id, <span class="hljs-string">&#x27;(&#x27;</span>, cust_name, <span class="hljs-string">&#x27;)&#x27;</span>)<br><span class="hljs-keyword">from</span> customers<br><span class="hljs-keyword">where</span> cust_id <span class="hljs-operator">&gt;=</span> <span class="hljs-number">10000004</span>;<br></code></pre></td></tr></table></figure>
+<p>还需要特别注意一点，在上述三类字段拼接指令中，除了第三类使用特定函数来字段拼接外，其他两种方式在输出结果上都包含了大量的空格，需要使用特定函数<code>RTRIM()</code>来去掉空格。</p>
+<p>如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> RTRIM( cust_id <span class="hljs-operator">+</span> <span class="hljs-string">&#x27;(&#x27;</span> <span class="hljs-operator">+</span> cust_name <span class="hljs-operator">+</span> <span class="hljs-string">&#x27;)&#x27;</span> )<br><span class="hljs-keyword">from</span> customers<br>limit <span class="hljs-number">2</span>, <span class="hljs-number">3</span>;<br></code></pre></td></tr></table></figure>
+<h3 id="使用别名"><a href="#使用别名" class="headerlink" title="使用别名"></a>使用别名</h3><p>使用以上的方法进行字段拼接时输出结果的字段名或者没有或者就是一大段文字例如<code>concat (cust_id, &#39;(&#39;, cust_name, &#39;)&#39;)</code>   ，这样输出的结果实际上只是一个值，我们在接下来的客户端是无非直接引用这种值的。那么我们可不可以直接对他们进行命名后输出呢？</p>
+<p>这就要提到这一小节要讲的知识了–列别名。</p>
+<p>别名(alias)是一个字段或值的替换名。别名用关键字<code>AS</code>赋予。<br>在所有DBMS中都可以使用类似以下的方法进行列别名命名。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> RTRIM( cust_id <span class="hljs-operator">+</span> <span class="hljs-string">&#x27;(&#x27;</span> <span class="hljs-operator">+</span> cust_name <span class="hljs-operator">+</span> <span class="hljs-string">&#x27;)&#x27;</span> ) <span class="hljs-keyword">AS</span> cust_nid<br><span class="hljs-keyword">from</span> customers<br>limit <span class="hljs-number">2</span>, <span class="hljs-number">3</span>;<br></code></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs SQL">cust_nid<br><span class="hljs-comment">----------------------</span><br><span class="hljs-number">1000000003</span>(Fun4All)<br><span class="hljs-number">1000000004</span>(Fun4All)<br><span class="hljs-number">1000000005</span>(The Toy Store)<br></code></pre></td></tr></table></figure>
+
+<h2 id="执行算术计算"><a href="#执行算术计算" class="headerlink" title="执行算术计算"></a>执行算术计算</h2><p>在实际应用中，我们常常需要对表中数据进行各种运算。为了避免二次运算，我们可以在DEMS中使用SQL进行运算后输出。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> prod_id,<br>       quantity,<br>       item_price,<br>       quantity<span class="hljs-operator">*</span>item_price <span class="hljs-keyword">AS</span> expanded_price<br><span class="hljs-keyword">from</span> OrderItems<br><span class="hljs-keyword">where</span> order_num <span class="hljs-operator">=</span> <span class="hljs-number">20008</span><br></code></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs SQL">prod_id quantity item_price quantity<span class="hljs-operator">*</span>item_price <span class="hljs-keyword">AS</span> expanded_price<br><span class="hljs-comment">--------------------------------------------------------------------</span><br>RGAN01	    <span class="hljs-number">5</span>	    <span class="hljs-number">4.99</span>	        <span class="hljs-number">24.95</span><br>BR03	    <span class="hljs-number">5</span>	    <span class="hljs-number">11.99</span>	        <span class="hljs-number">59.95</span><br>BNBG01	    <span class="hljs-number">10</span>	    <span class="hljs-number">3.49</span>	        <span class="hljs-number">34.90</span><br>BNBG02	    <span class="hljs-number">10</span>	    <span class="hljs-number">3.49</span>	        <span class="hljs-number">34.90</span><br>BNBG03	    <span class="hljs-number">10</span>	    <span class="hljs-number">3.49</span>	        <span class="hljs-number">34.90</span><br></code></pre></td></tr></table></figure>
+<p>上面只是举了一个乘法的例子来说明SQL的算术计算是如何进行的，同样的方法可以用在<code>+,- *, /</code>中，也可以对其进行混合运算，优先级为先乘除后加减，使用<code>()</code>可以改变优先级。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文首先讲解了主语句<code>SELECT</code>处的拼接字段与别名命名，然后又讲了同样处于<code>SELECT</code>指令内的字段算术计算。</p>
+<p>从本文开始，属于SQL语法的入门阶段了。</p>
 
             </div>
             <hr>
@@ -288,18 +309,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/05/12/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">《SQL必知必会》学习记录4</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/05/11/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%952/">
-                        <span class="hidden-mobile">《SQL必知必会》学习记录2</span>
+                      <a href="/2021/05/13/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%956/">
+                        <span class="hidden-mobile">《SQL必知必会》学习记录6</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

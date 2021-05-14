@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      831 字
+      845 字
     </span>
   
 
@@ -230,42 +230,34 @@
             <div class="markdown-body">
               <h1 id="第五课-高级数据过滤"><a href="#第五课-高级数据过滤" class="headerlink" title="第五课 高级数据过滤"></a>第五课 高级数据过滤</h1><p>先透露一下，本课就是在学习了WHERE子句基础指令后，结合AND\OR\IN\NOT四种运算符进行组合应用。</p>
 <h2 id="组合WHERE子句（AND-OR）"><a href="#组合WHERE子句（AND-OR）" class="headerlink" title="组合WHERE子句（AND+OR）"></a>组合WHERE子句（AND+OR）</h2><p>先不去看课本，我们想象一下，如果让我们来做，AND符号应该如何应用呢？</p>
-<blockquote>
-<p>select c1<br>from t1<br>where c1 = 1 and c2 = 2;</p>
-</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1<br><span class="hljs-keyword">from</span> t1<br><span class="hljs-keyword">where</span> c1 <span class="hljs-operator">=</span> <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> c2 <span class="hljs-operator">=</span> <span class="hljs-number">2</span>;<br></code></pre></td></tr></table></figure>
+
 <p>看，就是这么简单。</p>
 <p>这是从数字角度的两个相等检验的组合，那我们还能怎么做，相等和不相等和大于小于等等之间的并列组合都可以使用这一条命令的呢。具体如何组合就看我们实际需求了。</p>
 <p>同样的道理，我们已经学会了AND运算符的使用，相同层次的OR运算符，我们是不是已经掌握了呢？</p>
-<blockquote>
-<p>select c1_name, c2_state<br>from table1<br>where c1 = “US” OR c2 = “DOWN”;</p>
-</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name, c2_state<br><span class="hljs-keyword">from</span> table1<br><span class="hljs-keyword">where</span> c1 <span class="hljs-operator">=</span> &quot;US&quot; <span class="hljs-keyword">OR</span> c2 <span class="hljs-operator">=</span> &quot;DOWN&quot;;<br></code></pre></td></tr></table></figure>
+
 <p>现在，一个问题摆到了我们面前。单独的<strong>AND</strong>运算我们会了，单独的<strong>OR</strong>运算我们也会了，但是如果既有<strong>AND</strong>又有<strong>OR</strong>该如何呢？运算顺序又是怎样的呢？</p>
-<blockquote>
-<p>select c1_name, c2_id<br>from table1<br>where c1_name = “Joneln” and c2_id = 20140025<br>      or c2_id = 20140035</p>
-</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name, c2_id<br><span class="hljs-keyword">from</span> table1<br><span class="hljs-keyword">where</span> c1_name <span class="hljs-operator">=</span> &quot;Joneln&quot; <span class="hljs-keyword">and</span> c2_id <span class="hljs-operator">=</span> <span class="hljs-number">20140025</span><br>      <span class="hljs-keyword">or</span> c2_id <span class="hljs-operator">=</span> <span class="hljs-number">20140035</span><br></code></pre></td></tr></table></figure>
+
 <p>这一条指令输出的是什么结果呢？</p>
 <p>这一条指令其实还好理解，就是我们所看到的，先执行AND组合，再执行OR组合。</p>
 <p>那么下面这一条呢？</p>
-<blockquote>
-<p>select c1_name, c2_id<br>from table1<br>where c2_id = 20140035 or c2_id = 20140025<br>      and c1_name = “Joneln”</p>
-</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name, c2_id<br><span class="hljs-keyword">from</span> table1<br><span class="hljs-keyword">where</span> c2_id <span class="hljs-operator">=</span> <span class="hljs-number">20140035</span> <span class="hljs-keyword">or</span> c2_id <span class="hljs-operator">=</span> <span class="hljs-number">20140025</span> <br>      <span class="hljs-keyword">and</span> c1_name <span class="hljs-operator">=</span> &quot;Joneln&quot;<br></code></pre></td></tr></table></figure>
+
 <p>这一条指令还是和上面一样从左到右依次执行吗？先执行OR运算在执行AND运算？事实证明，并非如此。</p>
 <blockquote>
 <p><em><strong>在大多数计算机语言中，AND操作符的优先级高于OR操作符。</strong></em></p>
 </blockquote>
 <p>此问题的解决方法就是，用括号将AND操作符两边操作条件括起来，就可以了。</p>
-<blockquote>
-<p>select c1_name, c2_id<br>from table1<br>where c2_id = 20140035 or (c2_id = 20140025<br>      and c1_name = “Joneln”);</p>
-</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name, c2_id<br><span class="hljs-keyword">from</span> table1<br><span class="hljs-keyword">where</span> c2_id <span class="hljs-operator">=</span> <span class="hljs-number">20140035</span> <span class="hljs-keyword">or</span> (c2_id <span class="hljs-operator">=</span> <span class="hljs-number">20140025</span> <br>      <span class="hljs-keyword">and</span> c1_name <span class="hljs-operator">=</span> &quot;Joneln&quot;);<br></code></pre></td></tr></table></figure>
+
 <h2 id="IN操作符"><a href="#IN操作符" class="headerlink" title="IN操作符"></a>IN操作符</h2><p>首先说明的是，在很大情况下，IN操作符完成的是与OR操作符相同的功能。</p>
 <p>比如下面的例子</p>
-<blockquote>
-<p>select c1_name, c2_state<br>from table1<br>where c2_id = 20140035 or c2_id = 20140025;</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>select c1_name, c2_state<br>from table1<br>where c2_id IN (20140035, 20140025);</p>
-</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name, c2_state<br><span class="hljs-keyword">from</span> table1<br><span class="hljs-keyword">where</span> c2_id <span class="hljs-operator">=</span> <span class="hljs-number">20140035</span> <span class="hljs-keyword">or</span> c2_id <span class="hljs-operator">=</span> <span class="hljs-number">20140025</span>;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name, c2_state<br><span class="hljs-keyword">from</span> table1<br><span class="hljs-keyword">where</span> c2_id <span class="hljs-keyword">IN</span> (<span class="hljs-number">20140035</span>, <span class="hljs-number">20140025</span>);<br></code></pre></td></tr></table></figure>
+
 <p>虽然在功能上IN操作符可以被OR操作符取代，但是，我们还是要学习并习惯使用IN操作符，理由如下：</p>
 <ul>
 <li>在很多合法选项中，IN操作符的语法更清楚，更直观。</li>
@@ -274,13 +266,11 @@
 <li>IN的最大的优点在于可以包含其他SELECT语句，能够更动态地建立WHERE子句（在第11课详细讲解）。</li>
 </ul>
 <h2 id="NOT操作符"><a href="#NOT操作符" class="headerlink" title="NOT操作符"></a>NOT操作符</h2><p>WHERE子句的NOT操作符有且只有一个功能，就是否定其后所跟的任何条件。</p>
-<blockquote>
-<p>select prod_country,prod_price<br>from products<br>where NOT prod_country = “USA”<br>order by prod_price</p>
-</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> prod_country,prod_price<br><span class="hljs-keyword">from</span> products<br><span class="hljs-keyword">where</span> <span class="hljs-keyword">NOT</span> prod_country <span class="hljs-operator">=</span> &quot;USA&quot;<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> prod_price<br></code></pre></td></tr></table></figure>
+
 <p>与IN操作符相似，NOT是不是貌似也可以用我们之前学习到的某个操作符来替代呢？没错就是不等于&lt;&gt;。</p>
-<blockquote>
-<p>select prod_country,prod_price<br>from products<br>where  prod_country &lt;&gt; “USA”<br>order by prod_price</p>
-</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> prod_country,prod_price<br><span class="hljs-keyword">from</span> products<br><span class="hljs-keyword">where</span>  prod_country <span class="hljs-operator">&lt;&gt;</span> &quot;USA&quot;<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> prod_price<br></code></pre></td></tr></table></figure>
+
 <p>那么，为什么我们还要将这些操作符，甚至单独开一章来讲它们呢？</p>
 <ul>
 <li><em><strong>AND\OR\IN\NOT操作符的关键并不在于单独的某一个操作符的使用，而在于，相互组合后，发挥的强大作用。</strong></em></li>
@@ -294,7 +284,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/MySQL/">MySQL</a>
+                      <a class="hover-with-bg" href="/categories/SQL/">SQL</a>
                     
                   </div>
                 

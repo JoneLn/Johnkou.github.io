@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      698 字
+      705 字
     </span>
   
 
@@ -247,9 +247,8 @@
 <p>百分号(%)通配符表示任何字符出现任意次数。</p>
 </blockquote>
 <p>使用方法如下：</p>
-<blockquote>
-<p>select prod_name<br>from products<br>WHERE prod_name LIKE ‘fish%’;</p>
-</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> prod_name<br><span class="hljs-keyword">from</span> products<br><span class="hljs-keyword">WHERE</span> prod_name <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&#x27;fish%&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>与前面的指令不同在于LIKE实际上是动词，因此不需要等于号(=)。</li>
 <li>有的DEMS在搜索时区分大小写，因此通配符中可能会出现’fish%’&lt;&gt;’Fish%’的情况。</li>
@@ -259,9 +258,8 @@
 </ul>
 <h3 id="下划线-通配符"><a href="#下划线-通配符" class="headerlink" title="下划线(_)通配符"></a>下划线(_)通配符</h3><p>下划线(_)通配符与百分号(%)通配符的作用功能一样，但它只匹配单个字符，而不是多个字符。</p>
 <p>即每一个(_)代表一个字符，遇到特殊情况可以多写两个，但是，不好区分写了几个，最好少用。</p>
-<blockquote>
-<p>select prod_name, prod_id<br>from products<br>where prod_name like ‘__ inch bear toy’;</p>
-</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> prod_name, prod_id<br><span class="hljs-keyword">from</span> products<br><span class="hljs-keyword">where</span> prod_name <span class="hljs-keyword">like</span> <span class="hljs-string">&#x27;__ inch bear toy&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>一个(_)只能代表一个字符，比如上面指令的输出结果只能是类似于’12 inch bear toy’的prod_name被过滤出来，但是’8 inch bear toy’就被排除在外了</li>
 </ul>
@@ -269,13 +267,10 @@
 <p>只有ACCESS和SQL Sever 支持该通配符。</p>
 </blockquote>
 <p>干巴巴的解释比较费劲，下面直接看一个例子。</p>
-<blockquote>
-<p>select cust_name<br>from customs<br>where cust_name like ‘[JM]%’;</p>
-</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> cust_name<br><span class="hljs-keyword">from</span> customs<br><span class="hljs-keyword">where</span> cust_name <span class="hljs-keyword">like</span> <span class="hljs-string">&#x27;[JM]%&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
 <p>输出结果：</p>
-<blockquote>
-<h2 id="cust-name"><a href="#cust-name" class="headerlink" title="cust_name"></a>cust_name</h2><p>Jone ln<br>Joko leon<br>Mike Joe</p>
-</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql">cust_name<br><span class="hljs-comment">---------</span><br>Jone ln<br>Joko leon<br>Mike Joe<br></code></pre></td></tr></table></figure>
 <p>实际上也就是一个OR的功能。</p>
 <blockquote>
 <p>‘[JM]%’ = J% OR M%</p>
@@ -296,7 +291,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/MySQL/">MySQL</a>
+                      <a class="hover-with-bg" href="/categories/SQL/">SQL</a>
                     
                   </div>
                 
@@ -320,6 +315,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/05/14/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%957/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">《SQL必知必会》学习记录7</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
