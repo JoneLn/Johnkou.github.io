@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>《SQL必知必会》学习记录7 - JoneLn</title>
+  <title>《SQL必知必会》学习记录8 - JoneLn</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="《SQL必知必会》学习记录7">
+            <span class="h2" id="subtitle" title="《SQL必知必会》学习记录8">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-05-14 08:43" pubdate>
-        2021年5月14日 早上
+      <time datetime="2021-05-15 14:47" pubdate>
+        2021年5月15日 下午
       </time>
     </span>
   
@@ -225,56 +225,121 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">《SQL必知必会》学习记录7</h1>
+            <h1 style="display: none">《SQL必知必会》学习记录8</h1>
             
             <div class="markdown-body">
-              <h1 id="第七课-创建计算字段"><a href="#第七课-创建计算字段" class="headerlink" title="第七课 创建计算字段"></a>第七课 创建计算字段</h1><p>前面几章，除去DISTINCT指令，其他全部指令都是在主语句（select…from…）之后，添加条件指令（限制，排序，过滤）。那么说在主语句有没有什么骚操作呢？</p>
-<p>请看本章，SELECT语句内的爱恨情仇。</p>
-<h2 id="计算字段"><a href="#计算字段" class="headerlink" title="计算字段"></a>计算字段</h2><p>计算字段是运行时在SELECT语句内创建的。</p>
-<blockquote>
-<p>字段(field)基本上与列(column)的意思相同，经常相互使用，不过数据库列一般成为列，而术语字段通常与计算字段一起使用。</p>
-</blockquote>
-<p>为什么使用计算字段呢？或者说什么情况下使用计算字段呢？</p>
+              <h1 id="第八课-使用函数处理数据"><a href="#第八课-使用函数处理数据" class="headerlink" title="第八课 使用函数处理数据"></a>第八课 使用函数处理数据</h1><p>在本节课开始之前，我们首先大致回顾一下目前为止，我们所学过的知识及其内在逻辑。</p>
+<p>首先我们知道，本文的初始点，并不是如何从无到有建立一个新的数据库。而是，默认我们目前已经有了一个数据库。</p>
+<p>在有了数据库之后，我们首先需要知道，数据库里有什么？即数据检索（<code>SELECT</code>语句，<code>LIMIT</code>语句，<code>ORDER</code>语句）和数据过滤（<code>WHERE</code>子句、组合过滤、通配符过滤）。</p>
+<p>在了解数据库里有什么之后，从第七课数据拼接与执行算术计算开始，就已经进入了数据处理的世界。</p>
+<p>本课就进一步介绍SQL语言中处理数据的一项便利但又不便利的工具–函数。</p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>如果，你之前学过其他计算机语言，那么你对计算机中的函数概念想必也有一些了解。</p>
+<p>在特定的DBMS中，函数为数据处理带来的便利性是毋庸置疑 的。</p>
+<p>但是，目前存在的最大的问题就在于，虽然SQL语句被几乎所有的DBMS都等同地支持，但是，却仅有相当少的一部分SQL函数也享有相同的待遇。</p>
+<p>各大厂商在基本的SQL语句和函数的基础上各自设计出不同的函数以便利DBMS客户的使用。最终的结果就是，明明具有相同功能的函数，在不同的DBMS中，却有不同的命名。因此大部分SQL函数代码，不可移植。</p>
+<p>在下面，我们将介绍集中可移植的SQL函数。</p>
+<h2 id="使用函数"><a href="#使用函数" class="headerlink" title="使用函数"></a>使用函数</h2><p>大多数SQL实现支持以下类型的函数：</p>
 <ul>
-<li>需要显示公司名，同时显示公司地址，但是这两个信息存储在不同表列中。</li>
-<li>公司名和公司地址这两个字段在同一各表列中，但是在打印程序时需要把他们作为有恰当格式的一个字段检索出来。</li>
-<li>列数据中大小写混合，但是在打印中需要把所有数据按大写表示出来。</li>
-<li>需要根据表数据进行加减乘除等运算（总价格等）。</li>
+<li>用于处理文本字符串（如删除或填充，转换为大写或小写）的文本函数。</li>
+<li>用于在数值数据上进行的算术操作（如返回绝对值，进行代数运算）的数值函数。</li>
+<li>用于处理日期和时间值并从这些值中提取特定成分（如返回两个日期之差，检查日期有效性）的日期和时间函数。</li>
+<li>返回DBMS正使用的特殊信息（如返回用户登录信息）的系统函数。</li>
 </ul>
-<p>在上面几个例子中，我们发现，储存在表中的数据往往并不与现实中的需求一一对应。我们需要直接从数据库中检索出转换、计算或格式化过的数据，而不是检索出数据，然后再在客户端应用程序中二次操作，重新格式化。</p>
-<p>简单归纳为拼接字段与算术计算。</p>
-<p>这，就是计算字段所起到的作用。</p>
-<h2 id="拼接字段"><a href="#拼接字段" class="headerlink" title="拼接字段"></a>拼接字段</h2><h3 id="字段拼接"><a href="#字段拼接" class="headerlink" title="字段拼接"></a>字段拼接</h3><p>字段拼接即将同一表列中两个及以上的字段的数据拼接为一个整体进行输出表示。</p>
+<h3 id="文本处理函数"><a href="#文本处理函数" class="headerlink" title="文本处理函数"></a>文本处理函数</h3><p>在上一课中，我们使用到了去掉列值右边空格的函数<code>RTRIM()</code>。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">SELECT</span> prod_name,<br>       prod_id,<br>       RTRIM(prod_name<span class="hljs-operator">+</span>prod_id)<br><span class="hljs-keyword">FROM</span> products;<br></code></pre></td></tr></table></figure>
 <blockquote>
-<p>在不同DEMS中，略有差异。</p>
+<p>以上函数在MySQL中是不正确的，因为该系统中字段拼接方式为特定的函数<code>CONCAT()</code>，而该函数自带空格消除术。当然<code>RTRIM()</code>还是可以用的。</p>
 </blockquote>
-<p>Access 和 SQL Server 中的字段拼接：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> cust_id <span class="hljs-operator">+</span> <span class="hljs-string">&#x27;(&#x27;</span> <span class="hljs-operator">+</span> cust_name <span class="hljs-operator">+</span> <span class="hljs-string">&#x27;)&#x27;</span><br><span class="hljs-keyword">from</span> customers<br>limit <span class="hljs-number">2</span>, <span class="hljs-number">3</span>;<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">SELECT</span> prod_name,<br>          prod_id,<br>          concat(prod_name, prod_id)<br>   <span class="hljs-keyword">FROM</span> products;<br></code></pre></td></tr></table></figure>
 
-<p>DB2, Oracle, PostgreSQL, SQLite 和 Open Office Base中的字段拼接：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> cust_id <span class="hljs-operator">||</span> <span class="hljs-string">&#x27;(&#x27;</span> <span class="hljs-operator">||</span> cust_name <span class="hljs-operator">||</span> <span class="hljs-string">&#x27;)&#x27;</span><br><span class="hljs-keyword">from</span> customers<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> cust_id;<br></code></pre></td></tr></table></figure>
-<p>相信大多数朋友已经看出来两者的区别了，就是拼接符号分别为<code>+</code>和 <code>||</code>。</p>
-<p>但是还有一类DBMS具有和这两类的拼接方式不一样，这就是MySQL 和 MarialDB。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> concat (cust_id, <span class="hljs-string">&#x27;(&#x27;</span>, cust_name, <span class="hljs-string">&#x27;)&#x27;</span>)<br><span class="hljs-keyword">from</span> customers<br><span class="hljs-keyword">where</span> cust_id <span class="hljs-operator">&gt;=</span> <span class="hljs-number">10000004</span>;<br></code></pre></td></tr></table></figure>
-<p>还需要特别注意一点，在上述三类字段拼接指令中，除了第三类使用特定函数来字段拼接外，其他两种方式在输出结果上都包含了大量的空格，需要使用特定函数<code>RTRIM()</code>来去掉空格。</p>
-<p>如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> RTRIM( cust_id <span class="hljs-operator">+</span> <span class="hljs-string">&#x27;(&#x27;</span> <span class="hljs-operator">+</span> cust_name <span class="hljs-operator">+</span> <span class="hljs-string">&#x27;)&#x27;</span> )<br><span class="hljs-keyword">from</span> customers<br>limit <span class="hljs-number">2</span>, <span class="hljs-number">3</span>;<br></code></pre></td></tr></table></figure>
-<h3 id="使用别名"><a href="#使用别名" class="headerlink" title="使用别名"></a>使用别名</h3><p>使用以上的方法进行字段拼接时输出结果的字段名或者没有或者就是一大段文字例如<code>concat (cust_id, &#39;(&#39;, cust_name, &#39;)&#39;)</code>   ，这样输出的结果实际上只是一个值，我们在接下来的客户端是无非直接引用这种值的。那么我们可不可以直接对他们进行命名后输出呢？</p>
-<p>这就要提到这一小节要讲的知识了–列别名。</p>
-<p>别名(alias)是一个字段或值的替换名。别名用关键字<code>AS</code>赋予。<br>在所有DBMS中都可以使用类似以下的方法进行列别名命名。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> RTRIM( cust_id <span class="hljs-operator">+</span> <span class="hljs-string">&#x27;(&#x27;</span> <span class="hljs-operator">+</span> cust_name <span class="hljs-operator">+</span> <span class="hljs-string">&#x27;)&#x27;</span> ) <span class="hljs-keyword">AS</span> cust_nid<br><span class="hljs-keyword">from</span> customers<br>limit <span class="hljs-number">2</span>, <span class="hljs-number">3</span>;<br></code></pre></td></tr></table></figure>
-
-<p>输出结果为：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs SQL">cust_nid<br><span class="hljs-comment">----------------------</span><br><span class="hljs-number">1000000003</span>(Fun4All)<br><span class="hljs-number">1000000004</span>(Fun4All)<br><span class="hljs-number">1000000005</span>(The Toy Store)<br></code></pre></td></tr></table></figure>
-
-<h2 id="执行算术计算"><a href="#执行算术计算" class="headerlink" title="执行算术计算"></a>执行算术计算</h2><p>在实际应用中，我们常常需要对表中数据进行各种运算。为了避免二次运算，我们可以在DEMS中使用SQL进行运算后输出。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> prod_id,<br>       quantity,<br>       item_price,<br>       quantity<span class="hljs-operator">*</span>item_price <span class="hljs-keyword">AS</span> expanded_price<br><span class="hljs-keyword">from</span> OrderItems<br><span class="hljs-keyword">where</span> order_num <span class="hljs-operator">=</span> <span class="hljs-number">20008</span><br></code></pre></td></tr></table></figure>
-
-<p>输出结果：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs SQL">prod_id quantity item_price quantity<span class="hljs-operator">*</span>item_price <span class="hljs-keyword">AS</span> expanded_price<br><span class="hljs-comment">--------------------------------------------------------------------</span><br>RGAN01	    <span class="hljs-number">5</span>	    <span class="hljs-number">4.99</span>	        <span class="hljs-number">24.95</span><br>BR03	    <span class="hljs-number">5</span>	    <span class="hljs-number">11.99</span>	        <span class="hljs-number">59.95</span><br>BNBG01	    <span class="hljs-number">10</span>	    <span class="hljs-number">3.49</span>	        <span class="hljs-number">34.90</span><br>BNBG02	    <span class="hljs-number">10</span>	    <span class="hljs-number">3.49</span>	        <span class="hljs-number">34.90</span><br>BNBG03	    <span class="hljs-number">10</span>	    <span class="hljs-number">3.49</span>	        <span class="hljs-number">34.90</span><br></code></pre></td></tr></table></figure>
-<p>上面只是举了一个乘法的例子来说明SQL的算术计算是如何进行的，同样的方法可以用在<code>+,- *, /</code>中，也可以对其进行混合运算，优先级为先乘除后加减，使用<code>()</code>可以改变优先级。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文首先讲解了主语句<code>SELECT</code>处的拼接字段与别名命名，然后又讲了同样处于<code>SELECT</code>指令内的字段算术计算。</p>
-<p>从本文开始，属于SQL语法的入门阶段了。</p>
+<p>除此之外，再举一个文本处理函数的例子<code>UPPER()</code>。</p>
+<p><strong>输入</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> vend_name, <span class="hljs-built_in">upper</span>(vend_name) <span class="hljs-keyword">as</span> vend_name_upcase<br><span class="hljs-keyword">from</span> Vendors<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> vend_name;<br></code></pre></td></tr></table></figure>
+<p><strong>输出</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs SQL">vend_name       vend_name_upcase<br><span class="hljs-comment">-------------   --------------</span><br>Bear Emporium	BEAR EMPORIUM<br>Bears R Us	    BEARS R US<br>Doll House Inc.	DOLL HOUSE INC.<br>Fun <span class="hljs-keyword">and</span> Games	FUN <span class="hljs-keyword">AND</span> GAMES<br>Furball Inc.	FURBALL INC.<br>Jouets et ours	JOUETS ET OURS<br></code></pre></td></tr></table></figure>
+<p>在下表中罗列出常用的通用的文本处理函数。</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">LEFT()</td>
+<td align="center">返回字符串左边的字符</td>
+</tr>
+<tr>
+<td align="center">LENGTH()</td>
+<td align="center">返回字符串长度</td>
+</tr>
+<tr>
+<td align="center">LOWER()</td>
+<td align="center">将字符串转换成小写</td>
+</tr>
+<tr>
+<td align="center">LTRIM()</td>
+<td align="center">去掉字符串左边的字符</td>
+</tr>
+<tr>
+<td align="center">RIGHT()</td>
+<td align="center">返回字符串右边的字符</td>
+</tr>
+<tr>
+<td align="center">RTRIM()</td>
+<td align="center">去掉字符串右边的字符</td>
+</tr>
+<tr>
+<td align="center">SOUNDEX()</td>
+<td align="center">返回字符串的SOUNDEX值</td>
+</tr>
+<tr>
+<td align="center">UPPER()</td>
+<td align="center">将字符串转换成大写</td>
+</tr>
+</tbody></table>
+<h3 id="日期和时间处理函数"><a href="#日期和时间处理函数" class="headerlink" title="日期和时间处理函数"></a>日期和时间处理函数</h3><p>各个数据可管理系统基本都不相同，因此，不在这里学了。以后专门学习某一固定的DBMS时候再说吧。</p>
+<h3 id="数值处理函数"><a href="#数值处理函数" class="headerlink" title="数值处理函数"></a>数值处理函数</h3><p>数值处理函数仅处理数值数据。</p>
+<p>这些函数一般主要用于代数、三角或几何运算，因此不像字符串或日期-时间处理函数那么频繁使用。</p>
+<p>具有讽刺意味的是，在主要的DBMS的函数中，数值函数是最一致、最统一的函数。</p>
+<p>在下表中列出常用数值处理函数。</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ABS()</td>
+<td align="center">返回一个数的绝对值</td>
+</tr>
+<tr>
+<td align="center">COS()</td>
+<td align="center">返回一个角度的余弦</td>
+</tr>
+<tr>
+<td align="center">EXP()</td>
+<td align="center">返回一个数的指数值</td>
+</tr>
+<tr>
+<td align="center">PI()</td>
+<td align="center">返回圆周率</td>
+</tr>
+<tr>
+<td align="center">SIN()</td>
+<td align="center">返回一个监督的正弦</td>
+</tr>
+<tr>
+<td align="center">SQRT()</td>
+<td align="center">返回一个数的平方根</td>
+</tr>
+<tr>
+<td align="center">TAN()</td>
+<td align="center">返回一个角度的正切</td>
+</tr>
+</tbody></table>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>在本课中，主要的函数具有的可移植性不强，应该在日后选择某个具体的DBMS时，深入学习。</p>
 
             </div>
             <hr>
@@ -284,7 +349,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/SQL/">SQL</a>
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
                     
                   </div>
                 
@@ -292,7 +357,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
+                      <a class="hover-with-bg" href="/tags/SQL/">SQL</a>
                     
                   </div>
                 
@@ -309,18 +374,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/05/15/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%958/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">《SQL必知必会》学习记录8</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/05/13/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%956/">
-                        <span class="hidden-mobile">《SQL必知必会》学习记录6</span>
+                      <a href="/2021/05/14/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%957/">
+                        <span class="hidden-mobile">《SQL必知必会》学习记录7</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
