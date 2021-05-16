@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      1.4k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12
+      16
        分钟
     </span>
   
@@ -298,7 +298,39 @@
 <td align="center">将字符串转换成大写</td>
 </tr>
 </tbody></table>
-<h3 id="日期和时间处理函数"><a href="#日期和时间处理函数" class="headerlink" title="日期和时间处理函数"></a>日期和时间处理函数</h3><p>各个数据可管理系统基本都不相同，因此，不在这里学了。以后专门学习某一固定的DBMS时候再说吧。</p>
+<p><code>LENGTH()</code>输入：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> vend_name, length(vend_name) <span class="hljs-keyword">as</span> vend_name_upcase<br><span class="hljs-keyword">from</span> Vendors<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> vend_name;<br></code></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs SQL">vend_name       vend_name_upcase<br><span class="hljs-comment">-------------   -----------------</span><br>Bear Emporium	<span class="hljs-number">13</span><br>Bears R Us	    <span class="hljs-number">10</span><br>Doll House Inc.	<span class="hljs-number">15</span><br>Fun <span class="hljs-keyword">and</span> Games	<span class="hljs-number">13</span><br>Furball Inc.	<span class="hljs-number">12</span><br>Jouets et ours	<span class="hljs-number">14</span><br><br></code></pre></td></tr></table></figure>
+
+<p><code>LOWER()</code>输入：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> vend_name, <span class="hljs-built_in">lower</span>(vend_name) <span class="hljs-keyword">as</span> vend_name_upcase<br><span class="hljs-keyword">from</span> Vendors<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> vend_name;<br></code></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs SQL">vend_name       vend_name_upcase<br><span class="hljs-comment">-------------   -----------------</span><br>Bear Emporium	bear emporium<br>Bears R Us  	bears r us<br>Doll House Inc.	doll house inc.<br>Fun <span class="hljs-keyword">and</span> Games	fun <span class="hljs-keyword">and</span> games<br>Furball Inc.	furball inc.<br>Jouets et ours	jouets et ours<br><br></code></pre></td></tr></table></figure>
+
+<p><code>LTRIM()</code>输入：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> vend_name, ltrim(vend_name) <span class="hljs-keyword">as</span> vend_name_upcase<br><span class="hljs-keyword">from</span> Vendors<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> vend_name;<br></code></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs SQL">vend_name       vend_name_upcase<br><span class="hljs-comment">-------------   -----------------</span><br>Bear Emporium	Bear Emporium<br>Bears R Us	    Bears R Us<br>Doll House Inc.	Doll House Inc.<br>Fun <span class="hljs-keyword">and</span> Games	Fun <span class="hljs-keyword">and</span> Games<br>Furball Inc.	Furball Inc.<br>Jouets et ours	Jouets et ours<br><br></code></pre></td></tr></table></figure>
+
+<p><code>LTRIM()</code>输入：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> vend_name, SOUNDEX(vend_name) <span class="hljs-keyword">as</span> vend_name_upcase<br><span class="hljs-keyword">from</span> Vendors<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> vend_name;<br></code></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs SQL">vend_name       vend_name_upcase<br><span class="hljs-comment">-------------   -----------------</span><br>Bear Emporium	B65165<br>Bears R Us	    B6262<br>Doll House Inc.	D4252<br>Fun <span class="hljs-keyword">and</span> Games	F53252<br>Furball Inc.	F61452<br>Jouets et ours	J32362<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><code>SOUNDEX()</code>是一个将任何文本串转换为描述其语音表示的字母数字模式的算法。</p>
+</blockquote>
+<p>下面这个例子呢，很好玩，也充分说明了该函数的作用。</p>
+<ul>
+<li>假如，我们有一个客户名为<em>Michael Green</em>；</li>
+<li>但是，我们在储存数据时误将其存为<em>Michelle Green</em>。</li>
+<li>所以，我们应如何将其检索出来呢？</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> CUST_NAME, cust_contact<br> <span class="hljs-keyword">from</span> customers<br> <span class="hljs-keyword">where</span> soundex(cust_contact) <span class="hljs-operator">=</span> soundex(<span class="hljs-string">&#x27;Michael Green&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL">CUST_NAME   cust_contact<br><span class="hljs-comment">---------   ------------</span><br>Kids Place	Michelle Green<br></code></pre></td></tr></table></figure>
+<h3 id="日期和时间处理函数"><a href="#日期和时间处理函数" class="headerlink" title="日期和时间处理函数"></a>日期和时间处理函数</h3><p>各个数据库管理系统基本都不相同，因此，不在这里学了。以后专门学习某一固定的DBMS时候再说吧。</p>
 <h3 id="数值处理函数"><a href="#数值处理函数" class="headerlink" title="数值处理函数"></a>数值处理函数</h3><p>数值处理函数仅处理数值数据。</p>
 <p>这些函数一般主要用于代数、三角或几何运算，因此不像字符串或日期-时间处理函数那么频繁使用。</p>
 <p>具有讽刺意味的是，在主要的DBMS的函数中，数值函数是最一致、最统一的函数。</p>
@@ -373,6 +405,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/05/16/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%959/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">《SQL必知必会》学习记录9</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
