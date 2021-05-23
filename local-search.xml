@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>《SQL必知必会》学习记录16</title>
+    <link href="/2021/05/23/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9516/"/>
+    <url>/2021/05/23/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9516/</url>
+    
+    <content type="html"><![CDATA[<h1 id="第16课-更新和删除数据"><a href="#第16课-更新和删除数据" class="headerlink" title="第16课 更新和删除数据"></a>第16课 更新和删除数据</h1><p>上一节课的时候提到SQL常用的四个语句。前面已经讲过了两个<code>SELECT</code>  <code>INSERT</code>，下面将后面两个 <code>UPDATE</code> <code>DELETE</code>。</p><h2 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h2><p>两种更新数据的  <code>UPDATE</code> 方式：</p><ol><li>更新表中的特定行</li><li>更新表中的所有行</li></ol><p>使用<code>UPDATE</code>语句的三个要素：</p><ol><li>要更新的表</li><li>列名和新值</li><li>确定更新那些行的过滤条件</li></ol><p><strong>某条记录中某个列的数据更新</strong>：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL">update customers<br><span class="hljs-keyword">set</span> cust_email <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;johnkou@github.io&#x27;</span><br><span class="hljs-keyword">where</span> cust_id <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;1000000005&#x27;</span>;<br></code></pre></td></tr></table></figure><p><strong>某条记录中多列数据更新</strong>：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs SQL">update customers<br><span class="hljs-keyword">set</span> cust_email <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;johnkou@github.io&#x27;</span>,<br>cust_state <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;CH&#x27;</span><br><span class="hljs-keyword">where</span> cust_id <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;1000000005&#x27;</span>;<br></code></pre></td></tr></table></figure><blockquote><p>不要忘记列名之间的逗号<code>,</code><br>不要忘记<code>WHERE</code>子句，如果没写该子句，则更新全部行。</p></blockquote><p><strong>更新某条记录中某列的数据为空值</strong>（即删除该数据）:</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL">update customers<br><span class="hljs-keyword">set</span> cust_email <span class="hljs-operator">=</span> <span class="hljs-keyword">null</span><br><span class="hljs-keyword">where</span> cust_id <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;1000000005&#x27;</span>;<br></code></pre></td></tr></table></figure><h2 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h2><p>删除数据的两种<code>DELETE</code>形式：</p><ol><li>删除表中特定行</li><li>删除表中所有行</li></ol><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> customers<br><span class="hljs-keyword">where</span> cust_id <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;1000000006&#x27;</span>;<br></code></pre></td></tr></table></figure><blockquote><p>带着过滤条件则删除特定行，去掉过滤条件则删除所有行；<br><code>DELETE</code>删除整行，删除指定列请使用<code>UPDATE</code>语句；<br><code>DELETE</code>语句从标中删除数据，但不是删除整个表；<br>如果想删除所有行，不要用<code>DELETE</code>，而要使用<code>TRUNCATE TABLE</code>，速度更快（下节课详解）。</p></blockquote><h2 id="更新和删除的指导原则"><a href="#更新和删除的指导原则" class="headerlink" title="更新和删除的指导原则"></a>更新和删除的指导原则</h2><ol><li>除非确实打算更新和删除每一行，否则绝对不要使用不带<code>WHERE</code>子句的<code>UPDATE</code> <code>DELETE</code>语句。</li><li>保证每个表都有主键，并尽可能使用它。</li><li>在<code>UPDATE</code>或<code>DELETE</code>语句使用<code>WHERE</code>子句前，应该先用<code>SELECT</code>进行测试，保证过滤条件的正确性。</li><li>使用强制实施引用完整性的数据库（见第12课？也没提如何操作啊！），这样DBMS将不允许删除其数据与其他表相关联的行。</li></ol><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>更新删除很简单，操作错误很危险。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>SQL</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>《SQL必知必会》学习记录15</title>
     <link href="/2021/05/22/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9515/"/>
     <url>/2021/05/22/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9515/</url>
