@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>画龙七式 - JoneLn</title>
+  <title>《SQL必知必会》学习记录2 - JoneLn</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="画龙七式">
+            <span class="h2" id="subtitle" title="《SQL必知必会》学习记录2">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-05-10 17:07" pubdate>
-        2021年5月10日 下午
+      <time datetime="2021-05-11 16:47" pubdate>
+        2021年5月11日 下午
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      525 字
+      399 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      4
        分钟
     </span>
   
@@ -225,18 +225,47 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">画龙七式</h1>
+            <h1 style="display: none">《SQL必知必会》学习记录2</h1>
             
             <div class="markdown-body">
-              <h1 id="画龙七式写作法"><a href="#画龙七式写作法" class="headerlink" title="画龙七式写作法"></a>画龙七式写作法</h1><h2 id="第一式-冥想"><a href="#第一式-冥想" class="headerlink" title="第一式  冥想"></a>第一式  冥想</h2><p>在画龙正式开始前，首先要做的不是去做，而是去想。这一片文章的写作目的、写作目标和写作方式等。</p>
-<h2 id="第二式-画骨"><a href="#第二式-画骨" class="headerlink" title="第二式  画骨"></a>第二式  画骨</h2><p>画龙画虎难画骨，画骨这一节可谓是重中之重，甚至直接决定了你的文章的质量。什么是文章的骨？拿我现在写的这一片综述性质的文章来说，文章的骨也就是框架，并不是你这一篇综述里每一篇文章具体写的是什么，而在于，你如何选择的文章，以及文章大致写的是什么。</p>
-<p>这一节的表现形式就是标题，把每一篇文章的标题罗列出来，画骨就算完成了。</p>
-<h2 id="第三式-充肌"><a href="#第三式-充肌" class="headerlink" title="第三式  充肌"></a>第三式  充肌</h2><p>本节的目标在于充实你的文章的骨架。</p>
-<p>就本综述而言，大致包括每一篇文章的关键词、主客体、研究方法和核心观点等。</p>
-<h2 id="第四式-描皮"><a href="#第四式-描皮" class="headerlink" title="第四式  描皮"></a>第四式  描皮</h2><p>“皮”就是最外部的表现形式了，也是对于文章的直观区分。而皮与皮之间既有相似连续性又有相对中断性，就如本综述所想，在众多文章中寻找其继承性如同一理论，同一问题下的A对B的补充；又如针对同一问题的不同研究方法、不同视角的对立或相互论证。</p>
-<h2 id="第五式-雕头"><a href="#第五式-雕头" class="headerlink" title="第五式  雕头"></a>第五式  雕头</h2><p>头是统领。雕头即是对前述步骤的总结与概括。</p>
-<h2 id="第六式-收尾"><a href="#第六式-收尾" class="headerlink" title="第六式  收尾"></a>第六式  收尾</h2><p>尾部最不受关注，但却最能提升龙像精气神的地方。收尾要注意灵活。具体到综述中，可评、可述、可点、可叹。</p>
-<h2 id="第七式-点睛"><a href="#第七式-点睛" class="headerlink" title="第七式  点睛"></a>第七式  点睛</h2><p>人人说画龙点睛，这眼睛一点，龙即飞走。所以这眼睛可点，但不可让人看见你点。搜着藏着自己看，不要发表出来。因为这一部分，对应的综述中，就是对自己的研究的参悟。也就是自己本文章对自己研究的重要性。</p>
+              <h1 id="第二课-检索数据"><a href="#第二课-检索数据" class="headerlink" title="第二课 检索数据"></a>第二课 检索数据</h1><p>这一章介绍的是<em>SQL</em>最简单的<em>SELECT</em>语句。</p>
+<p>在开始正文之前，首先介绍两条必备知识。</p>
+<blockquote>
+<p>多条SQL语句必须一分号（;）分割；<br>SQL语句不区分大小写。</p>
+</blockquote>
+<p>1.检索单个列</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> column_name<br><span class="hljs-keyword">from</span> table_name;<br></code></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> column_name <span class="hljs-keyword">from</span> table_name;<br></code></pre></td></tr></table></figure>
+
+<p>2.检索多个列</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name, c2_name<br><span class="hljs-keyword">from</span> table_name;<br></code></pre></td></tr></table></figure>
+
+<p>3.检索所有列</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span><br><span class="hljs-keyword">from</span> table_name;<br></code></pre></td></tr></table></figure>
+
+<p>4.检索某一列中不同的值，即剔除重复值。<br>——比如，在供应产品表中每个供应商有多条记录，但是，我只想看我们一共有多少供应商，不想同一个供应商重复多次出现。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> <span class="hljs-keyword">distinct</span> c_name<br><span class="hljs-keyword">from</span> table_name;<br></code></pre></td></tr></table></figure>
+
+<p> <strong>注意</strong>:<em>distinct</em>作用于其后的所有列</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> <span class="hljs-keyword">distinct</span> c1_name, c2_name, c3_name<br><span class="hljs-keyword">from</span> table_name;<br></code></pre></td></tr></table></figure>
+
+<p>5.限制结果<br>—–限制返回结果的行数，比如返回从第3行开始的两条记录。<br><strong>目前主要学习的是MySQL，故以下公式可在MySQL上运行，但是在其他数据库管理系统上不一定可以运行。</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name, c2_name<br><span class="hljs-keyword">from</span> table_name<br>limit <span class="hljs-number">2</span> <span class="hljs-keyword">offset</span> <span class="hljs-number">3</span>;<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name, c2_name<br><span class="hljs-keyword">from</span> table_name<br>limit <span class="hljs-number">3</span>, <span class="hljs-number">2</span>;<br></code></pre></td></tr></table></figure>
+
+<p>上述公式都表示返回的结果从第三行开始，一共返回两行记录。若第三行后没有记录则返回一行。<br><strong>编程人员熟知，计算机是从0开始的，所以本处第三行是我们所看见的表格中的第四行。</strong></p>
+<p>6 使用注释<br>—–在SQL语句中主要提供了三种注释方法。</p>
+<p>单行注释：</p>
+<blockquote>
+<p>– 两杠加空格为单行注释</p>
+<h1 id="单行注释"><a href="#单行注释" class="headerlink" title="单行注释"></a>单行注释</h1></blockquote>
+<p>多行注释：</p>
+<blockquote>
+<p>/* 多行注释<br>任意位置*/</p>
+</blockquote>
+<p>以上即为第二章内容。</p>
 
             </div>
             <hr>
@@ -246,7 +275,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Paper/">Paper</a>
+                      <a class="hover-with-bg" href="/categories/SQL/">SQL</a>
                     
                   </div>
                 
@@ -254,7 +283,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Paper/">Paper</a>
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
                     
                   </div>
                 
@@ -271,9 +300,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/05/11/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/">
+                      <a href="/2021/05/11/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%953/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">《SQL必知必会》学习记录1</span>
+                        <span class="hidden-mobile">《SQL必知必会》学习记录3</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -281,8 +310,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/05/10/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2021/05/11/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/">
+                        <span class="hidden-mobile">《SQL必知必会》学习记录1</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

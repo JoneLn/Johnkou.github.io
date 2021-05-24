@@ -1,0 +1,593 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bg/bigimg.png">
+  <link rel="icon" href="/img/bg/bigimg.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+  <title>《SQL必知必会》学习记录8 - JoneLn</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"joneln.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>JoneLn</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="《SQL必知必会》学习记录8">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-05-15 14:47" pubdate>
+        2021年5月15日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      16
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">《SQL必知必会》学习记录8</h1>
+            
+            <div class="markdown-body">
+              <h1 id="第八课-使用函数处理数据"><a href="#第八课-使用函数处理数据" class="headerlink" title="第八课 使用函数处理数据"></a>第八课 使用函数处理数据</h1><p>在本节课开始之前，我们首先大致回顾一下目前为止，我们所学过的知识及其内在逻辑。</p>
+<p>首先我们知道，本文的初始点，并不是如何从无到有建立一个新的数据库。而是，默认我们目前已经有了一个数据库。</p>
+<p>在有了数据库之后，我们首先需要知道，数据库里有什么？即数据检索（<code>SELECT</code>语句，<code>LIMIT</code>语句，<code>ORDER</code>语句）和数据过滤（<code>WHERE</code>子句、组合过滤、通配符过滤）。</p>
+<p>在了解数据库里有什么之后，从第七课数据拼接与执行算术计算开始，就已经进入了数据处理的世界。</p>
+<p>本课就进一步介绍SQL语言中处理数据的一项便利但又不便利的工具–函数。</p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>如果，你之前学过其他计算机语言，那么你对计算机中的函数概念想必也有一些了解。</p>
+<p>在特定的DBMS中，函数为数据处理带来的便利性是毋庸置疑 的。</p>
+<p>但是，目前存在的最大的问题就在于，虽然SQL语句被几乎所有的DBMS都等同地支持，但是，却仅有相当少的一部分SQL函数也享有相同的待遇。</p>
+<p>各大厂商在基本的SQL语句和函数的基础上各自设计出不同的函数以便利DBMS客户的使用。最终的结果就是，明明具有相同功能的函数，在不同的DBMS中，却有不同的命名。因此大部分SQL函数代码，不可移植。</p>
+<p>在下面，我们将介绍集中可移植的SQL函数。</p>
+<h2 id="使用函数"><a href="#使用函数" class="headerlink" title="使用函数"></a>使用函数</h2><p>大多数SQL实现支持以下类型的函数：</p>
+<ul>
+<li>用于处理文本字符串（如删除或填充，转换为大写或小写）的文本函数。</li>
+<li>用于在数值数据上进行的算术操作（如返回绝对值，进行代数运算）的数值函数。</li>
+<li>用于处理日期和时间值并从这些值中提取特定成分（如返回两个日期之差，检查日期有效性）的日期和时间函数。</li>
+<li>返回DBMS正使用的特殊信息（如返回用户登录信息）的系统函数。</li>
+</ul>
+<h3 id="文本处理函数"><a href="#文本处理函数" class="headerlink" title="文本处理函数"></a>文本处理函数</h3><p>在上一课中，我们使用到了去掉列值右边空格的函数<code>RTRIM()</code>。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">SELECT</span> prod_name,<br>       prod_id,<br>       RTRIM(prod_name<span class="hljs-operator">+</span>prod_id)<br><span class="hljs-keyword">FROM</span> products;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>以上函数在MySQL中是不正确的，因为该系统中字段拼接方式为特定的函数<code>CONCAT()</code>，而该函数自带空格消除术。当然<code>RTRIM()</code>还是可以用的。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">SELECT</span> prod_name,<br>          prod_id,<br>          concat(prod_name, prod_id)<br>   <span class="hljs-keyword">FROM</span> products;<br></code></pre></td></tr></table></figure>
+
+<p>除此之外，再举一个文本处理函数的例子<code>UPPER()</code>。</p>
+<p><strong>输入</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> vend_name, <span class="hljs-built_in">upper</span>(vend_name) <span class="hljs-keyword">as</span> vend_name_upcase<br><span class="hljs-keyword">from</span> Vendors<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> vend_name;<br></code></pre></td></tr></table></figure>
+<p><strong>输出</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs SQL">vend_name       vend_name_upcase<br><span class="hljs-comment">-------------   --------------</span><br>Bear Emporium	BEAR EMPORIUM<br>Bears R Us	    BEARS R US<br>Doll House Inc.	DOLL HOUSE INC.<br>Fun <span class="hljs-keyword">and</span> Games	FUN <span class="hljs-keyword">AND</span> GAMES<br>Furball Inc.	FURBALL INC.<br>Jouets et ours	JOUETS ET OURS<br></code></pre></td></tr></table></figure>
+<p>在下表中罗列出常用的通用的文本处理函数。</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">LEFT()</td>
+<td align="center">返回字符串左边的字符</td>
+</tr>
+<tr>
+<td align="center">LENGTH()</td>
+<td align="center">返回字符串长度</td>
+</tr>
+<tr>
+<td align="center">LOWER()</td>
+<td align="center">将字符串转换成小写</td>
+</tr>
+<tr>
+<td align="center">LTRIM()</td>
+<td align="center">去掉字符串左边的字符</td>
+</tr>
+<tr>
+<td align="center">RIGHT()</td>
+<td align="center">返回字符串右边的字符</td>
+</tr>
+<tr>
+<td align="center">RTRIM()</td>
+<td align="center">去掉字符串右边的字符</td>
+</tr>
+<tr>
+<td align="center">SOUNDEX()</td>
+<td align="center">返回字符串的SOUNDEX值</td>
+</tr>
+<tr>
+<td align="center">UPPER()</td>
+<td align="center">将字符串转换成大写</td>
+</tr>
+</tbody></table>
+<p><code>LENGTH()</code>输入：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> vend_name, length(vend_name) <span class="hljs-keyword">as</span> vend_name_upcase<br><span class="hljs-keyword">from</span> Vendors<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> vend_name;<br></code></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs SQL">vend_name       vend_name_upcase<br><span class="hljs-comment">-------------   -----------------</span><br>Bear Emporium	<span class="hljs-number">13</span><br>Bears R Us	    <span class="hljs-number">10</span><br>Doll House Inc.	<span class="hljs-number">15</span><br>Fun <span class="hljs-keyword">and</span> Games	<span class="hljs-number">13</span><br>Furball Inc.	<span class="hljs-number">12</span><br>Jouets et ours	<span class="hljs-number">14</span><br><br></code></pre></td></tr></table></figure>
+
+<p><code>LOWER()</code>输入：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> vend_name, <span class="hljs-built_in">lower</span>(vend_name) <span class="hljs-keyword">as</span> vend_name_upcase<br><span class="hljs-keyword">from</span> Vendors<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> vend_name;<br></code></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs SQL">vend_name       vend_name_upcase<br><span class="hljs-comment">-------------   -----------------</span><br>Bear Emporium	bear emporium<br>Bears R Us  	bears r us<br>Doll House Inc.	doll house inc.<br>Fun <span class="hljs-keyword">and</span> Games	fun <span class="hljs-keyword">and</span> games<br>Furball Inc.	furball inc.<br>Jouets et ours	jouets et ours<br><br></code></pre></td></tr></table></figure>
+
+<p><code>LTRIM()</code>输入：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> vend_name, ltrim(vend_name) <span class="hljs-keyword">as</span> vend_name_upcase<br><span class="hljs-keyword">from</span> Vendors<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> vend_name;<br></code></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs SQL">vend_name       vend_name_upcase<br><span class="hljs-comment">-------------   -----------------</span><br>Bear Emporium	Bear Emporium<br>Bears R Us	    Bears R Us<br>Doll House Inc.	Doll House Inc.<br>Fun <span class="hljs-keyword">and</span> Games	Fun <span class="hljs-keyword">and</span> Games<br>Furball Inc.	Furball Inc.<br>Jouets et ours	Jouets et ours<br><br></code></pre></td></tr></table></figure>
+
+<p><code>LTRIM()</code>输入：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> vend_name, SOUNDEX(vend_name) <span class="hljs-keyword">as</span> vend_name_upcase<br><span class="hljs-keyword">from</span> Vendors<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> vend_name;<br></code></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs SQL">vend_name       vend_name_upcase<br><span class="hljs-comment">-------------   -----------------</span><br>Bear Emporium	B65165<br>Bears R Us	    B6262<br>Doll House Inc.	D4252<br>Fun <span class="hljs-keyword">and</span> Games	F53252<br>Furball Inc.	F61452<br>Jouets et ours	J32362<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><code>SOUNDEX()</code>是一个将任何文本串转换为描述其语音表示的字母数字模式的算法。</p>
+</blockquote>
+<p>下面这个例子呢，很好玩，也充分说明了该函数的作用。</p>
+<ul>
+<li>假如，我们有一个客户名为<em>Michael Green</em>；</li>
+<li>但是，我们在储存数据时误将其存为<em>Michelle Green</em>。</li>
+<li>所以，我们应如何将其检索出来呢？</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> CUST_NAME, cust_contact<br> <span class="hljs-keyword">from</span> customers<br> <span class="hljs-keyword">where</span> soundex(cust_contact) <span class="hljs-operator">=</span> soundex(<span class="hljs-string">&#x27;Michael Green&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL">CUST_NAME   cust_contact<br><span class="hljs-comment">---------   ------------</span><br>Kids Place	Michelle Green<br></code></pre></td></tr></table></figure>
+<h3 id="日期和时间处理函数"><a href="#日期和时间处理函数" class="headerlink" title="日期和时间处理函数"></a>日期和时间处理函数</h3><p>各个数据库管理系统基本都不相同，因此，不在这里学了。以后专门学习某一固定的DBMS时候再说吧。</p>
+<h3 id="数值处理函数"><a href="#数值处理函数" class="headerlink" title="数值处理函数"></a>数值处理函数</h3><p>数值处理函数仅处理数值数据。</p>
+<p>这些函数一般主要用于代数、三角或几何运算，因此不像字符串或日期-时间处理函数那么频繁使用。</p>
+<p>具有讽刺意味的是，在主要的DBMS的函数中，数值函数是最一致、最统一的函数。</p>
+<p>在下表中列出常用数值处理函数。</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ABS()</td>
+<td align="center">返回一个数的绝对值</td>
+</tr>
+<tr>
+<td align="center">COS()</td>
+<td align="center">返回一个角度的余弦</td>
+</tr>
+<tr>
+<td align="center">EXP()</td>
+<td align="center">返回一个数的指数值</td>
+</tr>
+<tr>
+<td align="center">PI()</td>
+<td align="center">返回圆周率</td>
+</tr>
+<tr>
+<td align="center">SIN()</td>
+<td align="center">返回一个监督的正弦</td>
+</tr>
+<tr>
+<td align="center">SQRT()</td>
+<td align="center">返回一个数的平方根</td>
+</tr>
+<tr>
+<td align="center">TAN()</td>
+<td align="center">返回一个角度的正切</td>
+</tr>
+</tbody></table>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>在本课中，主要的函数具有的可移植性不强，应该在日后选择某个具体的DBMS时，深入学习。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/SQL/">SQL</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/05/16/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%959/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">《SQL必知必会》学习记录9</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/14/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%957/">
+                        <span class="hidden-mobile">《SQL必知必会》学习记录7</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>画龙七式 - JoneLn</title>
+  <title>《SQL必知必会》学习记录7 - JoneLn</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="画龙七式">
+            <span class="h2" id="subtitle" title="《SQL必知必会》学习记录7">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-05-10 17:07" pubdate>
-        2021年5月10日 下午
+      <time datetime="2021-05-14 08:43" pubdate>
+        2021年5月14日 早上
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      525 字
+      1.1k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      12
        分钟
     </span>
   
@@ -225,18 +225,56 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">画龙七式</h1>
+            <h1 style="display: none">《SQL必知必会》学习记录7</h1>
             
             <div class="markdown-body">
-              <h1 id="画龙七式写作法"><a href="#画龙七式写作法" class="headerlink" title="画龙七式写作法"></a>画龙七式写作法</h1><h2 id="第一式-冥想"><a href="#第一式-冥想" class="headerlink" title="第一式  冥想"></a>第一式  冥想</h2><p>在画龙正式开始前，首先要做的不是去做，而是去想。这一片文章的写作目的、写作目标和写作方式等。</p>
-<h2 id="第二式-画骨"><a href="#第二式-画骨" class="headerlink" title="第二式  画骨"></a>第二式  画骨</h2><p>画龙画虎难画骨，画骨这一节可谓是重中之重，甚至直接决定了你的文章的质量。什么是文章的骨？拿我现在写的这一片综述性质的文章来说，文章的骨也就是框架，并不是你这一篇综述里每一篇文章具体写的是什么，而在于，你如何选择的文章，以及文章大致写的是什么。</p>
-<p>这一节的表现形式就是标题，把每一篇文章的标题罗列出来，画骨就算完成了。</p>
-<h2 id="第三式-充肌"><a href="#第三式-充肌" class="headerlink" title="第三式  充肌"></a>第三式  充肌</h2><p>本节的目标在于充实你的文章的骨架。</p>
-<p>就本综述而言，大致包括每一篇文章的关键词、主客体、研究方法和核心观点等。</p>
-<h2 id="第四式-描皮"><a href="#第四式-描皮" class="headerlink" title="第四式  描皮"></a>第四式  描皮</h2><p>“皮”就是最外部的表现形式了，也是对于文章的直观区分。而皮与皮之间既有相似连续性又有相对中断性，就如本综述所想，在众多文章中寻找其继承性如同一理论，同一问题下的A对B的补充；又如针对同一问题的不同研究方法、不同视角的对立或相互论证。</p>
-<h2 id="第五式-雕头"><a href="#第五式-雕头" class="headerlink" title="第五式  雕头"></a>第五式  雕头</h2><p>头是统领。雕头即是对前述步骤的总结与概括。</p>
-<h2 id="第六式-收尾"><a href="#第六式-收尾" class="headerlink" title="第六式  收尾"></a>第六式  收尾</h2><p>尾部最不受关注，但却最能提升龙像精气神的地方。收尾要注意灵活。具体到综述中，可评、可述、可点、可叹。</p>
-<h2 id="第七式-点睛"><a href="#第七式-点睛" class="headerlink" title="第七式  点睛"></a>第七式  点睛</h2><p>人人说画龙点睛，这眼睛一点，龙即飞走。所以这眼睛可点，但不可让人看见你点。搜着藏着自己看，不要发表出来。因为这一部分，对应的综述中，就是对自己的研究的参悟。也就是自己本文章对自己研究的重要性。</p>
+              <h1 id="第七课-创建计算字段"><a href="#第七课-创建计算字段" class="headerlink" title="第七课 创建计算字段"></a>第七课 创建计算字段</h1><p>前面几章，除去DISTINCT指令，其他全部指令都是在主语句（select…from…）之后，添加条件指令（限制，排序，过滤）。那么说在主语句有没有什么骚操作呢？</p>
+<p>请看本章，SELECT语句内的爱恨情仇。</p>
+<h2 id="计算字段"><a href="#计算字段" class="headerlink" title="计算字段"></a>计算字段</h2><p>计算字段是运行时在SELECT语句内创建的。</p>
+<blockquote>
+<p>字段(field)基本上与列(column)的意思相同，经常相互使用，不过数据库列一般成为列，而术语字段通常与计算字段一起使用。</p>
+</blockquote>
+<p>为什么使用计算字段呢？或者说什么情况下使用计算字段呢？</p>
+<ul>
+<li>需要显示公司名，同时显示公司地址，但是这两个信息存储在不同表列中。</li>
+<li>公司名和公司地址这两个字段在同一各表列中，但是在打印程序时需要把他们作为有恰当格式的一个字段检索出来。</li>
+<li>列数据中大小写混合，但是在打印中需要把所有数据按大写表示出来。</li>
+<li>需要根据表数据进行加减乘除等运算（总价格等）。</li>
+</ul>
+<p>在上面几个例子中，我们发现，储存在表中的数据往往并不与现实中的需求一一对应。我们需要直接从数据库中检索出转换、计算或格式化过的数据，而不是检索出数据，然后再在客户端应用程序中二次操作，重新格式化。</p>
+<p>简单归纳为拼接字段与算术计算。</p>
+<p>这，就是计算字段所起到的作用。</p>
+<h2 id="拼接字段"><a href="#拼接字段" class="headerlink" title="拼接字段"></a>拼接字段</h2><h3 id="字段拼接"><a href="#字段拼接" class="headerlink" title="字段拼接"></a>字段拼接</h3><p>字段拼接即将同一表列中两个及以上的字段的数据拼接为一个整体进行输出表示。</p>
+<blockquote>
+<p>在不同DEMS中，略有差异。</p>
+</blockquote>
+<p>Access 和 SQL Server 中的字段拼接：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> cust_id <span class="hljs-operator">+</span> <span class="hljs-string">&#x27;(&#x27;</span> <span class="hljs-operator">+</span> cust_name <span class="hljs-operator">+</span> <span class="hljs-string">&#x27;)&#x27;</span><br><span class="hljs-keyword">from</span> customers<br>limit <span class="hljs-number">2</span>, <span class="hljs-number">3</span>;<br></code></pre></td></tr></table></figure>
+
+<p>DB2, Oracle, PostgreSQL, SQLite 和 Open Office Base中的字段拼接：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> cust_id <span class="hljs-operator">||</span> <span class="hljs-string">&#x27;(&#x27;</span> <span class="hljs-operator">||</span> cust_name <span class="hljs-operator">||</span> <span class="hljs-string">&#x27;)&#x27;</span><br><span class="hljs-keyword">from</span> customers<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> cust_id;<br></code></pre></td></tr></table></figure>
+<p>相信大多数朋友已经看出来两者的区别了，就是拼接符号分别为<code>+</code>和 <code>||</code>。</p>
+<p>但是还有一类DBMS具有和这两类的拼接方式不一样，这就是MySQL 和 MarialDB。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> concat (cust_id, <span class="hljs-string">&#x27;(&#x27;</span>, cust_name, <span class="hljs-string">&#x27;)&#x27;</span>)<br><span class="hljs-keyword">from</span> customers<br><span class="hljs-keyword">where</span> cust_id <span class="hljs-operator">&gt;=</span> <span class="hljs-number">10000004</span>;<br></code></pre></td></tr></table></figure>
+<p>还需要特别注意一点，在上述三类字段拼接指令中，除了第三类使用特定函数来字段拼接外，其他两种方式在输出结果上都包含了大量的空格，需要使用特定函数<code>RTRIM()</code>来去掉空格。</p>
+<p>如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> RTRIM( cust_id <span class="hljs-operator">+</span> <span class="hljs-string">&#x27;(&#x27;</span> <span class="hljs-operator">+</span> cust_name <span class="hljs-operator">+</span> <span class="hljs-string">&#x27;)&#x27;</span> )<br><span class="hljs-keyword">from</span> customers<br>limit <span class="hljs-number">2</span>, <span class="hljs-number">3</span>;<br></code></pre></td></tr></table></figure>
+<h3 id="使用别名"><a href="#使用别名" class="headerlink" title="使用别名"></a>使用别名</h3><p>使用以上的方法进行字段拼接时输出结果的字段名或者没有或者就是一大段文字例如<code>concat (cust_id, &#39;(&#39;, cust_name, &#39;)&#39;)</code>   ，这样输出的结果实际上只是一个值，我们在接下来的客户端是无非直接引用这种值的。那么我们可不可以直接对他们进行命名后输出呢？</p>
+<p>这就要提到这一小节要讲的知识了–列别名。</p>
+<p>别名(alias)是一个字段或值的替换名。别名用关键字<code>AS</code>赋予。<br>在所有DBMS中都可以使用类似以下的方法进行列别名命名。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> RTRIM( cust_id <span class="hljs-operator">+</span> <span class="hljs-string">&#x27;(&#x27;</span> <span class="hljs-operator">+</span> cust_name <span class="hljs-operator">+</span> <span class="hljs-string">&#x27;)&#x27;</span> ) <span class="hljs-keyword">AS</span> cust_nid<br><span class="hljs-keyword">from</span> customers<br>limit <span class="hljs-number">2</span>, <span class="hljs-number">3</span>;<br></code></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs SQL">cust_nid<br><span class="hljs-comment">----------------------</span><br><span class="hljs-number">1000000003</span>(Fun4All)<br><span class="hljs-number">1000000004</span>(Fun4All)<br><span class="hljs-number">1000000005</span>(The Toy Store)<br></code></pre></td></tr></table></figure>
+
+<h2 id="执行算术计算"><a href="#执行算术计算" class="headerlink" title="执行算术计算"></a>执行算术计算</h2><p>在实际应用中，我们常常需要对表中数据进行各种运算。为了避免二次运算，我们可以在DEMS中使用SQL进行运算后输出。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> prod_id,<br>       quantity,<br>       item_price,<br>       quantity<span class="hljs-operator">*</span>item_price <span class="hljs-keyword">AS</span> expanded_price<br><span class="hljs-keyword">from</span> OrderItems<br><span class="hljs-keyword">where</span> order_num <span class="hljs-operator">=</span> <span class="hljs-number">20008</span><br></code></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs SQL">prod_id quantity item_price quantity<span class="hljs-operator">*</span>item_price <span class="hljs-keyword">AS</span> expanded_price<br><span class="hljs-comment">--------------------------------------------------------------------</span><br>RGAN01	    <span class="hljs-number">5</span>	    <span class="hljs-number">4.99</span>	        <span class="hljs-number">24.95</span><br>BR03	    <span class="hljs-number">5</span>	    <span class="hljs-number">11.99</span>	        <span class="hljs-number">59.95</span><br>BNBG01	    <span class="hljs-number">10</span>	    <span class="hljs-number">3.49</span>	        <span class="hljs-number">34.90</span><br>BNBG02	    <span class="hljs-number">10</span>	    <span class="hljs-number">3.49</span>	        <span class="hljs-number">34.90</span><br>BNBG03	    <span class="hljs-number">10</span>	    <span class="hljs-number">3.49</span>	        <span class="hljs-number">34.90</span><br></code></pre></td></tr></table></figure>
+<p>上面只是举了一个乘法的例子来说明SQL的算术计算是如何进行的，同样的方法可以用在<code>+,- *, /</code>中，也可以对其进行混合运算，优先级为先乘除后加减，使用<code>()</code>可以改变优先级。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文首先讲解了主语句<code>SELECT</code>处的拼接字段与别名命名，然后又讲了同样处于<code>SELECT</code>指令内的字段算术计算。</p>
+<p>从本文开始，属于SQL语法的入门阶段了。</p>
 
             </div>
             <hr>
@@ -246,7 +284,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Paper/">Paper</a>
+                      <a class="hover-with-bg" href="/categories/SQL/">SQL</a>
                     
                   </div>
                 
@@ -254,7 +292,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Paper/">Paper</a>
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
                     
                   </div>
                 
@@ -271,9 +309,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/05/11/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/">
+                      <a href="/2021/05/15/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%958/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">《SQL必知必会》学习记录1</span>
+                        <span class="hidden-mobile">《SQL必知必会》学习记录8</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -281,8 +319,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/05/10/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2021/05/13/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%956/">
+                        <span class="hidden-mobile">《SQL必知必会》学习记录6</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

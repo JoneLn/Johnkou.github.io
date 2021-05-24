@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>画龙七式 - JoneLn</title>
+  <title>《SQL必知必会》学习记录14 - JoneLn</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="画龙七式">
+            <span class="h2" id="subtitle" title="《SQL必知必会》学习记录14">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-05-10 17:07" pubdate>
-        2021年5月10日 下午
+      <time datetime="2021-05-21 09:35" pubdate>
+        2021年5月21日 上午
       </time>
     </span>
   
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      7
        分钟
     </span>
   
@@ -225,19 +225,34 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">画龙七式</h1>
+            <h1 style="display: none">《SQL必知必会》学习记录14</h1>
             
             <div class="markdown-body">
-              <h1 id="画龙七式写作法"><a href="#画龙七式写作法" class="headerlink" title="画龙七式写作法"></a>画龙七式写作法</h1><h2 id="第一式-冥想"><a href="#第一式-冥想" class="headerlink" title="第一式  冥想"></a>第一式  冥想</h2><p>在画龙正式开始前，首先要做的不是去做，而是去想。这一片文章的写作目的、写作目标和写作方式等。</p>
-<h2 id="第二式-画骨"><a href="#第二式-画骨" class="headerlink" title="第二式  画骨"></a>第二式  画骨</h2><p>画龙画虎难画骨，画骨这一节可谓是重中之重，甚至直接决定了你的文章的质量。什么是文章的骨？拿我现在写的这一片综述性质的文章来说，文章的骨也就是框架，并不是你这一篇综述里每一篇文章具体写的是什么，而在于，你如何选择的文章，以及文章大致写的是什么。</p>
-<p>这一节的表现形式就是标题，把每一篇文章的标题罗列出来，画骨就算完成了。</p>
-<h2 id="第三式-充肌"><a href="#第三式-充肌" class="headerlink" title="第三式  充肌"></a>第三式  充肌</h2><p>本节的目标在于充实你的文章的骨架。</p>
-<p>就本综述而言，大致包括每一篇文章的关键词、主客体、研究方法和核心观点等。</p>
-<h2 id="第四式-描皮"><a href="#第四式-描皮" class="headerlink" title="第四式  描皮"></a>第四式  描皮</h2><p>“皮”就是最外部的表现形式了，也是对于文章的直观区分。而皮与皮之间既有相似连续性又有相对中断性，就如本综述所想，在众多文章中寻找其继承性如同一理论，同一问题下的A对B的补充；又如针对同一问题的不同研究方法、不同视角的对立或相互论证。</p>
-<h2 id="第五式-雕头"><a href="#第五式-雕头" class="headerlink" title="第五式  雕头"></a>第五式  雕头</h2><p>头是统领。雕头即是对前述步骤的总结与概括。</p>
-<h2 id="第六式-收尾"><a href="#第六式-收尾" class="headerlink" title="第六式  收尾"></a>第六式  收尾</h2><p>尾部最不受关注，但却最能提升龙像精气神的地方。收尾要注意灵活。具体到综述中，可评、可述、可点、可叹。</p>
-<h2 id="第七式-点睛"><a href="#第七式-点睛" class="headerlink" title="第七式  点睛"></a>第七式  点睛</h2><p>人人说画龙点睛，这眼睛一点，龙即飞走。所以这眼睛可点，但不可让人看见你点。搜着藏着自己看，不要发表出来。因为这一部分，对应的综述中，就是对自己的研究的参悟。也就是自己本文章对自己研究的重要性。</p>
+              <h1 id="第14课-组合查询"><a href="#第14课-组合查询" class="headerlink" title="第14课 组合查询"></a>第14课 组合查询</h1><p>本课讲述如何利用<code>UNION</code>操作符将多条<code>SELECT</code>语句组成一个结果集。</p>
+<p>多数SQL查询只含从一个或多个表中返回数据的单条<code>SELECT</code>语句。但是SQL也允许执行多个查询（多条<code>SELECT</code>语句），并将结果作为一个查询结果集返回。</p>
+<p>如下示例一</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs SQL">输入：<br><span class="hljs-keyword">select</span> cust_name, cust_contact, cust_email<br><span class="hljs-keyword">from</span> customers<br><span class="hljs-keyword">where</span> cust_state <span class="hljs-keyword">IN</span> (<span class="hljs-string">&#x27;IL&#x27;</span>,<span class="hljs-string">&#x27;IN&#x27;</span>,<span class="hljs-string">&#x27;MI&#x27;</span>)<br><span class="hljs-keyword">union</span><br><span class="hljs-keyword">select</span> cust_name, cust_contact, cust_email<br><span class="hljs-keyword">from</span> customers<br><span class="hljs-keyword">where</span> cust_name <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Fun4All&#x27;</span><br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> cust_name;<br></code></pre></td></tr></table></figure>
 
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs SQL">输出：<br>cust_name       cust_contact        cust_email<br><span class="hljs-comment">--------------------------------------------------</span><br>Fun4All	        Jim Jones	        jjones<span class="hljs-variable">@fun4all</span>.com<br>Fun4All	        Denise L. Stephens	dstephens<span class="hljs-variable">@fun4all</span>.com<br>The Toy         Store	            Kim Howard	<br>Village Toys	John Smith	        sales<span class="hljs-variable">@villagetoys</span>.com<br></code></pre></td></tr></table></figure>
+
+<p>注意事项：</p>
+<ol>
+<li>使用<code>UNION</code>操作符时，每条<code>SELECT</code>指令必须包含相同的列名、表达式或聚集函数；</li>
+<li>可以使用<code>UNION</code>进行多个<code>SELECT</code>指令合并。但是，每条指令之间都需要使用<code>UNION</code>进行间隔；</li>
+<li>使用<code>UNION</code>操作符且对结果进行排序时，必须只在最后一条<code>SELECT</code>指令的最后一行使用<code>ORDER</code>命令；</li>
+<li>使用<code>UNION</code>操作符的效果也相当于单条<code>SELECT</code>指令中<code>WHERE</code>限定条件中的<code>AND\OR</code>等操作符的使用效果（见示例二）；</li>
+<li>使用<code>UNION</code>指令时，会默认重复记录只显示一次，若想重复记录重复显示，则可以使用<code>UNION ALL</code>操作符（见示例三）；</li>
+<li>在简单的例子中，或许<code>UNION</code>操作符的作用尚且不如直接使用<code>WHERE</code>子句更简洁。但是对于复杂的过滤条件，或者从多个表中检索数据的情形，使用<code>UNION</code>可能会使处理更简单。</li>
+</ol>
+<p>示例二</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs SQL">输入：<br><span class="hljs-keyword">select</span> cust_name, cust_contact, cust_email<br><span class="hljs-keyword">from</span> customers<br><span class="hljs-keyword">where</span>  cust_state <span class="hljs-keyword">IN</span> (<span class="hljs-string">&#x27;IL&#x27;</span>,<span class="hljs-string">&#x27;IN&#x27;</span>,<span class="hljs-string">&#x27;MI&#x27;</span>)<br><span class="hljs-keyword">or</span> cust_name <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Fun4All&#x27;</span><br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> cust_name;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs SQL">输出：<br>cust_name       cust_contact        cust_email<br><span class="hljs-comment">--------------------------------------------------</span><br>Fun4All	        Jim Jones	        jjones<span class="hljs-variable">@fun4all</span>.com<br>Fun4All	        Denise L. Stephens	dstephens<span class="hljs-variable">@fun4all</span>.com<br>The Toy         Store	            Kim Howard	<br>Village Toys	John Smith	        sales<span class="hljs-variable">@villagetoys</span>.com<br></code></pre></td></tr></table></figure>
+
+<p>示例三</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs SQL">输入：<br><span class="hljs-keyword">select</span> cust_name, cust_contact, cust_email<br><span class="hljs-keyword">from</span> customers<br><span class="hljs-keyword">where</span> cust_state <span class="hljs-keyword">IN</span> (<span class="hljs-string">&#x27;IL&#x27;</span>,<span class="hljs-string">&#x27;IN&#x27;</span>,<span class="hljs-string">&#x27;MI&#x27;</span>)<br><span class="hljs-keyword">union</span> <span class="hljs-keyword">all</span><br><span class="hljs-keyword">select</span> cust_name, cust_contact, cust_email<br><span class="hljs-keyword">from</span> customers<br><span class="hljs-keyword">where</span> cust_name <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Fun4All&#x27;</span><br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> cust_name;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs SQL">输出：<br>cust_name       cust_contact        cust_email<br><span class="hljs-comment">--------------------------------------------------</span><br>Fun4All	        Jim Jones	        jjones<span class="hljs-variable">@fun4all</span>.com<br>Fun4All	        Jim Jones	        jjones<span class="hljs-variable">@fun4all</span>.com<br>Fun4All	        Denise L. Stephens	dstephens<span class="hljs-variable">@fun4all</span>.com<br>The Toy         Store	            Kim Howard	<br>Village Toys	John Smith	        sales<span class="hljs-variable">@villagetoys</span>.com<br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -246,7 +261,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Paper/">Paper</a>
+                      <a class="hover-with-bg" href="/categories/SQL/">SQL</a>
                     
                   </div>
                 
@@ -254,7 +269,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Paper/">Paper</a>
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
                     
                   </div>
                 
@@ -271,9 +286,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/05/11/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/">
+                      <a href="/2021/05/22/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9515/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">《SQL必知必会》学习记录1</span>
+                        <span class="hidden-mobile">《SQL必知必会》学习记录15</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -281,8 +296,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/05/10/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2021/05/20/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9513/">
+                        <span class="hidden-mobile">《SQL必知必会》学习记录13</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>画龙七式 - JoneLn</title>
+  <title>《SQL必知必会》学习记录5 - JoneLn</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="画龙七式">
+            <span class="h2" id="subtitle" title="《SQL必知必会》学习记录5">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-05-10 17:07" pubdate>
-        2021年5月10日 下午
+      <time datetime="2021-05-12 11:04" pubdate>
+        2021年5月12日 上午
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      525 字
+      845 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      9
        分钟
     </span>
   
@@ -225,18 +225,56 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">画龙七式</h1>
+            <h1 style="display: none">《SQL必知必会》学习记录5</h1>
             
             <div class="markdown-body">
-              <h1 id="画龙七式写作法"><a href="#画龙七式写作法" class="headerlink" title="画龙七式写作法"></a>画龙七式写作法</h1><h2 id="第一式-冥想"><a href="#第一式-冥想" class="headerlink" title="第一式  冥想"></a>第一式  冥想</h2><p>在画龙正式开始前，首先要做的不是去做，而是去想。这一片文章的写作目的、写作目标和写作方式等。</p>
-<h2 id="第二式-画骨"><a href="#第二式-画骨" class="headerlink" title="第二式  画骨"></a>第二式  画骨</h2><p>画龙画虎难画骨，画骨这一节可谓是重中之重，甚至直接决定了你的文章的质量。什么是文章的骨？拿我现在写的这一片综述性质的文章来说，文章的骨也就是框架，并不是你这一篇综述里每一篇文章具体写的是什么，而在于，你如何选择的文章，以及文章大致写的是什么。</p>
-<p>这一节的表现形式就是标题，把每一篇文章的标题罗列出来，画骨就算完成了。</p>
-<h2 id="第三式-充肌"><a href="#第三式-充肌" class="headerlink" title="第三式  充肌"></a>第三式  充肌</h2><p>本节的目标在于充实你的文章的骨架。</p>
-<p>就本综述而言，大致包括每一篇文章的关键词、主客体、研究方法和核心观点等。</p>
-<h2 id="第四式-描皮"><a href="#第四式-描皮" class="headerlink" title="第四式  描皮"></a>第四式  描皮</h2><p>“皮”就是最外部的表现形式了，也是对于文章的直观区分。而皮与皮之间既有相似连续性又有相对中断性，就如本综述所想，在众多文章中寻找其继承性如同一理论，同一问题下的A对B的补充；又如针对同一问题的不同研究方法、不同视角的对立或相互论证。</p>
-<h2 id="第五式-雕头"><a href="#第五式-雕头" class="headerlink" title="第五式  雕头"></a>第五式  雕头</h2><p>头是统领。雕头即是对前述步骤的总结与概括。</p>
-<h2 id="第六式-收尾"><a href="#第六式-收尾" class="headerlink" title="第六式  收尾"></a>第六式  收尾</h2><p>尾部最不受关注，但却最能提升龙像精气神的地方。收尾要注意灵活。具体到综述中，可评、可述、可点、可叹。</p>
-<h2 id="第七式-点睛"><a href="#第七式-点睛" class="headerlink" title="第七式  点睛"></a>第七式  点睛</h2><p>人人说画龙点睛，这眼睛一点，龙即飞走。所以这眼睛可点，但不可让人看见你点。搜着藏着自己看，不要发表出来。因为这一部分，对应的综述中，就是对自己的研究的参悟。也就是自己本文章对自己研究的重要性。</p>
+              <h1 id="第五课-高级数据过滤"><a href="#第五课-高级数据过滤" class="headerlink" title="第五课 高级数据过滤"></a>第五课 高级数据过滤</h1><p>先透露一下，本课就是在学习了WHERE子句基础指令后，结合AND\OR\IN\NOT四种运算符进行组合应用。</p>
+<h2 id="组合WHERE子句（AND-OR）"><a href="#组合WHERE子句（AND-OR）" class="headerlink" title="组合WHERE子句（AND+OR）"></a>组合WHERE子句（AND+OR）</h2><p>先不去看课本，我们想象一下，如果让我们来做，AND符号应该如何应用呢？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1<br><span class="hljs-keyword">from</span> t1<br><span class="hljs-keyword">where</span> c1 <span class="hljs-operator">=</span> <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> c2 <span class="hljs-operator">=</span> <span class="hljs-number">2</span>;<br></code></pre></td></tr></table></figure>
+
+<p>看，就是这么简单。</p>
+<p>这是从数字角度的两个相等检验的组合，那我们还能怎么做，相等和不相等和大于小于等等之间的并列组合都可以使用这一条命令的呢。具体如何组合就看我们实际需求了。</p>
+<p>同样的道理，我们已经学会了AND运算符的使用，相同层次的OR运算符，我们是不是已经掌握了呢？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name, c2_state<br><span class="hljs-keyword">from</span> table1<br><span class="hljs-keyword">where</span> c1 <span class="hljs-operator">=</span> &quot;US&quot; <span class="hljs-keyword">OR</span> c2 <span class="hljs-operator">=</span> &quot;DOWN&quot;;<br></code></pre></td></tr></table></figure>
+
+<p>现在，一个问题摆到了我们面前。单独的<strong>AND</strong>运算我们会了，单独的<strong>OR</strong>运算我们也会了，但是如果既有<strong>AND</strong>又有<strong>OR</strong>该如何呢？运算顺序又是怎样的呢？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name, c2_id<br><span class="hljs-keyword">from</span> table1<br><span class="hljs-keyword">where</span> c1_name <span class="hljs-operator">=</span> &quot;Joneln&quot; <span class="hljs-keyword">and</span> c2_id <span class="hljs-operator">=</span> <span class="hljs-number">20140025</span><br>      <span class="hljs-keyword">or</span> c2_id <span class="hljs-operator">=</span> <span class="hljs-number">20140035</span><br></code></pre></td></tr></table></figure>
+
+<p>这一条指令输出的是什么结果呢？</p>
+<p>这一条指令其实还好理解，就是我们所看到的，先执行AND组合，再执行OR组合。</p>
+<p>那么下面这一条呢？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name, c2_id<br><span class="hljs-keyword">from</span> table1<br><span class="hljs-keyword">where</span> c2_id <span class="hljs-operator">=</span> <span class="hljs-number">20140035</span> <span class="hljs-keyword">or</span> c2_id <span class="hljs-operator">=</span> <span class="hljs-number">20140025</span> <br>      <span class="hljs-keyword">and</span> c1_name <span class="hljs-operator">=</span> &quot;Joneln&quot;<br></code></pre></td></tr></table></figure>
+
+<p>这一条指令还是和上面一样从左到右依次执行吗？先执行OR运算在执行AND运算？事实证明，并非如此。</p>
+<blockquote>
+<p><em><strong>在大多数计算机语言中，AND操作符的优先级高于OR操作符。</strong></em></p>
+</blockquote>
+<p>此问题的解决方法就是，用括号将AND操作符两边操作条件括起来，就可以了。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name, c2_id<br><span class="hljs-keyword">from</span> table1<br><span class="hljs-keyword">where</span> c2_id <span class="hljs-operator">=</span> <span class="hljs-number">20140035</span> <span class="hljs-keyword">or</span> (c2_id <span class="hljs-operator">=</span> <span class="hljs-number">20140025</span> <br>      <span class="hljs-keyword">and</span> c1_name <span class="hljs-operator">=</span> &quot;Joneln&quot;);<br></code></pre></td></tr></table></figure>
+
+<h2 id="IN操作符"><a href="#IN操作符" class="headerlink" title="IN操作符"></a>IN操作符</h2><p>首先说明的是，在很大情况下，IN操作符完成的是与OR操作符相同的功能。</p>
+<p>比如下面的例子</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name, c2_state<br><span class="hljs-keyword">from</span> table1<br><span class="hljs-keyword">where</span> c2_id <span class="hljs-operator">=</span> <span class="hljs-number">20140035</span> <span class="hljs-keyword">or</span> c2_id <span class="hljs-operator">=</span> <span class="hljs-number">20140025</span>;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name, c2_state<br><span class="hljs-keyword">from</span> table1<br><span class="hljs-keyword">where</span> c2_id <span class="hljs-keyword">IN</span> (<span class="hljs-number">20140035</span>, <span class="hljs-number">20140025</span>);<br></code></pre></td></tr></table></figure>
+
+<p>虽然在功能上IN操作符可以被OR操作符取代，但是，我们还是要学习并习惯使用IN操作符，理由如下：</p>
+<ul>
+<li>在很多合法选项中，IN操作符的语法更清楚，更直观。</li>
+<li>在与其他AND和OR操作符组合使用IN时，求值顺序更容易管理。</li>
+<li>IN操作符一般比一组OR操作符执行得更快，性能更好（尤其在大型数据库中取值时）。</li>
+<li>IN的最大的优点在于可以包含其他SELECT语句，能够更动态地建立WHERE子句（在第11课详细讲解）。</li>
+</ul>
+<h2 id="NOT操作符"><a href="#NOT操作符" class="headerlink" title="NOT操作符"></a>NOT操作符</h2><p>WHERE子句的NOT操作符有且只有一个功能，就是否定其后所跟的任何条件。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> prod_country,prod_price<br><span class="hljs-keyword">from</span> products<br><span class="hljs-keyword">where</span> <span class="hljs-keyword">NOT</span> prod_country <span class="hljs-operator">=</span> &quot;USA&quot;<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> prod_price<br></code></pre></td></tr></table></figure>
+
+<p>与IN操作符相似，NOT是不是貌似也可以用我们之前学习到的某个操作符来替代呢？没错就是不等于&lt;&gt;。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> prod_country,prod_price<br><span class="hljs-keyword">from</span> products<br><span class="hljs-keyword">where</span>  prod_country <span class="hljs-operator">&lt;&gt;</span> &quot;USA&quot;<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> prod_price<br></code></pre></td></tr></table></figure>
+
+<p>那么，为什么我们还要将这些操作符，甚至单独开一章来讲它们呢？</p>
+<ul>
+<li><em><strong>AND\OR\IN\NOT操作符的关键并不在于单独的某一个操作符的使用，而在于，相互组合后，发挥的强大作用。</strong></em></li>
+</ul>
 
             </div>
             <hr>
@@ -246,7 +284,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Paper/">Paper</a>
+                      <a class="hover-with-bg" href="/categories/SQL/">SQL</a>
                     
                   </div>
                 
@@ -254,7 +292,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Paper/">Paper</a>
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
                     
                   </div>
                 
@@ -271,9 +309,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/05/11/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/">
+                      <a href="/2021/05/13/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%956/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">《SQL必知必会》学习记录1</span>
+                        <span class="hidden-mobile">《SQL必知必会》学习记录6</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -281,8 +319,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/05/10/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2021/05/12/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954/">
+                        <span class="hidden-mobile">《SQL必知必会》学习记录4</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

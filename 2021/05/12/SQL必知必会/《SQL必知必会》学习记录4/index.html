@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>画龙七式 - JoneLn</title>
+  <title>《SQL必知必会》学习记录4 - JoneLn</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="画龙七式">
+            <span class="h2" id="subtitle" title="《SQL必知必会》学习记录4">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-05-10 17:07" pubdate>
-        2021年5月10日 下午
+      <time datetime="2021-05-12 09:49" pubdate>
+        2021年5月12日 上午
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      525 字
+      454 字
     </span>
   
 
@@ -225,18 +225,76 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">画龙七式</h1>
+            <h1 style="display: none">《SQL必知必会》学习记录4</h1>
             
             <div class="markdown-body">
-              <h1 id="画龙七式写作法"><a href="#画龙七式写作法" class="headerlink" title="画龙七式写作法"></a>画龙七式写作法</h1><h2 id="第一式-冥想"><a href="#第一式-冥想" class="headerlink" title="第一式  冥想"></a>第一式  冥想</h2><p>在画龙正式开始前，首先要做的不是去做，而是去想。这一片文章的写作目的、写作目标和写作方式等。</p>
-<h2 id="第二式-画骨"><a href="#第二式-画骨" class="headerlink" title="第二式  画骨"></a>第二式  画骨</h2><p>画龙画虎难画骨，画骨这一节可谓是重中之重，甚至直接决定了你的文章的质量。什么是文章的骨？拿我现在写的这一片综述性质的文章来说，文章的骨也就是框架，并不是你这一篇综述里每一篇文章具体写的是什么，而在于，你如何选择的文章，以及文章大致写的是什么。</p>
-<p>这一节的表现形式就是标题，把每一篇文章的标题罗列出来，画骨就算完成了。</p>
-<h2 id="第三式-充肌"><a href="#第三式-充肌" class="headerlink" title="第三式  充肌"></a>第三式  充肌</h2><p>本节的目标在于充实你的文章的骨架。</p>
-<p>就本综述而言，大致包括每一篇文章的关键词、主客体、研究方法和核心观点等。</p>
-<h2 id="第四式-描皮"><a href="#第四式-描皮" class="headerlink" title="第四式  描皮"></a>第四式  描皮</h2><p>“皮”就是最外部的表现形式了，也是对于文章的直观区分。而皮与皮之间既有相似连续性又有相对中断性，就如本综述所想，在众多文章中寻找其继承性如同一理论，同一问题下的A对B的补充；又如针对同一问题的不同研究方法、不同视角的对立或相互论证。</p>
-<h2 id="第五式-雕头"><a href="#第五式-雕头" class="headerlink" title="第五式  雕头"></a>第五式  雕头</h2><p>头是统领。雕头即是对前述步骤的总结与概括。</p>
-<h2 id="第六式-收尾"><a href="#第六式-收尾" class="headerlink" title="第六式  收尾"></a>第六式  收尾</h2><p>尾部最不受关注，但却最能提升龙像精气神的地方。收尾要注意灵活。具体到综述中，可评、可述、可点、可叹。</p>
-<h2 id="第七式-点睛"><a href="#第七式-点睛" class="headerlink" title="第七式  点睛"></a>第七式  点睛</h2><p>人人说画龙点睛，这眼睛一点，龙即飞走。所以这眼睛可点，但不可让人看见你点。搜着藏着自己看，不要发表出来。因为这一部分，对应的综述中，就是对自己的研究的参悟。也就是自己本文章对自己研究的重要性。</p>
+              <h1 id="第四课-过滤数据"><a href="#第四课-过滤数据" class="headerlink" title="第四课 过滤数据"></a>第四课 过滤数据</h1><p>这一节课比较简单，只是关于WHERE子句的简单介绍。但是呢，介绍起来很简单，使用起来作用很大。</p>
+<h2 id="使用WHERE子句"><a href="#使用WHERE子句" class="headerlink" title="使用WHERE子句"></a>使用WHERE子句</h2><p>先来一个简单的列子开开胃。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1<br><span class="hljs-keyword">from</span> table1<br><span class="hljs-keyword">where</span> c2 <span class="hljs-operator">=</span> <span class="hljs-number">3</span>;<br></code></pre></td></tr></table></figure>
+
+<p>这一看就知道什么意思了吧。显示c2=3时的所有c1列的记录。</p>
+<p>那么如果我们想要检索的是某一列等于某个字符串而非数字的情况该如何操作呢？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1<br><span class="hljs-keyword">from</span> table1<br><span class="hljs-keyword">where</span> c2 <span class="hljs-operator">=</span> &quot;我爱罗&quot;；<br></code></pre></td></tr></table></figure>
+
+<p>**注意相等检验为字符串时需要加双引号。</p>
+<p>甚至于以我们目前的知识还可以把前面几章串联起来。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1_name, c2_name<br><span class="hljs-keyword">from</span> table1_name<br><span class="hljs-keyword">where</span> c3_name <span class="hljs-operator">=</span> <span class="hljs-number">5</span><br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> c1_name <span class="hljs-keyword">DESC</span>;<br></code></pre></td></tr></table></figure>
+
+<p>在实际中，由于数据库中数据量之大，我们很少需要检索表中的所有行，此时，对数据进行过滤显得尤为重要。</p>
+<h2 id="WHERE子句操作符"><a href="#WHERE子句操作符" class="headerlink" title="WHERE子句操作符"></a>WHERE子句操作符</h2><p>在前面通过一个例子，我们也知道了WHERE子句大概怎么用。下面呢，列出了WHERE所有的条件操作符。</p>
+<table>
+<thead>
+<tr>
+<th align="center">操作符</th>
+<th>说明</th>
+<th align="center">操作符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">=</td>
+<td>等于</td>
+<td align="center">&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td align="center">&lt;&gt;</td>
+<td>不等于</td>
+<td align="center">&gt;=</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td align="center">!=</td>
+<td>不等于</td>
+<td align="center">!&gt;</td>
+<td>不大于</td>
+</tr>
+<tr>
+<td align="center">&lt;</td>
+<td>小于</td>
+<td align="center">BETWEEN</td>
+<td>在两者之间</td>
+</tr>
+<tr>
+<td align="center">&lt;=</td>
+<td>小于等于</td>
+<td align="center">IS NULL</td>
+<td>为NULL值</td>
+</tr>
+<tr>
+<td align="center">!&lt;</td>
+<td>不小于</td>
+<td align="center"></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>等于或者不等于之类的操作符与上面的例子一样的使用，这里再解释一下<strong>BETWEEN</strong>和<strong>IS NULL</strong>条件操作符。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1<br><span class="hljs-keyword">from</span> table1<br><span class="hljs-keyword">where</span> c2 <span class="hljs-keyword">between</span> <span class="hljs-number">4</span> <span class="hljs-keyword">and</span> <span class="hljs-number">10</span>；<br></code></pre></td></tr></table></figure>
+
+<p>使用between操作符需要设定好范围内最小值和最大值。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> c1<br><span class="hljs-keyword">from</span> <span class="hljs-keyword">table</span><br><span class="hljs-keyword">where</span> c2 <span class="hljs-keyword">is</span> <span class="hljs-keyword">null</span>;<br></code></pre></td></tr></table></figure>
+
+<p>在企业数据库中，由于各种原因，某一条记录中的某一列可能没有被赋值，于是成为空值。使用该指令可以检索出某一列的空值行。</p>
 
             </div>
             <hr>
@@ -246,7 +304,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Paper/">Paper</a>
+                      <a class="hover-with-bg" href="/categories/SQL/">SQL</a>
                     
                   </div>
                 
@@ -254,7 +312,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Paper/">Paper</a>
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
                     
                   </div>
                 
@@ -271,9 +329,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/05/11/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/">
+                      <a href="/2021/05/12/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%955/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">《SQL必知必会》学习记录1</span>
+                        <span class="hidden-mobile">《SQL必知必会》学习记录5</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -281,8 +339,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/05/10/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2021/05/11/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%953/">
+                        <span class="hidden-mobile">《SQL必知必会》学习记录3</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -1,0 +1,520 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bg/bigimg.png">
+  <link rel="icon" href="/img/bg/bigimg.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+  <title>《SQL必知必会》学习记录13 - JoneLn</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"joneln.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>JoneLn</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="《SQL必知必会》学习记录13">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-05-20 08:36" pubdate>
+        2021年5月20日 早上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">《SQL必知必会》学习记录13</h1>
+            
+            <div class="markdown-body">
+              <h1 id="第13课-创建高级联结"><a href="#第13课-创建高级联结" class="headerlink" title="第13课 创建高级联结"></a>第13课 创建高级联结</h1><p>上一节课已经讲了简单的等值联结或者说，内联结。<br>本节课介绍高级联结。</p>
+<h2 id="简单等值联结的简单进阶–使用表别名"><a href="#简单等值联结的简单进阶–使用表别名" class="headerlink" title="简单等值联结的简单进阶–使用表别名"></a>简单等值联结的简单进阶–使用表别名</h2><p>这一节相当简单，大致就一件事，可以对表命名表别名。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> cust_name, cust_contact<br><span class="hljs-keyword">from</span> customers <span class="hljs-keyword">as</span> C, orders <span class="hljs-keyword">AS</span> O, orderitems <span class="hljs-keyword">AS</span> OI<br><span class="hljs-keyword">where</span> C.cust_id <span class="hljs-operator">=</span> O.cust_id <br>	<span class="hljs-keyword">and</span> O.order_num <span class="hljs-operator">=</span> OI.order_num<br>    <span class="hljs-keyword">and</span> prod_id <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;RGAN01&#x27;</span>; <br></code></pre></td></tr></table></figure>
+
+<h2 id="使用不同类型的联结"><a href="#使用不同类型的联结" class="headerlink" title="使用不同类型的联结"></a>使用不同类型的联结</h2><p>除内联结外还有三种联结方式————自联结、自然联结和外联结。</p>
+<h3 id="自联结"><a href="#自联结" class="headerlink" title="自联结"></a>自联结</h3><p>首先，独立思考一个问题，并自己在数据库管理系统中进行实操。</p>
+<p>假如要给与$Jim Jones$同一个公司的顾客发送一封邮件。这个查询要求首先找出$Jim Jones$工作的公司，然后找出在该公司工作的顾客。</p>
+<ol>
+<li>首先找出$Jim Jones$工作的公司<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> cust_name<br><span class="hljs-keyword">from</span> customers<br><span class="hljs-keyword">where</span> cust_contact <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Jim Jones&#x27;</span>;<br></code></pre></td></tr></table></figure></li>
+<li>然后找出在该公司工作的顾客<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> cust_contact<br><span class="hljs-keyword">from</span> customers<br><span class="hljs-keyword">where</span> cust_name <span class="hljs-keyword">IN</span> (<span class="hljs-keyword">select</span> cust_name<br>		<span class="hljs-keyword">from</span> customers<br>		<span class="hljs-keyword">where</span> cust_contact <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Jim Jones&#x27;</span>);<br></code></pre></td></tr></table></figure>
+以上的方法使用的是我们之前学过的子查询。<br>除此之外，我们应该如何建立其他联结呢？请看代码示例。</li>
+</ol>
+<p>首先看一个<strong>错误</strong>的示例：<br><em><strong>INPUT</strong></em></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> c1.cust_contact, c2.cust_name, c2.cust_id<br><span class="hljs-keyword">from</span> customers <span class="hljs-keyword">as</span> c1, customers <span class="hljs-keyword">as</span> c2<br><span class="hljs-keyword">where</span> c1.cust_id <span class="hljs-operator">=</span> c2.cust_id<br>	<span class="hljs-keyword">and</span> c1.cust_contact <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;jim jones&#x27;</span>;<br></code></pre></td></tr></table></figure>
+<p><em><strong>OUTPUT</strong></em></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL">cust_contact  cust_name  cust_id<br><span class="hljs-comment">------------------------------------</span><br>Jim Jones	  Fun4All	 <span class="hljs-number">1000000003</span><br></code></pre></td></tr></table></figure>
+<p>在我的思维定式中，总是认为需要使用XXX_id才可以作为完全限定列名以联结两个表列，于是就被教育了。</p>
+<p>再看看人家课本上的<strong>正确</strong>代码示例：</p>
+<p><em><strong>INPUT</strong></em></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> c1.cust_id, c1.cust_name, c2.cust_contact<br><span class="hljs-keyword">from</span> customers <span class="hljs-keyword">as</span> c1, customers <span class="hljs-keyword">as</span> c2<br><span class="hljs-keyword">where</span> c1.cust_name <span class="hljs-operator">=</span> c2.cust_name<br>	<span class="hljs-keyword">and</span> c1.cust_contact <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;jim jones&#x27;</span>;<br></code></pre></td></tr></table></figure>
+<p><em><strong>OUTPUT</strong></em></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs SQL">cust_id     cust_name   cust_contact<br><span class="hljs-comment">------------------------------------</span><br><span class="hljs-number">1000000003</span>	 Fun4All	 Jim Jones<br><span class="hljs-number">1000000003</span>	 Fun4All     Denise L. Stephens<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>自联结形式上就是将一个表分别命名为不同的两个表，然后对其进行等值联结。</li>
+<li>等值联结的列名的选取需要根据需要来选。比如本节就是根据一名联络人<strong>选择同一个企业</strong> 下的不同联络人。（本代码有无<code>cust_id</code>的结果是一样的）</li>
+</ul>
+<blockquote>
+<p>自联结就是数据表与自身联结。</p>
+</blockquote>
+<h3 id="自然联结"><a href="#自然联结" class="headerlink" title="自然联结"></a>自然联结</h3><p>自然联结是一种特殊的等值联结，他要求两个关系中进行比较的分列必须是相同的属性组，并且在结果中把重复的属性列去掉。</p>
+<p>自然联结要求只能选择那些唯一的列，一般通过对一个表使用通配符<code>*</code>，而对其他表的列使用明确的子集来完成。</p>
+<p>下面举一个例子：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> C.<span class="hljs-operator">*</span>, O.order_num,O.order_date, <br>		OI.item_price, OI.prod_id, OI.quantity<br><span class="hljs-keyword">from</span> customers <span class="hljs-keyword">as</span> C, orders <span class="hljs-keyword">AS</span> O, orderitems <span class="hljs-keyword">AS</span> OI<br><span class="hljs-keyword">where</span> C.cust_id <span class="hljs-operator">=</span> O.cust_id <br>	<span class="hljs-keyword">and</span> O.order_num <span class="hljs-operator">=</span> OI.order_num<br>    <span class="hljs-keyword">and</span> prod_id <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;RGAN01&#x27;</span>; <br></code></pre></td></tr></table></figure>
+
+
+<h3 id="外联结"><a href="#外联结" class="headerlink" title="外联结"></a>外联结</h3><p>许多联结将一个表中的行与另一个表中的行相关联，但有时候细节要包含没有关联的那些行。<br>例如，需要使用联结完成以下工作：</p>
+<ol>
+<li>对每个顾客下的订单进行计数，包括那些至今尚未下订单的顾客；</li>
+<li>列出所有产品以及订购数量，包括那些没有人订购的产品；</li>
+<li>计算平均销售规模，包括那些至今尚未下订单的顾客。</li>
+</ol>
+<p>在上述例子中，联结包含了那些在相关表中没有关联的行。这种联结称为外联结。</p>
+<p>对于上述问题，我首先想到的是<code>NOT</code>指令，然我们看看可不可以完成呢？</p>
+<ol>
+<li>首先找到所有下订单的客户<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> C.cust_name, O.orders_num<br><span class="hljs-keyword">from</span> customers <span class="hljs-keyword">as</span> C, orders <span class="hljs-keyword">AS</span> O<br><span class="hljs-keyword">where</span> C.cust_id <span class="hljs-operator">=</span> O.cust_id;<br></code></pre></td></tr></table></figure></li>
+<li>使用<code>NOT</code>指令</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> cust_name<br><span class="hljs-keyword">from</span> customers<br><span class="hljs-keyword">where</span> cust_name <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> (<span class="hljs-keyword">select</span> C.cust_name<br>		<span class="hljs-keyword">from</span> customers <span class="hljs-keyword">as</span> C, orders <span class="hljs-keyword">AS</span> O<br>		<span class="hljs-keyword">where</span> C.cust_id <span class="hljs-operator">=</span> O.cust_id);<br></code></pre></td></tr></table></figure>
+<p>将上述两个代码合并才可以得到问题中想找到的所有的客户，并且还要在第二段代码现实空值。</p>
+<p>这样的代码操作本质上还是内联结。</p>
+<p>现在我们使用外联结。<br>  <em><strong>INPUT</strong></em></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> customers.cust_id, customers.cust_name, orders.order_num<br><span class="hljs-keyword">from</span> customers <span class="hljs-keyword">left</span> <span class="hljs-keyword">outer</span> <span class="hljs-keyword">join</span> orders<br>	<span class="hljs-keyword">on</span> customers.cust_id <span class="hljs-operator">=</span> orders.cust_id;<br></code></pre></td></tr></table></figure>
+
+<p><em><strong>OUTPUT</strong></em></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs SQL">customers.cust_id  customers.cust_name  orders.order_num<br><span class="hljs-comment">------------------- -------------------------------------</span><br><span class="hljs-number">1000000001</span>	        Village Toys	    <span class="hljs-number">20005</span><br><span class="hljs-number">1000000001</span>	        Village Toys	    <span class="hljs-number">20009</span><br><span class="hljs-number">1000000002</span>	        Kids Place	<br><span class="hljs-number">1000000003</span>	        Fun4All	            <span class="hljs-number">20006</span><br><span class="hljs-number">1000000004</span>	        Fun4All	            <span class="hljs-number">20007</span><br><span class="hljs-number">1000000005</span>	        The Toy Store	    <span class="hljs-number">20008</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>外部联结是有方向的。<code>LEFT OUTER JOIN</code> 联结左边的表，<code>RIGHT OUTER JOIN</code> 联结右边的表（代表最终输出结果包括左边\右边的为被联结的行）<br>全联结<code>FULL OUTER JOIN</code>代表最终输出结果包括左边和右边的全部联结的和未被联结的行。</p>
+</blockquote>
+<h2 id="使用带聚集函数的联结"><a href="#使用带聚集函数的联结" class="headerlink" title="使用带聚集函数的联结"></a>使用带聚集函数的联结</h2><p>使用联结时可以正常使用聚集函数，不过需要使用完全限定列名。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> customers.cust_id,<br>		<span class="hljs-built_in">count</span>(orders.order_num) <span class="hljs-keyword">as</span> num_ord<br><span class="hljs-keyword">from</span> customers <span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> orders<br>	<span class="hljs-keyword">on</span> customers.cust_id <span class="hljs-operator">=</span> orders.cust_id<br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> customers.cust_id;<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本课是上一课的延续，两节课讲述完SQL中的联结。</p>
+<ul>
+<li>联结可以分为两类：内联结、外联结；</li>
+<li>内联结包括简单的等值联结、自联结、自然联结；</li>
+<li>外联结包括左外联结、右外联结、全联结；</li>
+<li>使用联结时的一个小技巧为使用表别名。</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/SQL/">SQL</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/05/21/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9514/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">《SQL必知必会》学习记录14</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/19/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9512/">
+                        <span class="hidden-mobile">《SQL必知必会》学习记录12</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
