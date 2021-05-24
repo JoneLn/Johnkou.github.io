@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>《SQL必知必会》学习记录17</title>
+    <link href="/2021/05/24/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9517/"/>
+    <url>/2021/05/24/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9517/</url>
+    
+    <content type="html"><![CDATA[<h1 id="第17课-创建和操纵表"><a href="#第17课-创建和操纵表" class="headerlink" title="第17课 创建和操纵表"></a>第17课 创建和操纵表</h1><p>在此说明：本节课将是该课程系列的最后一节课。本书后面还有几节课，但是由于此后内容在各DBMS中具体实现有所差异，因此书中并未深入讲解各知识的灵活应用。</p><p>敬请期待下一系列《MySQL必知必会》。</p><h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><p>一般说来，创建表有两种形式：</p><ol><li>多数DBNS都具有交互式创建和管理数据库表的工具；</li><li>表也可以直接用SQL语句操纵。</li></ol><p>表创建基础：</p><ul><li>新表的名字，在关键字<code>CREATE TABLE</code>之后给出；</li><li>表列的名字和定义之间用空格隔开，不同表列和定义之间用逗号隔开；</li><li>有的DBMS还要求指定表的位置。</li></ul><p>举例：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Products<br>(<br>    prod_id     <span class="hljs-type">char</span>(<span class="hljs-number">10</span>)         <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span>,<br>    prod_name   <span class="hljs-type">char</span>(<span class="hljs-number">254</span>)        <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span>,<br>    prod_price  <span class="hljs-type">decimal</span>(<span class="hljs-number">8</span>,<span class="hljs-number">2</span>)     <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span>  <span class="hljs-keyword">default</span> <span class="hljs-number">10</span>,<br>    prod_desc   text(<span class="hljs-number">1000</span>)       <span class="hljs-keyword">null</span>      <span class="hljs-keyword">default</span>(<span class="hljs-built_in">current_date</span>())<br>);<br></code></pre></td></tr></table></figure><blockquote><p>第一列为列名；<br>第二列为数据类型；<br>第三列为是否允许有空值；<br>第四列为是否设置默认值，不写则默认没有默认值；<br>因各系统差异，上述代码可能在某些DBMS中无法运行。</p></blockquote><h2 id="更新表"><a href="#更新表" class="headerlink" title="更新表"></a>更新表</h2><p>更新表<code>ALTER TABLE</code>在各个DBMS中的规定与应用更是有着显著差异。<br>以下是使用<code>ALTER TABLE</code>时需要考虑的事情：</p><ul><li>理想情况下，不要在表中包含数据时对其进行更新。</li><li>所有DBMS都允许给现有的表增加列，不过对所增加的列的数据类型有所限制；</li><li>许多DBMS不允许删除可更改表中已有的列；</li><li>多数DBMS允许重新命名表中的列；</li><li>许多DBMS限制对已经填有数据的列进行更改，对未填写数据的列几乎没有限制。</li></ul><h2 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h2><p>删除整个表非常简单，使用<code>DROP TABLE</code>语句即可：</p><p><code>DROP table class;</code></p><h2 id="重命名表"><a href="#重命名表" class="headerlink" title="重命名表"></a>重命名表</h2><p>各有不同！！！</p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>在本课可以很明显的感觉由于各个DBMS规定不同导致的无法深入学习的无奈。<br>剩下的几章会看完，会做笔记，但是不会再更新到博客上，请见谅。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>学习记录</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SQL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>《SQL必知必会》学习记录16</title>
     <link href="/2021/05/23/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9516/"/>
     <url>/2021/05/23/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9516/</url>
@@ -405,8 +430,8 @@
   
   <entry>
     <title>画龙七式</title>
-    <link href="/2021/05/10/%E7%94%BB%E9%BE%99%E4%B8%83%E5%BC%8F%E5%86%99%E4%BD%9C%E6%B3%95/"/>
-    <url>/2021/05/10/%E7%94%BB%E9%BE%99%E4%B8%83%E5%BC%8F%E5%86%99%E4%BD%9C%E6%B3%95/</url>
+    <link href="/2021/05/10/%E7%94%BB%E9%BE%99%E4%B8%83%E5%BC%8F/%E7%94%BB%E9%BE%99%E4%B8%83%E5%BC%8F%E5%86%99%E4%BD%9C%E6%B3%95/"/>
+    <url>/2021/05/10/%E7%94%BB%E9%BE%99%E4%B8%83%E5%BC%8F/%E7%94%BB%E9%BE%99%E4%B8%83%E5%BC%8F%E5%86%99%E4%BD%9C%E6%B3%95/</url>
     
     <content type="html"><![CDATA[<h1 id="画龙七式写作法"><a href="#画龙七式写作法" class="headerlink" title="画龙七式写作法"></a>画龙七式写作法</h1><h2 id="第一式-冥想"><a href="#第一式-冥想" class="headerlink" title="第一式  冥想"></a>第一式  冥想</h2><p>在画龙正式开始前，首先要做的不是去做，而是去想。这一片文章的写作目的、写作目标和写作方式等。</p><h2 id="第二式-画骨"><a href="#第二式-画骨" class="headerlink" title="第二式  画骨"></a>第二式  画骨</h2><p>画龙画虎难画骨，画骨这一节可谓是重中之重，甚至直接决定了你的文章的质量。什么是文章的骨？拿我现在写的这一片综述性质的文章来说，文章的骨也就是框架，并不是你这一篇综述里每一篇文章具体写的是什么，而在于，你如何选择的文章，以及文章大致写的是什么。</p><p>这一节的表现形式就是标题，把每一篇文章的标题罗列出来，画骨就算完成了。</p><h2 id="第三式-充肌"><a href="#第三式-充肌" class="headerlink" title="第三式  充肌"></a>第三式  充肌</h2><p>本节的目标在于充实你的文章的骨架。</p><p>就本综述而言，大致包括每一篇文章的关键词、主客体、研究方法和核心观点等。</p><h2 id="第四式-描皮"><a href="#第四式-描皮" class="headerlink" title="第四式  描皮"></a>第四式  描皮</h2><p>“皮”就是最外部的表现形式了，也是对于文章的直观区分。而皮与皮之间既有相似连续性又有相对中断性，就如本综述所想，在众多文章中寻找其继承性如同一理论，同一问题下的A对B的补充；又如针对同一问题的不同研究方法、不同视角的对立或相互论证。</p><h2 id="第五式-雕头"><a href="#第五式-雕头" class="headerlink" title="第五式  雕头"></a>第五式  雕头</h2><p>头是统领。雕头即是对前述步骤的总结与概括。</p><h2 id="第六式-收尾"><a href="#第六式-收尾" class="headerlink" title="第六式  收尾"></a>第六式  收尾</h2><p>尾部最不受关注，但却最能提升龙像精气神的地方。收尾要注意灵活。具体到综述中，可评、可述、可点、可叹。</p><h2 id="第七式-点睛"><a href="#第七式-点睛" class="headerlink" title="第七式  点睛"></a>第七式  点睛</h2><p>人人说画龙点睛，这眼睛一点，龙即飞走。所以这眼睛可点，但不可让人看见你点。搜着藏着自己看，不要发表出来。因为这一部分，对应的综述中，就是对自己的研究的参悟。也就是自己本文章对自己研究的重要性。</p>]]></content>
     

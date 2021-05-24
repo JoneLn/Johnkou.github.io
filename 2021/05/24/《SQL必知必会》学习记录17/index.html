@@ -18,9 +18,25 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>标签 - JoneLn</title>
+  <title>《SQL必知必会》学习记录17 - JoneLn</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
@@ -48,7 +64,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -142,22 +158,55 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/bg/bigimg.png') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="标签">
+            <span class="h2" id="subtitle" title="《SQL必知必会》学习记录17">
               
             </span>
 
             
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-05-24 09:30" pubdate>
+        2021年5月24日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      540 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      5
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
           
         </div>
       </div>
@@ -166,24 +215,118 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-<div class="text-center tagcloud">
-  <a href="/tags/Paper/" style="font-size: 15px; color: #bbe">Paper</a> <a href="/tags/SQL/" style="font-size: 15px; color: #bbe">SQL</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 30px; color: #337ab7">学习记录</a>
-</div>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">《SQL必知必会》学习记录17</h1>
+            
+            <div class="markdown-body">
+              <h1 id="第17课-创建和操纵表"><a href="#第17课-创建和操纵表" class="headerlink" title="第17课 创建和操纵表"></a>第17课 创建和操纵表</h1><p>在此说明：本节课将是该课程系列的最后一节课。本书后面还有几节课，但是由于此后内容在各DBMS中具体实现有所差异，因此书中并未深入讲解各知识的灵活应用。</p>
+<p>敬请期待下一系列《MySQL必知必会》。</p>
+<h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><p>一般说来，创建表有两种形式：</p>
+<ol>
+<li>多数DBNS都具有交互式创建和管理数据库表的工具；</li>
+<li>表也可以直接用SQL语句操纵。</li>
+</ol>
+<p>表创建基础：</p>
+<ul>
+<li>新表的名字，在关键字<code>CREATE TABLE</code>之后给出；</li>
+<li>表列的名字和定义之间用空格隔开，不同表列和定义之间用逗号隔开；</li>
+<li>有的DBMS还要求指定表的位置。</li>
+</ul>
+<p>举例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Products<br>(<br>    prod_id     <span class="hljs-type">char</span>(<span class="hljs-number">10</span>)         <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span>,<br>    prod_name   <span class="hljs-type">char</span>(<span class="hljs-number">254</span>)        <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span>,<br>    prod_price  <span class="hljs-type">decimal</span>(<span class="hljs-number">8</span>,<span class="hljs-number">2</span>)     <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span>  <span class="hljs-keyword">default</span> <span class="hljs-number">10</span>,<br>    prod_desc   text(<span class="hljs-number">1000</span>)       <span class="hljs-keyword">null</span>      <span class="hljs-keyword">default</span>(<span class="hljs-built_in">current_date</span>())<br>);<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>第一列为列名；<br>第二列为数据类型；<br>第三列为是否允许有空值；<br>第四列为是否设置默认值，不写则默认没有默认值；<br>因各系统差异，上述代码可能在某些DBMS中无法运行。</p>
+</blockquote>
+<h2 id="更新表"><a href="#更新表" class="headerlink" title="更新表"></a>更新表</h2><p>更新表<code>ALTER TABLE</code>在各个DBMS中的规定与应用更是有着显著差异。<br>以下是使用<code>ALTER TABLE</code>时需要考虑的事情：</p>
+<ul>
+<li>理想情况下，不要在表中包含数据时对其进行更新。</li>
+<li>所有DBMS都允许给现有的表增加列，不过对所增加的列的数据类型有所限制；</li>
+<li>许多DBMS不允许删除可更改表中已有的列；</li>
+<li>多数DBMS允许重新命名表中的列；</li>
+<li>许多DBMS限制对已经填有数据的列进行更改，对未填写数据的列几乎没有限制。</li>
+</ul>
+<h2 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h2><p>删除整个表非常简单，使用<code>DROP TABLE</code>语句即可：</p>
+<p><code>DROP table class;</code></p>
+<h2 id="重命名表"><a href="#重命名表" class="headerlink" title="重命名表"></a>重命名表</h2><p>各有不同！！！</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>在本课可以很明显的感觉由于各个DBMS规定不同导致的无法深入学习的无奈。<br>剩下的几章会看完，会做笔记，但是不会再更新到博客上，请见谅。</p>
 
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/SQL/">SQL</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/23/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9516/">
+                        <span class="hidden-mobile">《SQL必知必会》学习记录16</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -263,9 +406,15 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 
