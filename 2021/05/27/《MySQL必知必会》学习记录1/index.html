@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>《MySQL必知必会》第九章 - JoneLn</title>
+  <title>《MySQL必知必会》学习记录1 - JoneLn</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="《MySQL必知必会》第九章">
+            <span class="h2" id="subtitle" title="《MySQL必知必会》学习记录1">
               
             </span>
 
@@ -225,7 +225,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">《MySQL必知必会》第九章</h1>
+            <h1 style="display: none">《MySQL必知必会》学习记录1</h1>
             
             <div class="markdown-body">
               <h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p>由于MySQL的基础语句已经在上一系列学习过，因此，本系列重在补充尚未涉足之处。</p>
@@ -259,14 +259,126 @@
 <blockquote>
 <p>在正则表达式中使用<code>\</code>来代表转义符号，而在SQL中需要再带一个<code>\</code>来代表转义。一个是正则表达式本身来识别，一个是给SQL来识别。<br>下面常用空白元字符：<br>\\f  代表换页<br>\\n  代表换行<br>\\r  代表回车<br>\\t  代表制表<br>\\v  纵向制表</p>
 </blockquote>
-<h3 id="匹配字符类"><a href="#匹配字符类" class="headerlink" title="匹配字符类"></a>匹配字符类</h3><p>为简化字符集合的使用，正则表达式预定义了一些字符集合，成为字符类。<br>|     类     |                         说明                          |<br>| :——–: | :—————————————————: |<br>| [:alnum:]  |            任意字母和数字（同[a-zA-Z0-9])             |<br>| [:alpha:]  |                 任意字符（同[a-zA-Z])                 |<br>| [:blank:]  |                空格和制表（同[\\t]）                |<br>| [:cntrl:]  |             ASCII控制字符(ASCII 0-31 127)             |<br>| [:digit:]  |                     任意数字[0-9]                     |<br>| [:graph:]  |             与[:print:]相同，但不包含空格             |<br>| [:lower:]  |                  任意小写字母[a-z])                   |<br>| [:print:]  |                    任意可打印字符                     |<br>| [:punct:]  |      即不在[:alnum:]也不在[:cntrl:]中的任意字符       |<br>| [:space:]  | 包括空格在内的任意空白字符[\\f\\n\\r\\t\\v] |<br>| [:upper:]  |                   任意大写字母[A-Z]                   |<br>| [:xdigit:] |               任意十六制数字[a-fA-F0-9]               |</p>
-<h3 id="匹配多个实例"><a href="#匹配多个实例" class="headerlink" title="匹配多个实例"></a>匹配多个实例</h3><p>重复元字符<br>| 元字符 |          说明          |<br>| :—-: | :——————–: |<br>|   *    |     0个或多个匹配      |<br>|   +    |     1个或多个匹配      |<br>|   ?    |      0各或1各匹配      |<br>|  {n}   |      制定数目匹配      |<br>|  {n,}  |  不少于制定数目的匹配  |<br>| {n,m}  | 匹配数目的范围(m=&lt;255) |</p>
+<h3 id="匹配字符类"><a href="#匹配字符类" class="headerlink" title="匹配字符类"></a>匹配字符类</h3><p>为简化字符集合的使用，正则表达式预定义了一些字符集合，成为字符类。</p>
+<table>
+<thead>
+<tr>
+<th align="center">类</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">[:alnum:]</td>
+<td align="center">任意字母和数字（同[a-zA-Z0-9])</td>
+</tr>
+<tr>
+<td align="center">[:alpha:]</td>
+<td align="center">任意字符（同[a-zA-Z])</td>
+</tr>
+<tr>
+<td align="center">[:blank:]</td>
+<td align="center">空格和制表（同[\\t]）</td>
+</tr>
+<tr>
+<td align="center">[:cntrl:]</td>
+<td align="center">ASCII控制字符(ASCII 0-31 127)</td>
+</tr>
+<tr>
+<td align="center">[:digit:]</td>
+<td align="center">任意数字[0-9]</td>
+</tr>
+<tr>
+<td align="center">[:graph:]</td>
+<td align="center">与[:print:]相同，但不包含空格</td>
+</tr>
+<tr>
+<td align="center">[:lower:]</td>
+<td align="center">任意小写字母[a-z])</td>
+</tr>
+<tr>
+<td align="center">[:print:]</td>
+<td align="center">任意可打印字符</td>
+</tr>
+<tr>
+<td align="center">[:punct:]</td>
+<td align="center">即不在[:alnum:]也不在[:cntrl:]中的任意字符</td>
+</tr>
+<tr>
+<td align="center">[:space:]</td>
+<td align="center">包括空格在内的任意空白字符[\\f\\n\\r\\t\\v]</td>
+</tr>
+<tr>
+<td align="center">[:upper:]</td>
+<td align="center">任意大写字母[A-Z]</td>
+</tr>
+<tr>
+<td align="center">[:xdigit:]</td>
+<td align="center">任意十六制数字[a-fA-F0-9]</td>
+</tr>
+</tbody></table>
+<h3 id="匹配多个实例"><a href="#匹配多个实例" class="headerlink" title="匹配多个实例"></a>匹配多个实例</h3><p>重复元字符</p>
+<table>
+<thead>
+<tr>
+<th align="center">元字符</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">*</td>
+<td align="center">0个或多个匹配</td>
+</tr>
+<tr>
+<td align="center">+</td>
+<td align="center">1个或多个匹配</td>
+</tr>
+<tr>
+<td align="center">?</td>
+<td align="center">0各或1各匹配</td>
+</tr>
+<tr>
+<td align="center">{n}</td>
+<td align="center">制定数目匹配</td>
+</tr>
+<tr>
+<td align="center">{n,}</td>
+<td align="center">不少于制定数目的匹配</td>
+</tr>
+<tr>
+<td align="center">{n,m}</td>
+<td align="center">匹配数目的范围(m=&lt;255)</td>
+</tr>
+</tbody></table>
 <p>举个例子</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> prod_name<br><span class="hljs-keyword">from</span> products<br><span class="hljs-keyword">where</span> prod_name regexp <span class="hljs-string">&#x27;[0-9] inch?&#x27;</span>;<br><span class="hljs-comment">-- -----------</span><br><span class="hljs-comment">-- ? 代表紧邻inch后可以有0个或1各字母，如inchs</span><br><span class="hljs-comment">-- -----------</span><br></code></pre></td></tr></table></figure>
 
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">SELECT</span> prod_name<br><span class="hljs-keyword">from</span> products<br><span class="hljs-keyword">where</span> prod_name REGEXP <span class="hljs-string">&#x27;[[:digit:]]&#123;4&#125;&#x27;</span><br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> prod_name;<br><span class="hljs-comment">-- 匹配连在一起的4个数字</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="定位符"><a href="#定位符" class="headerlink" title="定位符"></a>定位符</h3><p>定位元字符<br>| 元字符  |    说明    |<br>| :—–: | :——–: |<br>|    ^    | 文本的开始 |<br>|    $    | 文本的结尾 |<br>| [[:&lt;:]] |  词的开始  |<br>| [[:&gt;:]] |  词的结尾  |</p>
+<h3 id="定位符"><a href="#定位符" class="headerlink" title="定位符"></a>定位符</h3><p>定位元字符</p>
+<table>
+<thead>
+<tr>
+<th align="center">元字符</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">^</td>
+<td align="center">文本的开始</td>
+</tr>
+<tr>
+<td align="center">$</td>
+<td align="center">文本的结尾</td>
+</tr>
+<tr>
+<td align="center">[[:&lt;:]]</td>
+<td align="center">词的开始</td>
+</tr>
+<tr>
+<td align="center">[[:&gt;:]]</td>
+<td align="center">词的结尾</td>
+</tr>
+</tbody></table>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> prod_name<br><span class="hljs-keyword">from</span> products<br><span class="hljs-keyword">where</span> prod_name REGEXP <span class="hljs-string">&#x27;^[0-9\\.]&#x27;</span><br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> prod_name;<br><span class="hljs-comment">-- 找出以数字（包含小数点）开头的数据</span><br></code></pre></td></tr></table></figure>
 
 <blockquote>
@@ -318,7 +430,7 @@
                     
                     
                       <a href="/2021/05/26/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%932/">
-                        <span class="hidden-mobile">《SQL必知必会》总结2</span>
+                        <span class="hidden-mobile">《SQL必知必会》学习总结2</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
