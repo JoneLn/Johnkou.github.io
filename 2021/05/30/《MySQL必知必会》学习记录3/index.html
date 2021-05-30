@@ -1,0 +1,518 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bg/bigimg.png">
+  <link rel="icon" href="/img/bg/bigimg.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+  <title>《MySQL必知必会》学习记录3 - JoneLn</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"joneln.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>JoneLn</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="《MySQL必知必会》学习记录3">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-05-30 10:34" pubdate>
+        2021年5月30日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      16
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">《MySQL必知必会》学习记录3</h1>
+            
+            <div class="markdown-body">
+              <h1 id="存储过程（存储程序）"><a href="#存储过程（存储程序）" class="headerlink" title="存储过程（存储程序）"></a>存储过程（存储程序）</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li>存储过程简单来说，就是为了以后的使用而保存的一条或多条MySQL语句的集合。可将其视为批处理文件，虽然他们的作用不仅限于批处理。</li>
+</ul>
+<h2 id="为什么使用存储过程？"><a href="#为什么使用存储过程？" class="headerlink" title="为什么使用存储过程？"></a>为什么使用存储过程？</h2><ul>
+<li>通过把处理封装在容易使用的单元中，简化复杂的操作；</li>
+<li>由于不要求反复建立一系列处理步骤，这保证了数据的完整性（所有开发人员使用同一代码，减少出错的机率）；</li>
+<li>简化对变动的管理（只需在存储过程中修改变动，使用人员甚至可能都不知道已经发生了改变）；</li>
+<li>提高性能（使用存储过程比单独使用SQL语句要更快）；</li>
+<li>简单而言就是：简单、安全、高性能。</li>
+</ul>
+<h2 id="创建存储过程"><a href="#创建存储过程" class="headerlink" title="创建存储过程"></a>创建存储过程</h2><p>存储过程有两种形式，一是没有参数的存储过程，一是包含参数的存储过程。具体形式见代码，及其后解读。</p>
+<p>无参数存储过程：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs SQL">delimiter <span class="hljs-operator">/</span><span class="hljs-operator">/</span><br><span class="hljs-keyword">create</span> <span class="hljs-keyword">procedure</span> product_avg_price()<br><span class="hljs-keyword">begin</span><br>	<span class="hljs-keyword">select</span> <span class="hljs-built_in">avg</span>(prod_price) <span class="hljs-keyword">as</span> priceaverage<br>    <span class="hljs-keyword">from</span> products;<br><span class="hljs-keyword">end</span><span class="hljs-operator">/</span><span class="hljs-operator">/</span><br>delimiter ；<br></code></pre></td></tr></table></figure>
+
+
+<p>有参数存储过程：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs SQL">delimiter <span class="hljs-operator">/</span><span class="hljs-operator">/</span><br><span class="hljs-keyword">create</span> <span class="hljs-keyword">procedure</span> productpricing(<br>	<span class="hljs-keyword">out</span> pl <span class="hljs-type">decimal</span>(<span class="hljs-number">8</span>,<span class="hljs-number">2</span>),<br>    <span class="hljs-keyword">out</span> ph <span class="hljs-type">decimal</span>(<span class="hljs-number">8</span>,<span class="hljs-number">2</span>),<br>    <span class="hljs-keyword">out</span> pa <span class="hljs-type">decimal</span>(<span class="hljs-number">8</span>,<span class="hljs-number">2</span>)<br>)<br><span class="hljs-keyword">begin</span><br>	<span class="hljs-keyword">select</span> <span class="hljs-built_in">min</span>(prod_price)<br>    <span class="hljs-keyword">into</span> pl<br>    <span class="hljs-keyword">from</span> products;<br>    <span class="hljs-keyword">select</span> <span class="hljs-built_in">max</span>(prod_price)<br>    <span class="hljs-keyword">INTO</span> ph<br>    <span class="hljs-keyword">from</span> products;<br>    <span class="hljs-keyword">select</span> <span class="hljs-built_in">avg</span>(prod_price)<br>	<span class="hljs-keyword">INTO</span> PA<br>    <span class="hljs-keyword">FROM</span> products;<br><span class="hljs-keyword">end</span><span class="hljs-operator">/</span><span class="hljs-operator">/</span><br>delimiter ；<br><br>delimiter <span class="hljs-operator">/</span><span class="hljs-operator">/</span><br><span class="hljs-keyword">create</span> <span class="hljs-keyword">procedure</span> ordertotal(<br>	<span class="hljs-keyword">IN</span> onumber <span class="hljs-type">INT</span>,<br>    <span class="hljs-keyword">OUT</span> ototal <span class="hljs-type">DECIMAL</span>(<span class="hljs-number">8</span>,<span class="hljs-number">2</span>)<br>)<br><span class="hljs-keyword">BEGIN</span><br>	<span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">sum</span>(item_price<span class="hljs-operator">*</span>quantity)<br>    <span class="hljs-keyword">FROM</span> orderitems<br>    <span class="hljs-keyword">where</span> order_num <span class="hljs-operator">=</span> onumber<br>    <span class="hljs-keyword">INTO</span> ototal;<br><span class="hljs-keyword">END</span><span class="hljs-operator">/</span><span class="hljs-operator">/</span><br>delimiter ;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>在MySQL WORKBENCH 中使用存储过程需要首先使用<code>DELIMITER</code>将分隔符从<code>;</code> 转换为<code>//</code>，以便在存储过程中存储<code>;</code>；</li>
+<li>在存储过程编写完毕后不要忘记将默认分隔符转换为<code>;</code>；</li>
+<li>关键字<code>OUT</code>指出相应的参数用来从存储过程传出一个值；MySQL还支持<code>IN</code>（传递给存储过程）和<code>ONOUT</code>（对存储过程传入和传出）类型的参数；</li>
+<li>存储过程写在<code>BEGIN</code>与<code>END</code>之间；</li>
+<li>无论是否需要使用参数，命名的存储过程后必须有<code>( )</code>，当使用参数时，将参数写入<code>( )</code>中；</li>
+<li>每个参数必须指定参数类型，本代码中制定为十进制类型。</li>
+</ul>
+<h2 id="使用存储过程"><a href="#使用存储过程" class="headerlink" title="使用存储过程"></a>使用存储过程</h2><p>对应上面两类型的存储过程，有两种存储过程使用类型。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-comment">-- 无参数类型：</span><br><span class="hljs-keyword">call</span> product_avg_price();<br><br><span class="hljs-comment">-- 有参数类型：</span><br><span class="hljs-keyword">call</span> productpricing(<span class="hljs-variable">@pricelow</span>,<br> 					<span class="hljs-variable">@procehigh</span>,<br>                    <span class="hljs-variable">@priceaverage</span>);<br><span class="hljs-keyword">select</span> <span class="hljs-variable">@pricelow</span>;<br><span class="hljs-comment">-- 有IN的参数类型</span><br><span class="hljs-keyword">call</span> ordertotal(<span class="hljs-number">20005</span>, <span class="hljs-variable">@ototal</span>);<br><span class="hljs-keyword">select</span> <span class="hljs-variable">@ototal</span>;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>没有参数的存储过程直接使用<code>CALL</code>语句加存储过程名就可以；</li>
+<li>对于包含<code>OUT</code>参数的存储过程，首先对各自参数命名一个对应的变量名；</li>
+<li><code>IN</code>参数代表需要向存储过程输入数据，因此需要先<code>IN</code>对应的输入参数数据和<code>OUT</code>对应的变量名。</li>
+<li>MySQL系统中所有的变量名必须以<code>@</code>开头。</li>
+</ul>
+<h2 id="删除存储过程"><a href="#删除存储过程" class="headerlink" title="删除存储过程"></a>删除存储过程</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">PROCEDURE</span> product_avg_price;<br><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">PROCEDURE</span> productpricing IF <span class="hljs-keyword">EXISTS</span>; <br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>删除存储过程不用在存储过程名后加<code>( )</code>;</li>
+<li>第一条代码是直接删除，如果该存储过程不存在，则系统会报错；</li>
+<li>第二条代码是仅当存在删除，如果不存在也不会产生错误。</li>
+</ul>
+<h2 id="建立智能存储过程"><a href="#建立智能存储过程" class="headerlink" title="建立智能存储过程"></a>建立智能存储过程</h2><p>至今为止使用的所有存储过程基本上都是封装MySQL简单的SELECT语句。虽然有效，但是效率或许甚至不如直接使用这些简单的SELECT语句。</p>
+<p>只有在存储过程内包含业务规则和智能处理时，存储过程的威力才能显示出来。</p>
+<p>考虑这个场景。你获得和以前一样的订单合计，但是需要对合计增加营业税，不过只针对某些客户。那么，你需要做下面几件事：</p>
+<ol>
+<li>获得合计（与以前一样）；</li>
+<li>把营业税有条件地添加到合计；</li>
+<li>返回合计（带或者不带税）。</li>
+</ol>
+<p>存储过程完整工作如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">drop</span> <span class="hljs-keyword">procedure</span> ordertotal;<br><span class="hljs-comment">-- 在之前已经创建该存储过程，需要先删除</span><br>DELIMITER <span class="hljs-operator">/</span><span class="hljs-operator">/</span><br><span class="hljs-comment">-- NAME: ordertotal</span><br><span class="hljs-comment">-- Parameters: onumber = order number</span><br><span class="hljs-comment">-- 				taxable = 0 if not taxable, 1 if tanable</span><br><span class="hljs-comment">-- 				ototal = order total variable</span><br><span class="hljs-comment">-- -----------------------------------------------------</span><br><span class="hljs-keyword">create</span> <span class="hljs-keyword">procedure</span> ordertotal(<br>	<span class="hljs-keyword">in</span> onumber <span class="hljs-type">int</span>,<br>    <span class="hljs-keyword">in</span> taxable <span class="hljs-type">boolean</span>,<br>    <span class="hljs-keyword">OUT</span> ototal <span class="hljs-type">decimal</span>(<span class="hljs-number">8</span>,<span class="hljs-number">2</span>)<br>)<br>comment<span class="hljs-string">&#x27;Obtain order total, optionally adding tax&#x27;</span><br><span class="hljs-keyword">BEGIN</span><br>	<span class="hljs-comment">-- declare variable for total</span><br>    <span class="hljs-keyword">DECLARE</span> total <span class="hljs-type">decimal</span>(<span class="hljs-number">8</span>,<span class="hljs-number">2</span>);<br>    <span class="hljs-comment">-- declare tax percentage</span><br>    <span class="hljs-keyword">declare</span> taxrate <span class="hljs-type">INT</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-number">6</span>;<br>    <br>    <span class="hljs-comment">-- Get the order total</span><br>    <span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">sum</span>(item_price<span class="hljs-operator">*</span>quantity)<br>    <span class="hljs-keyword">FROM</span> orderitems<br>    <span class="hljs-keyword">where</span> order_num <span class="hljs-operator">=</span> onumber<br>    <span class="hljs-keyword">INTO</span> total;<br>    <br>    <span class="hljs-comment">-- Is this taxable?</span><br>    IF taxable <span class="hljs-keyword">THEN</span><br>		<span class="hljs-keyword">select</span> total<span class="hljs-operator">+</span>(total<span class="hljs-operator">/</span><span class="hljs-number">100</span><span class="hljs-operator">*</span>taxrate) <span class="hljs-keyword">INTO</span> total;<br>	<span class="hljs-keyword">END</span> IF;<br>    <br>		<span class="hljs-comment">-- AND finally, save to out variable</span><br>        <span class="hljs-keyword">SELECT</span> total <span class="hljs-keyword">INTO</span> ototal;<br><span class="hljs-keyword">END</span><span class="hljs-operator">/</span><span class="hljs-operator">/</span><br>DELIMITER ;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>当代码复杂时，增加注释是一个好习惯。</li>
+<li>使用<code>DECLARE</code>定义局部变量。其中taxable为布尔值，taxrate为整数型且定义了默认值。</li>
+<li>IF语句检查taxable是否为真，若为真增加营业税。</li>
+<li><code>COMMENT</code>不是必须的，但如果给出将在<code>SHOW PROCEDURE STATUS</code>的结果中显示。</li>
+</ul>
+<p>那么该代码如何运行呢？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">CALL</span> ordertotal(<span class="hljs-number">20005</span>, <span class="hljs-number">1</span>, <span class="hljs-variable">@total</span>);<br><span class="hljs-keyword">select</span> <span class="hljs-variable">@total</span>;<br><br><span class="hljs-keyword">call</span> ordertotal(<span class="hljs-number">20005</span>, <span class="hljs-number">0</span>, <span class="hljs-variable">@total</span>);<br><span class="hljs-keyword">select</span> <span class="hljs-variable">@total</span>;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>taxable为<code>BOOLEAN</code>（布尔值），指定为0表示假，指定为1表示为真（实际上指定非零值都表示为真）</p>
+</blockquote>
+<h2 id="检查存储过程"><a href="#检查存储过程" class="headerlink" title="检查存储过程"></a>检查存储过程</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">procedure</span> ordertotal;<br></code></pre></td></tr></table></figure>
+
+<p>使用该命令可以查看该存储过程何时、由谁创建等详细信息。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">PROCEDURE</span> STATUS;<br></code></pre></td></tr></table></figure>
+
+<p>该代码可以列出所有存储过程。为限制其输出，可使用LIKE指定一个过滤模式，例如：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">PROCEDURE</span> STATUS <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&#x27;ordertotal&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>这是自学习SQL语言后遇到的第一章很难理解的章节，并不像其他章节一样看一遍，然后就可以输入了。</p>
+<p>尤其是最后一个例子需要再次好好研究研究。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/MySQL/">MySQL</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/29/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%952/">
+                        <span class="hidden-mobile">《MySQL必知必会》学习记录2</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
