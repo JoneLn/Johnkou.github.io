@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>《MySQL必知必会》学习记录4</title>
+    <link href="/2021/05/31/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954/"/>
+    <url>/2021/05/31/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954/</url>
+    
+    <content type="html"><![CDATA[<h1 id="游标"><a href="#游标" class="headerlink" title="游标"></a>游标</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>游标(cursor)是一个存储在MySQL服务器上的数据库查询，它并不是一条SELECT语句，而是被该语句检索出来的结果集。</p><p>在存储了游标之后，应用程序可以根据需要滚动或浏览其中的数据。</p><p>游标主要用于交互式应用，其中用户需要滚动屏幕上的数据，并对数据进行浏览或更改。</p><blockquote><p>MySQL游标只能用于存储过程和存储函数。</p></blockquote><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-comment">-- 在存储过程中创建游标</span><br>DELIMITER <span class="hljs-operator">/</span><span class="hljs-operator">/</span><br><span class="hljs-keyword">create</span> <span class="hljs-keyword">procedure</span> processorders()<br><span class="hljs-keyword">begin</span><br><span class="hljs-keyword">declare</span> ordernumbers <span class="hljs-keyword">cursor</span> <span class="hljs-keyword">for</span><br>    <span class="hljs-keyword">select</span> order_num <span class="hljs-keyword">from</span> orders;<br><br><span class="hljs-keyword">end</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span><br>DELIMITER ;<br><br><span class="hljs-comment">-- 删除该存储过程，以便重新创建</span><br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">procedure</span> processorders;<br><br><span class="hljs-comment">-- 在存储过程中创建以及使用游标</span><br>delimiter <span class="hljs-operator">/</span><span class="hljs-operator">/</span><br><span class="hljs-keyword">create</span> <span class="hljs-keyword">procedure</span> processorders()<br><span class="hljs-keyword">begin</span><br><br><span class="hljs-comment">-- declare local variables</span><br>    <span class="hljs-keyword">declare</span> o <span class="hljs-type">INT</span>;<br>    <br>    <span class="hljs-comment">-- declare the cursor</span><br>    <span class="hljs-keyword">declare</span> ordernumbers <span class="hljs-keyword">cursor</span> <span class="hljs-keyword">for</span><br>    <span class="hljs-keyword">select</span> order_num <span class="hljs-keyword">from</span> orders;<br>    <br>    <span class="hljs-comment">-- open the cursor</span><br>    <span class="hljs-keyword">open</span> ordernumbers;<br>    <br>    <span class="hljs-comment">-- get order number</span><br>    <span class="hljs-keyword">fetch</span> ordernumbers <span class="hljs-keyword">into</span> o;<br>    <br>    <span class="hljs-comment">-- close the cursor</span><br>    <span class="hljs-keyword">close</span> ordernumbers; <br><span class="hljs-keyword">end</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span><br>delimiter ;<br></code></pre></td></tr></table></figure><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>最后这几章就是又不常用又难理解的东西，先大致学习一下，等以后熟悉了基础再回来解决遗留问题。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>MySQL</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>《MySQL必知必会》学习记录3</title>
     <link href="/2021/05/30/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%953/"/>
     <url>/2021/05/30/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%953/</url>
