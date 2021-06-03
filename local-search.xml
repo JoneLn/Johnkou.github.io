@@ -4,7 +4,7 @@
   
   
   <entry>
-    <title>《MySQL必知必会》学习记录8</title>
+    <title>《MySQL必知必会》--安全管理</title>
     <link href="/2021/06/03/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%958/"/>
     <url>/2021/06/03/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%958/</url>
     
@@ -29,7 +29,7 @@
   
   
   <entry>
-    <title>《MySQL必知必会》学习记录7</title>
+    <title>《MySQL必知必会》--字符集和校对顺序</title>
     <link href="/2021/06/03/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%957/"/>
     <url>/2021/06/03/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%957/</url>
     
@@ -54,7 +54,7 @@
   
   
   <entry>
-    <title>《MySQL必知必会》学习记录6</title>
+    <title>《MySQL必知必会》--管理事务处理</title>
     <link href="/2021/06/02/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%956/"/>
     <url>/2021/06/02/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%956/</url>
     
@@ -79,20 +79,7 @@
   
   
   <entry>
-    <title></title>
-    <link href="/2021/06/01/text111/"/>
-    <url>/2021/06/01/text111/</url>
-    
-    <content type="html"><![CDATA[]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>《MySQL必知必会》学习记录5</title>
+    <title>《MySQL必知必会》--触发器</title>
     <link href="/2021/06/01/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%955/"/>
     <url>/2021/06/01/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%955/</url>
     
@@ -117,7 +104,7 @@
   
   
   <entry>
-    <title>《MySQL必知必会》学习记录4</title>
+    <title>《MySQL必知必会》--游标</title>
     <link href="/2021/05/31/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954/"/>
     <url>/2021/05/31/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954/</url>
     
@@ -142,7 +129,7 @@
   
   
   <entry>
-    <title>《MySQL必知必会》学习记录3</title>
+    <title>《MySQL必知必会》--存储过程</title>
     <link href="/2021/05/30/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%953/"/>
     <url>/2021/05/30/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%953/</url>
     
@@ -167,7 +154,7 @@
   
   
   <entry>
-    <title>《MySQL必知必会》学习记录2</title>
+    <title>《MySQL必知必会》--视图</title>
     <link href="/2021/05/29/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%952/"/>
     <url>/2021/05/29/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%952/</url>
     
@@ -192,7 +179,7 @@
   
   
   <entry>
-    <title>《MySQL必知必会》学习记录1</title>
+    <title>《MySQL必知必会》--正则表达式</title>
     <link href="/2021/05/27/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/"/>
     <url>/2021/05/27/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/</url>
     
@@ -267,7 +254,7 @@
   
   
   <entry>
-    <title>《SQL必知必会》学习记录17</title>
+    <title>《SQL必知必会》--创建和操纵表</title>
     <link href="/2021/05/24/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9517/"/>
     <url>/2021/05/24/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9517/</url>
     
@@ -292,7 +279,7 @@
   
   
   <entry>
-    <title>《SQL必知必会》学习记录16</title>
+    <title>《SQL必知必会》--更新和删除数据</title>
     <link href="/2021/05/23/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9516/"/>
     <url>/2021/05/23/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9516/</url>
     
@@ -317,7 +304,7 @@
   
   
   <entry>
-    <title>《SQL必知必会》学习记录15</title>
+    <title>《SQL必知必会》--插入数据</title>
     <link href="/2021/05/22/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9515/"/>
     <url>/2021/05/22/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9515/</url>
     
@@ -342,7 +329,7 @@
   
   
   <entry>
-    <title>《SQL必知必会》学习记录14</title>
+    <title>《SQL必知必会》--组合查询</title>
     <link href="/2021/05/21/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9514/"/>
     <url>/2021/05/21/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9514/</url>
     
@@ -367,7 +354,7 @@
   
   
   <entry>
-    <title>《SQL必知必会》学习记录13</title>
+    <title>《SQL必知必会》--高级联结</title>
     <link href="/2021/05/20/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9513/"/>
     <url>/2021/05/20/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9513/</url>
     
@@ -392,7 +379,7 @@
   
   
   <entry>
-    <title>《SQL必知必会》学习记录12</title>
+    <title>《SQL必知必会》--联结表</title>
     <link href="/2021/05/19/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9512/"/>
     <url>/2021/05/19/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9512/</url>
     
@@ -417,7 +404,7 @@
   
   
   <entry>
-    <title>《SQL必知必会》学习记录11</title>
+    <title>《SQL必知必会》--子查询</title>
     <link href="/2021/05/18/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9511/"/>
     <url>/2021/05/18/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9511/</url>
     
@@ -442,7 +429,7 @@
   
   
   <entry>
-    <title>《SQL必知必会》学习记录10</title>
+    <title>《SQL必知必会》--分组数据</title>
     <link href="/2021/05/17/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9510/"/>
     <url>/2021/05/17/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9510/</url>
     
@@ -467,7 +454,7 @@
   
   
   <entry>
-    <title>《SQL必知必会》学习记录9</title>
+    <title>《SQL必知必会》--汇总数据</title>
     <link href="/2021/05/16/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%959/"/>
     <url>/2021/05/16/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%959/</url>
     
@@ -492,7 +479,7 @@
   
   
   <entry>
-    <title>《SQL必知必会》学习记录8</title>
+    <title>《SQL必知必会》--函数</title>
     <link href="/2021/05/15/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%958/"/>
     <url>/2021/05/15/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%958/</url>
     
@@ -517,7 +504,7 @@
   
   
   <entry>
-    <title>《SQL必知必会》学习记录7</title>
+    <title>《SQL必知必会》--计算字段</title>
     <link href="/2021/05/14/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%957/"/>
     <url>/2021/05/14/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%957/</url>
     
@@ -542,7 +529,7 @@
   
   
   <entry>
-    <title>《SQL必知必会》学习记录6</title>
+    <title>《SQL必知必会》--通配符</title>
     <link href="/2021/05/13/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%956/"/>
     <url>/2021/05/13/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%956/</url>
     
@@ -567,7 +554,7 @@
   
   
   <entry>
-    <title>《SQL必知必会》学习记录5</title>
+    <title>《SQL必知必会》--高级数据过滤</title>
     <link href="/2021/05/12/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%955/"/>
     <url>/2021/05/12/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%955/</url>
     
@@ -592,7 +579,7 @@
   
   
   <entry>
-    <title>《SQL必知必会》学习记录4</title>
+    <title>《SQL必知必会》--过滤数据</title>
     <link href="/2021/05/12/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954/"/>
     <url>/2021/05/12/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954/</url>
     
@@ -617,7 +604,7 @@
   
   
   <entry>
-    <title>《SQL必知必会》学习记录3</title>
+    <title>《SQL必知必会》--排序检索数据</title>
     <link href="/2021/05/11/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%953/"/>
     <url>/2021/05/11/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%953/</url>
     
@@ -642,7 +629,7 @@
   
   
   <entry>
-    <title>《SQL必知必会》学习记录2</title>
+    <title>《SQL必知必会》--检索数据</title>
     <link href="/2021/05/11/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%952/"/>
     <url>/2021/05/11/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%952/</url>
     
@@ -667,7 +654,7 @@
   
   
   <entry>
-    <title>《SQL必知必会》学习记录1</title>
+    <title>《SQL必知必会》--了解SQL</title>
     <link href="/2021/05/11/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/"/>
     <url>/2021/05/11/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/</url>
     
