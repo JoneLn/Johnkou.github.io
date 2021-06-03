@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>《MySQL必知必会》学习记录7 - JoneLn</title>
+  <title>《MySQL必知必会》学习记录8 - JoneLn</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="《MySQL必知必会》学习记录7">
+            <span class="h2" id="subtitle" title="《MySQL必知必会》学习记录8">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-06-03 08:57" pubdate>
-        2021年6月3日 早上
+      <time datetime="2021-06-03 10:30" pubdate>
+        2021年6月3日 上午
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      287 字
+      660 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      8
        分钟
     </span>
   
@@ -225,24 +225,148 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">《MySQL必知必会》学习记录7</h1>
+            <h1 style="display: none">《MySQL必知必会》学习记录8</h1>
             
             <div class="markdown-body">
-              <h1 id="全球化和本地化"><a href="#全球化和本地化" class="headerlink" title="全球化和本地化"></a>全球化和本地化</h1><h2 id="字符集和校对顺序"><a href="#字符集和校对顺序" class="headerlink" title="字符集和校对顺序"></a>字符集和校对顺序</h2><p>数据库被用来存储和检索数据。不同的语言和字符需要以不同的方式存储和检索。<br>因此，MySQL需要适应不同的字符集（不同的字母和字符），适应不同的排序和检索数据的方法。</p>
+              <h1 id="安全管理"><a href="#安全管理" class="headerlink" title="安全管理"></a>安全管理</h1><p>数据库服务器通常包含关键的数据，确保这些数据的安全和完整需要利用访问控制。本章将学习MySQL的访问控制和用户管理。</p>
+<h2 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h2><p>针对不同需求人员，授予不同控制权限。</p>
+<p>在现实系统中，严肃使用root权限，仅在不得不使用时使用。</p>
+<h2 id="管理用户"><a href="#管理用户" class="headerlink" title="管理用户"></a>管理用户</h2><p>MySQL用户账号和信息存储在名为mysql的MySQL数据库中。一般不需要直接访问mysql数据库和表，但有时需要直接访问。</p>
+<p>比如需要获取所有用户账号列表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs SQL">USE mysql;<br><span class="hljs-keyword">select</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">user</span>;<br></code></pre></td></tr></table></figure>
+
+<h3 id="创建用户账号"><a href="#创建用户账号" class="headerlink" title="创建用户账号"></a>创建用户账号</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">USER</span> ben IDENTIFIED <span class="hljs-keyword">BY</span> <span class="hljs-string">&#x27;p@$$word&#x27;</span>;<br><span class="hljs-comment">-- 创建用户时不一定需要口令，但本代码用`IDENTIFIED BY`给出了一个口令</span><br>RENAME <span class="hljs-keyword">USER</span> ben <span class="hljs-keyword">TO</span> bforta;<br><span class="hljs-comment">-- 重命名用户名</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="删除用户账号"><a href="#删除用户账号" class="headerlink" title="删除用户账号"></a>删除用户账号</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">USER</span> bforta;<br></code></pre></td></tr></table></figure>
+
+<h3 id="设置访问权限"><a href="#设置访问权限" class="headerlink" title="设置访问权限"></a>设置访问权限</h3><p>在创建用户账号后，必须接着分配访问权限。新创建的用户账号没有访问权限。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">SHOW</span> GRANTS <span class="hljs-keyword">FOR</span> bforta;<br><span class="hljs-comment">-- 现实用户当前所具有的权限</span><br><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">ON</span> mustknow.<span class="hljs-operator">*</span> <span class="hljs-keyword">TO</span> bforta;<br><span class="hljs-comment">-- 授予bforta对数据库mustknow中所有表的查看的权限</span><br><span class="hljs-keyword">REVOKE</span> <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">ON</span> mustknow.<span class="hljs-operator">*</span> <span class="hljs-keyword">TO</span> bforta;<br><span class="hljs-comment">-- 取消授予bforta对数据库mustknow中所有表的查看的权限</span><br></code></pre></td></tr></table></figure>
+
+<p><code>GRANT</code>和<code>REVOKE</code>可在几个层次上控制访问权限：</p>
 <ul>
-<li>字符集为字母和符号的集合；</li>
-<li>编码为某个字符集成员的内部集合；</li>
-<li>校对为规定字符如何比较的指令。</li>
+<li>整个服务器—-GRANT ALL//REVOKE ALL;</li>
+<li>整个数据库—-(GRANT/REVOKE) ON database.*;</li>
+<li>特定的表—-(GRANT/REVOKE) ON database.table;</li>
+<li>特定的列;</li>
+<li>特定的存储过程。</li>
 </ul>
-<h2 id="使用字符集和校对顺序"><a href="#使用字符集和校对顺序" class="headerlink" title="使用字符集和校对顺序"></a>使用字符集和校对顺序</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">SHOW</span> <span class="hljs-type">CHARACTER</span> <span class="hljs-keyword">SET</span>;<br><span class="hljs-comment">-- 显示所有可用的字符集以及每个字符集的描述和默认校对。</span><br></code></pre></td></tr></table></figure>
+<p>下面列出可以授予或撤销的权限</p>
+<table>
+<thead>
+<tr>
+<th align="center">权限</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ALL</td>
+<td align="center">除GRANT OPTION外的所有权限</td>
+</tr>
+<tr>
+<td align="center">ALTER</td>
+<td align="center">使用ALTER TABLE</td>
+</tr>
+<tr>
+<td align="center">ALTER ROUTINE</td>
+<td align="center">使用ALTER PROCEDURE 和DROP PROCEDURE</td>
+</tr>
+<tr>
+<td align="center">CREATE</td>
+<td align="center">使用CREATE TABLE</td>
+</tr>
+<tr>
+<td align="center">CREATE ROUTINE</td>
+<td align="center">使用CREATE ROUTINE</td>
+</tr>
+<tr>
+<td align="center">CREATE TEMPORARY TABLES</td>
+<td align="center">使用CREATE TEMPORARY TABLE</td>
+</tr>
+<tr>
+<td align="center">CREATE USER</td>
+<td align="center">使用CREATE USER, DROP USER, RENAME USER, REVOKE ALL PRIVILEGES</td>
+</tr>
+<tr>
+<td align="center">CREATE VIEW</td>
+<td align="center">使用CREATE VIEW</td>
+</tr>
+<tr>
+<td align="center">DELETE</td>
+<td align="center">使用DELETE</td>
+</tr>
+<tr>
+<td align="center">DROP</td>
+<td align="center">使用DROP TABLE</td>
+</tr>
+<tr>
+<td align="center">EXECUTE</td>
+<td align="center">使用CALL和存储过程</td>
+</tr>
+<tr>
+<td align="center">FILE</td>
+<td align="center">使用SELECT INTO OUTFILE 和LOAD DATA INFILE</td>
+</tr>
+<tr>
+<td align="center">GRANT OPTION</td>
+<td align="center">使用GRANT和REVOKE</td>
+</tr>
+<tr>
+<td align="center">INSERT</td>
+<td align="center">使用INSERT</td>
+</tr>
+<tr>
+<td align="center">LOCK TABLES</td>
+<td align="center">使用LOCK TABLES</td>
+</tr>
+<tr>
+<td align="center">PROCESS</td>
+<td align="center">使用SHOW FULL PROCESSLIST</td>
+</tr>
+<tr>
+<td align="center">RELOAD</td>
+<td align="center">使用FLUSH</td>
+</tr>
+<tr>
+<td align="center">REPLICATION CLIENT</td>
+<td align="center">服务器位置的访问</td>
+</tr>
+<tr>
+<td align="center">REPLICATION SLAVE</td>
+<td align="center">由复制从属关系</td>
+</tr>
+<tr>
+<td align="center">SELECT</td>
+<td align="center">使用SELECT</td>
+</tr>
+<tr>
+<td align="center">SHOW DATABASES</td>
+<td align="center">使用SHOW DATABASES</td>
+</tr>
+<tr>
+<td align="center">SHOW VIEW</td>
+<td align="center">使用SHOW CREATE VIEW</td>
+</tr>
+<tr>
+<td align="center">SHUTDOWN</td>
+<td align="center">使用mysqladmin shutdown(用来关闭MySQL)</td>
+</tr>
+<tr>
+<td align="center">SUPER</td>
+<td align="center">使用CHANGE MASTER, KILL, LOGS, PURGE, MASTER和SET GLOBAL。还允许mysqladmin调试登录</td>
+</tr>
+<tr>
+<td align="center">UPDATE</td>
+<td align="center">使用UPDATE</td>
+</tr>
+<tr>
+<td align="center">USAGE</td>
+<td align="center">无访问权限</td>
+</tr>
+</tbody></table>
+<h3 id="更改口令"><a href="#更改口令" class="headerlink" title="更改口令"></a>更改口令</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">SET</span> PASSWORD <span class="hljs-keyword">FOR</span> bforta <span class="hljs-operator">=</span> Password(<span class="hljs-string">&#x27;n3w p@$$w0rd&#x27;</span>);<br><span class="hljs-comment">-- 更新用户口令</span><br><span class="hljs-keyword">SET</span> PASSWORD <span class="hljs-operator">=</span> Password(<span class="hljs-string">&#x27;joneln&#x27;</span>);<br><span class="hljs-comment">-- 更改自己的口令</span><br></code></pre></td></tr></table></figure>
 
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">COLLATION</span>;<br><span class="hljs-comment">-- 显示所有可用的校对，以及它们适用的字符集。</span><br></code></pre></td></tr></table></figure>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>对于管理MySQL还是很重要的。而且在权限中可以发现，还有一些自己目前没有接触过的指令。</p>
 
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> mytable<br>(   column1    <span class="hljs-type">INT</span>,<br>    column2    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">10</span>)<br>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-type">CHARACTER</span> <span class="hljs-keyword">SET</span> hebrew<br>  <span class="hljs-keyword">COLLATE</span> hebrew_general_ci;<br><br><span class="hljs-comment">-- 创建包含两列的表，并且指定一个字符集和一个校对顺序。</span><br><span class="hljs-comment">-- 如不指定，则系统默认。</span><br></code></pre></td></tr></table></figure>
-
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> mytable<br>(<br>        column1    <span class="hljs-type">INT</span>,<br>        column2    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">10</span>),<br>        column3    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">10</span>) <span class="hljs-type">CHARACTER</span> <span class="hljs-keyword">SET</span> latin1 <span class="hljs-keyword">COLLATE</span> latin1_general_ci<br>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-type">CHARACTER</span> <span class="hljs-keyword">SET</span> hebrew<br>  <span class="hljs-keyword">COLLATE</span> hebrew_general_ci;<br><br><span class="hljs-comment">-- 在column3处指定区分大小写</span><br></code></pre></td></tr></table></figure>
-
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> customers<br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> last_name,first_name <span class="hljs-keyword">COLLATE</span> latin1_general_cs;<br><br><span class="hljs-comment">-- 指定检索结果校对顺序区分大小写。</span><br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -276,18 +400,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/06/03/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%958/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">《MySQL必知必会》学习记录8</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/06/02/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%956/">
-                        <span class="hidden-mobile">《MySQL必知必会》学习记录6</span>
+                      <a href="/2021/06/03/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%957/">
+                        <span class="hidden-mobile">《MySQL必知必会》学习记录7</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
