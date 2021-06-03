@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>《MySQL必知必会》学习记录7</title>
+    <link href="/2021/06/03/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%957/"/>
+    <url>/2021/06/03/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%957/</url>
+    
+    <content type="html"><![CDATA[<h1 id="全球化和本地化"><a href="#全球化和本地化" class="headerlink" title="全球化和本地化"></a>全球化和本地化</h1><h2 id="字符集和校对顺序"><a href="#字符集和校对顺序" class="headerlink" title="字符集和校对顺序"></a>字符集和校对顺序</h2><p>数据库被用来存储和检索数据。不同的语言和字符需要以不同的方式存储和检索。<br>因此，MySQL需要适应不同的字符集（不同的字母和字符），适应不同的排序和检索数据的方法。</p><ul><li>字符集为字母和符号的集合；</li><li>编码为某个字符集成员的内部集合；</li><li>校对为规定字符如何比较的指令。</li></ul><h2 id="使用字符集和校对顺序"><a href="#使用字符集和校对顺序" class="headerlink" title="使用字符集和校对顺序"></a>使用字符集和校对顺序</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">SHOW</span> <span class="hljs-type">CHARACTER</span> <span class="hljs-keyword">SET</span>;<br><span class="hljs-comment">-- 显示所有可用的字符集以及每个字符集的描述和默认校对。</span><br></code></pre></td></tr></table></figure><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">COLLATION</span>;<br><span class="hljs-comment">-- 显示所有可用的校对，以及它们适用的字符集。</span><br></code></pre></td></tr></table></figure><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> mytable<br>(   column1    <span class="hljs-type">INT</span>,<br>    column2    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">10</span>)<br>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-type">CHARACTER</span> <span class="hljs-keyword">SET</span> hebrew<br>  <span class="hljs-keyword">COLLATE</span> hebrew_general_ci;<br><br><span class="hljs-comment">-- 创建包含两列的表，并且指定一个字符集和一个校对顺序。</span><br><span class="hljs-comment">-- 如不指定，则系统默认。</span><br></code></pre></td></tr></table></figure><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> mytable<br>(<br>        column1    <span class="hljs-type">INT</span>,<br>        column2    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">10</span>),<br>        column3    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">10</span>) <span class="hljs-type">CHARACTER</span> <span class="hljs-keyword">SET</span> latin1 <span class="hljs-keyword">COLLATE</span> latin1_general_ci<br>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-type">CHARACTER</span> <span class="hljs-keyword">SET</span> hebrew<br>  <span class="hljs-keyword">COLLATE</span> hebrew_general_ci;<br><br><span class="hljs-comment">-- 在column3处指定区分大小写</span><br></code></pre></td></tr></table></figure><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> customers<br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> last_name,first_name <span class="hljs-keyword">COLLATE</span> latin1_general_cs;<br><br><span class="hljs-comment">-- 指定检索结果校对顺序区分大小写。</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>MySQL</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>《MySQL必知必会》学习记录6</title>
     <link href="/2021/06/02/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%956/"/>
     <url>/2021/06/02/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%956/</url>
