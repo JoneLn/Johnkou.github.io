@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>《MySQL必知必会》--管理事务处理 - JoneLn</title>
+  <title>《MySQL必知必会》--触发器 - JoneLn</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="《MySQL必知必会》--管理事务处理">
+            <span class="h2" id="subtitle" title="《MySQL必知必会》--触发器">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-06-02 14:55" pubdate>
-        2021年6月2日 下午
+      <time datetime="2021-06-01 09:40" pubdate>
+        2021年6月1日 上午
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      184 字
+      932 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      10
        分钟
     </span>
   
@@ -225,22 +225,76 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">《MySQL必知必会》--管理事务处理</h1>
+            <h1 style="display: none">《MySQL必知必会》--触发器</h1>
             
             <div class="markdown-body">
-              <h1 id="管理事务处理"><a href="#管理事务处理" class="headerlink" title="管理事务处理"></a>管理事务处理</h1><p>事务处理（transanction processing）可以用来维护数据库的完整性，它保证成批的MySQL操作要么完全执行，要么完全不执行。</p>
-<h2 id="ROLLBACK撤销"><a href="#ROLLBACK撤销" class="headerlink" title="ROLLBACK撤销"></a>ROLLBACK撤销</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> ordertotals;<br><span class="hljs-keyword">start</span> transaction<br><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> ordertotals;<br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> ordertotals;<br><span class="hljs-keyword">rollback</span>;<br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> ordertotals;<br></code></pre></td></tr></table></figure>
-
-<h2 id="COMMIT提交"><a href="#COMMIT提交" class="headerlink" title="COMMIT提交"></a>COMMIT提交</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">start</span> transaction;<br><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> orderitems <span class="hljs-keyword">where</span> order_num <span class="hljs-operator">=</span> <span class="hljs-number">20010</span>;<br><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> orders <span class="hljs-keyword">where</span> order_num <span class="hljs-operator">=</span> <span class="hljs-number">20010</span>;<br><span class="hljs-keyword">commit</span>; <br></code></pre></td></tr></table></figure>
-
+              <h1 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h1><h2 id="什么是触发器"><a href="#什么是触发器" class="headerlink" title="什么是触发器"></a>什么是触发器</h2><p>在学习本章之前，所有的SQL命令都是在需要时被我们主动执行。</p>
+<p>而触发器便是让某条命令在特定时间发生时自动执行，具体来讲就是在某个表发生更改时自动处理。</p>
+<p>触发器是响应以下任意语句而自动执行的一条MySQL语句（或位于BEGIN和END语句之间的一组语句）：</p>
 <ul>
-<li>只有两个DELETE都操作成功，该删除命令才会执行，否则都不执行。</li>
+<li>DELETE</li>
+<li>INSERT</li>
+<li>UPDATE</li>
 </ul>
-<h2 id="SAVEPOINT保留点"><a href="#SAVEPOINT保留点" class="headerlink" title="SAVEPOINT保留点"></a>SAVEPOINT保留点</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">savepoint</span> delete1;<br><span class="hljs-comment">-- 设置保留点</span><br><span class="hljs-keyword">rollback</span> <span class="hljs-keyword">to</span> dalete1;<br><span class="hljs-comment">-- 撤销回退到该保留点</span><br></code></pre></td></tr></table></figure>
+<p>其他MySQL语句不支持触发器。</p>
+<h2 id="创建触发器"><a href="#创建触发器" class="headerlink" title="创建触发器"></a>创建触发器</h2><p>在创建触发器时，需要给出4条信息：</p>
+<ul>
+<li>唯一的触发器名；</li>
+<li>触发器关联的表；</li>
+<li>触发器应该响应的活动 (DELETE、INSERT或UPDATE)；</li>
+<li>触发器何时执行（处理之前或之后）。</li>
+</ul>
+<p>创建触发器命令示例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TRIGGER</span> newproduct AFTER <span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">ON</span> products<br><span class="hljs-keyword">FOR</span> <span class="hljs-keyword">EACH</span> <span class="hljs-type">ROW</span> <span class="hljs-keyword">SELECT</span> <span class="hljs-string">&#x27;Product added&#x27;</span>;<br></code></pre></td></tr></table></figure>
 
-<h2 id="更改默认提交行为"><a href="#更改默认提交行为" class="headerlink" title="更改默认提交行为"></a>更改默认提交行为</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">SET</span> autocommit <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><span class="hljs-comment">-- 关闭默认提交行为，需使用commit进行手动提交；</span><br><span class="hljs-keyword">SET</span> autocommit <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><span class="hljs-comment">-- 开启默认提交。</span><br></code></pre></td></tr></table></figure>
+<p>示例分析：</p>
+<blockquote>
+<p>CREATE TRIGGER 用来创建新的触发器；<br>指定触发器触发事件：INSERT\DELETE\UPDATE；<br>指定在事件发生之前还是之后触发：AFTER\BEFORE；<br>这个触发器还指定了<code>FOR EACH ROW</code>因此代码对每个插入行执行；<br>该触发器的含义为，每当products表输入新的记录后，显示<code>Product added</code>。</p>
+</blockquote>
+<ul>
+<li>只有表才支持触发器，视图和临时表不支持；</li>
+<li>每张表最多支持6个触发器：[AFTER\BEFORE][INSERT\DELETE\UPDATE]；</li>
+<li>单一触发器不能与多个事件或多个表关联（一个触发器对应一个事件）</li>
+</ul>
+<h2 id="删除触发器"><a href="#删除触发器" class="headerlink" title="删除触发器"></a>删除触发器</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TRIGGER</span> newproduct;<br></code></pre></td></tr></table></figure>
 
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>就先这样吧，以后刷题的时候再深入学习。</p>
+<p>触发器不能更新或覆盖，为了修改一个触发器必须先删除它。</p>
+<h2 id="使用触发器"><a href="#使用触发器" class="headerlink" title="使用触发器"></a>使用触发器</h2><h3 id="INSERT-触发器"><a href="#INSERT-触发器" class="headerlink" title="INSERT 触发器"></a>INSERT 触发器</h3><p>INSERT 触发器在 INSERT 语句执行之前或之后执行。需要知道以下几点：</p>
+<ul>
+<li>在<code>INSERT</code>触发器代码内，可引用一个名为<code>NEW</code>的虚拟表，访问被插入的行；</li>
+<li>在<code>BEFORE INSERT</code>触发器中，<code>NEW</code>中的值也可以被更新（允许更改被插入的值）；</li>
+<li>对于AUTO_INCREMENT列，<code>NEW</code>在<code>INSERT</code>执行之前包含0，在执行之后包含新的自动生成值。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TRIGGER</span> neworder AFTER <span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">ON</span> orders<br><span class="hljs-keyword">FOR</span> <span class="hljs-keyword">EACH</span> <span class="hljs-type">ROW</span> <span class="hljs-keyword">SELECT</span> NEW.order_num;<br></code></pre></td></tr></table></figure>
+
+<p>分析：</p>
+<blockquote>
+<p>创建名为 neworder 触发器；<br>在 INSERT 之后执行；<br>每次插入新纪录自动生成 order_num。</p>
+</blockquote>
+<h3 id="DELETE-触发器"><a href="#DELETE-触发器" class="headerlink" title="DELETE 触发器"></a>DELETE 触发器</h3><p>DELETE 触发器在 DELETE 语句执行之前或之后执行。需要知道以下几点：</p>
+<ul>
+<li>在<code>DELETE</code>触发器代码内，你可以引用一个名为<code>OLD</code>的虚拟表，访问被删除的行；</li>
+<li><code>OLD</code>中的值全是只读的，不能更新。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs SQL">DELIMITER <span class="hljs-operator">/</span><span class="hljs-operator">/</span><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TRIGGER</span> deleteorder BEFORE <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">ON</span> orders<br><span class="hljs-keyword">FOR</span> <span class="hljs-keyword">EACH</span> <span class="hljs-type">ROW</span><br><span class="hljs-keyword">BEGIN</span><br>    <span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> archive_orders(order_num, order_date, cust_id)<br>    <span class="hljs-keyword">VALUES</span>(OLD.order_num, OLD.order_date, OLD.cust_id);<br><span class="hljs-keyword">END</span><span class="hljs-operator">/</span><span class="hljs-operator">/</span><br>DELIMITER ;<br></code></pre></td></tr></table></figure>
+
+<p>分析：</p>
+<blockquote>
+<p>在订单被删除前执行此触发器；<br>OLD虚拟表中暂时保存将要被删除的记录；<br>在执行该命令之前需要首先创建一个名为<code>archive_orders</code>的表格，在执行该命令时，触发器将会把被删除的数据备份到该表中。</p>
+</blockquote>
+<h3 id="UPDATE-触发器"><a href="#UPDATE-触发器" class="headerlink" title="UPDATE 触发器"></a>UPDATE 触发器</h3><p>UPDATE 触发器在 UPDATE 语句执行之前或之后执行。需要知道以下几点：</p>
+<ul>
+<li>在<code>UPDATE</code>触发器代码内，你可以引用一个名为<code>OLD</code>的虚拟表访问以前(UPDATE之前)的值，引用一个名为<code>NEW</code>的虚拟表访问新更新的值；</li>
+<li>在<code>BEFORE UPDATE</code>触发器中，<code>NEW</code>中的值也可能被更新（允许更改将要用于 UPDATE 语句中的值）；</li>
+<li><code>OLD</code>中的值全部是只读的，不可以更新。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TRIGGER</span> updatevendor BEFORE UPDATE <span class="hljs-keyword">ON</span> vendors<br><span class="hljs-keyword">FOR</span> <span class="hljs-keyword">EACH</span> <span class="hljs-type">ROW</span><br><span class="hljs-keyword">SET</span> NEW.vend_state <span class="hljs-operator">=</span> <span class="hljs-built_in">Upper</span>(NEW.vend_state);<br></code></pre></td></tr></table></figure>
+
+<p>分析：<br>大致与上述示例相同，只不过该触发器的作用是在更新vend_state时将其首字母大写。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>MySQL可以支持的触发器功能有限，但是单单这些也挺有用的。</p>
 
             </div>
             <hr>
@@ -275,9 +329,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/06/03/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%957/">
+                      <a href="/2021/06/02/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%956/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">《MySQL必知必会》--字符集和校对顺序</span>
+                        <span class="hidden-mobile">《MySQL必知必会》--管理事务处理</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -285,8 +339,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/06/01/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%955/">
-                        <span class="hidden-mobile">《MySQL必知必会》--触发器</span>
+                      <a href="/2021/05/31/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954/">
+                        <span class="hidden-mobile">《MySQL必知必会》--游标</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
