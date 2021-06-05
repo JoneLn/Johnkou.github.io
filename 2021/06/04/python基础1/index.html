@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>《MySQL必知必会》--改善性能 - JoneLn</title>
+  <title>python基础1 - JoneLn</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="《MySQL必知必会》--改善性能">
+            <span class="h2" id="subtitle" title="python基础1">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-06-04 08:59" pubdate>
-        2021年6月4日 早上
+      <time datetime="2021-06-04 15:36" pubdate>
+        2021年6月4日 下午
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      419 字
+      438 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      5
        分钟
     </span>
   
@@ -225,26 +225,30 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">《MySQL必知必会》--改善性能</h1>
+            <h1 style="display: none">python基础1</h1>
             
             <div class="markdown-body">
-              <h1 id="回顾复习提出要点"><a href="#回顾复习提出要点" class="headerlink" title="回顾复习提出要点"></a>回顾复习提出要点</h1><ul>
-<li>首先，接受硬件建议。</li>
-<li>一般来说，关键的生产DBMS应该运行在自己的专用服务器上。</li>
-<li>MySQL是用一系列的默认设置预先配置的，从这些设置开始通常是很好的。但是过一段时间你可能需要调整内存分配、缓冲区大小等（为查看当前设置，可使用<code>SHOW VARIABLES;</code>和<code>SHOW STATUS</code>）。</li>
-<li>MySQL是一个多用户多线程的DBMS，换言之，它经常同时执行多个任务。一个执行缓慢，降低所有执行。若遇显著性能不良，可使用<code>SHOW PROCESSLIST</code>显示所有活动进程，然后用<code>KILL</code>命令终结某个特定进程。</li>
-<li>总是有布置一种方法编写同一条<code>SELECT</code>语句。应该实验联结、并、子查询等，找出最佳方法。</li>
-<li>使用EXPLAIN语句让MySQL解释它将如何执行一条SELECT语句。</li>
-<li>一般来说，存储过程执行得比一条一条地执行其中各条MySQL语句快。</li>
-<li>应该总是使用正确的数据类型</li>
-<li>决不要检索比需求还要多的数据。谨慎使用<code>SELECT *</code>。</li>
-<li>有的操作（包括INSERT）支持一个可选的<code>DELAYED</code>关键字，如果使用它，将把控制立即返回给调用程序，并且一旦有可能就实际执行该操作。</li>
-<li>在导入数据时，应该关闭自动提交。</li>
-<li>必须索引数据库表以改善数据检索的性能。</li>
-<li>拒绝过度使用<code>OR</code>条件，可用<code>UNION</code>代替。</li>
-<li>LIKE很慢，最好使用FULLTEXT。</li>
-<li>最重要的规则就是，每条规则在某些条件下都会被打破。</li>
+              <h1 id="变量和简单的数据类型"><a href="#变量和简单的数据类型" class="headerlink" title="变量和简单的数据类型"></a>变量和简单的数据类型</h1><p>第一章本来应讲Python的安装，但是由于本人已经用过一段时间了，因此安装就不讲了。只是稍微提一句ANACONDA。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs PYTHON"><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Hello world!&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs PYTHON">message = <span class="hljs-string">&quot;Hello world!&quot;</span><br><span class="hljs-built_in">print</span>(message)<br></code></pre></td></tr></table></figure>
+
+<p>我们添加了一个名为message的变量。每个变量都存储了一个值–与变量相关联的信息。</p>
+<ul>
+<li>在程序中可以随时修改变量的值，而Python将始终记录变量的最新值；</li>
+<li>变量名只能包含字母、数字和下划线，且不能以数字开头。尽量使用小写字母；</li>
 </ul>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>字符串就是一系列字符。在python中用引号括起来的都是字符串，其中引号可以是单引号也可以是双引号。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python">name0 = <span class="hljs-string">&#x27;Johnkou London&#x27;</span><br>name1 = <span class="hljs-string">&quot;Jone Ln&quot;</span><br>message0 = <span class="hljs-string">&#x27;&quot;Hi!&quot;,she told to me.&#x27;</span><br>message1 = <span class="hljs-string">&quot;we&#x27;re the world&quot;</span><br>message = name0 + <span class="hljs-string">&quot;:&quot;</span> + message0<br><br><span class="hljs-built_in">print</span>(name0.title())  <span class="hljs-comment">#首字母大写</span><br><span class="hljs-built_in">print</span>(message0.upper())  <span class="hljs-comment">#字符串全部大写</span><br><span class="hljs-built_in">print</span>(message1.lower())  <span class="hljs-comment">#字符串全部小写</span><br><br><span class="hljs-built_in">print</span>(name0 + <span class="hljs-string">&quot;:&quot;</span> + message)    <span class="hljs-comment">#字段拼接</span><br><span class="hljs-built_in">print</span>(message)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;python&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\tpython&quot;</span>)   <span class="hljs-comment"># \t 制表符 空两格</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;I\nLove\nPython&quot;</span>)   <span class="hljs-comment"># \n 换行符 换行</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;You know:\n\tI love Python&quot;</span>)<br><br>language = <span class="hljs-string">&quot; python &quot;</span>   <span class="hljs-comment">#左右都有空白格</span><br><span class="hljs-built_in">print</span>(language.rstrip())  <span class="hljs-comment">#去除右边末尾空格</span><br><span class="hljs-built_in">print</span>(language.lstrip())    <span class="hljs-comment">#去除左边开头空格</span><br><br>language = <span class="hljs-string">&quot; python &quot;</span> <br>language = language.rstrip()    <br>language = language.lstrip()<br><span class="hljs-built_in">print</span>(language)<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h2><blockquote>
+<p>整数、浮点数、以及数字转字符<br>+加、-减、*乘、/除、**乘方</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs PYTHON">age = <span class="hljs-number">23</span><br>message = <span class="hljs-string">&quot;Happy &quot;</span> + age + <span class="hljs-string">&quot;rd Birthday&quot;</span> <br><span class="hljs-comment"># 这是错误的，会报错。</span><br><br>age = <span class="hljs-number">23</span><br>message = <span class="hljs-string">&quot;Happy &quot;</span> + <span class="hljs-built_in">str</span>(age) + <span class="hljs-string">&quot;rd Birthday&quot;</span> <br><span class="hljs-comment"># str() 将数据转化为字符串</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs PYTHON"><span class="hljs-comment"># 第一种注释方法</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">第二种注释</span><br><span class="hljs-string">多行注释</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br></code></pre></td></tr></table></figure>
+
 
             </div>
             <hr>
@@ -254,7 +258,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/MySQL/">MySQL</a>
+                      <a class="hover-with-bg" href="/categories/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
                     
                   </div>
                 
@@ -262,7 +266,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
                     
                   </div>
                 
@@ -279,9 +283,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/06/04/python%E5%9F%BA%E7%A1%801/">
+                      <a href="/2021/06/05/python%E5%9F%BA%E7%A1%802/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">python基础1</span>
+                        <span class="hidden-mobile">python基础2</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -289,8 +293,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/06/04/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%959/">
-                        <span class="hidden-mobile">《MySQL必知必会》--数据库维护</span>
+                      <a href="/2021/06/04/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9510/">
+                        <span class="hidden-mobile">《MySQL必知必会》--改善性能</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
