@@ -1,0 +1,502 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bg/bigimg.png">
+  <link rel="icon" href="/img/bg/bigimg.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+  <title>python基础6 - JoneLn</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"joneln.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>JoneLn</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="python基础6">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-06-08 09:42" pubdate>
+        2021年6月8日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      18
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">python基础6</h1>
+            
+            <div class="markdown-body">
+              <h1 id="用户输入和while循环"><a href="#用户输入和while循环" class="headerlink" title="用户输入和while循环"></a>用户输入和while循环</h1><h2 id="用户输入"><a href="#用户输入" class="headerlink" title="用户输入"></a>用户输入</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">name = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;your name:&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hi, &quot;</span> + name + <span class="hljs-string">&quot;!&quot;</span>)<br>--------------------------<br>your name: john <span class="hljs-comment">#(这里需要自己输入)</span><br>Hi john!<br></code></pre></td></tr></table></figure>
+
+<p><code>input()</code>在刚开始学习python时就在使用了，不再多讲。</p>
+<p>如果需要输入的如 age 之类的数值，input函数会自动转换为字符串，<br>需要使用<code>int()</code>函数转换为数值。</p>
+<h2 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h2><p>一般来说，循环有两类：for循环和while循环。判断语句就是if判断。</p>
+<p>for循环以及其与if判断的结合，我们已经讲过并且一直在使用。</p>
+<p>本章介绍while循环，及其适用场景。</p>
+<h3 id="基础循环"><a href="#基础循环" class="headerlink" title="基础循环"></a>基础循环</h3><p>while循环的含义为直到不满足其后的条件，结束循环。第一个不满足条件的值不进入循环。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">current_num = <span class="hljs-number">1</span><br><br><span class="hljs-keyword">while</span> current_num &lt;= <span class="hljs-number">5</span>:<br>    <span class="hljs-built_in">print</span>(current_num)<br>    current_num += <span class="hljs-number">1</span> <br>    <span class="hljs-comment"># current_num = current_num + 1</span><br><span class="hljs-comment">#----------------------------------</span><br><span class="hljs-number">1</span><br><span class="hljs-number">2</span><br><span class="hljs-number">3</span><br><span class="hljs-number">4</span><br><span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">tip1 = <span class="hljs-string">&#x27;what you sade, what I say&#x27;</span><br>tip1 += <span class="hljs-string">&#x27;\nif you want to leave, enter &quot;quit&quot;&#x27;</span><br><br>mess = <span class="hljs-string">&quot;&quot;</span><br><span class="hljs-keyword">while</span> mess != <span class="hljs-string">&#x27;quit&#x27;</span>:<br>    mess = <span class="hljs-built_in">input</span>(tip1)<br><br>    <span class="hljs-keyword">if</span> mess != <span class="hljs-string">&#x27;quit&#x27;</span>:<br>        <span class="hljs-built_in">print</span>(mess)<br></code></pre></td></tr></table></figure>
+
+<p>这里面有一些小细节：</p>
+<ul>
+<li><code>+=</code>代表的含义，将自己与其后的数据相加并重新赋值给自己</li>
+<li>首先定义一个变量才能进入循环，即使这个变量是个空字符串</li>
+<li>在很多情况下<code>!=</code>比<code>=</code>用的还要多 </li>
+</ul>
+<h3 id="使用标志-active"><a href="#使用标志-active" class="headerlink" title="使用标志(active)"></a>使用标志(active)</h3><p>在要求很多条件都满足才继续运行的程序中，可定义一个变量，用于判断整个程序是否出活动状态。这个变量被称作<strong>标志</strong>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 自己编写标志</span><br>message = <span class="hljs-string">&quot; &quot;</span><br><br><span class="hljs-keyword">if</span> message != <span class="hljs-string">&quot;quit&quot;</span>:<br>    active = <span class="hljs-literal">True</span><br><br><span class="hljs-keyword">while</span> active:<br>    message = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;your name:&quot;</span>)<br><br>    <span class="hljs-keyword">if</span> message != <span class="hljs-string">&quot;quit&quot;</span>:<br>        <span class="hljs-built_in">print</span>(message)<br>    <br>    <span class="hljs-keyword">else</span>: <span class="hljs-comment"># 这是后来添加的，否则进入无限循环</span><br>        active = Fals<br></code></pre></td></tr></table></figure>
+
+<p>上面的代码，反映出自己对while标志和多情形判断的理解不够。</p>
+<p>while 循环的条件为 active，但是 “active = ture” 在循环开始前就已经成立了，并且并没有再次出现在循环中，以至于成为了一个无限循环。</p>
+<p>来看看书中的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">active = <span class="hljs-literal">True</span><br><br><span class="hljs-keyword">while</span> active:<br>    message = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;your name:&quot;</span>)<br><br>    <span class="hljs-keyword">if</span> message == <span class="hljs-string">&quot;quit&quot;</span>:<br>        active = <span class="hljs-literal">False</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(message)<br></code></pre></td></tr></table></figure>
+<p>从行数上来看，它也就是比我少一两行而已。</p>
+<p>但是我用了两个判断，范例用了一个。</p>
+<h3 id="退出循环-break"><a href="#退出循环-break" class="headerlink" title="退出循环(break)"></a>退出循环(break)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">prompt = <span class="hljs-string">&quot;\nPlease enter the name of a city you have visited:&quot;</span><br>prompt += <span class="hljs-string">&quot;\n(Enter &#x27;quit&#x27; when you are finished.)&quot;</span><br><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    city = <span class="hljs-built_in">input</span>(prompt)<br><br>    <span class="hljs-keyword">if</span> city == <span class="hljs-string">&quot;quit&quot;</span>:<br>        <span class="hljs-keyword">break</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;I&#x27;d love to go to &quot;</span> + city.title() + <span class="hljs-string">&quot;!&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>while true</code>表示循环将不断运行，一直满足条件。</li>
+<li>直到遇见<code>break</code>语句，将结束运行。</li>
+<li>在任何<code>python</code>循环中都可以使用<code>break</code>语句，无论<code>for循环</code>还是<code>while循环</code></li>
+</ul>
+<h3 id="继续循环-continue"><a href="#继续循环-continue" class="headerlink" title="继续循环(continue)"></a>继续循环(continue)</h3><p>有时，我们需要让循环在满足一些条件时，不打印任何信息，然后返回循环开头，重新进入循环。这时可以用到<code>continue</code>。</p>
+<p>比如只打印10以内的奇数时。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 不使用 &#x27;continue&#x27;</span><br>x = <span class="hljs-number">0</span><br><br><span class="hljs-keyword">while</span> x &lt;= <span class="hljs-number">10</span>:<br>    x += <span class="hljs-number">1</span><br>    <span class="hljs-keyword">if</span> x % <span class="hljs-number">2</span> != <span class="hljs-number">0</span>:<br>        <span class="hljs-built_in">print</span>(x)<br><br><span class="hljs-comment"># 使用&#x27;continue&#x27;</span><br><br>x = <span class="hljs-number">0</span><br><br><span class="hljs-keyword">while</span> x&lt;= <span class="hljs-number">10</span>:<br>    x += <span class="hljs-number">1</span><br>    <span class="hljs-keyword">if</span> x%<span class="hljs-number">2</span> == <span class="hljs-number">0</span>:<br>        <span class="hljs-keyword">continue</span><br><br>    <span class="hljs-built_in">print</span>(x)<br></code></pre></td></tr></table></figure>
+
+<h3 id="避免无限循环-CTRL-C"><a href="#避免无限循环-CTRL-C" class="headerlink" title="避免无限循环(CTRL+C)"></a>避免无限循环(CTRL+C)</h3><p>有时在使用循环时，由于失误会造成无限循环。</p>
+<p>我们需要极力避免这种情况，但是若真的发生，可用以下两种方法：</p>
+<ol>
+<li>CTRL+C强制结束终端运行</li>
+<li>关闭显示程序输出的终端窗口</li>
+</ol>
+<h2 id="使用循环处理列表和字典"><a href="#使用循环处理列表和字典" class="headerlink" title="使用循环处理列表和字典"></a>使用循环处理列表和字典</h2><p>for循环是一种遍历列表的有效方式，但在for循环中不应该修改列表，否则将导致python难以跟踪其中的元素。</p>
+<p>要在遍历列表的同时对其进行修改，可使用while循环。</p>
+<h3 id="在列表之间移动元素"><a href="#在列表之间移动元素" class="headerlink" title="在列表之间移动元素"></a>在列表之间移动元素</h3><p>假设有一个列表，其中包含新注册但还未验证的网站用户；验证这些用户后，如何将他们移到另外一个已验证用户列表中呢？一种方法是使用一个while循环，在验证用户的同时将其从未验证用户列表中提取出来，再将其添加到已验证列表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 首先，创建一个待验证用户列表</span><br><span class="hljs-comment"># 和一个用于存储已验证用户的列表</span><br>unconfirmed_users = [<span class="hljs-string">&quot;John&quot;</span>,<span class="hljs-string">&quot;chen&quot;</span>,<span class="hljs-string">&quot;leon&quot;</span>]<br>confirmed_users = []<br><br><span class="hljs-comment"># 验证每个用户，直到没有未验证用户为止</span><br><span class="hljs-comment"># 将每个经过验证的用户都移到已验证用户列表中</span><br><br><span class="hljs-keyword">while</span> unconfirmed_users:<br>    current_user = unconfirmed_users.pop()<br><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Verifying user: &quot;</span> + current_user.title())<br>    confirmed_users.append(current_user)<br><br><span class="hljs-comment"># 显示所有已验证用户</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\nThe following users have been confirmed:&quot;</span>)<br><span class="hljs-keyword">for</span> confirmed_user <span class="hljs-keyword">in</span> confirmed_users:<br>    <span class="hljs-built_in">print</span>(confirmed_user.title())<br></code></pre></td></tr></table></figure>
+
+<h3 id="删除包含特定值的所有列表元素"><a href="#删除包含特定值的所有列表元素" class="headerlink" title="删除包含特定值的所有列表元素"></a>删除包含特定值的所有列表元素</h3><p>一开始，我以为只是在while循环中使用判断语句，但是看了范例才知道，没那么麻烦。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">pets = [<span class="hljs-string">&quot;dog&quot;</span>,<span class="hljs-string">&quot;cat&quot;</span>,<span class="hljs-string">&quot;dog&quot;</span>,<span class="hljs-string">&quot;goldfish&quot;</span>,<span class="hljs-string">&quot;cat&quot;</span>,<span class="hljs-string">&quot;rabbit&quot;</span>]<br><span class="hljs-built_in">print</span>(pets)<br><br><span class="hljs-keyword">while</span> <span class="hljs-string">&#x27;cat&#x27;</span> <span class="hljs-keyword">in</span> pets:<br>    pets.remove(<span class="hljs-string">&#x27;cat&#x27;</span>)<br><br><span class="hljs-built_in">print</span>(pets)<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="使用用户输入来填充字典"><a href="#使用用户输入来填充字典" class="headerlink" title="使用用户输入来填充字典"></a>使用用户输入来填充字典</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 使用用户输入来填充字典</span><br><br>responses = &#123;&#125;<br><br><span class="hljs-comment"># 设置一个标志，指出调查是否继续</span><br>polling_active = <span class="hljs-literal">True</span><br><br><span class="hljs-keyword">while</span> polling_active:<br>    <span class="hljs-comment"># 提示输入被调查者的姓名和回答</span><br>    name = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;\nWhat&#x27;s your name?&quot;</span>)<br>    response = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;How old are you?&quot;</span>)<br>    <span class="hljs-comment"># 在这里若是可以限定并提示填写者只能填写数字就好了</span><br><br>    <span class="hljs-comment"># 将答案存储在字典中</span><br>    responses[name] = response<br><br>    <span class="hljs-comment"># 看看是否还有人要参与调查</span><br>    repeat = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Would you like to let another person respond?(yes/no)&quot;</span>)<br>    <span class="hljs-keyword">if</span> repeat == <span class="hljs-string">&quot;no&quot;</span>:<br>        polling_active = <span class="hljs-literal">False</span><br><br><span class="hljs-comment"># 调查结束，显示结果</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\n---Poll Results---&quot;</span>)<br><span class="hljs-keyword">for</span> name, respond <span class="hljs-keyword">in</span> responses.items():<br>    <span class="hljs-built_in">print</span>(name + <span class="hljs-string">&#x27;:&#x27;</span> + respond)<br></code></pre></td></tr></table></figure>
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本节课内容较多，但主要还是在于while循环。</p>
+<p>循环的基本知识、标志、结束循环、继续循环，</p>
+<p>以及如何使用while循环对列表进行增删修改，</p>
+<p>和如何使用while循环进行字典的交互式内容添加。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/06/07/python%E5%9F%BA%E7%A1%805/">
+                        <span class="hidden-mobile">python基础5</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
