@@ -1,0 +1,508 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bg/bigimg.png">
+  <link rel="icon" href="/img/bg/bigimg.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+  <title>python基础10 - JoneLn</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"joneln.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>JoneLn</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="python基础10">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-06-13 16:47" pubdate>
+        2021年6月13日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      17
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">python基础10</h1>
+            
+            <div class="markdown-body">
+              <h1 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h1><p>在很多时候，但我们在完成程序后，常常会因各种需求，对该程序进行修改，或者拓展其功能。</p>
+<p>测试代码，就是在拓展程序功能的时候，测试函数是否仍保留其之前的功能，并正确运行。</p>
+<p>一般而言，我们将函数文件、主程序与测试代码分别保存在不同文件中。</p>
+<h2 id="测试函数"><a href="#测试函数" class="headerlink" title="测试函数"></a>测试函数</h2><p>测试函数的编写过程就是随着函数编写而编写测试代码的过程。</p>
+<p>具体而言，先完成一段函数，然后编写对应测试代码，再拓展函数功能，再编写对与拓展之后的函数的测试代码的过程。</p>
+<p>首先在名为<code>name_function</code>的文件中编写一个待测试的函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_formatted_name</span>(<span class="hljs-params">first_name, last_name</span>):</span><br>    <span class="hljs-string">&quot;&quot;&quot;获取完整姓名的函数&quot;&quot;&quot;</span><br>    full_name = first_name + <span class="hljs-string">&quot; &quot;</span> + last_name<br>    <span class="hljs-keyword">return</span> full_name.title()<br></code></pre></td></tr></table></figure>
+
+<p>– 为了证明该代码可以运行，我们还需要编写一个使用该代码的程序。该程序在名为<code>names</code>的文件中。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> name_function <span class="hljs-keyword">import</span> get_formatted_name<br><br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Enter &#x27;q&#x27; at any time to quit.&quot;</span>)<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    first = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;\nPlease give me a first name:&quot;</span>)<br>    <span class="hljs-keyword">if</span> first == <span class="hljs-string">&#x27;q&#x27;</span>:<br>        <span class="hljs-keyword">break</span><br>    last = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;\nPlease give me a last name:&quot;</span>)<br>    <span class="hljs-keyword">if</span> last == <span class="hljs-string">&#x27;q&#x27;</span>:<br>        <span class="hljs-keyword">break</span><br><br>    formatted_name = get_formatted_name(first, last)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\tNeatly formatted name: &quot;</span> + formatted_name + <span class="hljs-string">&quot;.&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>上面的程序的运行证明待测试文件可以运行，进一步编写待测试函数的测试代码。代码如下，并存储在名为<code>get_name_test.py</code>的模块中。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> unittest<br><span class="hljs-keyword">from</span> name_function <span class="hljs-keyword">import</span> get_formatted_name<br><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NamesTestCase</span>(<span class="hljs-params">unittest.TestCase</span>):</span><br>    <span class="hljs-string">&quot;&quot;&quot;测试get_name.py&quot;&quot;&quot;</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_first_last_name</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-string">&quot;&quot;&quot;能够正确处理像John leon的名字吗&quot;&quot;&quot;</span><br>        formatted_name = get_formatted_name(<span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-string">&#x27;leon&#x27;</span>)<br>        self.assertEqual(formatted_name, <span class="hljs-string">&#x27;John Leon&#x27;</span>)<br><br><br>unittest.main()<br><br><span class="hljs-string">&quot;&quot;&quot;---------------输出结果-------------------------&quot;&quot;&quot;</span><br>Ran <span class="hljs-number">1</span> test <span class="hljs-keyword">in</span> <span class="hljs-number">0.000</span>s<br><br>OK<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>引用unittest模块检测代码；</li>
+<li>在测试模块中创建<code>unittest.TestCase</code>类的子类，其中子类中的函数必须以<code>test_</code>开头；</li>
+<li>测试程序输出结果与自己预期输出结果是否相同时，需要使用断言<code>asserEqual</code>；</li>
+<li>当函数代码改进时，首先运行该测试文件，运行结果正常后，继续编写新的代码的测试文件。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">断言方法</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">assertEqual(1,b)</td>
+<td align="center">核实a==b</td>
+</tr>
+<tr>
+<td align="center">assertNotEqual(a,b)</td>
+<td align="center">核实a!=b</td>
+</tr>
+<tr>
+<td align="center">assertTrue(x)</td>
+<td align="center">核实x为True</td>
+</tr>
+<tr>
+<td align="center">assertFalse</td>
+<td align="center">核实x为False</td>
+</tr>
+<tr>
+<td align="center">assertIn(item, list)</td>
+<td align="center">核实item在list中</td>
+</tr>
+<tr>
+<td align="center">assertNotIn(item, list)</td>
+<td align="center">核实item不在list中</td>
+</tr>
+</tbody></table>
+<h2 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h2><p>类的测试与函数的测试相似————你所做的大部分工作都是测试类中方法的行为。特殊之处在于，在测试类的代码中，可以定义一个<code>setUp()</code>方法，来存储测试过程之中需要的变量以便重复使用来测试类中的多个方法。</p>
+<p>下面来编写一个类进行测试。来看一个帮助管理匿名调查的类。</p>
+<p>首先编写一个待测试的类，文件名为survey.py。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AnonymousSurvey</span>():</span><br>    <span class="hljs-string">&quot;&quot;&quot;收集匿名调查问卷的答案&quot;&quot;&quot;</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self, question</span>):</span><br>        <span class="hljs-string">&quot;&quot;&quot;存储一个问题，并为存储答案做准备&quot;&quot;&quot;</span><br>        self.question = question<br>        self.responses = []<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">show_question</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-string">&quot;&quot;&quot;显示调查问卷&quot;&quot;&quot;</span><br>        <span class="hljs-built_in">print</span>(self.question)<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">store_response</span>(<span class="hljs-params">self, new_response</span>):</span><br>        <span class="hljs-string">&quot;&quot;&quot;存储单份调查答卷&quot;&quot;&quot;</span><br>        self.responses.append(new_response)<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">show_results</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-string">&quot;&quot;&quot;显示收集到的所有答案&quot;&quot;&quot;</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Survey results:&quot;</span>)<br>        <span class="hljs-keyword">for</span> response <span class="hljs-keyword">in</span> self.responses:<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;- &#x27;</span> + response)<br></code></pre></td></tr></table></figure>
+
+
+<p>其次基于该类编写程序，证明该类可正常运行，文件名为language_survey.py。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> survey <span class="hljs-keyword">import</span> AnonymousSurvey<br><br><span class="hljs-comment"># 定义一个问题，并创建一个表示调查的AnonymousSurvey对象</span><br>question = <span class="hljs-string">&quot;What language did you first learn to speak?&quot;</span><br>my_survey = AnonymousSurvey(question)<br><br><span class="hljs-comment"># 显示问题并存储答案</span><br>my_survey.show_question()<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Enter &#x27;q&#x27; at any time to quit.\n&quot;</span>)<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    response = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Language: &quot;</span>)<br>    <span class="hljs-keyword">if</span> response == <span class="hljs-string">&#x27;q&#x27;</span>:<br>        <span class="hljs-keyword">break</span><br>    my_survey.store_response(response)<br><br><span class="hljs-comment"># 显示调查结果</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\nThank you to everyone who participated in the survey!&quot;</span>)<br>my_survey.show_results()<br></code></pre></td></tr></table></figure>
+
+<p>然后编写测试代码，文件名为test_survey.py。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> unittest<br><span class="hljs-keyword">from</span> survey <span class="hljs-keyword">import</span> AnonymousSurvey<br><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestAnonymousSurvey</span>(<span class="hljs-params">unittest.TestCase</span>):</span><br>    <span class="hljs-string">&quot;&quot;&quot;针对AnonymousSurvey类的测试&quot;&quot;&quot;</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_store_single_response</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-string">&quot;&quot;&quot;测试单个答案会被妥善地存储&quot;&quot;&quot;</span><br>        question = <span class="hljs-string">&quot;What language did you first learn to speak?&quot;</span><br>        my_survey = AnonymousSurvey(question)<br>        my_survey.store_response(<span class="hljs-string">&#x27;python&#x27;</span>)<br><br>        self.assertIn(<span class="hljs-string">&#x27;python&#x27;</span>, my_survey.responses)<br><br><br>unittest.main()<br></code></pre></td></tr></table></figure>
+
+<p>下面使用setUp()对复杂代码进行测试。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> unittest<br><span class="hljs-keyword">from</span> survey <span class="hljs-keyword">import</span> AnonymousSurvey<br><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestAnonymousSurvey</span>(<span class="hljs-params">unittest.TestCase</span>):</span><br>    <span class="hljs-string">&quot;&quot;&quot;针对AnonymousSurvey类的测试&quot;&quot;&quot;</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setUp</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">        定义一个调查对象和一组答案，以供使用的测试方法使用</span><br><span class="hljs-string">        &quot;&quot;&quot;</span><br>        question = <span class="hljs-string">&quot;What language did you first learn to speak?&quot;</span><br>        self.my_survey = AnonymousSurvey(question)<br>        self.responses = [<span class="hljs-string">&#x27;python&#x27;</span>, <span class="hljs-string">&#x27;C&#x27;</span>, <span class="hljs-string">&#x27;C++&#x27;</span>]<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_store_single_response</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-string">&quot;&quot;&quot;测试单个答案会被妥善地存储&quot;&quot;&quot;</span><br>        self.my_survey.store_response(self.responses[<span class="hljs-number">0</span>])<br>        self.assertIn(self.responses[<span class="hljs-number">0</span>], self.my_survey.responses)<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_store_single_response</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-string">&quot;&quot;&quot;测试三个答案会被妥善存储&quot;&quot;&quot;</span><br>        <span class="hljs-keyword">for</span> response <span class="hljs-keyword">in</span> self.responses:<br>            self.my_survey.store_response(response)<br>        <span class="hljs-keyword">for</span> response <span class="hljs-keyword">in</span> self.responses:<br>            self.assertIn(response, self.my_survey.responses)<br><br><br>unittest.main()<br></code></pre></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/06/11/python%E5%9F%BA%E7%A1%809/">
+                        <span class="hidden-mobile">python基础9</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
