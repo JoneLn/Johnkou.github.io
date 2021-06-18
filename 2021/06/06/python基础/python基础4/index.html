@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>《MySQL必知必会》--改善性能 - JoneLn</title>
+  <title>python基础4 - JoneLn</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="《MySQL必知必会》--改善性能">
+            <span class="h2" id="subtitle" title="python基础4">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-06-04 08:59" pubdate>
-        2021年6月4日 早上
+      <time datetime="2021-06-06 19:21" pubdate>
+        2021年6月6日 晚上
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      419 字
+      344 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      5
        分钟
     </span>
   
@@ -225,25 +225,28 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">《MySQL必知必会》--改善性能</h1>
+            <h1 style="display: none">python基础4</h1>
             
             <div class="markdown-body">
-              <h1 id="回顾复习提出要点"><a href="#回顾复习提出要点" class="headerlink" title="回顾复习提出要点"></a>回顾复习提出要点</h1><ul>
-<li>首先，接受硬件建议。</li>
-<li>一般来说，关键的生产DBMS应该运行在自己的专用服务器上。</li>
-<li>MySQL是用一系列的默认设置预先配置的，从这些设置开始通常是很好的。但是过一段时间你可能需要调整内存分配、缓冲区大小等（为查看当前设置，可使用<code>SHOW VARIABLES;</code>和<code>SHOW STATUS</code>）。</li>
-<li>MySQL是一个多用户多线程的DBMS，换言之，它经常同时执行多个任务。一个执行缓慢，降低所有执行。若遇显著性能不良，可使用<code>SHOW PROCESSLIST</code>显示所有活动进程，然后用<code>KILL</code>命令终结某个特定进程。</li>
-<li>总是有布置一种方法编写同一条<code>SELECT</code>语句。应该实验联结、并、子查询等，找出最佳方法。</li>
-<li>使用EXPLAIN语句让MySQL解释它将如何执行一条SELECT语句。</li>
-<li>一般来说，存储过程执行得比一条一条地执行其中各条MySQL语句快。</li>
-<li>应该总是使用正确的数据类型</li>
-<li>决不要检索比需求还要多的数据。谨慎使用<code>SELECT *</code>。</li>
-<li>有的操作（包括INSERT）支持一个可选的<code>DELAYED</code>关键字，如果使用它，将把控制立即返回给调用程序，并且一旦有可能就实际执行该操作。</li>
-<li>在导入数据时，应该关闭自动提交。</li>
-<li>必须索引数据库表以改善数据检索的性能。</li>
-<li>拒绝过度使用<code>OR</code>条件，可用<code>UNION</code>代替。</li>
-<li>LIKE很慢，最好使用FULLTEXT。</li>
-<li>最重要的规则就是，每条规则在某些条件下都会被打破。</li>
+              <h1 id="IF语句"><a href="#IF语句" class="headerlink" title="IF语句"></a>IF语句</h1><h2 id="等值检验"><a href="#等值检验" class="headerlink" title="等值检验"></a>等值检验</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 等值检验 (==必须使用双等号)(!=代表不等检验)</span><br>name = <span class="hljs-string">&#x27;jody&#x27;</span><br><span class="hljs-keyword">if</span> name == <span class="hljs-string">&#x27;jody&#x27;</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;hello,jody!&#x27;</span>)<br><span class="hljs-keyword">elif</span> name != <span class="hljs-string">&#x27;jody&#x27;</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;who are you&#x27;</span>)<br>--------------------------------------<br>hello,jody!<br></code></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python">names = [<span class="hljs-string">&#x27;Anan&#x27;</span>,<span class="hljs-string">&#x27;Jody&#x27;</span>,<span class="hljs-string">&#x27;John&#x27;</span>,<span class="hljs-string">&#x27;wang&#x27;</span>]<br><span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> names:<br>    <span class="hljs-keyword">if</span> name == <span class="hljs-string">&#x27;wang&#x27;</span>:<br>        <span class="hljs-built_in">print</span>(name.upper())<br>    <span class="hljs-keyword">elif</span> name.lower() == <span class="hljs-string">&#x27;jody&#x27;</span>:<br>        <span class="hljs-built_in">print</span>(name.title())<br>    <span class="hljs-keyword">elif</span> name.upper() == <span class="hljs-string">&#x27;ANAN&#x27;</span>:<br>        <span class="hljs-built_in">print</span>(name)<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;you may be &#x27;</span>+name)<br>------------------------------------------<br>Anan<br>Jody<br>you may be John<br>WANG<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>IF语句可以使用<code>and</code>,<code>or</code>语句来增加检验条件</li>
+<li>else是一条保罗万象但并非必须具备的语句，只要不满足if和elif中的条件，else就会被执行，即使在输入错误的情况下。因此，若知道else语句具体指那种条件，应该使用elif语句。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">available_toppings = [<span class="hljs-string">&#x27;mushroom&#x27;</span>,<span class="hljs-string">&#x27;olives&#x27;</span>,<span class="hljs-string">&#x27;green peppers&#x27;</span>,<br>                      <span class="hljs-string">&#x27;pepperoni&#x27;</span>,<span class="hljs-string">&#x27;pineapple&#x27;</span>]<br>request_toppings = [<span class="hljs-string">&#x27;mushroom&#x27;</span>,<span class="hljs-string">&#x27;fries&#x27;</span>,<span class="hljs-string">&#x27;cheese&#x27;</span>]<br><span class="hljs-keyword">for</span> request_topping <span class="hljs-keyword">in</span> request_toppings:<br>    <span class="hljs-keyword">if</span> request_topping <span class="hljs-keyword">in</span> available_toppings:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;a &#x27;</span>+request_topping)<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;sorry,we don&#x27;t have this&quot;</span>)<br>------------------------------------------------<br>a mushroom<br>sorry,we don<span class="hljs-string">&#x27;t have this</span><br><span class="hljs-string">sorry,we don&#x27;</span>t have this    <br></code></pre></td></tr></table></figure>
+<ul>
+<li>这两个表的if检验挺有意思。</li>
+</ul>
+<h1 id="数值比较"><a href="#数值比较" class="headerlink" title="数值比较"></a>数值比较</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">ages = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">7</span>,<span class="hljs-number">9</span>))<br><span class="hljs-keyword">for</span> age <span class="hljs-keyword">in</span> ages:<br>    <span class="hljs-keyword">if</span> age &lt;= <span class="hljs-number">8</span>:<br>            <span class="hljs-built_in">print</span>(age)<br>    <span class="hljs-keyword">elif</span> age <span class="hljs-keyword">in</span> [<span class="hljs-number">9</span>,<span class="hljs-number">20</span>]:<br>        <span class="hljs-built_in">print</span>(age-<span class="hljs-number">1</span>)<br>    <span class="hljs-keyword">elif</span> age &gt;= <span class="hljs-number">20</span>:<br>        <span class="hljs-built_in">print</span>(age-<span class="hljs-number">10</span>)<br>----------------------------------------------<br><span class="hljs-number">7</span><br><span class="hljs-number">8</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
+<li>if 与 for 循环的结合；</li>
+<li>if 与 <code>.title()</code> <code>.upper()</code> <code>.lower()</code> 的结合；</li>
+<li>if 判断语句的等值(==)，不等(!=)以及其他数值判断符号(&gt;,&gt;=,&lt;,&lt;=)。</li>
 </ul>
 
             </div>
@@ -254,7 +257,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/MySQL/">MySQL</a>
+                      <a class="hover-with-bg" href="/categories/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
                     
                   </div>
                 
@@ -262,7 +265,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
                     
                   </div>
                 
@@ -279,9 +282,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/06/04/python%E5%9F%BA%E7%A1%80/python%E5%9F%BA%E7%A1%801/">
+                      <a href="/2021/06/07/python%E5%9F%BA%E7%A1%80/python%E5%9F%BA%E7%A1%805/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">python基础1</span>
+                        <span class="hidden-mobile">python基础5</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -289,8 +292,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/06/04/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%959/">
-                        <span class="hidden-mobile">《MySQL必知必会》--数据库维护</span>
+                      <a href="/2021/06/06/python%E5%9F%BA%E7%A1%80/python%E5%9F%BA%E7%A1%803/">
+                        <span class="hidden-mobile">python基础3</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
