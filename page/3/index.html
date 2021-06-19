@@ -182,6 +182,229 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/06/02/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%956/" target="_self">
+          《MySQL必知必会》--管理事务处理
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/02/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%956/" target="_self">
+          
+          
+            
+          
+          管理事务处理事务处理（transanction processing）可以用来维护数据库的完整性，它保证成批的MySQL操作要么完全执行，要么完全不执行。
+ROLLBACK撤销123456select * from ordertotals;start transactiondelete from ordertotals;select * from ordertotals;rollback;sele
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-02 14:55" pubdate>
+              2021-06-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/MySQL/">MySQL</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/06/01/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%955/" target="_self">
+          《MySQL必知必会》--触发器
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/01/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%955/" target="_self">
+          
+          
+            
+          
+          触发器什么是触发器在学习本章之前，所有的SQL命令都是在需要时被我们主动执行。
+而触发器便是让某条命令在特定时间发生时自动执行，具体来讲就是在某个表发生更改时自动处理。
+触发器是响应以下任意语句而自动执行的一条MySQL语句（或位于BEGIN和END语句之间的一组语句）：
+
+DELETE
+INSERT
+UPDATE
+
+其他MySQL语句不支持触发器。
+创建触发器在创建触发器时，需要给出4条信息：
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-01 09:40" pubdate>
+              2021-06-01
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/MySQL/">MySQL</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/31/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954/" target="_self">
+          《MySQL必知必会》--游标
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/31/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954/" target="_self">
+          
+          
+            
+          
+          游标概念游标(cursor)是一个存储在MySQL服务器上的数据库查询，它并不是一条SELECT语句，而是被该语句检索出来的结果集。
+在存储了游标之后，应用程序可以根据需要滚动或浏览其中的数据。
+游标主要用于交互式应用，其中用户需要滚动屏幕上的数据，并对数据进行浏览或更改。
+
+MySQL游标只能用于存储过程和存储函数。
+
+示例123456789101112131415161718192021222
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-31 09:19" pubdate>
+              2021-05-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/MySQL/">MySQL</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/30/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%953/" target="_self">
+          《MySQL必知必会》--存储过程
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/30/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%953/" target="_self">
+          
+          
+            
+          
+          存储过程（存储程序）概念
+存储过程简单来说，就是为了以后的使用而保存的一条或多条MySQL语句的集合。可将其视为批处理文件，虽然他们的作用不仅限于批处理。
+
+为什么使用存储过程？
+通过把处理封装在容易使用的单元中，简化复杂的操作；
+由于不要求反复建立一系列处理步骤，这保证了数据的完整性（所有开发人员使用同一代码，减少出错的机率）；
+简化对变动的管理（只需在存储过程中修改变动，使用人员甚至可能都不知
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-30 10:34" pubdate>
+              2021-05-30
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/MySQL/">MySQL</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/05/29/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%952/" target="_self">
           《MySQL必知必会》--视图
         </a>
@@ -493,223 +716,6 @@
             <i class="iconfont icon-date"></i>
             <time datetime="2021-05-23 09:02" pubdate>
               2021-05-23
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/SQL/">SQL</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/05/22/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9515/" target="_self">
-          《SQL必知必会》--插入数据
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/05/22/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9515/" target="_self">
-          
-          
-            
-          
-          第15课 插入数据本节课介绍如何利用SQL的INSERT语句将数据插入表中。
-数据插入SQL最常用的语句有四个：SELECT  INSERT   UPDATE  DELETE。
-本节课介绍INSERT语句。INSERT用来将行插入（或添加）到数据库表。插入的方式有三种：
-
-插入完整的行；
-插入行的一部分；
-插入某些查询的结果。
-
-插入完整行第一种形式：
-12345678910insert into
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-22 08:24" pubdate>
-              2021-05-22
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/SQL/">SQL</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/05/21/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9514/" target="_self">
-          《SQL必知必会》--组合查询
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/05/21/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9514/" target="_self">
-          
-          
-            
-          
-          第14课 组合查询本课讲述如何利用UNION操作符将多条SELECT语句组成一个结果集。
-多数SQL查询只含从一个或多个表中返回数据的单条SELECT语句。但是SQL也允许执行多个查询（多条SELECT语句），并将结果作为一个查询结果集返回。
-如下示例一
-123456789输入：select cust_name, cust_contact, cust_emailfrom customerswher
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-21 09:35" pubdate>
-              2021-05-21
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/SQL/">SQL</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/05/20/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9513/" target="_self">
-          《SQL必知必会》--高级联结
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/05/20/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9513/" target="_self">
-          
-          
-            
-          
-          第13课 创建高级联结上一节课已经讲了简单的等值联结或者说，内联结。本节课介绍高级联结。
-简单等值联结的简单进阶–使用表别名这一节相当简单，大致就一件事，可以对表命名表别名。
-12345select cust_name, cust_contactfrom customers as C, orders AS O, orderitems AS OIwhere C.cust_id = O.cust_id
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-20 08:36" pubdate>
-              2021-05-20
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/SQL/">SQL</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/05/19/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9512/" target="_self">
-          《SQL必知必会》--联结表
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/05/19/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9512/" target="_self">
-          
-          
-            
-          
-          联结表这一课还是跨表操作，我们上一节课讲的是子查询。由于我们的表格在之前就已经为我们设计好，因此，我们不用去思考，为什么我们可以使用子查询？
-联结简介联结表是SQL最强大功能之一。联结是利用SQL的SELECT能执行的最重要的操作。在理解联结前，必须联结关系表以及关系数据库的一些基础知识。
-什么是关系表
-关系表的设计就是要把信息分解成多个表，一类数据一个表。各表通过某些共同的值相互关联。由关系表组
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-19 08:11" pubdate>
-              2021-05-19
             </time>
           </div>
         

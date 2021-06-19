@@ -4,6 +4,106 @@
   
   
   <entry>
+    <title>paper6</title>
+    <link href="/2021/06/19/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper6/"/>
+    <url>/2021/06/19/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper6/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Cognitive-affective-drivers-of-employees’-daily-compliance-with-information-security-policies-A-multilevel-longitudinal-study"><a href="#Cognitive-affective-drivers-of-employees’-daily-compliance-with-information-security-policies-A-multilevel-longitudinal-study" class="headerlink" title="Cognitive-affective drivers of employees’ daily compliance with information security policies: A multilevel, longitudinal study"></a>Cognitive-affective drivers of employees’ daily compliance with information security policies: A multilevel, longitudinal study</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>John D’Arcy, Paul Benjamin Lowry</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>RCT: rational choice theory</p><ul><li>costs</li><li>benefits</li></ul><p>TPB:the theory of planned behavior</p><ul><li>attitude</li><li>subjective norms</li><li>perceived behavioral control</li></ul><blockquote><p>还有学者想要将personal moral norms添加到TPB理论中，与subjective norms相对应。</p></blockquote><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：</p><ol><li>Affective Status: positive affect, negative affect</li><li>Appraisal of Consequence(RCT): <ul><li>costs of compliance(Work impediment)</li><li>Benefits of compliance</li><li>costs/risks of noncompliance(Computer monitoring) </li></ul></li></ol><p>中介变量：<br>Attitude towards compliance(TPB理论的内容之一)</p><p>自变量：<br>Compliance behavior</p><p>控制变量：</p><ol><li>subjective norms</li><li>self-efficacy</li><li>moral considerations</li></ol><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results of our multilevel analysis suggest that a combination of state-based affective factors and stable, cognitive beliefs work in parallel to predict daily compliance attitude, which in turn predicts daily compliance behavior.</p><p>Consistent with the TPB portion of our model, we found that daily compliance attitudes, moral beliefs, organizational deviance, and descriptive norms were each significantly associated with daily compliance behavior.</p><ul><li>情绪影响态度，态度影响行为。</li><li>TPB理论各因素对信息安全策略遵守行为都有影响</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper5</title>
+    <link href="/2021/06/19/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper5/"/>
+    <url>/2021/06/19/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper5/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Building-an-awareness-centered-information-security-policy-compliance-model"><a href="#Building-an-awareness-centered-information-security-policy-compliance-model" class="headerlink" title="Building an awareness-centered information security policy compliance model"></a>Building an awareness-centered information security policy compliance model</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Alex Koohang, Jonathan Anderson</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>本文没有明确的指出理论基础</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：</p><ol><li>Leadership</li><li>trust</li></ol><p>一级中介变量：</p><ol><li>Information security issues awareness</li><li>Information security policy awareness</li></ol><p>二级中介变量：</p><ol><li>understanding of resource vulnerability</li><li>self-efficacy</li></ol><p>结果变量：</p><ol><li>intention to comply</li></ol><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The findings indicated that IS awareness depends on effective organizational leadership and elevated employees’ trusting beliefs.</p><p>The understanding of resource vulnerability(URV) and SE are influenced by IS awareness resulting from effective leadership and elevated employees trusting beliefs which guide employees to comply with ISP requirements.</p><ul><li>领导力和信任影响员工安全意识；员工安全意识影响员工自我效能和脆弱性感知；员工自我效能和脆弱性感知影响员工信息安全策略遵守意图。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper4</title>
+    <link href="/2021/06/19/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper4/"/>
+    <url>/2021/06/19/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper4/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Theory-Based-Model-and-Prediction-Analysis-of-Information-Security-Compliance-Behavior-in-the-Saudi-Healthcare-Sector"><a href="#Theory-Based-Model-and-Prediction-Analysis-of-Information-Security-Compliance-Behavior-in-the-Saudi-Healthcare-Sector" class="headerlink" title="Theory-Based Model and Prediction Analysis of Information Security Compliance Behavior in the Saudi Healthcare Sector"></a>Theory-Based Model and Prediction Analysis of Information Security Compliance Behavior in the Saudi Healthcare Sector</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Sultan T.Alanazi, Mohammed Anbar, Shouki A.Ebad, Shankar Karuppayah, Hadeer A.Al-Ani</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p><strong>Theory of Planned Behavior:</strong></p><ul><li>attitude</li><li>subjective norms</li><li>perceived behavior control</li></ul><p><strong>General Deterrence Theory/Neutralization Theory</strong></p><p><strong>Protection Motivation Theory:</strong><br>This theory posits that human protection behavior is based on three processes:</p><ul><li>cognitive appraisal</li><li>threat appraisal</li><li>coping response appraisal</li></ul><p><strong>Diffusion of Innovation</strong></p><ul><li>the innovation technology</li><li>the communication channel through which it spreads</li><li>the time it takes to do so</li><li>the social system it cares to</li></ul><p><strong>Th technology acceptance model(TAM)</strong></p><ul><li>perceived usefulness</li><li>perceived ease-of-use</li></ul><p><strong>Rational Choice Theory</strong></p><ul><li>costs</li><li>benefits</li></ul><p><strong>Cognitive Moral Development Theory</strong></p><ul><li>pre-conventional</li><li>conventional</li><li>post-conventional</li></ul><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>Deterrence Theory: </p><ol><li>Legal/punishment</li></ol><p>Protection Motivation Theory: </p><ol><li>Personality</li><li>Self-efficacy</li></ol><p>Rational Choice Theory:</p><ol><li>cost of compliance/noncompliance</li></ol><p>Theory of Planned Behavior:</p><ol><li>subjective norms</li></ol><p>Cognitive Moral Development Theory</p><ol><li>religion and moral</li></ol><p>Diffusion of Innovation</p><ol><li>Information security policy</li><li>general information security</li><li>Technology awareness</li></ol><p>控制变量<br>Controlled variables</p><ol><li>demographics</li></ol><p>因变量<br>Information security compliance behavior</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results suggests that moderating and non-common factors(e.g., religion and morality) impact ISCB, while demographic characteristics(e.g., age, marital status, and work experice) do not.</p><p>The theory-based model of ISCB establishes the main domains of theory for this study, which were religion,/morality, self-efficacy, legal/punishment, personality traits, cost of compliance/noncompliance, subjective norms, information security policy, general information security, and technology awareness.</p><p>Predictors of ISCB indicate that general information security, followed by self-efficacy and religion/morality, is the most influential factor on ISCB among healthcare workers in the Kingdom of Saudi Arabia.</p><ul><li>主要得出的理论是某些具体的个人特征对ISCB的影响不大。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper3</title>
+    <link href="/2021/06/19/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper3/"/>
+    <url>/2021/06/19/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper3/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Organizational-Governance-Social-Bonds-and-Information-Security-Policy-Compliance-A-Perspective-towards-Oil-and-Gas-Employees"><a href="#Organizational-Governance-Social-Bonds-and-Information-Security-Policy-Compliance-A-Perspective-towards-Oil-and-Gas-Employees" class="headerlink" title="Organizational Governance, Social Bonds and Information Security Policy Compliance:A Perspective towards Oil and Gas Employees"></a>Organizational Governance, Social Bonds and Information Security Policy Compliance:A Perspective towards Oil and Gas Employees</h1><h2 id="作者："><a href="#作者：" class="headerlink" title="作者："></a>作者：</h2><p>Rao Faizan Ali, P.D.D.Dominic and Kashif Ali</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>Organization governance –&gt; Social Bond Theory –&gt; ISPC</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>Organization governance:</p><ul><li>SETA Programs(Security education and training programs), </li><li>Security Policies and Procedures, </li><li>Workplace Capabilities.</li></ul><p>Social Bond Theory: </p><ul><li>Attachment to ISec Related Tasks, </li><li>Commitment to ISec Related Tasks, </li><li>Involvement to ISec Related Tasks, </li><li>Personal Norms to ISec Related to ISec Related Tasks</li></ul><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results provide evidence that organization governance factors proved to enhance social bonding among employees, and improved social behavior among employees enhances information security policy compliance in the O&amp;G sector.</p><ul><li>组织治理（SETA项目、安全策略和程序、工作场所能力）通过员工（对与安全相关的任务的依恋、承诺、投入与个人规范）影响信息安全遵守意图(ISPC intention)</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>paper2</title>
     <link href="/2021/06/18/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper2/"/>
     <url>/2021/06/18/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper2/</url>
