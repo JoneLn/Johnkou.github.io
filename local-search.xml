@@ -4,6 +4,81 @@
   
   
   <entry>
+    <title>paper7</title>
+    <link href="/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper7/"/>
+    <url>/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper7/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Do-I-really-belong-Impact-of-employment-status-on-information-security-policy-compliance"><a href="#Do-I-really-belong-Impact-of-employment-status-on-information-security-policy-compliance" class="headerlink" title="Do I really belong?:Impact of employment status on information security policy compliance"></a>Do I really belong?:Impact of employment status on information security policy compliance</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Shwadin Sharma, Merrill Warkentin</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>Social exchange theory</p><p>Organizational Support Theory</p><p>Rational Choice Theory</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：<br>perceived Organizational Support</p><p>一级中介变量：<br>Organizational Commitment</p><p>二级中介变量：<br>Response Cost</p><p>因变量：<br>Behavioral Intention</p><p>控制变量：<br>employment status:<br>permanent employees &amp; temporary employees</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>Employment status, specifically permanent versus temporary status, can result in different levels of organizational commitment and perceived organizational support.</p><p>The result of the study supports the notion that the effect of organizational commitment and perceived organizational support on behavioral intention to use ISP will be stronger among permanent employees.</p><p>The research also found that perceived response cost of performing a behavior would negatively impact intention to comply with ISP.</p><ul><li>通过划分不同的雇佣关系（长久性和短暂性），研究可感知的组织支持与员工信息安全策略遵守意图的相关关系，及其如何通过影响组织承诺来影响员工信息安全策略遵守意愿；以及可感知的组织支持和组织承诺通过影响员工反应成本来影响员工信息安全策略遵守意图。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper7</title>
+    <link href="/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper8/"/>
+    <url>/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper8/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Don’t-Even-Think-About-It-The-Effects-of-Anti-neutralization-Information-and-Normative-Communication-on-Information-Security-Compliance"><a href="#Don’t-Even-Think-About-It-The-Effects-of-Anti-neutralization-Information-and-Normative-Communication-on-Information-Security-Compliance" class="headerlink" title="Don’t Even Think About It! The Effects of Anti-neutralization, Information, and Normative Communication on Information Security Compliance"></a>Don’t Even Think About It! The Effects of Anti-neutralization, Information, and Normative Communication on Information Security Compliance</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Jordan B Barlow, Merrill Warkentin, Dustin Ormond, Alan R.Dennis</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>SETA:security education, training and awareness programs.</p><p>Neutralizing Theory:rationalize noncompliance behavior</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：</p><p>SETA Communication:</p><ol><li>Informational Communication（在SETA项目中，告诉员工信息安全行为遵守的重要性）</li><li>Normative Communication（在SETA项目中，告诉员工其他员工将遵守信息安全行为策略）</li><li>Anti-neutralization Communication（在SETA项目中，告诉员工不能为不遵守行为找借口）</li></ol><p>因变量：<br>Information Security Policy Violation Intention</p><p>控制变量：<br>Neutralization（是否找借口为自己的不遵守行为开脱）</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>We found that both informational(weakly) and anti-neutralization communication(strongly) decreased violate intention, but that normative communication had no effect.</p><p>In scenarios where neutralization where explicitly suggested to participants, anti-neutralization communication was the only approach that worked.</p><ul><li>第二中交流方式没用，第一种微弱，第三种强。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper7</title>
+    <link href="/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper9/"/>
+    <url>/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper9/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Employees’-information-security-policy-compliance-A-norm-activation-perspective"><a href="#Employees’-information-security-policy-compliance-A-norm-activation-perspective" class="headerlink" title="Employees’ information security policy compliance:A norm activation perspective"></a>Employees’ information security policy compliance:A norm activation perspective</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Adel Yazdanmehr , Jingguo Wang</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>norm activation theory<br>个人规范激励个人</p><p>social norm theory<br>社会规范约束自己</p><p>ethical climate literature</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：<br>道德氛围：</p><ol><li>Principle Ethical Climate</li></ol><p>一级中间变量：<br>社会规范：</p><ol><li>ISP-Related Descriptive Norms</li><li>ISP-Related Injunctive Norms</li><li>ISP-Related subjective Norms</li></ol><p>二级中间变量</p><ol><li>个人规范：<br>ISP-Related Personal Norms</li></ol><p>调节个人规范的变量：</p><ol><li><p>个人意识：<br>ISP-Related Awareness of Consequences</p></li><li><p>个人责任：<br>ISP-Related Ascription of Personal Responsibility</p></li></ol><p>结果变量：<br>ISP Compliance Behavior</p><p>控制变量：</p><ol><li>Deterrence</li><li>Gender</li><li>Age</li><li>Race</li><li>ISP Knowledge</li><li>Type of Job</li><li>Position</li><li>Company Size</li><li>Tenure</li><li>Information Intensity</li><li>IT related Job</li></ol><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results show that ISP-Related personal norms lead to ISP compliance behavior, and the effect is strengthened by ISP-related ascription of personal responsibility.</p><p>Social norms related to ISP(including injunctive and subjective norms), awareness of consequences, and ascription of personal responsibility shape personal norms.</p><p>Social norms related to ISP are the product of principe ethical in an organization.</p><ul><li>道德氛围影响社会规范；</li><li>社会规范同个人意识和个人责任一起影响个人规范；</li><li>个人规范同个人意识和个人责任一起影响ISP策略遵守行为；</li><li>个人特征影响不大。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>paper6</title>
     <link href="/2021/06/19/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper6/"/>
     <url>/2021/06/19/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper6/</url>
