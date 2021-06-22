@@ -4,6 +4,306 @@
   
   
   <entry>
+    <title>paper20</title>
+    <link href="/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper20/"/>
+    <url>/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper20/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Peers-matter-The-moderating-role-of-social-influence-on-information-security-policy-compliance"><a href="#Peers-matter-The-moderating-role-of-social-influence-on-information-security-policy-compliance" class="headerlink" title="Peers matter: The moderating role of social influence on information security policy compliance"></a>Peers matter: The moderating role of social influence on information security policy compliance</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Adel Yazdanmehr, Jingguo Wang, Zhiyong Yang</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p><strong>The command-and-control approach</strong> comprises extrinsic enforcement of the rules through incentives and sanctions as well as implementation of detection mechanisms to ensure discovery of wrongdoing(Tyler,209)</p><p><strong>The self-regulatory approach</strong> treats intrinsic desires as primary drivers of behavior, with the intrinsic desire for compliance rooted in two types of employee perceptions:(a)value congruence and (b)legitimacy.</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量1<br>command-and-control approach</p><p>调节变量<br>Rules-oriented ethical climate<br>susceptibility to interpersonal influence</p><p>结果变量：<br>ISP Compliance</p><hr><p>自变量2<br>self-regulatory approach</p><p>调节变量<br>Rules-oriented ethical climate<br>susceptibility to interpersonal influence</p><p>结果变量：<br>ISP Compliance</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>We found that these two social influence factors weaken the effects of both approaches on ISP compliance.</p><ul><li>纯粹的员工角度分析不同心理路径对员工行为遵守的影响。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper19</title>
+    <link href="/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper19/"/>
+    <url>/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper19/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Motivating-information-security-policy-compliance-the-critical-role-of-supervisor-subordinate-guanxi-and-organizational-commitment"><a href="#Motivating-information-security-policy-compliance-the-critical-role-of-supervisor-subordinate-guanxi-and-organizational-commitment" class="headerlink" title="Motivating information security policy compliance: the critical role of supervisor-subordinate guanxi and organizational commitment"></a>Motivating information security policy compliance: the critical role of supervisor-subordinate guanxi and organizational commitment</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Chenhui Liu, Nengmin Wang, Huigang Liang</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>RCT(rational choice theory)</p><ol><li>costs</li><li>benefits</li></ol><p>GDT(general deterrence theory)</p><p>PMT(protection motivation theory)</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>S-S guanxi</p><p>RCT:perceived costs</p><p>GDT:perceived threat</p><p>PMT:</p><ol><li>organizational commitment</li><li>perceived effectiveness</li><li>self-efficacy</li></ol><p>结果变量：<br>Compliance Behavior</p><p>调节变量：<br>organizational commitment<br>(既是S-S guanxi的结果变量，又是compliance behavior众多前因变量中的一个，同时还是其他前因变量与compliance behavior关系中的调节变量)</p><p>控制变量：<br>Age, gender, Job position, education level, work experience, computer usage, awareness</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>Results not only confirm the direct effect of SSG on government employees’ ISP compliance but also suggest that SSG indirectly influences compliance behavior via the mediation of organizational commitment.</p><p>Organization commitment weakens the negative influential of perceived costs on compliance behavior and also weakens the positive effect of efficacy on ISP compliance.</p><ul><li>对本论文无感</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper18</title>
+    <link href="/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper18/"/>
+    <url>/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper18/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Motivating-information-security-policy-compliance-insights-from-perceived-organizational-formalization"><a href="#Motivating-information-security-policy-compliance-insights-from-perceived-organizational-formalization" class="headerlink" title="Motivating information security policy compliance: insights from perceived organizational formalization"></a>Motivating information security policy compliance: insights from perceived organizational formalization</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Yuxiang Hong, Steven Furnell</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>TPB(the theory of planned behavior):</p><ol><li>Attitude</li><li>Subjective norms</li><li>Perceived behavioral control</li></ol><p>GDT(general deterrence theory):</p><ol><li>deterrence certainty（确定性）</li><li>deterrence severity（严厉性）</li><li>deterrence instantaneity（实时性）</li></ol><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>Formalization</p><p>中介变量<br>GDT:<br>deterrence certainty</p><p>TPB:</p><ol><li>attitude</li><li>subjective norms</li><li>perceived behavioral control</li></ol><p>Behavioral habit</p><p>结果变量<br>Information security behavioral intention</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The empirical results reveal that perceived organizational formalization significant affected cognitive processes theorized by TPB, behavioral habits, and deterrence certainty.</p><p>This study suggests that formalized rules, procedures, and communications should be designed to improve employee information security policy compliance behavioral habits and intentions.</p><ul><li>大概formalized的具体化就是SETA programs。</li><li>本文与其他同类文章相比，大概就是多了一个behavioral habits</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper17</title>
+    <link href="/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper17/"/>
+    <url>/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper17/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Leadership-power-and-employees’-information-security-policy-compliance"><a href="#Leadership-power-and-employees’-information-security-policy-compliance" class="headerlink" title="Leadership power and employees’ information security policy compliance"></a>Leadership power and employees’ information security policy compliance</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Hyungjin Lukas Kim, HanByeol Stella Choi, Jinyoung Han</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>Leader power base:</p><ol><li>Expert</li><li>Referent</li><li>Reward</li><li>Coercive</li><li>Legitimate</li></ol><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>SETA program awareness</p><p>调节变量<br>Leader power base:</p><ol><li>Expert</li><li>Referent</li><li>Reward</li><li>Coercive</li><li>Legitimate</li></ol><p>结果变量<br>ISP compliance intention</p><p>控制变量<br>ISP awareness<br>Age<br>Gender</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The moderating effects differ by leader power base type, and expertise, reward, as well as legitimate power have a positive impact on the relationship between SETA programs and employees’ ISP compliance intention. Referent power have a negative impact.</p><p>ISP awareness and age were influential in ISP compliance intention, not gender.</p><ul><li>以领导者权力基础为调节变量，研究SETA项目对信息安全策略遵守的影响。</li><li>同时，以性别，年龄和信息安全意识为控制变量。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper16</title>
+    <link href="/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper16/"/>
+    <url>/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper16/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Integrating-cognition-with-an-affective-lens-to-better-understand-information-security-policy-compliance"><a href="#Integrating-cognition-with-an-affective-lens-to-better-understand-information-security-policy-compliance" class="headerlink" title="Integrating cognition with an affective lens to better understand information security policy compliance"></a>Integrating cognition with an affective lens to better understand information security policy compliance</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Dustin Ormond, Merrill Warkentin, Robert E.Crossler</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>Affective events theory</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>perceived organizational injustice:</p><ol><li>Distributive injustice</li><li>Procedural injustice</li><li>Interpersonal injustice</li><li>Informational injustice</li></ol><p>中介变量<br>Negative Affective Flow</p><p>调节变量<br>Negative affective absorption</p><p>因变量<br>Information security policy compliance</p><p>控制变量<br>Attitude towards specific information security policy</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>We found that individuals who were frustrated by work-related tasks experienced negative affective flow and violated information security policies.</p><p>Furthermore, perceptions of organizational injustice increased negative affective flow.</p><ul><li>企业内不公平增加员工负面情绪流动；</li><li>这种增加的程度受到员工负面情绪吸收能力的影响；</li><li>员工负面情绪流动与员工信息安全策略不遵守行为有关；</li><li>对具体的信息安全策略的态度的不同，会加剧或者缓解由负面情绪流动导致的信息安全策略不遵守行为。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper15</title>
+    <link href="/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper15/"/>
+    <url>/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper15/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Information-security-policy-compliance-model-in-organizations"><a href="#Information-security-policy-compliance-model-in-organizations" class="headerlink" title="Information security policy compliance model in organizations"></a>Information security policy compliance model in organizations</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Nader Sohrabi Safa, Rossouw Von Solms, Steven Furnell</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>Social bond theory</p><p>Involvement theory</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>SBT(Social bond theory):<br>Attachment<br>Commitment<br>Personal Norms</p><p>Involvement theory:<br>Knowledge sharing<br>Collaboration<br>Intervention<br>Experience</p><p>中介变量<br>Attitude toward Compliance with ISOP</p><p>结果变量<br>ISOP Compliance Behavioral Intentions</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results of the data analysis revealed that information security knowledge sharing, collaboration, intervention and experience all have a significant effect on employees’ attitude towards compliance with organization information security policies.</p><p>However, attachment does not have significant effect on employees’ attitude towards information security policy compliance.</p><p>In addition, the findings have shown that commitment and personal norms affect employees’ attitude.</p><p>Attitude towards compliance with information security organizational policies also have a significant effect on the behavioral intention regarding information security compliance.</p><ul><li>只有attachment相关关系不显著。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper14</title>
+    <link href="/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper14/"/>
+    <url>/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper14/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Information-security-policy-compliance-leadership-trust-role-values-and-awareness"><a href="#Information-security-policy-compliance-leadership-trust-role-values-and-awareness" class="headerlink" title="Information security policy compliance: leadership, trust, role, values and awareness"></a>Information security policy compliance: leadership, trust, role, values and awareness</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Alex Koohang, Alojzy Nowak, Joanna Paliszkiewcz, Jeretta Horn Nord</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>无明显理论</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>Leadership<br>Trust<br>Role value<br>Awareness</p><p>中介变量：<br>Intention to comply</p><p>因变量<br>ISP compliance</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>Results indicated that all four predictor variables were influential in predicting employees’ intention to comply with organizational information security policy requirements.</p><ul><li>领导、信任、角色价值和员工信息安全意识，通过员工信息安全策略遵守意图影响信息安全策略遵守行为。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper13</title>
+    <link href="/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper13/"/>
+    <url>/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper13/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Information-security-policy-compliance-leadership-and-trust"><a href="#Information-security-policy-compliance-leadership-and-trust" class="headerlink" title="Information security policy compliance: leadership and trust"></a>Information security policy compliance: leadership and trust</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Joanna Paliszkiewicz</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>无明显理论</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：<br>leadership</p><p>中介变量：<br>trust</p><p>因变量：<br>Information security policy compliance</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>Results revealed that all trust variables(trust:competence, trust:benevolence, trust:integrity) were influential in predicting the leadership regarding the organization’s ISP compliance.</p><p>Leadership must make every effort to increase employees trust. SETA programs must be a top priority in organizations.</p><ul><li>领导者通过影响员工信任来影响员工信息安全策略遵守行为。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper12</title>
+    <link href="/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper12/"/>
+    <url>/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper12/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Indirect-effect-of-management-support-on-users’-compliance-behavior-towards-information-security-policies"><a href="#Indirect-effect-of-management-support-on-users’-compliance-behavior-towards-information-security-policies" class="headerlink" title="Indirect effect of management support on users’ compliance behavior towards information security policies"></a>Indirect effect of management support on users’ compliance behavior towards information security policies</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Norshima Humaidi, Vimala Balakrishnan</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>TPB(the theory of planned behavior):</p><ol><li>attitude</li><li>subjective norms</li><li>perceived behavioral control</li></ol><p>PBC(perceived behavioral control):</p><ol><li>self-efficacy</li><li>facilitating conditions</li></ol><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：<br>Management support</p><p>中介变量：<br>self-efficacy（来源于TPB理论中的PBC理论）<br>perceived trust</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The analysis revealed that the most significant impact on health professionals’ trust in organizational security policies.</p><p>The effect of PT(perceived trust) was also a more significant predict than SE(self-efficacy).</p><ul><li>管理支持通过员工自我效能感和员工可感知的信任影响员工信息安全策略遵守行为。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper11</title>
+    <link href="/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper11/"/>
+    <url>/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper11/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Impact-of-employees’-demographic-characteristics-on-the-awareness-and-compliance-of-information-security-policy-in-organizations"><a href="#Impact-of-employees’-demographic-characteristics-on-the-awareness-and-compliance-of-information-security-policy-in-organizations" class="headerlink" title="Impact of employees’ demographic characteristics on the awareness and compliance of information security policy in organizations"></a>Impact of employees’ demographic characteristics on the awareness and compliance of information security policy in organizations</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Hui Na Chua, Siew Fan Wang, Yeh Ching Low, Younghoon Chang</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>相当于无</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>Demographic characteristic:<br>Gender<br>Age<br>Ethnicity(国籍)<br>Education<br>Work experience<br>Industry</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>This paper used demographic factors to develop profiles of employee awareness and their intention to comply with the PDPA</p><p>Age, working industry and education levels have significant effects on information security policy awareness and compliance.</p><ul><li>该论文单独研究个体特征，并认为个体特征对ISPC有影响，还有一篇认为没有影响。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper10</title>
+    <link href="/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper10/"/>
+    <url>/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper10/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Examining-techno-stress-creators-and-role-stress-as-potential-threats-to-employees’-information-security-compliance"><a href="#Examining-techno-stress-creators-and-role-stress-as-potential-threats-to-employees’-information-security-compliance" class="headerlink" title="Examining techno-stress creators and role stress as potential threats to employees’ information security compliance"></a>Examining techno-stress creators and role stress as potential threats to employees’ information security compliance</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Inho Hwang, Oona Cha</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p><strong>Regulatory focus theory</strong>(Higgins,1997;Keller,2006) assumes that there are two distinct types of motivational orientation (promotion focus and prevention focus), which serve fundamentally different needs.</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>Security-related techno-stress creator</p><p>中介变量<br>Organizational commitment</p><p>调节变量<br>Security-related roles stress</p><p>控制变量<br>Promotion focus（促进聚焦：专注完成目标与理想上）<br>Prevention focus（预防聚焦：专注履行应有的责任上）</p><p>因变量<br>Compliance intention</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>It was found that security-related techno-stress creators negatively affected employees’ organizational commitment, both directly and indirectly through role stress, and further lower compliance intention regarding information security.</p><p>In addition, it was found that employees’ regulatory focus(promotion focus/prevention focus) moderated the relationship between techno-stress and role stress.</p><p>Employees with a high level of promotion focus were more resistant to the adverse effect of techno-stress creators and thus experienced less role stress.</p><ul><li>技术压力创造者们通过角色压力来影响员工的组织承诺；</li><li>员工组织承诺影响员工的信息安全策略遵守行为。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper9</title>
+    <link href="/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper9/"/>
+    <url>/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper9/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Employees’-information-security-policy-compliance-A-norm-activation-perspective"><a href="#Employees’-information-security-policy-compliance-A-norm-activation-perspective" class="headerlink" title="Employees’ information security policy compliance:A norm activation perspective"></a>Employees’ information security policy compliance:A norm activation perspective</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Adel Yazdanmehr , Jingguo Wang</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>norm activation theory<br>个人规范激励个人</p><p>social norm theory<br>社会规范约束自己</p><p>ethical climate literature</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：<br>道德氛围：</p><ol><li>Principle Ethical Climate</li></ol><p>一级中间变量：<br>社会规范：</p><ol><li>ISP-Related Descriptive Norms</li><li>ISP-Related Injunctive Norms</li><li>ISP-Related subjective Norms</li></ol><p>二级中间变量</p><ol><li>个人规范：<br>ISP-Related Personal Norms</li></ol><p>调节个人规范的变量：</p><ol><li><p>个人意识：<br>ISP-Related Awareness of Consequences</p></li><li><p>个人责任：<br>ISP-Related Ascription of Personal Responsibility</p></li></ol><p>结果变量：<br>ISP Compliance Behavior</p><p>控制变量：</p><ol><li>Deterrence</li><li>Gender</li><li>Age</li><li>Race</li><li>ISP Knowledge</li><li>Type of Job</li><li>Position</li><li>Company Size</li><li>Tenure</li><li>Information Intensity</li><li>IT related Job</li></ol><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results show that ISP-Related personal norms lead to ISP compliance behavior, and the effect is strengthened by ISP-related ascription of personal responsibility.</p><p>Social norms related to ISP(including injunctive and subjective norms), awareness of consequences, and ascription of personal responsibility shape personal norms.</p><p>Social norms related to ISP are the product of principe ethical in an organization.</p><ul><li>道德氛围影响社会规范；</li><li>社会规范同个人意识和个人责任一起影响个人规范；</li><li>个人规范同个人意识和个人责任一起影响ISP策略遵守行为；</li><li>个人特征影响不大。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>paper7</title>
     <link href="/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper7/"/>
     <url>/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper7/</url>
@@ -29,36 +329,11 @@
   
   
   <entry>
-    <title>paper7</title>
+    <title>paper8</title>
     <link href="/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper8/"/>
     <url>/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper8/</url>
     
     <content type="html"><![CDATA[<h1 id="Don’t-Even-Think-About-It-The-Effects-of-Anti-neutralization-Information-and-Normative-Communication-on-Information-Security-Compliance"><a href="#Don’t-Even-Think-About-It-The-Effects-of-Anti-neutralization-Information-and-Normative-Communication-on-Information-Security-Compliance" class="headerlink" title="Don’t Even Think About It! The Effects of Anti-neutralization, Information, and Normative Communication on Information Security Compliance"></a>Don’t Even Think About It! The Effects of Anti-neutralization, Information, and Normative Communication on Information Security Compliance</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Jordan B Barlow, Merrill Warkentin, Dustin Ormond, Alan R.Dennis</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>SETA:security education, training and awareness programs.</p><p>Neutralizing Theory:rationalize noncompliance behavior</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：</p><p>SETA Communication:</p><ol><li>Informational Communication（在SETA项目中，告诉员工信息安全行为遵守的重要性）</li><li>Normative Communication（在SETA项目中，告诉员工其他员工将遵守信息安全行为策略）</li><li>Anti-neutralization Communication（在SETA项目中，告诉员工不能为不遵守行为找借口）</li></ol><p>因变量：<br>Information Security Policy Violation Intention</p><p>控制变量：<br>Neutralization（是否找借口为自己的不遵守行为开脱）</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>We found that both informational(weakly) and anti-neutralization communication(strongly) decreased violate intention, but that normative communication had no effect.</p><p>In scenarios where neutralization where explicitly suggested to participants, anti-neutralization communication was the only approach that worked.</p><ul><li>第二中交流方式没用，第一种微弱，第三种强。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>Papers</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>文献梳理</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper7</title>
-    <link href="/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper9/"/>
-    <url>/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper9/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Employees’-information-security-policy-compliance-A-norm-activation-perspective"><a href="#Employees’-information-security-policy-compliance-A-norm-activation-perspective" class="headerlink" title="Employees’ information security policy compliance:A norm activation perspective"></a>Employees’ information security policy compliance:A norm activation perspective</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Adel Yazdanmehr , Jingguo Wang</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>norm activation theory<br>个人规范激励个人</p><p>social norm theory<br>社会规范约束自己</p><p>ethical climate literature</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：<br>道德氛围：</p><ol><li>Principle Ethical Climate</li></ol><p>一级中间变量：<br>社会规范：</p><ol><li>ISP-Related Descriptive Norms</li><li>ISP-Related Injunctive Norms</li><li>ISP-Related subjective Norms</li></ol><p>二级中间变量</p><ol><li>个人规范：<br>ISP-Related Personal Norms</li></ol><p>调节个人规范的变量：</p><ol><li><p>个人意识：<br>ISP-Related Awareness of Consequences</p></li><li><p>个人责任：<br>ISP-Related Ascription of Personal Responsibility</p></li></ol><p>结果变量：<br>ISP Compliance Behavior</p><p>控制变量：</p><ol><li>Deterrence</li><li>Gender</li><li>Age</li><li>Race</li><li>ISP Knowledge</li><li>Type of Job</li><li>Position</li><li>Company Size</li><li>Tenure</li><li>Information Intensity</li><li>IT related Job</li></ol><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results show that ISP-Related personal norms lead to ISP compliance behavior, and the effect is strengthened by ISP-related ascription of personal responsibility.</p><p>Social norms related to ISP(including injunctive and subjective norms), awareness of consequences, and ascription of personal responsibility shape personal norms.</p><p>Social norms related to ISP are the product of principe ethical in an organization.</p><ul><li>道德氛围影响社会规范；</li><li>社会规范同个人意识和个人责任一起影响个人规范；</li><li>个人规范同个人意识和个人责任一起影响ISP策略遵守行为；</li><li>个人特征影响不大。</li></ul>]]></content>
     
     
     <categories>

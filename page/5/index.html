@@ -182,21 +182,20 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/15/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%958/" target="_self">
-          《SQL必知必会》--函数
+        <a href="/2021/05/26/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%932/" target="_self">
+          《SQL必知必会》学习总结2
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/15/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%958/" target="_self">
+        <a href="/2021/05/26/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%932/" target="_self">
           
           
             
           
-          第八课 使用函数处理数据在本节课开始之前，我们首先大致回顾一下目前为止，我们所学过的知识及其内在逻辑。
-首先我们知道，本文的初始点，并不是如何从无到有建立一个新的数据库。而是，默认我们目前已经有了一个数据库。
-在有了数据库之后，我们首先需要知道，数据库里有什么？即数据检索（SELECT语句，LIMIT语句，ORDER语句）和数据过滤（WHERE子句、组合过滤、通配符过滤）。
-在了解数据库里有什么之
+          总结2上一节课总结到第6课数据过滤，本章将总结完剩下的两大主体高级检索数据和跨表操作数据。
+高级检索数据拼接字段：
+123SELECT prod_name + &#x27;(&#x27; + prod_id + &#x27;)&#x27; FROM products;SELECT prod_name || &#x27;(&#x27; || prod_id + &#x27;)&#x27; FROM 
         </a>
       </p>
 
@@ -204,8 +203,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-15 14:47" pubdate>
-              2021-05-15
+            <time datetime="2021-05-26 09:04" pubdate>
+              2021-05-26
             </time>
           </div>
         
@@ -235,22 +234,20 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/14/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%957/" target="_self">
-          《SQL必知必会》--计算字段
+        <a href="/2021/05/25/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" target="_self">
+          《SQL必知必会》学习总结
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/14/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%957/" target="_self">
+        <a href="/2021/05/25/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" target="_self">
           
           
             
           
-          第七课 创建计算字段前面几章，除去DISTINCT指令，其他全部指令都是在主语句（select…from…）之后，添加条件指令（限制，排序，过滤）。那么说在主语句有没有什么骚操作呢？
-请看本章，SELECT语句内的爱恨情仇。
-计算字段计算字段是运行时在SELECT语句内创建的。
-
-字段(field)基本上与列(column)的意思相同，经常相互使用，不过数据库列一般成为列，而术语字段通常与计算字段
+          总结以整个DBMS操作流程为主线，总结全部已经学习的知识。
+创建表格（17课）创建表：
+123456789101112131415161718USE mustknown;-- ------------------------ Create Customers table(注释)-- ----------------------CREATE TABLE Customers(  cust_id    
         </a>
       </p>
 
@@ -258,8 +255,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-14 08:43" pubdate>
-              2021-05-14
+            <time datetime="2021-05-25 09:02" pubdate>
+              2021-05-25
             </time>
           </div>
         
@@ -289,25 +286,27 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/13/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%956/" target="_self">
-          《SQL必知必会》--通配符
+        <a href="/2021/05/24/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9517/" target="_self">
+          《SQL必知必会》--创建和操纵表
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/13/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%956/" target="_self">
+        <a href="/2021/05/24/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9517/" target="_self">
           
           
             
           
-          第六课 用通配符进行过滤通配符进行过滤是是在WHERE指令中使用的对前面几章所学的过滤规则的补充，主要是由于前面所学的过滤规则必须使用已知的特定的准确的值。
-当我们只知道一个词，但是想要找到包含这个词的数据值时，通配符就有了作用。
-本课介绍三种用以过滤的通配符：百分号% 及下划线 _ 和方括号[]。
-LIKE操作符
-通配符(wildcard)：用来匹配值的一部分的特殊字符。
+          第17课 创建和操纵表在此说明：本节课将是该课程系列的最后一节课。本书后面还有几节课，但是由于此后内容在各DBMS中具体实现有所差异，因此书中并未深入讲解各知识的灵活应用。
+敬请期待下一系列《MySQL必知必会》。
+创建表一般说来，创建表有两种形式：
 
+多数DBNS都具有交互式创建和管理数据库表的工具；
+表也可以直接用SQL语句操纵。
 
-搜索模式(sear
+表创建基础：
+
+新表的名字，在关键字CREATE TABLE
         </a>
       </p>
 
@@ -315,8 +314,8 @@ LIKE操作符
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-13 07:56" pubdate>
-              2021-05-13
+            <time datetime="2021-05-24 09:30" pubdate>
+              2021-05-24
             </time>
           </div>
         
@@ -346,23 +345,31 @@ LIKE操作符
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/12/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%955/" target="_self">
-          《SQL必知必会》--高级数据过滤
+        <a href="/2021/05/23/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9516/" target="_self">
+          《SQL必知必会》--更新和删除数据
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/12/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%955/" target="_self">
+        <a href="/2021/05/23/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9516/" target="_self">
           
           
             
           
-          第五课 高级数据过滤先透露一下，本课就是在学习了WHERE子句基础指令后，结合AND\OR\IN\NOT四种运算符进行组合应用。
-组合WHERE子句（AND+OR）先不去看课本，我们想象一下，如果让我们来做，AND符号应该如何应用呢？
-123select c1from t1where c1 = 1 and c2 = 2;
+          第16课 更新和删除数据上一节课的时候提到SQL常用的四个语句。前面已经讲过了两个SELECT  INSERT，下面将后面两个 UPDATE DELETE。
+更新数据两种更新数据的  UPDATE 方式：
 
-看，就是这么简单。
-这是从数字角度的两个相等检验的组合，那我们还能怎么做，
+更新表中的特定行
+更新表中的所有行
+
+使用UPDATE语句的三个要素：
+
+要更新的表
+列名和新值
+确定更新那些行的过滤条件
+
+某条记录中某个列的数据更新：
+123update customer
         </a>
       </p>
 
@@ -370,8 +377,8 @@ LIKE操作符
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-12 11:04" pubdate>
-              2021-05-12
+            <time datetime="2021-05-23 09:02" pubdate>
+              2021-05-23
             </time>
           </div>
         
@@ -401,24 +408,27 @@ LIKE操作符
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/12/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954/" target="_self">
-          《SQL必知必会》--过滤数据
+        <a href="/2021/05/22/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9515/" target="_self">
+          《SQL必知必会》--插入数据
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/12/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954/" target="_self">
+        <a href="/2021/05/22/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9515/" target="_self">
           
           
             
           
-          第四课 过滤数据这一节课比较简单，只是关于WHERE子句的简单介绍。但是呢，介绍起来很简单，使用起来作用很大。
-使用WHERE子句先来一个简单的列子开开胃。
-123select c1from table1where c2 = 3;
+          第15课 插入数据本节课介绍如何利用SQL的INSERT语句将数据插入表中。
+数据插入SQL最常用的语句有四个：SELECT  INSERT   UPDATE  DELETE。
+本节课介绍INSERT语句。INSERT用来将行插入（或添加）到数据库表。插入的方式有三种：
 
-这一看就知道什么意思了吧。显示c2=3时的所有c1列的记录。
-那么如果我们想要检索的是某一列等于某个字符串而非数字的情况该如何操作呢？
-123select c1fro
+插入完整的行；
+插入行的一部分；
+插入某些查询的结果。
+
+插入完整行第一种形式：
+12345678910insert into
         </a>
       </p>
 
@@ -426,8 +436,8 @@ LIKE操作符
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-12 09:49" pubdate>
-              2021-05-12
+            <time datetime="2021-05-22 08:24" pubdate>
+              2021-05-22
             </time>
           </div>
         
@@ -457,23 +467,21 @@ LIKE操作符
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/11/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%953/" target="_self">
-          《SQL必知必会》--排序检索数据
+        <a href="/2021/05/21/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9514/" target="_self">
+          《SQL必知必会》--组合查询
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/11/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%953/" target="_self">
+        <a href="/2021/05/21/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9514/" target="_self">
           
           
             
           
-          第三课 排序检索数据排序数据123select column_namefrom table_nameorder by column123_name;
-
-按照column123_name这一列的数字+字母顺序对输出结果column_name这一列进行排序。
-关系数据库设计理论认为，如果不明确规定排序顺序，则不应该假定检索出来的数据的顺序有任何意义。
-
-ORDER BY语句若存在，则必须为该命令的最后
+          第14课 组合查询本课讲述如何利用UNION操作符将多条SELECT语句组成一个结果集。
+多数SQL查询只含从一个或多个表中返回数据的单条SELECT语句。但是SQL也允许执行多个查询（多条SELECT语句），并将结果作为一个查询结果集返回。
+如下示例一
+123456789输入：select cust_name, cust_contact, cust_emailfrom customerswher
         </a>
       </p>
 
@@ -481,8 +489,8 @@ ORDER BY语句若存在，则必须为该命令的最后
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-11 19:43" pubdate>
-              2021-05-11
+            <time datetime="2021-05-21 09:35" pubdate>
+              2021-05-21
             </time>
           </div>
         
@@ -512,30 +520,20 @@ ORDER BY语句若存在，则必须为该命令的最后
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/11/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%952/" target="_self">
-          《SQL必知必会》--检索数据
+        <a href="/2021/05/20/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9513/" target="_self">
+          《SQL必知必会》--高级联结
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/11/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%952/" target="_self">
+        <a href="/2021/05/20/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9513/" target="_self">
           
           
             
           
-          第二课 检索数据这一章介绍的是SQL最简单的SELECT语句。
-在开始正文之前，首先介绍两条必备知识。
-
-多条SQL语句必须一分号（;）分割；SQL语句不区分大小写。
-
-1.检索单个列
-12select column_namefrom table_name;
-
-或者
-1select column_name from table_name;
-
-2.检索多个列
-12select c1_name, c2
+          第13课 创建高级联结上一节课已经讲了简单的等值联结或者说，内联结。本节课介绍高级联结。
+简单等值联结的简单进阶–使用表别名这一节相当简单，大致就一件事，可以对表命名表别名。
+12345select cust_name, cust_contactfrom customers as C, orders AS O, orderitems AS OIwhere C.cust_id = O.cust_id
         </a>
       </p>
 
@@ -543,8 +541,8 @@ ORDER BY语句若存在，则必须为该命令的最后
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-11 16:47" pubdate>
-              2021-05-11
+            <time datetime="2021-05-20 08:36" pubdate>
+              2021-05-20
             </time>
           </div>
         
@@ -574,25 +572,21 @@ ORDER BY语句若存在，则必须为该命令的最后
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/11/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/" target="_self">
-          《SQL必知必会》--了解SQL
+        <a href="/2021/05/19/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9512/" target="_self">
+          《SQL必知必会》--联结表
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/11/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/" target="_self">
+        <a href="/2021/05/19/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9512/" target="_self">
           
           
             
           
-          第一课 了解SQL什么是数据库数据库(database):  保存有组织的数据的容器，通常指一个文件或者一组文件。
-数据库管理系统(DBMS):数据库软件。
-表(table)：某种特定类型的结构化清单。储存在表中的数据是同一类型的数据和清单。
-
-同一数据库下，表名唯一。同一表下，数据类型同一。
-
-列(column)：表中的一个字段。所有表都是由一个或多个列组成。
-行(row)：数据按照行来存储，每
+          联结表这一课还是跨表操作，我们上一节课讲的是子查询。由于我们的表格在之前就已经为我们设计好，因此，我们不用去思考，为什么我们可以使用子查询？
+联结简介联结表是SQL最强大功能之一。联结是利用SQL的SELECT能执行的最重要的操作。在理解联结前，必须联结关系表以及关系数据库的一些基础知识。
+什么是关系表
+关系表的设计就是要把信息分解成多个表，一类数据一个表。各表通过某些共同的值相互关联。由关系表组
         </a>
       </p>
 
@@ -600,8 +594,8 @@ ORDER BY语句若存在，则必须为该命令的最后
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-11 10:34" pubdate>
-              2021-05-11
+            <time datetime="2021-05-19 08:11" pubdate>
+              2021-05-19
             </time>
           </div>
         
@@ -631,20 +625,23 @@ ORDER BY语句若存在，则必须为该命令的最后
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/10/%E7%94%BB%E9%BE%99%E4%B8%83%E5%BC%8F/%E7%94%BB%E9%BE%99%E4%B8%83%E5%BC%8F%E5%86%99%E4%BD%9C%E6%B3%95/" target="_self">
-          画龙七式
+        <a href="/2021/05/18/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9511/" target="_self">
+          《SQL必知必会》--子查询
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/10/%E7%94%BB%E9%BE%99%E4%B8%83%E5%BC%8F/%E7%94%BB%E9%BE%99%E4%B8%83%E5%BC%8F%E5%86%99%E4%BD%9C%E6%B3%95/" target="_self">
+        <a href="/2021/05/18/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9511/" target="_self">
           
           
             
           
-          画龙七式写作法第一式  冥想在画龙正式开始前，首先要做的不是去做，而是去想。这一片文章的写作目的、写作目标和写作方式等。
-第二式  画骨画龙画虎难画骨，画骨这一节可谓是重中之重，甚至直接决定了你的文章的质量。什么是文章的骨？拿我现在写的这一片综述性质的文章来说，文章的骨也就是框架，并不是你这一篇综述里每一篇文章具体写的是什么，而在于，你如何选择的文章，以及文章大致写的是什么。
-这一节的表现形式就是
+          第十一课 使用子查询在前十课中，我们所有的操作、指令都是在一张表列中执行，现在，欢迎进入多表联动的世界！
+什么是子查询SELECT语句是SQL的查询。我们之前看到的所有的SELECT语句都是简单查询，即从单个数据库表中检索数据的单条语句。SQL还允许创建子查询。
+
+子查询(subquery)即嵌套在其他查询中的查询。
+
+如何利用子查询进行过滤目前，我将SQL语句分为主语句和条件语句。主语句就是se
         </a>
       </p>
 
@@ -652,8 +649,8 @@ ORDER BY语句若存在，则必须为该命令的最后
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-10 17:07" pubdate>
-              2021-05-10
+            <time datetime="2021-05-18 09:02" pubdate>
+              2021-05-18
             </time>
           </div>
         
@@ -661,7 +658,7 @@ ORDER BY语句若存在，则必须为该命令的最后
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Paper/">Paper</a>
+              <a href="/categories/SQL/">SQL</a>
             
           </div>
         
@@ -669,7 +666,7 @@ ORDER BY语句若存在，则必须为该命令的最后
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Paper/">Paper</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
             
           </div>
         
@@ -683,19 +680,20 @@ ORDER BY语句若存在，则必须为该命令的最后
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/10/hello-world/" target="_self">
-          Hello World
+        <a href="/2021/05/17/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9510/" target="_self">
+          《SQL必知必会》--分组数据
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/10/hello-world/" target="_self">
+        <a href="/2021/05/17/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9510/" target="_self">
           
           
             
           
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick
+          第十课 分组数据前面两课，我们已经学习了数据分析函数，在此时，我们回想一下所学内容，是不是我们所学的函数，基本都处于SELECT语句后面呢。也就是我常说的主语句之中。那么在条件语句中，有没有什么数据处理方式呢？今天介绍两种。
+目前为止，我们所有的计算都是在表的所有数据或者匹配特定的WHERE子句的数据基础上进行的。
+如果要返回每个供应商提供的产品数目，该怎么办？或者返回只提供一个产品的所有供应商名
         </a>
       </p>
 
@@ -703,12 +701,26 @@ Quick
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-10 09:54" pubdate>
-              2021-05-10
+            <time datetime="2021-05-17 09:16" pubdate>
+              2021-05-17
             </time>
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/SQL/">SQL</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
+            
+          </div>
         
       </div>
     </article>
@@ -718,7 +730,7 @@ Quick
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/4/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="page-number current">5</span>
+      <a class="extend prev" rel="prev" href="/page/4/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#board">6</a><a class="page-number" href="/page/7/#board">7</a><a class="extend next" rel="next" href="/page/6/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
