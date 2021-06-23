@@ -4,6 +4,256 @@
   
   
   <entry>
+    <title>paper30</title>
+    <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper30/"/>
+    <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper30/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Understanding-information-security-stress-focusing-on-the-type-of-information-security-compliance-activity"><a href="#Understanding-information-security-stress-focusing-on-the-type-of-information-security-compliance-activity" class="headerlink" title="Understanding information security stress focusing on the type of information security compliance activity"></a>Understanding information security stress focusing on the type of information security compliance activity</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Chunghun Lee, Choong C.Lee, Suhyun Kim</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>person-environment fit theory</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量</p><ol><li>Prior security knowledge</li><li>Perceived security threat</li></ol><p>一级中介</p><ol><li>Adaptation</li><li>Attitude to ISP compliance</li></ol><p>二级中介</p><ol><li>Invasion of privacy</li><li>Work overload</li></ol><p>调节变量<br>Type of information security compliance activities</p><p>结果变量<br>Information security stress</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results show that work overload and invasion of privacy are information security stressors.</p><p>Furthermore, work overload has a greater effect on ISS in managerial security-oriented organizations, while invasion of privacy exerts a greater influence on ISS in technical security-oriented organization.</p><p>In addition, attitude to compliance with the information security policy mitigates work overload and invasion of privacy.</p><ul><li>第一次读到人与环境匹配模型的信息安全研究，对我来说有一些借鉴意义。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper29</title>
+    <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper29/"/>
+    <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper29/</url>
+    
+    <content type="html"><![CDATA[<h1 id="The-theory-of-planned-behavior-and-information-policy-compliance"><a href="#The-theory-of-planned-behavior-and-information-policy-compliance" class="headerlink" title="The theory of planned behavior and information policy compliance"></a>The theory of planned behavior and information policy compliance</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Teodor Sommestad, Hentik Karlzen, Jonas Hallberg</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>TPB(the theory of planned behavior)</p><ol><li>attitude</li><li>subjective norms</li><li>perceived behavioral control</li></ol><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>Background factors:</p><ol><li>individual(e.g., personality)</li><li>social(e.g., culture)</li><li>information(e.g., knowledge)</li></ol><p>general information security awareness<br>information security policy awareness<br>anticipated regret of non-compliance(an attitude)<br>work impediment of compliance<br>cost of compliance<br>involvement in information security capability<br>respondent’s information security capability<br>organization’s information security capability<br>habit<br>information security threat severity<br>information security education, training and awareness</p><p>一级中介变量<br>the theory of planned behavior:</p><ol><li>Attitude towards the behavior</li><li>Perceived norm</li><li>Perceived behavioral control</li></ol><p>二级中介变量<br>Intention</p><p>调节变量<br>Actual behavioral control</p><p>结果变量<br>Behavior</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results suggest that the variables anticipated regret and habit improve the predictions.</p><ul><li>本文章首先运用元分析法，分析了之前基于TPB研究的信息安全策略行为的文章，找出存在的普遍影响因素。</li><li>其次，列举11个信息安全行为的潜在影响因素，研究结果支出习惯和预料到的遗憾也是重要的影响因素。</li><li>本篇文章对我而言，最重要的反而不是他的调查研究，而是对前人研究的总结。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper28</title>
+    <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper28/"/>
+    <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper28/</url>
+    
+    <content type="html"><![CDATA[<h1 id="The-mediating-role-调节作用-of-psychological-empowerment-心理授权-in-information-security-compliance-intentions"><a href="#The-mediating-role-调节作用-of-psychological-empowerment-心理授权-in-information-security-compliance-intentions" class="headerlink" title="The mediating role(调节作用) of psychological empowerment(心理授权) in information security compliance intentions"></a>The mediating role(调节作用) of psychological empowerment(心理授权) in information security compliance intentions</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Gurpreet Dhillon, Yurita Yakimini Abdul T alib, Winnie Ng Picoto</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>psychological empowerment theory</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>empowerment structures:</p><ol><li>SETA programs(教育培训：制定规则告诉员工如何行动)</li><li>Access(授权：给予员工权力自己行动)</li><li>Participation(参与：员工参与规则制定)</li></ol><p>中介变量<br>Psychological empowerment</p><p>结果变量<br>ISP Compliance intention</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>This study conceptualizes the role of psychological as a mediator between structural empowerment and the intention to comply with information security policy.</p><p>It suggests that <strong>empowerment work structures</strong>, which include information security education, training, and awareness(SETA), access to information security strategics goals, and participation in information security decision-making all <strong>increase employees’ feelings of being psychologically empowered</strong>, <strong>which consequently leads to positive intentions to comply with information security policy.</strong></p><ul><li>三种方式增加心理授权，最终促进策略遵守。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper27</title>
+    <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper27/"/>
+    <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper27/</url>
+    
+    <content type="html"><![CDATA[<h1 id="The-influence-of-organizational-culture-and-information-security-culture-on-employee-compliance-behavior"><a href="#The-influence-of-organizational-culture-and-information-security-culture-on-employee-compliance-behavior" class="headerlink" title="The influence of organizational culture and information security culture on employee compliance behavior"></a>The influence of organizational culture and information security culture on employee compliance behavior</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Grant Solomon, Irwin Brown</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>TPB(the theory of planned behavior)</p><ol><li>attitude</li><li>subjective norms</li><li>perceived behavioral control</li></ol><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><ol><li>组织文化–&gt;遵守行为</li><li>信息安全文化–&gt;遵守行为</li><li>组织文化–&gt;信息安全文化</li></ol><p>组织文化(organizational culture):</p><ol><li>Rule orientation(规制方向)</li><li>Goal orientation(目标方向)</li></ol><p>信息安全文化(information security culture):</p><ol><li>Top management commitment to security</li><li>Communication</li><li>Monitoring</li></ol><p>遵守行为<br>Compliance behavior</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>Organizational culture and information security culture have significant, yet similar influences on employee compliance.</p><p>In addition, organizational culture has a strong causal influence on information security culture.</p><ul><li>本文大体上都懂了，只有一个小细节，它是如何将两种文化与TPB结合的呢？</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper26</title>
+    <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper26/"/>
+    <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper26/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Social-control-through-deterrence-on-the-compliance-with-information-security-policy"><a href="#Social-control-through-deterrence-on-the-compliance-with-information-security-policy" class="headerlink" title="Social control through deterrence on the compliance with information security policy"></a>Social control through deterrence on the compliance with information security policy</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Myeonggil Choi, Jeongseok Song</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>social control theory(SCT)</p><p>social bond theory(SBT)<br>Commitment/belief/attachment</p><p>general deterrence theory(GDT)</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>SBT:</p><ol><li>commitment</li><li>belief</li><li>attachment</li></ol><p>中介变量<br>deterrence</p><p>结果变量<br>compliance</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>First, we show that IS misuse appears to be more strongly influenced by informal sanction–shame–than formal sanction.</p><p>Second, social bonds an employee has play a significant and positive role on formal deterrence the employee perceive.</p><ul><li>本文又出现一个之前没出现过的理论：社会控制理论。</li><li>但是，本文的模型还是缺少逻辑解释，一眼看去不懂。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper25</title>
+    <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper25/"/>
+    <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper25/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Security-awareness-The-first-step-in-information-security-compliance-behavior"><a href="#Security-awareness-The-first-step-in-information-security-compliance-behavior" class="headerlink" title="Security awareness: The first step in information security compliance behavior"></a>Security awareness: The first step in information security compliance behavior</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Inho Hwang, Robin Wakefield, Sanghyun Kin, Taeha Kim</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>Social learning theory</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量</p><ol><li>security education </li><li>security policy</li><li>physical system</li><li>security visibility</li><li>Management participation</li></ol><p>中介变量：<br>Information security awareness</p><p>因变量：<br>compliance intention</p><p>控制变量</p><ol><li>firm</li><li>size</li><li>industry</li></ol><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results show security awareness arises from both explicit and subjective security experiences in the workplace.</p><p>Our respondents indicate knowledge of a physical system has little, if any, effect on security awareness.</p><p>However, security education, policy, visibility and managerial security participation are important for producing security awareness.</p><p>Furthermore, managerial participation strengthens the links between organization security efforts and security awareness.</p><ul><li>自变量中有一些需要去文章内去查看真实涵义。</li><li>这一篇应该还是有一些欠缺。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper24</title>
+    <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper24/"/>
+    <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper24/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Sanction-severity-and-employees’-information-security-policy-compliance-Investigating-mediating-moderating-and-control-variables"><a href="#Sanction-severity-and-employees’-information-security-policy-compliance-Investigating-mediating-moderating-and-control-variables" class="headerlink" title="Sanction severity and employees’ information security policy compliance: Investigating mediating, moderating, and control variables"></a>Sanction severity and employees’ information security policy compliance: Investigating mediating, moderating, and control variables</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Xianfeng Chen, Dazhong Wu, Liqiang Chen, Joe K.L. Teng</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>GDT(general deterrence theory)</p><p>RCT(rational choice theory)</p><p>PMT(protection motivation theory)</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：<br>Perceived sanction severity</p><p>结果变量：<br>Compliance Intention</p><p>有调节的中介：</p><ol><li>Perceived response cost</li><li>Perceived self-efficacy to compliance</li><li>Perceived descriptive cost</li></ol><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results show that none of the investigated moderating variables interacts with sanction severity on employees’ ISP compliance intentions.</p><p>However, the significant impact of sanction severity on employees’ ISP CI disappears when the investigated variables are included, and the impact of sanction severity is mediated by perceived efficacy and descriptive norm.</p><ul><li>惩罚严厉性对信息安全策略遵守行为的影响。</li><li>感觉翻来覆去还是这几个元素的胡乱组合。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper23</title>
+    <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper23/"/>
+    <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper23/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Reliability-validity-and-strength-of-a-unified-model-for-information-security-policy-compliance"><a href="#Reliability-validity-and-strength-of-a-unified-model-for-information-security-policy-compliance" class="headerlink" title="Reliability, validity, and strength of a unified model for information security policy compliance"></a>Reliability, validity, and strength of a unified model for information security policy compliance</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Alex Koohang, Jeretta Horn Nord, Zoroayka V.Sandoval, Joanna Paliszkiewicz</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>UMISPC(a unified model of information security policy compliance proposed by Moody, Siponen, &amp;Pahnila)</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量1<br>Response efficacy</p><p>一级中介变量：<br>Threat</p><p>二级中介变量：<br>Fear</p><p>结果变量：<br>Intention<br>Reactance</p><hr><p>自变量2<br>Habit<br>Role Values<br>Neutralization</p><p>结果变量：<br>Intention<br>Reactance</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><ol><li>Role values significant influenced an individual’s intention to comply;</li><li>Response efficacy significant influenced threat;Threat significant influenced fear; fear significant influenced reactance;</li><li>Neutralization significant influenced reactance.</li></ol><ul><li>习惯不重要</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper22</title>
+    <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper22/"/>
+    <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper22/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Predicting-employee-information-security-policy-compliance-on-a-daily-basis-The-interplay-of-security-related-stress-emotions-and-neutralization"><a href="#Predicting-employee-information-security-policy-compliance-on-a-daily-basis-The-interplay-of-security-related-stress-emotions-and-neutralization" class="headerlink" title="Predicting employee information security policy compliance on a daily basis: The interplay of security-related stress, emotions, and neutralization"></a>Predicting employee information security policy compliance on a daily basis: The interplay of security-related stress, emotions, and neutralization</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>John D’Arcy, Pei-Lee Teh</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>AET(affective events theory)</p><blockquote><p>The theory recognizes the multidimensional nature of job attitude and behaviors, in which each have separate affective and cognitive dimensions.</p></blockquote><p>coping theory</p><blockquote><p>Coping theory originally focused exclusively on appraisals of stress and its resultant choice of coping mechanisms.</p></blockquote><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：<br>security-related stress</p><p>一级中介变量：<br>Emotional reactions:</p><ol><li>frustration</li><li>fatigue</li></ol><p>二级中介变量：<br>Coping response: Neutralization</p><p>结果变量：<br>Behavioral Outcome: ISP compliance</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>We observed that SRS had a positive association with frustration and fatigue, and these negative emotions were associated with neutralization of ISP violations.</p><p>Additionally, frustration and fatigue make employees more likely to follow through on their rationalizations of ISP violations by decreased ISP compliance.</p><p>Our findings provide evidence that neutralization is not a completely stable phenomenon but can vary  within individuals from one time point to another.</p><ul><li>安全压力引起情绪变化；情绪变化引发推脱机制；推脱机制改变遵守行为。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper21</title>
+    <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper21/"/>
+    <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper21/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Potential-measures-to-enhance-information-security-compliance-in-the-healthcare-internet-of-things"><a href="#Potential-measures-to-enhance-information-security-compliance-in-the-healthcare-internet-of-things" class="headerlink" title="Potential measures to enhance information security compliance in the healthcare internet of things"></a>Potential measures to enhance information security compliance in the healthcare internet of things</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Premylla Jeremiah, Ganthan Narayana Samy, Bharanidaran Shanmugam, Kannan Ponkoodalingam, Sundresan Perumal</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>无</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>无</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><ul><li>哗众取宠，看似将信息安全与物联网结合，但是，实质上新瓶装旧药。</li><li>唯一需要注意的是在文章中，有一个关于马来西亚的员工信息安全策略不遵守行为的原因分析图表。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Papers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文献梳理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>paper20</title>
     <link href="/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper20/"/>
     <url>/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper20/</url>

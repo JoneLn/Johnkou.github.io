@@ -182,20 +182,22 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/26/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%932/" target="_self">
-          《SQL必知必会》学习总结2
+        <a href="/2021/06/04/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9510/" target="_self">
+          《MySQL必知必会》--改善性能
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/26/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%932/" target="_self">
+        <a href="/2021/06/04/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9510/" target="_self">
           
           
             
           
-          总结2上一节课总结到第6课数据过滤，本章将总结完剩下的两大主体高级检索数据和跨表操作数据。
-高级检索数据拼接字段：
-123SELECT prod_name + &#x27;(&#x27; + prod_id + &#x27;)&#x27; FROM products;SELECT prod_name || &#x27;(&#x27; || prod_id + &#x27;)&#x27; FROM 
+          回顾复习提出要点
+首先，接受硬件建议。
+一般来说，关键的生产DBMS应该运行在自己的专用服务器上。
+MySQL是用一系列的默认设置预先配置的，从这些设置开始通常是很好的。但是过一段时间你可能需要调整内存分配、缓冲区大小等（为查看当前设置，可使用SHOW VARIABLES;和SHOW STATUS）。
+MySQL是一个多用户多线程的DBMS，换言之，它经常同时执行多个任务。一个执行缓慢，降低所有执
         </a>
       </p>
 
@@ -203,8 +205,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-26 09:04" pubdate>
-              2021-05-26
+            <time datetime="2021-06-04 08:59" pubdate>
+              2021-06-04
             </time>
           </div>
         
@@ -212,7 +214,7 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/SQL/">SQL</a>
+              <a href="/categories/MySQL/">MySQL</a>
             
           </div>
         
@@ -234,20 +236,23 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/25/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" target="_self">
-          《SQL必知必会》学习总结
+        <a href="/2021/06/04/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%959/" target="_self">
+          《MySQL必知必会》--数据库维护
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/25/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" target="_self">
+        <a href="/2021/06/04/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%959/" target="_self">
           
           
             
           
-          总结以整个DBMS操作流程为主线，总结全部已经学习的知识。
-创建表格（17课）创建表：
-123456789101112131415161718USE mustknown;-- ------------------------ Create Customers table(注释)-- ----------------------CREATE TABLE Customers(  cust_id    
+          数据库维护备份数据MySQL文件总是处于打开或使用的状态，因此，普通的文件备份方式不一定有效。
+下面给出这个问题的可能的解决方案：
+
+使用命令行实用程序 mysqldump 转储所有数据库内容到某个外部文件。在进行常规备份前这个实用程序应该正常运行，以便能正确地备份转储文件。
+可用命令行实用程序 mysqlhotcopy 从一个数据库复制所有数据（并非所有引擎都可）
+可以使用 MySQL 的 BA
         </a>
       </p>
 
@@ -255,8 +260,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-25 09:02" pubdate>
-              2021-05-25
+            <time datetime="2021-06-04 07:58" pubdate>
+              2021-06-04
             </time>
           </div>
         
@@ -264,7 +269,7 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/SQL/">SQL</a>
+              <a href="/categories/MySQL/">MySQL</a>
             
           </div>
         
@@ -286,27 +291,23 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/24/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9517/" target="_self">
-          《SQL必知必会》--创建和操纵表
+        <a href="/2021/06/03/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%958/" target="_self">
+          《MySQL必知必会》--安全管理
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/24/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9517/" target="_self">
+        <a href="/2021/06/03/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%958/" target="_self">
           
           
             
           
-          第17课 创建和操纵表在此说明：本节课将是该课程系列的最后一节课。本书后面还有几节课，但是由于此后内容在各DBMS中具体实现有所差异，因此书中并未深入讲解各知识的灵活应用。
-敬请期待下一系列《MySQL必知必会》。
-创建表一般说来，创建表有两种形式：
+          安全管理数据库服务器通常包含关键的数据，确保这些数据的安全和完整需要利用访问控制。本章将学习MySQL的访问控制和用户管理。
+访问控制针对不同需求人员，授予不同控制权限。
+在现实系统中，严肃使用root权限，仅在不得不使用时使用。
+管理用户MySQL用户账号和信息存储在名为mysql的MySQL数据库中。一般不需要直接访问mysql数据库和表，但有时需要直接访问。
+比如需要获取所有用户账号列表：
 
-多数DBNS都具有交互式创建和管理数据库表的工具；
-表也可以直接用SQL语句操纵。
-
-表创建基础：
-
-新表的名字，在关键字CREATE TABLE
         </a>
       </p>
 
@@ -314,8 +315,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-24 09:30" pubdate>
-              2021-05-24
+            <time datetime="2021-06-03 10:30" pubdate>
+              2021-06-03
             </time>
           </div>
         
@@ -323,7 +324,7 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/SQL/">SQL</a>
+              <a href="/categories/MySQL/">MySQL</a>
             
           </div>
         
@@ -345,31 +346,24 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/23/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9516/" target="_self">
-          《SQL必知必会》--更新和删除数据
+        <a href="/2021/06/03/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%957/" target="_self">
+          《MySQL必知必会》--字符集和校对顺序
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/23/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9516/" target="_self">
+        <a href="/2021/06/03/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%957/" target="_self">
           
           
             
           
-          第16课 更新和删除数据上一节课的时候提到SQL常用的四个语句。前面已经讲过了两个SELECT  INSERT，下面将后面两个 UPDATE DELETE。
-更新数据两种更新数据的  UPDATE 方式：
+          全球化和本地化字符集和校对顺序数据库被用来存储和检索数据。不同的语言和字符需要以不同的方式存储和检索。因此，MySQL需要适应不同的字符集（不同的字母和字符），适应不同的排序和检索数据的方法。
 
-更新表中的特定行
-更新表中的所有行
+字符集为字母和符号的集合；
+编码为某个字符集成员的内部集合；
+校对为规定字符如何比较的指令。
 
-使用UPDATE语句的三个要素：
-
-要更新的表
-列名和新值
-确定更新那些行的过滤条件
-
-某条记录中某个列的数据更新：
-123update customer
+使用字符集和校对顺序12SHOW CHARACTER SET;-- 显示所有可用的字符集以及每个字符集的描述
         </a>
       </p>
 
@@ -377,8 +371,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-23 09:02" pubdate>
-              2021-05-23
+            <time datetime="2021-06-03 08:57" pubdate>
+              2021-06-03
             </time>
           </div>
         
@@ -386,7 +380,7 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/SQL/">SQL</a>
+              <a href="/categories/MySQL/">MySQL</a>
             
           </div>
         
@@ -408,27 +402,19 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/22/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9515/" target="_self">
-          《SQL必知必会》--插入数据
+        <a href="/2021/06/02/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%956/" target="_self">
+          《MySQL必知必会》--管理事务处理
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/22/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9515/" target="_self">
+        <a href="/2021/06/02/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%956/" target="_self">
           
           
             
           
-          第15课 插入数据本节课介绍如何利用SQL的INSERT语句将数据插入表中。
-数据插入SQL最常用的语句有四个：SELECT  INSERT   UPDATE  DELETE。
-本节课介绍INSERT语句。INSERT用来将行插入（或添加）到数据库表。插入的方式有三种：
-
-插入完整的行；
-插入行的一部分；
-插入某些查询的结果。
-
-插入完整行第一种形式：
-12345678910insert into
+          管理事务处理事务处理（transanction processing）可以用来维护数据库的完整性，它保证成批的MySQL操作要么完全执行，要么完全不执行。
+ROLLBACK撤销123456select * from ordertotals;start transactiondelete from ordertotals;select * from ordertotals;rollback;sele
         </a>
       </p>
 
@@ -436,8 +422,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-22 08:24" pubdate>
-              2021-05-22
+            <time datetime="2021-06-02 14:55" pubdate>
+              2021-06-02
             </time>
           </div>
         
@@ -445,7 +431,7 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/SQL/">SQL</a>
+              <a href="/categories/MySQL/">MySQL</a>
             
           </div>
         
@@ -467,21 +453,28 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/21/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9514/" target="_self">
-          《SQL必知必会》--组合查询
+        <a href="/2021/06/01/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%955/" target="_self">
+          《MySQL必知必会》--触发器
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/21/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9514/" target="_self">
+        <a href="/2021/06/01/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%955/" target="_self">
           
           
             
           
-          第14课 组合查询本课讲述如何利用UNION操作符将多条SELECT语句组成一个结果集。
-多数SQL查询只含从一个或多个表中返回数据的单条SELECT语句。但是SQL也允许执行多个查询（多条SELECT语句），并将结果作为一个查询结果集返回。
-如下示例一
-123456789输入：select cust_name, cust_contact, cust_emailfrom customerswher
+          触发器什么是触发器在学习本章之前，所有的SQL命令都是在需要时被我们主动执行。
+而触发器便是让某条命令在特定时间发生时自动执行，具体来讲就是在某个表发生更改时自动处理。
+触发器是响应以下任意语句而自动执行的一条MySQL语句（或位于BEGIN和END语句之间的一组语句）：
+
+DELETE
+INSERT
+UPDATE
+
+其他MySQL语句不支持触发器。
+创建触发器在创建触发器时，需要给出4条信息：
+
         </a>
       </p>
 
@@ -489,8 +482,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-21 09:35" pubdate>
-              2021-05-21
+            <time datetime="2021-06-01 09:40" pubdate>
+              2021-06-01
             </time>
           </div>
         
@@ -498,7 +491,7 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/SQL/">SQL</a>
+              <a href="/categories/MySQL/">MySQL</a>
             
           </div>
         
@@ -520,20 +513,24 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/20/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9513/" target="_self">
-          《SQL必知必会》--高级联结
+        <a href="/2021/05/31/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954/" target="_self">
+          《MySQL必知必会》--游标
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/20/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9513/" target="_self">
+        <a href="/2021/05/31/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954/" target="_self">
           
           
             
           
-          第13课 创建高级联结上一节课已经讲了简单的等值联结或者说，内联结。本节课介绍高级联结。
-简单等值联结的简单进阶–使用表别名这一节相当简单，大致就一件事，可以对表命名表别名。
-12345select cust_name, cust_contactfrom customers as C, orders AS O, orderitems AS OIwhere C.cust_id = O.cust_id
+          游标概念游标(cursor)是一个存储在MySQL服务器上的数据库查询，它并不是一条SELECT语句，而是被该语句检索出来的结果集。
+在存储了游标之后，应用程序可以根据需要滚动或浏览其中的数据。
+游标主要用于交互式应用，其中用户需要滚动屏幕上的数据，并对数据进行浏览或更改。
+
+MySQL游标只能用于存储过程和存储函数。
+
+示例123456789101112131415161718192021222
         </a>
       </p>
 
@@ -541,8 +538,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-20 08:36" pubdate>
-              2021-05-20
+            <time datetime="2021-05-31 09:19" pubdate>
+              2021-05-31
             </time>
           </div>
         
@@ -550,7 +547,7 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/SQL/">SQL</a>
+              <a href="/categories/MySQL/">MySQL</a>
             
           </div>
         
@@ -572,21 +569,24 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/19/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9512/" target="_self">
-          《SQL必知必会》--联结表
+        <a href="/2021/05/30/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%953/" target="_self">
+          《MySQL必知必会》--存储过程
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/19/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9512/" target="_self">
+        <a href="/2021/05/30/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%953/" target="_self">
           
           
             
           
-          联结表这一课还是跨表操作，我们上一节课讲的是子查询。由于我们的表格在之前就已经为我们设计好，因此，我们不用去思考，为什么我们可以使用子查询？
-联结简介联结表是SQL最强大功能之一。联结是利用SQL的SELECT能执行的最重要的操作。在理解联结前，必须联结关系表以及关系数据库的一些基础知识。
-什么是关系表
-关系表的设计就是要把信息分解成多个表，一类数据一个表。各表通过某些共同的值相互关联。由关系表组
+          存储过程（存储程序）概念
+存储过程简单来说，就是为了以后的使用而保存的一条或多条MySQL语句的集合。可将其视为批处理文件，虽然他们的作用不仅限于批处理。
+
+为什么使用存储过程？
+通过把处理封装在容易使用的单元中，简化复杂的操作；
+由于不要求反复建立一系列处理步骤，这保证了数据的完整性（所有开发人员使用同一代码，减少出错的机率）；
+简化对变动的管理（只需在存储过程中修改变动，使用人员甚至可能都不知
         </a>
       </p>
 
@@ -594,8 +594,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-19 08:11" pubdate>
-              2021-05-19
+            <time datetime="2021-05-30 10:34" pubdate>
+              2021-05-30
             </time>
           </div>
         
@@ -603,7 +603,7 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/SQL/">SQL</a>
+              <a href="/categories/MySQL/">MySQL</a>
             
           </div>
         
@@ -625,23 +625,29 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/18/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9511/" target="_self">
-          《SQL必知必会》--子查询
+        <a href="/2021/05/29/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%952/" target="_self">
+          《MySQL必知必会》--视图
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/18/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9511/" target="_self">
+        <a href="/2021/05/29/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%952/" target="_self">
           
           
             
           
-          第十一课 使用子查询在前十课中，我们所有的操作、指令都是在一张表列中执行，现在，欢迎进入多表联动的世界！
-什么是子查询SELECT语句是SQL的查询。我们之前看到的所有的SELECT语句都是简单查询，即从单个数据库表中检索数据的单条语句。SQL还允许创建子查询。
+          使用视图什么是视图视图是对检索过程的封装。我们知道，当使用计算字段时，我们可以对其进行别名命名，以简化检索命令。同样的道理，当我们需要重复使用某一段检索命令时，我们也可以对其进行“别名命名”，也即打包，使其成为视图，以供我们使用。
+我们为什么要使用视图呢？
 
-子查询(subquery)即嵌套在其他查询中的查询。
+重复SQL语句；
+简化复杂的SQL操作；
+使用表的组成部分而不是整个表；
+保护数据；
+更改数据格式和表示
 
-如何利用子查询进行过滤目前，我将SQL语句分为主语句和条件语句。主语句就是se
+创建视图的规则：
+
+与表一样，视
         </a>
       </p>
 
@@ -649,8 +655,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-18 09:02" pubdate>
-              2021-05-18
+            <time datetime="2021-05-29 09:25" pubdate>
+              2021-05-29
             </time>
           </div>
         
@@ -658,7 +664,7 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/SQL/">SQL</a>
+              <a href="/categories/MySQL/">MySQL</a>
             
           </div>
         
@@ -680,20 +686,21 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/05/17/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9510/" target="_self">
-          《SQL必知必会》--分组数据
+        <a href="/2021/05/27/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/" target="_self">
+          《MySQL必知必会》--正则表达式
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/05/17/SQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8ASQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%9510/" target="_self">
+        <a href="/2021/05/27/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/%E3%80%8AMySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/" target="_self">
           
           
             
           
-          第十课 分组数据前面两课，我们已经学习了数据分析函数，在此时，我们回想一下所学内容，是不是我们所学的函数，基本都处于SELECT语句后面呢。也就是我常说的主语句之中。那么在条件语句中，有没有什么数据处理方式呢？今天介绍两种。
-目前为止，我们所有的计算都是在表的所有数据或者匹配特定的WHERE子句的数据基础上进行的。
-如果要返回每个供应商提供的产品数目，该怎么办？或者返回只提供一个产品的所有供应商名
+          正则表达式由于MySQL的基础语句已经在上一系列学习过，因此，本系列重在补充尚未涉足之处。
+正则表达式介绍在学习python，尤其是学习数据清理时，我们就经常听到正则表达式。我们知道，正则表达式是用来过滤检索数据的。那么，在SQL语句中，我们应该如何使用正则表达式呢？
+在之前，我们已经学过使用LIKE操作符来过滤检索数据了。但是，正如我们所看见的，该方法使用% _等来进行检索过滤明显是过于简单。
+
         </a>
       </p>
 
@@ -701,8 +708,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-17 09:16" pubdate>
-              2021-05-17
+            <time datetime="2021-05-27 09:57" pubdate>
+              2021-05-27
             </time>
           </div>
         
@@ -710,7 +717,7 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/SQL/">SQL</a>
+              <a href="/categories/MySQL/">MySQL</a>
             
           </div>
         
@@ -730,7 +737,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/4/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#board">6</a><a class="page-number" href="/page/7/#board">7</a><a class="extend next" rel="next" href="/page/6/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/4/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#board">6</a><a class="page-number" href="/page/7/#board">7</a><a class="page-number" href="/page/8/#board">8</a><a class="extend next" rel="next" href="/page/6/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
