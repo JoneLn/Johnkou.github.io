@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>精益数据分析-序+前言</title>
+    <link href="/2021/09/12/%E7%B2%BE%E7%9B%8A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%BA%8F/"/>
+    <url>/2021/09/12/%E7%B2%BE%E7%9B%8A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%BA%8F/</url>
+    
+    <content type="html"><![CDATA[<h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><ul><li>经典语句</li></ul><ol><li><p>用传统的财务预算指标来衡量不确定的创新是极其危险的。<br>我们将其称为<strong>虚荣指标</strong>，他们会严重误导你的判断，让你自己感觉良好。</p></li><li><p>传统的业绩绩效评价需要精准的预测。将经理们的实际业绩与预期进行比较，超出预期，职位擢升；低于预期，受到惩罚。</p></li></ol><p><strong>精准的预测</strong>需要从长期稳定的运营历史中得出，越长期、越稳定，预测就越准。然而，现金谁还会觉得世界一天比一天稳定呢？</p><ol start="3"><li>外界环境的变化，将要摧毁我们赖以评判的衡量标准，我们却还在抱着腐朽的柱子不放手。</li></ol><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>精益创业运动帮你识别出商业计划中风险最大的部分，进而通过快速的迭代式学习循环来降低这些风险。</p><p>其精髓归结起来就是：不要销售你能制造的产品，而是制造你能卖出去的产品。</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">对于个人而言：不要推销你已经学会的事物，而是学习你能推销出去的知识与技能。<br></code></pre></td></tr></table></figure><p>对于创始人和企业家而言，你对其他人的想法抱有强烈的近乎压倒性的偏见，而这会在不知不觉中干扰你的判断。</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">薛定谔的猫：你所看到的，是受你影响后所呈现的你能看到的。<br></code></pre></td></tr></table></figure><h2 id="本书结构："><a href="#本书结构：" class="headerlink" title="本书结构："></a>本书结构：</h2><ol><li>第一部分聚焦于对精益创业和基本分析技术的理解，以及帮助你迈向成功的数据启示的思维方式；</li><li>第二部分展示如何将精益分析用于创业公司中。六种商业模式以及创业公司的五个发展阶段；</li><li>第三部分对指标的正常范围进行审视。划出底线、其他关键指标以及设置目标；</li><li>第四部分展示如何将精益分析用于你所在的组织，以及改变组织内的文化。</li></ol><h2 id="基本概念："><a href="#基本概念：" class="headerlink" title="基本概念："></a>基本概念：</h2><p><strong>客户开发</strong>：企业家史蒂夫·布兰克针对“先构建产品，客户自然会来买”这种过时的构建产品和公司的瀑布流方法而提出的。客户开发方法聚焦于持续地收集用户反馈，这些反馈会对产品和业务的每个阶段产生实质性的影响。</p><p>布兰克认为<strong>创业公司</strong>是一种组织，其存在的目的就是寻找可规模化和可重复的商业模式。</p><p>精益创业：埃里克·莱斯将客户开发、敏捷软件开发方法以及精益生产时间结合在一个用于快速和高效开发产品和业务的框架内，并将其定义为精益创业过程。</p><p>精益并不是廉价和小规模的代名词，而是要消除浪费并快速行动，这适用于任何规模的组织。</p><p>精益创业的一个核心概念是“构建-衡量-学习”。</p><p>具体来讲：<br>想法-构建-产品-衡量-数据-学习-想法</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>数据分析</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>精益数据分析</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Numpy基础</title>
+    <link href="/2021/08/20/Numpy%E5%9F%BA%E7%A1%80/"/>
+    <url>/2021/08/20/Numpy%E5%9F%BA%E7%A1%80/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Numpy-基础知识"><a href="#Numpy-基础知识" class="headerlink" title="Numpy 基础知识"></a>Numpy 基础知识</h1><h2 id="什么是-Numpy"><a href="#什么是-Numpy" class="headerlink" title="什么是 Numpy"></a>什么是 Numpy</h2><p>Numpy (Numerical Python) 是Python 数值计算最重要的基础包。大多数提供科学计算的包都是以其数组作为构建基础。</p><p>NumPy本身并没有多么高级的数据分析功能，但是，理解NumPy数组以及面向数组的计算有助于你更加高效的使用诸如pandas之类的工具。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Numpy</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>paper30</title>
     <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper30/"/>
     <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper30/</url>
@@ -554,31 +604,6 @@
   
   
   <entry>
-    <title>paper7</title>
-    <link href="/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper7/"/>
-    <url>/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper7/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Do-I-really-belong-Impact-of-employment-status-on-information-security-policy-compliance"><a href="#Do-I-really-belong-Impact-of-employment-status-on-information-security-policy-compliance" class="headerlink" title="Do I really belong?:Impact of employment status on information security policy compliance"></a>Do I really belong?:Impact of employment status on information security policy compliance</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Shwadin Sharma, Merrill Warkentin</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>Social exchange theory</p><p>Organizational Support Theory</p><p>Rational Choice Theory</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：<br>perceived Organizational Support</p><p>一级中介变量：<br>Organizational Commitment</p><p>二级中介变量：<br>Response Cost</p><p>因变量：<br>Behavioral Intention</p><p>控制变量：<br>employment status:<br>permanent employees &amp; temporary employees</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>Employment status, specifically permanent versus temporary status, can result in different levels of organizational commitment and perceived organizational support.</p><p>The result of the study supports the notion that the effect of organizational commitment and perceived organizational support on behavioral intention to use ISP will be stronger among permanent employees.</p><p>The research also found that perceived response cost of performing a behavior would negatively impact intention to comply with ISP.</p><ul><li>通过划分不同的雇佣关系（长久性和短暂性），研究可感知的组织支持与员工信息安全策略遵守意图的相关关系，及其如何通过影响组织承诺来影响员工信息安全策略遵守意愿；以及可感知的组织支持和组织承诺通过影响员工反应成本来影响员工信息安全策略遵守意图。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>员工因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>paper8</title>
     <link href="/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper8/"/>
     <url>/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper8/</url>
@@ -596,6 +621,31 @@
     <tags>
       
       <tag>组织因素</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>paper7</title>
+    <link href="/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper7/"/>
+    <url>/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper7/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Do-I-really-belong-Impact-of-employment-status-on-information-security-policy-compliance"><a href="#Do-I-really-belong-Impact-of-employment-status-on-information-security-policy-compliance" class="headerlink" title="Do I really belong?:Impact of employment status on information security policy compliance"></a>Do I really belong?:Impact of employment status on information security policy compliance</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Shwadin Sharma, Merrill Warkentin</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>Social exchange theory</p><p>Organizational Support Theory</p><p>Rational Choice Theory</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：<br>perceived Organizational Support</p><p>一级中介变量：<br>Organizational Commitment</p><p>二级中介变量：<br>Response Cost</p><p>因变量：<br>Behavioral Intention</p><p>控制变量：<br>employment status:<br>permanent employees &amp; temporary employees</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>Employment status, specifically permanent versus temporary status, can result in different levels of organizational commitment and perceived organizational support.</p><p>The result of the study supports the notion that the effect of organizational commitment and perceived organizational support on behavioral intention to use ISP will be stronger among permanent employees.</p><p>The research also found that perceived response cost of performing a behavior would negatively impact intention to comply with ISP.</p><ul><li>通过划分不同的雇佣关系（长久性和短暂性），研究可感知的组织支持与员工信息安全策略遵守意图的相关关系，及其如何通过影响组织承诺来影响员工信息安全策略遵守意愿；以及可感知的组织支持和组织承诺通过影响员工反应成本来影响员工信息安全策略遵守意图。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>信息安全策略遵守</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>员工因素</tag>
       
     </tags>
     
