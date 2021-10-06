@@ -620,22 +620,20 @@ skipna: 布尔型，表示计算结果是否排
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/09/28/python_pandas/pandas_data/" target="_self">
-          Pandas数据的增加、修改和删除
+        <a href="/2021/09/29/python_pandas/pandas_loc/" target="_self">
+          数据抽取
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/09/28/python_pandas/pandas_data/" target="_self">
+        <a href="/2021/09/29/python_pandas/pandas_loc/" target="_self">
           
           
             
           
-          数据的增加、修改和删除12import pandas as pdpd.set_option(&#x27;display.unicode.east_asian_width&#x27;, True)
+          数据抽取1. 数据抽取pandas属性123loc属性：以列名(column)和行名(index)作为参数，当只有一个参数时，默认是行名。iloc属性：以行和列的位置索引(0,1,2...)作为参数，0 表示第一行（列）。
 
-
-创建表格
-123456data = [[1,2,3],[3,2,1],[2,2,2]]columns = [&#x27;天&#x27;,&#x27;地&#x27;,&#x27;人&#x27;]inde
+2. 准备工作123456import pandas as pd pd.set_option(&#x27;display.unicode.east_asian_width&#
         </a>
       </p>
 
@@ -643,8 +641,8 @@ skipna: 布尔型，表示计算结果是否排
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-28 09:00" pubdate>
-              2021-09-28
+            <time datetime="2021-09-29 09:00" pubdate>
+              2021-09-29
             </time>
           </div>
         
@@ -674,20 +672,22 @@ skipna: 布尔型，表示计算结果是否排
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/09/28/python_pandas/pandas_loc/" target="_self">
-          数据抽取
+        <a href="/2021/09/28/python_pandas/pandas_data/" target="_self">
+          Pandas数据的增加、修改和删除
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/09/28/python_pandas/pandas_loc/" target="_self">
+        <a href="/2021/09/28/python_pandas/pandas_data/" target="_self">
           
           
             
           
-          数据抽取1. 数据抽取pandas属性123loc属性：以列名(column)和行名(index)作为参数，当只有一个参数时，默认是行名。iloc属性：以行和列的位置索引(0,1,2...)作为参数，0 表示第一行（列）。
+          数据的增加、修改和删除12import pandas as pdpd.set_option(&#x27;display.unicode.east_asian_width&#x27;, True)
 
-2. 准备工作123456import pandas as pd pd.set_option(&#x27;display.unicode.east_asian_width&#
+
+创建表格
+123456data = [[1,2,3],[3,2,1],[2,2,2]]columns = [&#x27;天&#x27;,&#x27;地&#x27;,&#x27;人&#x27;]inde
         </a>
       </p>
 
