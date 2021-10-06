@@ -182,29 +182,23 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/09/12/%E7%B2%BE%E7%9B%8A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%BA%8F/" target="_self">
-          精益数据分析-序+前言
+        <a href="/2021/10/06/python_pandas/pandas_timeseries/" target="_self">
+          Pandas时间序列
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/09/12/%E7%B2%BE%E7%9B%8A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%BA%8F/" target="_self">
+        <a href="/2021/10/06/python_pandas/pandas_timeseries/" target="_self">
           
           
             
           
-          序
-经典语句
-
-
-用传统的财务预算指标来衡量不确定的创新是极其危险的。我们将其称为虚荣指标，他们会严重误导你的判断，让你自己感觉良好。
-
-传统的业绩绩效评价需要精准的预测。将经理们的实际业绩与预期进行比较，超出预期，职位擢升；低于预期，受到惩罚。
-
-
-精准的预测需要从长期稳定的运营历史中得出，越长期、越稳定，预测就越准。然而，现金谁还会觉得世界一天比一天稳定呢？
-
-外界环境的变化，将要摧毁我们赖以
+          时间序列将时间按照不同的频率进行分组，形成新的序列
+重采样df.resample(‘时间刻度’, on=’date_column’)
+时间刻度包括’AS/Q/M/W/D/T’即“年、季度、月、星期、天、分钟”
+可与对时间刻度前乘以常数，以更改时间刻度大小。如3T。
+on=’date_column’为可选参数，若不设置，则默认为索引列。
+时间数列数据汇总当使用时间序列进行分组统计时，可以使用ohlc
         </a>
       </p>
 
@@ -212,8 +206,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-12 20:00" pubdate>
-              2021-09-12
+            <time datetime="2021-10-06 09:00" pubdate>
+              2021-10-06
             </time>
           </div>
         
@@ -221,59 +215,7 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%B2%BE%E7%9B%8A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">精益数据分析</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/08/20/Numpy%E5%9F%BA%E7%A1%80/" target="_self">
-          Numpy基础
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/08/20/Numpy%E5%9F%BA%E7%A1%80/" target="_self">
-          
-          
-            
-          
-          Numpy 基础知识什么是 NumpyNumpy (Numerical Python) 是Python 数值计算最重要的基础包。大多数提供科学计算的包都是以其数组作为构建基础。
-NumPy本身并没有多么高级的数据分析功能，但是，理解NumPy数组以及面向数组的计算有助于你更加高效的使用诸如pandas之类的工具。
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-08-20 10:16" pubdate>
-              2021-08-20
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Numpy/">Numpy</a>
+              <a href="/categories/pandas/">pandas</a>
             
           </div>
         
@@ -295,22 +237,45 @@ NumPy本身并没有多么高级的数据分析功能，但是，理解NumPy数�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper30/" target="_self">
-          paper30
+        <a href="/2021/10/05/python_pandas/pandas_conversion/" target="_self">
+          Pandas数据输出
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper30/" target="_self">
+        <a href="/2021/10/05/python_pandas/pandas_conversion/" target="_self">
           
           
             
           
-          Understanding information security stress focusing on the type of information security compliance activity作者Chunghun Lee, Choong C.Lee, Suhyun Kim
-理论基础person-environment fit theory
-基本元素自变量
+          数据输出目录
+数据合并
 
-Prior secu
+1 merge()方法
+
+2 concat()方法
+
+数据移位
+
+数据转换
+
+1 DataFrame转换为字典
+
+2 DataFrame转换为列表
+
+3 DataFrame转换为元组
+
+4 DataFrame转换为HTML网页格式
+
+数据导出
+
+1 导出为.xlsx文件
+
+2 导出为.csv文件
+
+
+1. 数据合并1.1 merge()方法按照列名相同的列进行合并
+123
         </a>
       </p>
 
@@ -318,8 +283,8 @@ Prior secu
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-06-23 15:30" pubdate>
-              2021-06-23
+            <time datetime="2021-10-05 09:00" pubdate>
+              2021-10-05
             </time>
           </div>
         
@@ -327,7 +292,7 @@ Prior secu
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5%E9%81%B5%E5%AE%88/">信息安全策略遵守</a>
+              <a href="/categories/pandas/">pandas</a>
             
           </div>
         
@@ -335,7 +300,7 @@ Prior secu
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%91%98%E5%B7%A5%E5%9B%A0%E7%B4%A0/">员工因素</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
             
           </div>
         
@@ -349,23 +314,54 @@ Prior secu
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper29/" target="_self">
-          paper29
+        <a href="/2021/10/04/python_pandas/pandas_formatting/" target="_self">
+          Pandas数据格式化
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper29/" target="_self">
+        <a href="/2021/10/04/python_pandas/pandas_formatting/" target="_self">
           
           
             
           
-          The theory of planned behavior and information policy compliance作者Teodor Sommestad, Hentik Karlzen, Jonas Hallberg
-理论基础TPB(the theory of planned behavior)
+          数据格式化目录
+数值类型格式化
 
-attitude
-subjective norms
-perceived behavior
+
+设置小数位数
+
+
+
+设置百分比
+
+
+
+设置千位分隔符
+
+
+文本类型格式化
+
+
+一列数据转换为多列数据
+
+
+
+行列转换
+
+
+日期类型格式化
+
+
+批量处理日期数据转换(to_datetime())
+
+
+
+日期判断(df[‘column’].dt.year())
+
+
+
+前期准备123456789import pandas as pd import numpy as n
         </a>
       </p>
 
@@ -373,8 +369,8 @@ perceived behavior
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-06-23 14:30" pubdate>
-              2021-06-23
+            <time datetime="2021-10-04 09:00" pubdate>
+              2021-10-04
             </time>
           </div>
         
@@ -382,7 +378,7 @@ perceived behavior
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5%E9%81%B5%E5%AE%88/">信息安全策略遵守</a>
+              <a href="/categories/pandas/">pandas</a>
             
           </div>
         
@@ -390,7 +386,7 @@ perceived behavior
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E6%B7%B7%E5%90%88%E5%9B%A0%E7%B4%A0/">混合因素</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
             
           </div>
         
@@ -404,19 +400,29 @@ perceived behavior
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper28/" target="_self">
-          paper28
+        <a href="/2021/10/03/python_pandas/pandas_calculation/" target="_self">
+          Pandas数据计算
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper28/" target="_self">
+        <a href="/2021/10/03/python_pandas/pandas_calculation/" target="_self">
           
           
             
           
-          The mediating role(调节作用) of psychological empowerment(心理授权) in information security compliance intentions作者Gurpreet Dhillon, Yurita Yakimini Abdul T alib, Winnie Ng Picoto
-理论基础psychological empowermen
+          数据计算目录
+常用函数
+
+分组统计函数
+
+按不同时期统计数据的函数
+
+
+常用函数求和函数1DataFrame.sum(axis=None, skipna=None, level=None, numeric_only=None, min_count=0, **kwargs)
+
+axis： axis=0表示按行对所有列求和，axis=1表示按列对所有行求和；
+skipna: 布尔型，表示计算结果是否排
         </a>
       </p>
 
@@ -424,8 +430,8 @@ perceived behavior
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-06-23 14:00" pubdate>
-              2021-06-23
+            <time datetime="2021-10-03 09:00" pubdate>
+              2021-10-03
             </time>
           </div>
         
@@ -433,7 +439,7 @@ perceived behavior
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5%E9%81%B5%E5%AE%88/">信息安全策略遵守</a>
+              <a href="/categories/pandas/">pandas</a>
             
           </div>
         
@@ -441,7 +447,7 @@ perceived behavior
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E7%BB%84%E7%BB%87%E5%9B%A0%E7%B4%A0/">组织因素</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
             
           </div>
         
@@ -455,23 +461,20 @@ perceived behavior
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper27/" target="_self">
-          paper27
+        <a href="/2021/10/02/python_pandas/pandas_sort_order/" target="_self">
+          Pandas数据排序和排名
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper27/" target="_self">
+        <a href="/2021/10/02/python_pandas/pandas_sort_order/" target="_self">
           
           
             
           
-          The influence of organizational culture and information security culture on employee compliance behavior作者Grant Solomon, Irwin Brown
-理论基础TPB(the theory of planned behavior)
+          数据排序和排名主要函数123df.sort_values()df.groupby()df.rank()
 
-attitude
-subjective norms
-
+准备工作123456import pandas as pdpd.set_option(&#x27;display.unicode.east_asian_width&#x27;,True)df = pd.read_excel(&#x27;F:/project2_pandas/Python数据分析
         </a>
       </p>
 
@@ -479,8 +482,8 @@ subjective norms
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-06-23 13:30" pubdate>
-              2021-06-23
+            <time datetime="2021-10-02 09:00" pubdate>
+              2021-10-02
             </time>
           </div>
         
@@ -488,7 +491,7 @@ subjective norms
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5%E9%81%B5%E5%AE%88/">信息安全策略遵守</a>
+              <a href="/categories/pandas/">pandas</a>
             
           </div>
         
@@ -496,7 +499,7 @@ subjective norms
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%91%98%E5%B7%A5%E5%9B%A0%E7%B4%A0/">员工因素</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
             
           </div>
         
@@ -510,21 +513,18 @@ subjective norms
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper26/" target="_self">
-          paper26
+        <a href="/2021/10/01/python_pandas/pandas_indexset/" target="_self">
+          Pandas索引设置
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper26/" target="_self">
+        <a href="/2021/10/01/python_pandas/pandas_indexset/" target="_self">
           
           
             
           
-          Social control through deterrence on the compliance with information security policy作者Myeonggil Choi, Jeongseok Song
-理论基础social control theory(SCT)
-social bond theory(SBT)Commitment/belief/attachment
-
+          索引设置函数介绍1234567891011# 重新输入索引值（行、列皆可）df.reindex(lables=None, index=None, columns=None, axis=None,             method=None, copy=True, level=None,fill_value=nan,            limit=None,tolerance = None)
         </a>
       </p>
 
@@ -532,8 +532,8 @@ social bond theory(SBT)Commitment/belief/attachment
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-06-23 10:30" pubdate>
-              2021-06-23
+            <time datetime="2021-10-01 09:00" pubdate>
+              2021-10-01
             </time>
           </div>
         
@@ -541,7 +541,7 @@ social bond theory(SBT)Commitment/belief/attachment
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5%E9%81%B5%E5%AE%88/">信息安全策略遵守</a>
+              <a href="/categories/pandas/">pandas</a>
             
           </div>
         
@@ -549,7 +549,7 @@ social bond theory(SBT)Commitment/belief/attachment
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%91%98%E5%B7%A5%E5%9B%A0%E7%B4%A0/">员工因素</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
             
           </div>
         
@@ -563,23 +563,25 @@ social bond theory(SBT)Commitment/belief/attachment
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper25/" target="_self">
-          paper25
+        <a href="/2021/09/30/python_pandas/pandas_dataclear/" target="_self">
+          Pandas数据清洗
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper25/" target="_self">
+        <a href="/2021/09/30/python_pandas/pandas_dataclear/" target="_self">
           
           
             
           
-          Security awareness: The first step in information security compliance behavior作者Inho Hwang, Robin Wakefield, Sanghyun Kin, Taeha Kim
-理论基础Social learning theory
-基本元素自变量
+          数据清洗目录
+缺失值处理
+重复值处理
+异常值检测与处理
 
-security education 
-security po
+12import pandas as pd pd.set_option(&#x27;display.unicode.east_asian_width&#x27;,True)
+1. 缺失值处理1.1 导入文件
+12df = pd.read_excel(&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/C
         </a>
       </p>
 
@@ -587,8 +589,8 @@ security po
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-06-23 09:30" pubdate>
-              2021-06-23
+            <time datetime="2021-09-30 09:00" pubdate>
+              2021-09-30
             </time>
           </div>
         
@@ -596,7 +598,7 @@ security po
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5%E9%81%B5%E5%AE%88/">信息安全策略遵守</a>
+              <a href="/categories/pandas/">pandas</a>
             
           </div>
         
@@ -604,7 +606,7 @@ security po
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E7%BB%84%E7%BB%87%E5%9B%A0%E7%B4%A0/">组织因素</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
             
           </div>
         
@@ -618,19 +620,22 @@ security po
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper24/" target="_self">
-          paper24
+        <a href="/2021/09/28/python_pandas/pandas_data/" target="_self">
+          Pandas数据的增加、修改和删除
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper24/" target="_self">
+        <a href="/2021/09/28/python_pandas/pandas_data/" target="_self">
           
           
             
           
-          Sanction severity and employees’ information security policy compliance: Investigating mediating, moderating, and control variables作者Xianfeng Chen, Dazhong Wu, Liqiang Chen, Joe K.L. Teng
-理论基础GDT(gene
+          数据的增加、修改和删除12import pandas as pdpd.set_option(&#x27;display.unicode.east_asian_width&#x27;, True)
+
+
+创建表格
+123456data = [[1,2,3],[3,2,1],[2,2,2]]columns = [&#x27;天&#x27;,&#x27;地&#x27;,&#x27;人&#x27;]inde
         </a>
       </p>
 
@@ -638,8 +643,8 @@ security po
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-06-23 09:00" pubdate>
-              2021-06-23
+            <time datetime="2021-09-28 09:00" pubdate>
+              2021-09-28
             </time>
           </div>
         
@@ -647,7 +652,7 @@ security po
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5%E9%81%B5%E5%AE%88/">信息安全策略遵守</a>
+              <a href="/categories/pandas/">pandas</a>
             
           </div>
         
@@ -655,7 +660,7 @@ security po
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%91%98%E5%B7%A5%E5%9B%A0%E7%B4%A0/">员工因素</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
             
           </div>
         
@@ -669,19 +674,20 @@ security po
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper23/" target="_self">
-          paper23
+        <a href="/2021/09/28/python_pandas/pandas_loc/" target="_self">
+          数据抽取
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper23/" target="_self">
+        <a href="/2021/09/28/python_pandas/pandas_loc/" target="_self">
           
           
             
           
-          Reliability, validity, and strength of a unified model for information security policy compliance作者Alex Koohang, Jeretta Horn Nord, Zoroayka V.Sandoval, Joanna Paliszkiewicz
-理论基础UMISPC(a unified model
+          数据抽取1. 数据抽取pandas属性123loc属性：以列名(column)和行名(index)作为参数，当只有一个参数时，默认是行名。iloc属性：以行和列的位置索引(0,1,2...)作为参数，0 表示第一行（列）。
+
+2. 准备工作123456import pandas as pd pd.set_option(&#x27;display.unicode.east_asian_width&#
         </a>
       </p>
 
@@ -689,8 +695,8 @@ security po
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-06-23 08:20" pubdate>
-              2021-06-23
+            <time datetime="2021-09-28 09:00" pubdate>
+              2021-09-28
             </time>
           </div>
         
@@ -698,7 +704,7 @@ security po
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5%E9%81%B5%E5%AE%88/">信息安全策略遵守</a>
+              <a href="/categories/pandas/">pandas</a>
             
           </div>
         
@@ -706,7 +712,58 @@ security po
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%91%98%E5%B7%A5%E5%9B%A0%E7%B4%A0/">员工因素</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/27/python_pandas/pandas_read/" target="_self">
+          pandas导入外部数据
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/27/python_pandas/pandas_read/" target="_self">
+          
+          
+            
+          
+          pandas导入外部数据12import pandas as pdpd.set_option(&#x27;display.unicode.east_asian_width&#x27;,True)
+1. 导入.XLS或.xlsx文件1234pd.read_excel(io,sheet_name=0,header=0,names=None,index_col=None,usecols=None,squ
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-27 09:00" pubdate>
+              2021-09-27
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/pandas/">pandas</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
             
           </div>
         
@@ -718,7 +775,7 @@ security po
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#board">8</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#board">6</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 

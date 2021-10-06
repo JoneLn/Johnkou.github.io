@@ -4,6 +4,306 @@
   
   
   <entry>
+    <title>Pandas时间序列</title>
+    <link href="/2021/10/06/python_pandas/pandas_timeseries/"/>
+    <url>/2021/10/06/python_pandas/pandas_timeseries/</url>
+    
+    <content type="html"><![CDATA[<h1 id="时间序列"><a href="#时间序列" class="headerlink" title="时间序列"></a>时间序列</h1><p>将时间按照不同的频率进行分组，形成新的序列</p><h2 id="重采样"><a href="#重采样" class="headerlink" title="重采样"></a>重采样</h2><p>df.resample(‘时间刻度’, on=’date_column’)</p><p>时间刻度包括’AS/Q/M/W/D/T’即“年、季度、月、星期、天、分钟”</p><p>可与对时间刻度前乘以常数，以更改时间刻度大小。如3T。</p><p>on=’date_column’为可选参数，若不设置，则默认为索引列。</p><h2 id="时间数列数据汇总"><a href="#时间数列数据汇总" class="headerlink" title="时间数列数据汇总"></a>时间数列数据汇总</h2><p>当使用时间序列进行分组统计时，可以使用ohlc()函数统计各个时间序列内的开始值，结束值，最大值，最小值。</p><p>df.resample(‘Q’).ohlc()</p><h2 id="移动窗口数据计算"><a href="#移动窗口数据计算" class="headerlink" title="移动窗口数据计算"></a>移动窗口数据计算</h2><p>时点的波动较大，某一点的数据就不能很好的表现它本身的特性，于是就有了“移动窗口”的概念。</p><p>简单的说，为了提升数据的可靠性，将某个点的取值扩大到包含这个点的一段区间，用区间值来判断。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python">df.rolling(window, min_periods=<span class="hljs-literal">None</span>, center=Flase, win_type=<span class="hljs-literal">None</span>, on=<span class="hljs-literal">None</span>, axis=<span class="hljs-number">0</span>, closed=<span class="hljs-literal">None</span>)<br><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">window：时间窗口的大小 </span><br><span class="hljs-string">min_periods=None：每个窗口最少包含的观测值</span><br><span class="hljs-string">center=Flase：把窗口标签设置为居中</span><br><span class="hljs-string">win_type=None：窗口类型</span><br><span class="hljs-string">on=None：可选参数，使用某列代替索引</span><br><span class="hljs-string">axis=0：默认列操作</span><br><span class="hljs-string">closed=None：定义区间的开闭</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><br>df.rolling(<span class="hljs-number">3</span>, on=<span class="hljs-string">&#x27;date_column&#x27;</span>).mean()<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>pandas</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Pandas数据输出</title>
+    <link href="/2021/10/05/python_pandas/pandas_conversion/"/>
+    <url>/2021/10/05/python_pandas/pandas_conversion/</url>
+    
+    <content type="html"><![CDATA[<h1 id="数据输出"><a href="#数据输出" class="headerlink" title="数据输出"></a>数据输出</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol><li><p>数据合并</p></li><li><p>1 merge()方法</p></li><li><p>2 concat()方法</p></li><li><p>数据移位</p></li><li><p>数据转换</p></li><li><p>1 DataFrame转换为字典</p></li><li><p>2 DataFrame转换为列表</p></li><li><p>3 DataFrame转换为元组</p></li><li><p>4 DataFrame转换为HTML网页格式</p></li><li><p>数据导出</p></li><li><p>1 导出为.xlsx文件</p></li><li><p>2 导出为.csv文件</p></li></ol><h2 id="1-数据合并"><a href="#1-数据合并" class="headerlink" title="1. 数据合并"></a>1. 数据合并</h2><h3 id="1-1-merge-方法"><a href="#1-1-merge-方法" class="headerlink" title="1.1 merge()方法"></a>1.1 merge()方法</h3><p><em><strong>按照列名相同的列进行合并</strong></em></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">pa.merge(df1, df2, how=<span class="hljs-string">&#x27;inner&#x27;</span>, on=<span class="hljs-literal">None</span>, left_on=<span class="hljs-literal">None</span>, right_on=<span class="hljs-literal">None</span>, <br>        left_index=<span class="hljs-literal">False</span>, right_index=<span class="hljs-literal">False</span>, sort=<span class="hljs-literal">False</span>, <br>        suffixes=(<span class="hljs-string">&#x27;_x&#x27;</span>,<span class="hljs-string">&#x27;_y&#x27;</span>), copy=<span class="hljs-literal">True</span>, indicator=<span class="hljs-literal">False</span>, validate=<span class="hljs-literal">None</span>)<br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">特别注意:how=&#x27;inner&#x27;</span><br><span class="hljs-string">how有4种可选择的合并方式，与SQL对应。</span><br><span class="hljs-string">left左合并，right右合并，inner内合并，outer外合并</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br></code></pre></td></tr></table></figure><ol><li>通过索引进行合并</li></ol><p><code>df3 = pd.merge(df1, df2, right_index=True, left_index=True)</code></p><ol start="2"><li>通过某一相同列进行合并</li></ol><p><code>df3 = pd.merge(df1, df2, on=&#39;same_column&#39;)</code></p><ol start="3"><li>当表格记录数不同时，合并后保存全部数据</li></ol><p><code>df3 = pd.merge(df1, df2, on=&#39;same_column&#39;, how=&#39;outer&#39;)</code></p><h3 id="1-2-concat-方法"><a href="#1-2-concat-方法" class="headerlink" title="1.2 concat()方法"></a>1.2 concat()方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">pd.concat(objs, axis=<span class="hljs-number">0</span>, join=<span class="hljs-string">&#x27;outer&#x27;</span>, ignore_index=<span class="hljs-literal">False</span>, keys=<span class="hljs-literal">None</span>, <br>            levels=<span class="hljs-literal">None</span>, names=<span class="hljs-literal">None</span>, verify_integrity=<span class="hljs-literal">False</span>, sort=<span class="hljs-literal">False</span>, copy=<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure><ol><li>相同字段的表首尾相接</li></ol><p><code>dfs = [df1, df2, df3]</code></p><p><em>不显示表名</em><br><code>result = pd.concat(dfs)</code></p><p><em>显示表名</em><br><code>result = pd.concat(dfs,keys=[&#39;df1_name&#39;, &#39;df2_name&#39;, &#39;df3_name&#39;])</code></p><ol start="2"><li>横向表合并</li></ol><p><em>两张表必须至少有一列的列名是相同的</em></p><p><em>填充缺失值</em><br><code>result = pd.concat([df1, df2], axis=1)</code></p><p><em>不填充缺失值</em><br><code>result = pd.concat([df1, df2], axis=1, join=&#39;inner&#39;)</code></p><p><em>指定主表</em><br><code>result = pd.concat([df1,df2], axis=1, join_axes=[df.index])</code></p><h2 id="2-数据移位"><a href="#2-数据移位" class="headerlink" title="2. 数据移位"></a>2. 数据移位</h2><p>数据移位就是其他数据保持不变，索引也不变，但是被移位后的某行或者某列的数据的索引值为原索引+periods（移动步伐）。</p><p><code>df[&#39;shifted_column&#39;].shift(periods=1, freq=None, axis=0)</code></p><p>period可正可负<br>axis=1表示行，axis=0表示列</p><h2 id="3-数据转换"><a href="#3-数据转换" class="headerlink" title="3. 数据转换"></a>3. 数据转换</h2><h3 id="3-1-DataFrame转换为字典"><a href="#3-1-DataFrame转换为字典" class="headerlink" title="3.1 DataFrame转换为字典"></a>3.1 DataFrame转换为字典</h3><p>使用to_dict()方法将表格转换为字典，其中表格的索引为字典的键，其他列为字典的值。</p><p><code>my_dict = df.to_dict()</code></p><h3 id="3-2-DataFrame转换为列表"><a href="#3-2-DataFrame转换为列表" class="headerlink" title="3.2 DataFrame转换为列表"></a>3.2 DataFrame转换为列表</h3><p>将表格中的某一列转换为列表</p><p><code>list1 = df1[&#39;column1&#39;].values.tolist()</code></p><h3 id="3-3-DataFrame转换为元组"><a href="#3-3-DataFrame转换为元组" class="headerlink" title="3.3 DataFrame转换为元组"></a>3.3 DataFrame转换为元组</h3><p>按行读取DataFrame数据后，使用tuple()函数将其转换为元组。</p><p><code>tuples = [tuple(x) for x in df1.values]</code></p><h3 id="3-4-DataFrame转换为HTML网页格式"><a href="#3-4-DataFrame转换为HTML网页格式" class="headerlink" title="3.4 DataFrame转换为HTML网页格式"></a>3.4 DataFrame转换为HTML网页格式</h3><p><code>df.to_html(&#39;my_html.html&#39;, header=True, index=False)</code></p><h2 id="数据导出"><a href="#数据导出" class="headerlink" title="数据导出"></a>数据导出</h2><h3 id="4-1-导出为-xlsx文件"><a href="#4-1-导出为-xlsx文件" class="headerlink" title="4.1 导出为.xlsx文件"></a>4.1 导出为.xlsx文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python">df.to_excel(excel_writer, sheet_name=<span class="hljs-string">&#x27;sheet1&#x27;</span>, na_rep=<span class="hljs-string">&#x27;&#x27;</span>, <br>            float_format=<span class="hljs-literal">None</span>, columns=<span class="hljs-literal">None</span>, header=<span class="hljs-literal">True</span>, <br>            index=<span class="hljs-literal">True</span>, index_label=<span class="hljs-literal">None</span>, startrow=<span class="hljs-number">0</span>, startcol=<span class="hljs-number">0</span>, <br>            engine=<span class="hljs-literal">None</span>, merge_cells=<span class="hljs-literal">True</span>, encoding=<span class="hljs-literal">None</span>, inf_rep=<span class="hljs-string">&#x27;inf&#x27;</span>, <br>            verbose=<span class="hljs-literal">True</span>, freeze_pandas=<span class="hljs-literal">None</span>)<br><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">excel_writer: excel导出对象及路径</span><br><span class="hljs-string">sheet_name=&#x27;sheet1&#x27;： 更改表单名称</span><br><span class="hljs-string">na_rep=&#x27;&#x27; ： 缺失数据的表示方式，默认为空格</span><br><span class="hljs-string">float_format=None：格式化浮点数的字符串</span><br><span class="hljs-string">columns=None ： 可选参数，将要导出的列</span><br><span class="hljs-string">header=True：列名</span><br><span class="hljs-string">index=True： 行名</span><br><span class="hljs-string">index_label=None ：不懂 </span><br><span class="hljs-string">startrow=0：从第几行开始导出</span><br><span class="hljs-string">startcol=0：从第几列开始导出</span><br><span class="hljs-string">engine=None：指定需要使用的引擎</span><br><span class="hljs-string">merge_cells=True：布尔值，是否合并单元格</span><br><span class="hljs-string">encoding=None：编码方式</span><br><span class="hljs-string">inf_rep=&#x27;inf&#x27;：默认值</span><br><span class="hljs-string">verbose=True：默认值</span><br><span class="hljs-string">freeze_pandas=None：指定要冻结的行列</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br></code></pre></td></tr></table></figure><p><code>df.to_excel(&#39;my_excel.xlsx&#39;)</code></p><p><code>df.to_excel(&#39;my_excel&#39;, sheet_name=&#39;df&#39;)</code></p><p><code>df.to_excel(&#39;my_excel&#39;, sheet_name=&#39;df&#39;, startrow=2)</code></p><p><code>df.to_excel(&#39;my_excel&#39;, sheet_name=&#39;df&#39;, freeze_pandas=(1,1))</code></p><p><code>df.to_excel(&#39;my_excel&#39;,sheet_name=&#39;column1_name&#39;, columns=[&#39;cloumn1&#39;])</code></p><h3 id="4-2-导出为-csv文件"><a href="#4-2-导出为-csv文件" class="headerlink" title="4.2 导出为.csv文件"></a>4.2 导出为.csv文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python">df.to_csv(path_or_buf, sep=<span class="hljs-string">&#x27;&#x27;</span>, na_rep=<span class="hljs-string">&#x27;,&#x27;</span>, float_format=<span class="hljs-literal">None</span>, coumns=<span class="hljs-literal">None</span>, header=<span class="hljs-literal">True</span>, index=<span class="hljs-literal">True</span>, index_label=<span class="hljs-literal">None</span>, mode=<span class="hljs-string">&#x27;w&#x27;</span>,<br>encoding=<span class="hljs-literal">None</span>, compression=<span class="hljs-string">&#x27;infer&#x27;</span>, quoting=<span class="hljs-literal">None</span>, quotechar=<span class="hljs-string">&quot;&quot;</span>, line_terminator=<span class="hljs-literal">None</span>, chunksize=<span class="hljs-literal">None</span>, date_format=<span class="hljs-literal">None</span>, doublequote=<span class="hljs-literal">True</span>, escapechar=<span class="hljs-literal">None</span>, decimal=<span class="hljs-string">&#x27;.&#x27;</span>, errors=<span class="hljs-string">&#x27;strict&#x27;</span>)<br><br>path_or_buf： 文件名称或者路径<br>sep=<span class="hljs-string">&#x27;,&#x27;</span>： 分隔符，默认为,<br>na_rep=<span class="hljs-string">&#x27;&#x27;</span>：缺失值填充，默认为空格<br>float_format=<span class="hljs-literal">None</span>：浮点数格式设置<br>coumns=<span class="hljs-literal">None</span>：导出列选择<br>header=<span class="hljs-literal">True</span>：列名<br>index=<span class="hljs-literal">True</span>： 行名<br>index_label=<span class="hljs-literal">None</span>：行标签<br>mode=<span class="hljs-string">&#x27;w&#x27;</span>：写入模式<br>encoding=<span class="hljs-literal">None</span>：编码方式<br>compression=<span class="hljs-string">&#x27;infer&#x27;</span>：压缩模式<br>quoting=<span class="hljs-literal">None</span>：是否对导出的每个字段添加引号，默认不加引号，quoting=<span class="hljs-number">1</span> 为添加引号<br>quotechar=<span class="hljs-string">&quot;&quot;</span>：当quoting=<span class="hljs-number">1</span> 时，指定单引号或者双引号，默认为双引号<br>line_terminator=<span class="hljs-literal">None</span>：换行符，默认为<span class="hljs-string">&#x27;\n&#x27;</span><br>chunksize=<span class="hljs-literal">None</span>：一次性写入csv的行数，当数据量级较大时，需要分批写入<br>date_format=<span class="hljs-literal">None</span>：时间日期格式设置<br>doublequote=<span class="hljs-literal">True</span>：是否添加双引用符号，默认为<span class="hljs-literal">True</span><br>escapechar=<span class="hljs-literal">None</span>：设置转义字符<br>decimal=<span class="hljs-string">&#x27;.&#x27;</span>：可识别十进制分隔符的字符<br>errors=<span class="hljs-string">&#x27;strict&#x27;</span>：指定如何处理解码和编码错误<br></code></pre></td></tr></table></figure><p><code>df.to_csv(&#39;my_csv.csv&#39;)</code></p><p><code>df.to_csv(&#39;my_csv.csv&#39;,sep=&#39;?&#39;)</code></p><p><code>df.to_csv(&#39;my_csv.csv&#39;,na_rep=&#39;NA&#39;)</code></p><p><code>df.to_csv(&#39;my_csv.csv&#39;, float_format=&#39;%.2f&#39;)</code></p><p><code>df.to_vsc(&#39;my_csv.csv&#39;, columns=[&#39;column1&#39;])</code></p><p><code>df.to_csv(&#39;my_csv.csv&#39;, header=False, index=False)</code>– 既不保留列名，也不保留行索引</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>pandas</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Pandas数据格式化</title>
+    <link href="/2021/10/04/python_pandas/pandas_formatting/"/>
+    <url>/2021/10/04/python_pandas/pandas_formatting/</url>
+    
+    <content type="html"><![CDATA[<h1 id="数据格式化"><a href="#数据格式化" class="headerlink" title="数据格式化"></a>数据格式化</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol><li><p>数值类型格式化</p></li><li><ol><li>设置小数位数</li></ol></li><li><ol start="2"><li>设置百分比</li></ol></li><li><ol start="3"><li>设置千位分隔符</li></ol></li><li><p>文本类型格式化</p></li><li><ol><li>一列数据转换为多列数据</li></ol></li><li><ol start="2"><li>行列转换</li></ol></li><li><p>日期类型格式化</p></li><li><ol><li>批量处理日期数据转换(to_datetime())</li></ol></li><li><ol start="2"><li>日期判断(df[‘column’].dt.year())</li></ol></li></ol><h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd <br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br>pd.set_option(<span class="hljs-string">&#x27;display.unicode.east_asian_width&#x27;</span>,<span class="hljs-literal">True</span>)<br><br>df = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/04/47/mingribooks.xls&#x27;</span>)<br>df.info()<br><br>ft = pd.DataFrame(np.random.random([<span class="hljs-number">5</span>,<span class="hljs-number">5</span>]), columns = [<span class="hljs-string">&#x27;A1&#x27;</span>,<span class="hljs-string">&#x27;A2&#x27;</span>,<span class="hljs-string">&#x27;A3&#x27;</span>,<span class="hljs-string">&#x27;A4&#x27;</span>,<span class="hljs-string">&#x27;A5&#x27;</span>])<br><span class="hljs-built_in">print</span>(ft)<br></code></pre></td></tr></table></figure><h2 id="1-数值类型格式化"><a href="#1-数值类型格式化" class="headerlink" title="1. 数值类型格式化"></a>1. 数值类型格式化</h2><p>1.1. 设置浮点数小数位数</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">DataFrame.round(decimals=0, *args, **kwargs)</span><br><span class="hljs-string">decimals: 保留的小数位数</span><br><span class="hljs-string">*args: 附加的关键字参数</span><br><span class="hljs-string">**kwargs: 附加的关键字参数</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><br><span class="hljs-comment"># 所有小数全部设置成为保留小数点后两位</span><br>ft11 = ft.<span class="hljs-built_in">round</span>(<span class="hljs-number">2</span>)<br><span class="hljs-built_in">print</span>(ft11.head(<span class="hljs-number">2</span>))<br>ft11.head(<span class="hljs-number">2</span>)<br><br><span class="hljs-comment"># 也可以使用函数，为所有浮点数保留小数点后两位</span><br>ft12 = ft.applymap(<span class="hljs-keyword">lambda</span> x:<span class="hljs-string">&#x27;%.2f&#x27;</span>%x)<br><span class="hljs-built_in">print</span>(ft12)<br><br><span class="hljs-comment"># 对不同列应用不同的小数位保留规则</span><br>ft13 = ft.<span class="hljs-built_in">round</span>(&#123;<span class="hljs-string">&#x27;A1&#x27;</span>:<span class="hljs-number">2</span>,<span class="hljs-string">&#x27;A2&#x27;</span>:<span class="hljs-number">0</span>&#125;)<br><span class="hljs-built_in">print</span>(ft13.head(<span class="hljs-number">2</span>))<br></code></pre></td></tr></table></figure><p>1.2. 设置百分比</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&#x27;&#x27;&#x27; </span><br><span class="hljs-string">使用format()函数，保留n位小数的百分比形式</span><br><span class="hljs-string">df[&#x27;new_column&#x27;] = df[&#x27;column&#x27;].apply(lambda x: format(x,&#x27;.n%&#x27;))</span><br><span class="hljs-string">使用map()函数，整列保留n位小数的百分比形式</span><br><span class="hljs-string">df[&#x27;new_column&#x27;] = df[&#x27;column&#x27;].map(lambda x : &#x27;&#123;.n%&#125;&#x27;.format(x))</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><br>ft[<span class="hljs-string">&#x27;A1百分比&#x27;</span>] = ft[<span class="hljs-string">&#x27;A1&#x27;</span>].apply(<span class="hljs-keyword">lambda</span> x: <span class="hljs-built_in">format</span>(x,<span class="hljs-string">&#x27;.2%&#x27;</span>))<br><span class="hljs-built_in">print</span>(ft)<br><br>ft[<span class="hljs-string">&#x27;A2百分比&#x27;</span>] = ft[<span class="hljs-string">&#x27;A2&#x27;</span>].<span class="hljs-built_in">map</span>(<span class="hljs-keyword">lambda</span> x: <span class="hljs-string">&#x27;&#123;:.2%&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(x))<br><span class="hljs-built_in">print</span>(ft)<br></code></pre></td></tr></table></figure><p>1.3. 设置千位分隔符</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&#x27;&#x27;&#x27; </span><br><span class="hljs-string">将数值类型的金额转换为带千位分隔符的字符串</span><br><span class="hljs-string">df[&#x27;column&#x27;] = df[&#x27;column&#x27;].apply(lambda x: format(int(x),&#x27;,&#x27;))</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br>data = [[<span class="hljs-string">&#x27;1月&#x27;</span>,<span class="hljs-string">&#x27;199237&#x27;</span>],[<span class="hljs-string">&#x27;2月&#x27;</span>,<span class="hljs-string">&#x27;222222&#x27;</span>]]<br>columns = [<span class="hljs-string">&#x27;月份&#x27;</span>,<span class="hljs-string">&#x27;销售额&#x27;</span>]<br>ff = pd.DataFrame(data=data,columns=columns)<br><span class="hljs-built_in">print</span>(ff)<br>ff[<span class="hljs-string">&#x27;销售额&#x27;</span>] = ff[<span class="hljs-string">&#x27;销售额&#x27;</span>].apply(<span class="hljs-keyword">lambda</span> x: <span class="hljs-built_in">format</span>(<span class="hljs-built_in">int</span>(x),<span class="hljs-string">&#x27;,&#x27;</span>))<br><span class="hljs-built_in">print</span>(ff)<br></code></pre></td></tr></table></figure><h2 id="2-文本数据格式化"><a href="#2-文本数据格式化" class="headerlink" title="2. 文本数据格式化"></a>2. 文本数据格式化</h2><p>2.1 一列转多列</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&#x27;&#x27;&#x27; </span><br><span class="hljs-string">在实际应用中，我们常常需要将复合的文本拆分，如详细的地址拆分为XX省，XX市等，这需要做的就是一列转多列。</span><br><span class="hljs-string"></span><br><span class="hljs-string">函数名称为：split()</span><br><span class="hljs-string"></span><br><span class="hljs-string">Series.str.split(pat=None, n=-1, expand=False)</span><br><span class="hljs-string"></span><br><span class="hljs-string">pat: 可以是字符串、符号或正则表达式，其作为字符串分割的依据，默认为空格；</span><br><span class="hljs-string"></span><br><span class="hljs-string">n: 整型，默认值是-1，0或者-1都将返回所有拆分；</span><br><span class="hljs-string"></span><br><span class="hljs-string">expand: 分割后的结果是否转换为DataFrame，默认值为False。</span><br><span class="hljs-string"></span><br><span class="hljs-string">返回值：系列、索引、dataframe或多重索引。</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><br>sf = pd.read_excel(<br>    <span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/04/26/mrbooks.xls&#x27;</span>,usecols=[<span class="hljs-string">&#x27;买家会员名&#x27;</span>,<span class="hljs-string">&#x27;收货地址&#x27;</span>])<br><br>sf.head()<br><br>series = sf[<span class="hljs-string">&#x27;收货地址&#x27;</span>].<span class="hljs-built_in">str</span>.split(<span class="hljs-string">&#x27; &#x27;</span>,expand = <span class="hljs-literal">True</span>)<br><br>sf[<span class="hljs-string">&#x27;省&#x27;</span>] = series[<span class="hljs-number">0</span>]<br>sf[<span class="hljs-string">&#x27;市&#x27;</span>] = series[<span class="hljs-number">1</span>]<br>sf[<span class="hljs-string">&#x27;区&#x27;</span>] = series[<span class="hljs-number">2</span>]<br><br>sf.head()<br><br><span class="hljs-string">&#x27;&#x27;&#x27; </span><br><span class="hljs-string">从上面的代码中，我们看到，如果想要将分割后的数据添加到DataFrame中，需要创建新列，重新赋值等。</span><br><span class="hljs-string">下面的方法，让我们将生成的结果自动衔接到原表格中</span><br><span class="hljs-string">sf=sf.join(sf[&#x27;column&#x27;].str.split())</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br>sjf = pd.read_excel(<br>    <span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/04/26/mrbooks.xls&#x27;</span>, usecols=[<span class="hljs-string">&#x27;买家会员名&#x27;</span>, <span class="hljs-string">&#x27;收货地址&#x27;</span>])<br><br>sjf = sjf.join(sjf[<span class="hljs-string">&#x27;收货地址&#x27;</span>].<span class="hljs-built_in">str</span>.split(<span class="hljs-string">&#x27; &#x27;</span>,expand=<span class="hljs-literal">True</span>))<br>sjf.head()<br></code></pre></td></tr></table></figure><p>2.2. 行列转换</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><br><span class="hljs-comment"># 行转列--针对索引</span><br>DataFrame.stack(level=-<span class="hljs-number">1</span>, dropna = <span class="hljs-literal">True</span>)<br><span class="hljs-comment"># 列转行--针对索引</span><br>DataFrame.unstack(level=-<span class="hljs-number">1</span>, fill_value=<span class="hljs-literal">None</span>)<br><span class="hljs-comment"># 列转行--针对数值</span><br>DataFrame.pivot(index=<span class="hljs-literal">None</span>, columns=<span class="hljs-literal">None</span>, values=<span class="hljs-literal">None</span>)<br></code></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 设置准备条件</span><br>ci = pd.read_excel(<br>    <span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/04/29/grade.xls&#x27;</span>)<br><br><span class="hljs-built_in">print</span>(ci.head())<br></code></pre></td></tr></table></figure><p>2.2.1. 行转列</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">ci = ci.set_index([<span class="hljs-string">&#x27;序号&#x27;</span>, <span class="hljs-string">&#x27;班级&#x27;</span>])<br><span class="hljs-comment"># 设置2级索引（列表中有几个值，索引为几级）</span><br><span class="hljs-comment"># 必须将设置结果重新赋予ci，否则白费力气</span><br><span class="hljs-comment"># 设置好行索引之后，其他所有列都将归为一列</span><br>ci1 = ci.stack()<br><span class="hljs-built_in">print</span>(ci1.head())<br></code></pre></td></tr></table></figure><p>2.2.2. 列转行</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">ic = pd.read_excel(<br>    <span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/04/30/grade.xls&#x27;</span>,sheet_name=<span class="hljs-string">&#x27;英语2&#x27;</span>)<br><span class="hljs-built_in">print</span>(ic.head())<br><span class="hljs-comment">## 设置多行索引</span><br>ic = ic.set_index([<span class="hljs-string">&#x27;班级&#x27;</span>,<span class="hljs-string">&#x27;序号&#x27;</span>,<span class="hljs-string">&#x27;Unnamed: 2&#x27;</span>])<br><span class="hljs-comment">## 确定好索引后，最后一个行索引下面的值将会成为列索引</span><br>ic = ic.unstack()<br><span class="hljs-built_in">print</span>(ic.head())<br></code></pre></td></tr></table></figure><p>2.2.3. 行列转换pivot()</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">pv = pd.read_excel(<br>    <span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/04/30/grade.xls&#x27;</span>, sheet_name=<span class="hljs-string">&#x27;英语3&#x27;</span>)<br><span class="hljs-built_in">print</span>(pv.head())<br><br>pv = pv.pivot(index=<span class="hljs-string">&#x27;序号&#x27;</span>,columns=<span class="hljs-string">&#x27;班级&#x27;</span>,values=<span class="hljs-string">&#x27;得分&#x27;</span>)<br><span class="hljs-built_in">print</span>(pv)<br></code></pre></td></tr></table></figure><h2 id="3-日期数据格式化"><a href="#3-日期数据格式化" class="headerlink" title="3. 日期数据格式化"></a>3. 日期数据格式化</h2><p>3.1. 统一日期格式</p><p><code>DataFrame.to_datetime()</code></p><p>该函数还有很多参数可以选择，</p><p>但是一般不会用到，</p><p>什么时候需要用的时候再去百度就好</p><p>3.2. 获取日期属性</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">df[<span class="hljs-string">&#x27;星期几&#x27;</span>] = df[<span class="hljs-string">&#x27;datetime_columns&#x27;</span>].dt.day_name()<br><br>df[<span class="hljs-string">&#x27;季度&#x27;</span>] = df[<span class="hljs-string">&#x27;datetime_columns&#x27;</span>].dt.quarter<br><br>df[<span class="hljs-string">&#x27;是否年底&#x27;</span>] = df[<span class="hljs-string">&#x27;datetime_column&#x27;</span>].dt.is_year_end<br></code></pre></td></tr></table></figure><p>3.3. 获取某个日期或者日期范围所记录的所有记录</p><p>使用DataFrame可以获取某个时间段内所有记录，但是，<strong>前提必须将时间列设置为索引</strong>。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-number">1.</span> 获取<span class="hljs-number">2018</span>年所有记录<br>df[<span class="hljs-string">&#x27;2018&#x27;</span>]<br><br><span class="hljs-number">2.</span> 获取<span class="hljs-number">2018</span>年和<span class="hljs-number">2019</span>年所有记录<br>   <br>df[<span class="hljs-string">&#x27;2018&#x27;</span>:<span class="hljs-string">&#x27;2019&#x27;</span>]<br><br><span class="hljs-number">3.</span> 获取<span class="hljs-number">2018</span>年<span class="hljs-number">5</span>月的所有记录<br><br>df[<span class="hljs-string">&#x27;2018_05&#x27;</span>]<br><br><span class="hljs-number">4.</span> 获取某一天的记录<br><br>df[<span class="hljs-string">&#x27;2021-01-01&#x27;</span>:<span class="hljs-string">&#x27;2020-01-01&#x27;</span>]<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>pandas</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Pandas数据计算</title>
+    <link href="/2021/10/03/python_pandas/pandas_calculation/"/>
+    <url>/2021/10/03/python_pandas/pandas_calculation/</url>
+    
+    <content type="html"><![CDATA[<h1 id="数据计算"><a href="#数据计算" class="headerlink" title="数据计算"></a>数据计算</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol><li><p>常用函数</p></li><li><p>分组统计函数</p></li><li><p>按不同时期统计数据的函数</p></li></ol><h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><h3 id="求和函数"><a href="#求和函数" class="headerlink" title="求和函数"></a>求和函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">DataFrame.<span class="hljs-built_in">sum</span>(axis=<span class="hljs-literal">None</span>, skipna=<span class="hljs-literal">None</span>, level=<span class="hljs-literal">None</span>, numeric_only=<span class="hljs-literal">None</span>, min_count=<span class="hljs-number">0</span>, **kwargs)<br></code></pre></td></tr></table></figure><p>axis： axis=0表示按行对所有列求和，axis=1表示按列对所有行求和；</p><p>skipna: 布尔型，表示计算结果是否排除NaN/Null值；</p><p>level： 索引层级；</p><p>min_count： 表示执行操作所需的数目，整型，默认值为0。</p><p>  常见形式：</p><ul><li>df.sum()</li><li>df.sum(axis=1)</li></ul><h3 id="求均值函数"><a href="#求均值函数" class="headerlink" title="求均值函数"></a>求均值函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">DataFrame.mean(axis=<span class="hljs-literal">None</span>, skipna=<span class="hljs-literal">None</span>, level=<span class="hljs-literal">None</span>, numeric_only=<span class="hljs-literal">None</span>, min_count=<span class="hljs-number">0</span>, **kwargs)<br></code></pre></td></tr></table></figure><p>常见形式：</p><ul><li>df.mean()</li><li>df.mean(axis=1)</li></ul><h3 id="求最大值函数"><a href="#求最大值函数" class="headerlink" title="求最大值函数"></a>求最大值函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">DataFrame.<span class="hljs-built_in">max</span>(axis=<span class="hljs-literal">None</span>, skipna=<span class="hljs-literal">None</span>, level=<span class="hljs-literal">None</span>, numeric_only=<span class="hljs-literal">None</span>, min_count=<span class="hljs-number">0</span>, **kwargs)<br></code></pre></td></tr></table></figure><p>常见形式：</p><ul><li>df.max()</li><li>df.max(axis=1)</li></ul><h3 id="求最小值函数"><a href="#求最小值函数" class="headerlink" title="求最小值函数"></a>求最小值函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">DataFrame.<span class="hljs-built_in">min</span>(axis=<span class="hljs-literal">None</span>, skipna=<span class="hljs-literal">None</span>, level=<span class="hljs-literal">None</span>, numeric_only=<span class="hljs-literal">None</span>, min_count=<span class="hljs-number">0</span>, **kwargs)<br></code></pre></td></tr></table></figure><p>常见形式：</p><ul><li>df.min()</li><li>df.min(axis=1)</li></ul><h3 id="求中位数函数"><a href="#求中位数函数" class="headerlink" title="求中位数函数"></a>求中位数函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">DataFrame.median(axis=<span class="hljs-literal">None</span>, skipna=<span class="hljs-literal">None</span>, level=<span class="hljs-literal">None</span>, numeric_only=<span class="hljs-literal">None</span>, min_count=<span class="hljs-number">0</span>, **kwargs)<br></code></pre></td></tr></table></figure><p>常见形式：</p><ul><li>df.median()</li><li>df.median(axis=1)</li></ul><h3 id="求众数函数"><a href="#求众数函数" class="headerlink" title="求众数函数"></a>求众数函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">DataFrame.mode(axis=<span class="hljs-literal">None</span>, skipna=<span class="hljs-literal">None</span>, level=<span class="hljs-literal">None</span>, numeric_only=<span class="hljs-literal">None</span>, min_count=<span class="hljs-number">0</span>, **kwargs)<br></code></pre></td></tr></table></figure><p>常见形式：</p><ul><li>df.mode()</li><li>df.mode(axis=1)</li></ul><h3 id="求方差函数"><a href="#求方差函数" class="headerlink" title="求方差函数"></a>求方差函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">DataFrame.var(axis=<span class="hljs-literal">None</span>, skipna=<span class="hljs-literal">None</span>, level=<span class="hljs-literal">None</span>, numeric_only=<span class="hljs-literal">None</span>, min_count=<span class="hljs-number">0</span>, **kwargs)<br></code></pre></td></tr></table></figure><p>常见形式：</p><ul><li>df.var()</li><li>df.var(axis=1)</li></ul><h3 id="求标准差函数"><a href="#求标准差函数" class="headerlink" title="求标准差函数"></a>求标准差函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">DataFrame.std(axis=<span class="hljs-literal">None</span>, skipna=<span class="hljs-literal">None</span>, level=<span class="hljs-literal">None</span>, numeric_only=<span class="hljs-literal">None</span>, min_count=<span class="hljs-number">0</span>, **kwargs)<br></code></pre></td></tr></table></figure><p>常见形式：</p><ul><li>df.std()</li><li>df.std(axis=1)</li></ul><h3 id="求分位数函数"><a href="#求分位数函数" class="headerlink" title="求分位数函数"></a>求分位数函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">DataFrame.quantile(q=<span class="hljs-number">0.5</span>, axis=<span class="hljs-literal">None</span>, numeric_only=<span class="hljs-literal">None</span>, interpolation=<span class="hljs-string">&#x27;linear&#x27;</span>)<br></code></pre></td></tr></table></figure><p>q：浮点型或数组，分位点，值域[0,1]</p><p>interpolation=’linear’: 内插值，不懂，也很难用到。</p><p>常见形式：</p><ul><li>df.quantile(0.35)</li><li>df.quantitle(axis=1)</li></ul><h2 id="分组统计函数"><a href="#分组统计函数" class="headerlink" title="分组统计函数"></a>分组统计函数</h2><h3 id="分组统计函数-1"><a href="#分组统计函数-1" class="headerlink" title="分组统计函数"></a>分组统计函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">DataFrame.groupby(by=<span class="hljs-string">&#x27;&#x27;</span>, axis=<span class="hljs-number">0</span>, level=<span class="hljs-literal">None</span>, as_index=<span class="hljs-literal">True</span>, sort=<span class="hljs-literal">True</span>, group_keys=<span class="hljs-literal">True</span>, squeeze=<span class="hljs-literal">False</span>, observed=<span class="hljs-literal">False</span>)<br></code></pre></td></tr></table></figure><p>一般只需用到by=’’</p><ol><li>简单应用</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">df1 = df1.groupby(by=<span class="hljs-string">&#x27;column_name&#x27;</span>).<span class="hljs-built_in">sum</span>()<br><br>df1 = df1.groupby(<span class="hljs-string">&#x27;column_name&#x27;</span>).<span class="hljs-built_in">sum</span>()<br><br>df1 = df1.groupby([<span class="hljs-string">&#x27;column1_name&#x27;</span>, <span class="hljs-string">&#x27;column2_name&#x27;</span>]).<span class="hljs-built_in">sum</span>()<br><br>df1 = df1.groupby(<span class="hljs-string">&#x27;groupby_name&#x27;</span>)[<span class="hljs-string">&#x27;sum_name&#x27;</span>].<span class="hljs-built_in">sum</span>()<br></code></pre></td></tr></table></figure><ol start="2"><li>高级应用</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 打印各个分组中的所有值</span><br>df1 = df1[<span class="hljs-string">&#x27;column1&#x27;</span>,<span class="hljs-string">&#x27;column2&#x27;</span>,<span class="hljs-string">&#x27;column3&#x27;</span>]<br><span class="hljs-keyword">for</span> name, group <span class="hljs-keyword">in</span> df1.groupby(<span class="hljs-string">&#x27;column1&#x27;</span>):<br>    <span class="hljs-built_in">print</span>(name) <span class="hljs-comment"># name 为column1中的值</span><br>    <span class="hljs-built_in">print</span>(group) <span class="hljs-comment"># group为分组后的数据</span><br><br><br><span class="hljs-keyword">for</span> (key1,key2), group <span class="hljs-keyword">in</span> df1.groupby([<span class="hljs-string">&#x27;column1&#x27;</span>,<span class="hljs-string">&#x27;column&#x27;</span>]):<br>    <span class="hljs-built_in">print</span>(key1,key2)<br>    <span class="hljs-built_in">print</span>(group)<br></code></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 分组聚合函数</span><br>df1 = df1.[<span class="hljs-string">&#x27;column1&#x27;</span>,<span class="hljs-string">&#x27;column2&#x27;</span>,<span class="hljs-string">&#x27;column3&#x27;</span>]<br>group_cal1 = df1.groupby(<span class="hljs-string">&#x27;column1&#x27;</span>).agg([<span class="hljs-string">&#x27;mean&#x27;</span>,<span class="hljs-string">&#x27;sum&#x27;</span>])<br>group_cal2 = df1.groupby(<span class="hljs-string">&#x27;column1&#x27;</span>).agg(&#123;<span class="hljs-string">&#x27;column2&#x27;</span>:[<span class="hljs-string">&#x27;mean&#x27;</span>,<span class="hljs-string">&#x27;sum&#x27;</span>],<span class="hljs-string">&#x27;column3&#x27;</span>:[<span class="hljs-string">&#x27;sum&#x27;</span>]&#125;)<br></code></pre></td></tr></table></figure><ol start="3"><li>与字典结合的分组函数</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 将几列数据通过字典合并到一列中，并对列名进行重命名</span><br>dic1 = &#123;<span class="hljs-string">&#x27;column1&#x27;</span>:<span class="hljs-string">&#x27;ha&#x27;</span>, <span class="hljs-string">&#x27;column2&#x27;</span>:<span class="hljs-string">&#x27;ha&#x27;</span>, <span class="hljs-string">&#x27;column3&#x27;</span>:<span class="hljs-string">&#x27;he&#x27;</span>&#125;<br>df1 = df1.groupby(dic1,axis=<span class="hljs-number">1</span>).<span class="hljs-built_in">sum</span>()<br><br></code></pre></td></tr></table></figure><h1 id="时期统计函数"><a href="#时期统计函数" class="headerlink" title="时期统计函数"></a>时期统计函数</h1><h3 id="按时期统计数据"><a href="#按时期统计数据" class="headerlink" title="按时期统计数据"></a>按时期统计数据</h3><p><strong>前提：将日期设置为索引，且日期格式为日期型</strong></p><ol><li><p>按年统计数据<br>df1= df1.resample(‘AS’).sum()</p></li><li><p>按季度统计数据<br>df1 = df1.resample(‘Q’).sum()</p></li><li><p>按月份统计数据<br>df1 = df1.resample(‘M’).sum()</p></li><li><p>按星期统计函数<br>df1 = df1.resample(‘W’).sum()</p></li><li><p>按天统计函数<br>df1 = df1.resample(‘D’).sum()</p></li></ol><h3 id="按时期统计数据后并将日期转换为相对应的格式"><a href="#按时期统计数据后并将日期转换为相对应的格式" class="headerlink" title="按时期统计数据后并将日期转换为相对应的格式"></a>按时期统计数据后并将日期转换为相对应的格式</h3><p><strong>前提：将日期设置为索引，且日期格式为日期型</strong></p><ol><li><p>按年统计数据<br>df1= df1.resample(‘AS’).sum().to_period(‘AS’)</p></li><li><p>按季度统计数据<br>df1 = df1.resample(‘Q’).sum().to_period(‘Q’)</p></li><li><p>按月份统计数据<br>df1 = df1.resample(‘M’).sum().to_period(‘M’)</p></li><li><p>按星期统计函数<br>df1 = df1.resample(‘W’).sum().to_period(‘W’)</p></li><li><p>按天统计函数<br>df1 = df1.resample(‘D’).sum().to_period(‘D’)</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>pandas</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Pandas数据排序和排名</title>
+    <link href="/2021/10/02/python_pandas/pandas_sort_order/"/>
+    <url>/2021/10/02/python_pandas/pandas_sort_order/</url>
+    
+    <content type="html"><![CDATA[<h1 id="数据排序和排名"><a href="#数据排序和排名" class="headerlink" title="数据排序和排名"></a>数据排序和排名</h1><h2 id="主要函数"><a href="#主要函数" class="headerlink" title="主要函数"></a>主要函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">df.sort_values()<br>df.groupby()<br>df.rank()<br></code></pre></td></tr></table></figure><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br>pd.set_option(<span class="hljs-string">&#x27;display.unicode.east_asian_width&#x27;</span>,<span class="hljs-literal">True</span>)<br><br>df = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/46/mrbook.xlsx&#x27;</span>)<br><br>df.head()<br></code></pre></td></tr></table></figure><h2 id="数据排序"><a href="#数据排序" class="headerlink" title="数据排序"></a>数据排序</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">df.sort_values(by, axis=<span class="hljs-number">0</span>, ascending=<span class="hljs-literal">True</span>, inplace=<span class="hljs-literal">False</span>, <br>                kind=<span class="hljs-string">&#x27;quicksort&#x27;</span>, na_position=<span class="hljs-string">&#x27;last&#x27;</span>, ignore_index=<span class="hljs-literal">False</span>)<br></code></pre></td></tr></table></figure><p>参数解释：</p><p>by: 按照哪一列进行排序。单独一列为<code>by=&#39;colummn&#39;</code>，多列排序为`by = [‘column1’,’column2’]；</p><p>axis=0: 默认对行进行排序，<code>axis=1</code>代表对列进行排序；</p><p>ascending=Ture: 默认升序排列，<code>ascending=False</code>代表降序排列；</p><p>inplace=False: 默认排序功能不对原表格进行替代，需要重新赋值到另一个表格参数以保存排序结果。<code>inplace=Ture</code>直接将排序结果保存到原表格之中。</p><p>kind=’quicksort’:  默认排序方式为快速排序。<code>&#39;mergesort&#39;</code>混合排序，<code>&#39;heapsort&#39;</code>堆排；</p><p>na_position=’last’: 默认空值排在最后，<code>na_position=&#39;fisrt&#39;</code>空值在最前；</p><p>ignore_index=False: 默认忽略索引，不再重新设置索引。<code>&#39;ignore_index=True&#39;</code>表示重新按照表格顺序排列行索引。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">df1 = df.sort_values(by = <span class="hljs-string">&#x27;销量&#x27;</span>)<br><span class="hljs-built_in">print</span>(df1.head())<br><br><br>df2 = df.sort_values(by=<span class="hljs-string">&#x27;销量&#x27;</span>,ignore_index=<span class="hljs-literal">True</span>)<br>df2.head()<br></code></pre></td></tr></table></figure><h2 id="分组汇总"><a href="#分组汇总" class="headerlink" title="分组汇总"></a>分组汇总</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">df2 = df.groupby([<span class="hljs-string">&#x27;column1&#x27;</span>])[<span class="hljs-string">&#x27;column2&#x27;</span>].<span class="hljs-built_in">sum</span>().reset_index()<br><br><br>df2 = df.groupby([<span class="hljs-string">&#x27;图书名称&#x27;</span>])[<span class="hljs-string">&#x27;销量&#x27;</span>].<span class="hljs-built_in">sum</span>().reset_index()<br>df2.sort_values(by=<span class="hljs-string">&#x27;销量&#x27;</span>,ascending=<span class="hljs-literal">False</span>)<br>df2.head()<br></code></pre></td></tr></table></figure><h2 id="数据排名"><a href="#数据排名" class="headerlink" title="数据排名"></a>数据排名</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">df.rank(axis=<span class="hljs-number">0</span>,method=<span class="hljs-string">&#x27;average&#x27;</span>,numeric_only=<span class="hljs-literal">None</span>,na_option=<span class="hljs-string">&#x27;keep&#x27;</span>,ascending=<span class="hljs-literal">True</span>,pct=<span class="hljs-literal">False</span>)<br></code></pre></td></tr></table></figure><p>参数解析：</p><p>axis=0: 默认对行数据。<code>axis=1</code>对列数据排序；</p><p>method=’average’: 在有相同值的情况下的排序方式：</p><pre><code>                average:默认值，平均排名                min:最小值排名                max：最大值排名                first: 按值在原始数据中出现的顺序分配排名                dense：密集排名，类似于最小值排名，但是排名每次只增加1，即排名相同的数据只占一个名次。</code></pre><p>numeric_only=None: 默认值可以对任意列进行排名，<code>numeric_only=True</code>表示只对数字列进行排名；</p><p>na_optin=’keep’: 在存在空值的情况下的空值行排序方式</p><pre><code>                keep: 默认值，将空值等级赋值给NaN值                top：如果按升序排序，则将最小排名赋值给NaN值                bottom: 如果按升序排序，则将最大值排名赋值给NaN值                </code></pre><p>ascending=True: 默认升序排序。指定多个排序可以使用布尔值列表。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">pct=<span class="hljs-literal">False</span>: 是否以百分比的形式返回排名。<br>df[<span class="hljs-string">&#x27;平均值排名&#x27;</span>] = df[<span class="hljs-string">&#x27;销量&#x27;</span>].rank(ascending=<span class="hljs-literal">True</span>)<br>df[<span class="hljs-string">&#x27;顺序排序&#x27;</span>] = df[<span class="hljs-string">&#x27;销量&#x27;</span>].rank(method=<span class="hljs-string">&#x27;first&#x27;</span>, numeric_only=<span class="hljs-literal">True</span>)<br>df[<span class="hljs-string">&#x27;最大值排名&#x27;</span>] = df[<span class="hljs-string">&#x27;销量&#x27;</span>].rank(method=<span class="hljs-string">&#x27;max&#x27;</span>, pct=<span class="hljs-literal">True</span>)<br><br><span class="hljs-built_in">print</span>(df)<br></code></pre></td></tr></table></figure><h2 id="按行排序"><a href="#按行排序" class="headerlink" title="按行排序"></a>按行排序</h2><p>没有新的函数，还是上面这三个函数，只是需要用到axis参数。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">cf = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/49/books.xls&#x27;</span>)<br><br>cf.info()<br>cf.head()<br><br>cf1 = cf.sort_values(by = <span class="hljs-number">0</span>,axis=<span class="hljs-number">1</span>)<br>cf1.head()<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>pandas</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Pandas索引设置</title>
+    <link href="/2021/10/01/python_pandas/pandas_indexset/"/>
+    <url>/2021/10/01/python_pandas/pandas_indexset/</url>
+    
+    <content type="html"><![CDATA[<h1 id="索引设置"><a href="#索引设置" class="headerlink" title="索引设置"></a>索引设置</h1><h2 id="函数介绍"><a href="#函数介绍" class="headerlink" title="函数介绍"></a>函数介绍</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 重新输入索引值（行、列皆可）</span><br>df.reindex(lables=<span class="hljs-literal">None</span>, index=<span class="hljs-literal">None</span>, columns=<span class="hljs-literal">None</span>, axis=<span class="hljs-literal">None</span>, <br>            method=<span class="hljs-literal">None</span>, copy=<span class="hljs-literal">True</span>, level=<span class="hljs-literal">None</span>,fill_value=nan,<br>            limit=<span class="hljs-literal">None</span>,tolerance = <span class="hljs-literal">None</span>)<br><br><span class="hljs-comment"># 设置某列为行索引（drop=Ture为删除列记录，改写为0，1，2等默认索引）</span><br>df.set_index([<span class="hljs-string">&#x27;买家会员名&#x27;</span>])<br>df.set_index([<span class="hljs-string">&#x27;买家会员名&#x27;</span>,drop=<span class="hljs-literal">True</span>])<br><br><span class="hljs-comment"># 删除空值后，重置索引</span><br>df1= df.dropna().reset_index(drop=<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br>pd.set_option(<span class="hljs-string">&#x27;display.unicode.east_asian_width&#x27;</span>, <span class="hljs-literal">True</span>)<br><br>df = pd.read_excel(<br>    <span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/37/TB2018.xls&#x27;</span>)<br>df.head()<br></code></pre></td></tr></table></figure><h2 id="正式应用"><a href="#正式应用" class="headerlink" title="正式应用"></a>正式应用</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&#x27;&#x27;&#x27; </span><br><span class="hljs-string">df.reindex(lables=None, index=None, columns=None, axis=None,</span><br><span class="hljs-string">           method=None, copy=True, level=None, fill_value=nan,</span><br><span class="hljs-string">           limit=None, tolerance=None)</span><br><span class="hljs-string">method为填充方法（默认为None，向后填充为bfill/backfill，向前填充为ffill/pad</span><br><span class="hljs-string">fill_value为填充值。默认为NaN，若使用其他值如0，fill_value=0</span><br><span class="hljs-string">该方法手动输入索引信息，</span><br><span class="hljs-string">当输入的索引数量大于表格自身索引数时，则可以使用填充方法，默认填充NaN；</span><br><span class="hljs-string">当输入的索引数量小于表格自身索引数时，则不再显示超过索引数的记录。</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-comment"># 只输入索引数值时，默认为行索引</span><br>df1 = df.reindex([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>])<br><span class="hljs-built_in">print</span>(df1)<br><br><span class="hljs-comment"># 设置列索引时，需要将已有的列索引重新输入一遍，然后添加新的索引值</span><br>df2 = df.reindex(columns=[<span class="hljs-string">&#x27;买家会员名&#x27;</span>,<span class="hljs-string">&#x27;买家实际支付金额&#x27;</span>,<span class="hljs-string">&#x27;宝贝总数量&#x27;</span>,<span class="hljs-string">&#x27;宝贝标题&#x27;</span>,<span class="hljs-string">&#x27;类别&#x27;</span>,<span class="hljs-string">&#x27;订单付款时间&#x27;</span>,<span class="hljs-string">&#x27;备注&#x27;</span>])<br><span class="hljs-built_in">print</span>(df2)<br><br><span class="hljs-comment"># 设置某列为行索引</span><br>df4 = df.set_index([<span class="hljs-string">&#x27;买家会员名&#x27;</span>])<br>df4.head()<br><br><span class="hljs-comment"># 数据清洗后，设置连续的行索引</span><br><span class="hljs-string">&#x27;&#x27;&#x27; </span><br><span class="hljs-string">在进行数据清洗后，删除的记录的索引也会被删除，于是导致索引不连续</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br>df6 = df.dropna().reset_index(drop=<span class="hljs-literal">True</span>)<br>df.head()<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>pandas</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Pandas数据清洗</title>
+    <link href="/2021/09/30/python_pandas/pandas_dataclear/"/>
+    <url>/2021/09/30/python_pandas/pandas_dataclear/</url>
+    
+    <content type="html"><![CDATA[<h1 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol><li>缺失值处理</li><li>重复值处理</li><li>异常值检测与处理</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd <br>pd.set_option(<span class="hljs-string">&#x27;display.unicode.east_asian_width&#x27;</span>,<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure><h2 id="1-缺失值处理"><a href="#1-缺失值处理" class="headerlink" title="1. 缺失值处理"></a>1. 缺失值处理</h2><p>1.1 导入文件</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">df = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/37/TB2018.xls&#x27;</span>)<br>df.head()<br></code></pre></td></tr></table></figure><p>1.2.  查看索引，数据类型和内存信息，初步查看是否有缺失值</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(df.info())<br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">通过查看表格内存与数据信息，可以得知：</span><br><span class="hljs-string">1. 有6列，10行数据；</span><br><span class="hljs-string">2. 宝贝数量和类别各有2个缺失值。</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br></code></pre></td></tr></table></figure><p>1.3. 通过空值判断是否具有缺失值（只适用于数据量较小的情况）</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(df.isnull())<br><span class="hljs-built_in">print</span>(df.notnull())<br></code></pre></td></tr></table></figure><p>1.4. 缺失值删除与填充</p><p>通过分析缺失值重要性以及缺失值数量，来判断删除还是填充缺失值。</p><p>比如，通过上述缺失值分析，宝贝数量为重要索引，缺少该值，则该记录将在很大程度上无法发挥分析作用，且缺失值较少，若将其删除，不影响整体分析，则可以将其所在记录删除。</p><p>但是，类别不属于重要分析项目，可以有缺失值，也可以根据表格对齐填充。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 删除所有包含缺失值的记录</span><br>df1 = df.dropna()<br><br><span class="hljs-comment"># 删除特定索引列中缺失值所在的记录</span><br>df2 = df[df[<span class="hljs-string">&#x27;宝贝总数量&#x27;</span>].notnull()]<br><br><span class="hljs-comment"># 缺失值填充（将类别列中的缺失值填充为‘图书’）</span><br>df2[<span class="hljs-string">&#x27;类别&#x27;</span>] = df2[<span class="hljs-string">&#x27;类别&#x27;</span>].fillna(<span class="hljs-string">&#x27;图书&#x27;</span>)<br><br><span class="hljs-built_in">print</span>(df1)<br><span class="hljs-built_in">print</span>(df2)<br></code></pre></td></tr></table></figure><h2 id="2-重复值处理"><a href="#2-重复值处理" class="headerlink" title="2. 重复值处理"></a>2. 重复值处理</h2><p>2.1. 导入文件</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">df = pd.read_excel(<br>    <span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/40/1月.xlsx&#x27;</span>)<br>df.head()<br></code></pre></td></tr></table></figure><p>2.2. 判断每一行数据是否重复（完全相同）</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">df.duplicated()<br></code></pre></td></tr></table></figure><p>2.3. 去除全部的重复数据（默认保留重复数据的第一行）</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">df1 = df.drop_duplicates()<br></code></pre></td></tr></table></figure><p>2.4. 去除指定列的重复数据（默认保留重复数据的第一行）</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">df2 = df.drop_duplicates([<span class="hljs-string">&#x27;买家会员名&#x27;</span>])<br></code></pre></td></tr></table></figure><p>2.5. 去除制定列的重复数据，保留重复行的最后一行</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">df3 = df.drop_duplicates([<span class="hljs-string">&#x27;买家会员名&#x27;</span>],keep=<span class="hljs-string">&#x27;last&#x27;</span>)<br></code></pre></td></tr></table></figure><p>2.6. 去除指定列的重复数据，不保留所有重复行</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">df4 = df.drop_duplicates([<span class="hljs-string">&#x27;买家会员名&#x27;</span>],keep=<span class="hljs-literal">False</span>)<br></code></pre></td></tr></table></figure><p>2.7. 删除重复行后，保留副本</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">df5 = df.drop_duplicates([<span class="hljs-string">&#x27;买家会员名&#x27;</span>,<span class="hljs-string">&#x27;买家支付宝账号&#x27;</span>], inplace=<span class="hljs-literal">False</span>)<br></code></pre></td></tr></table></figure><p>2.8. 各步骤执行结果打印</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(df)<br><span class="hljs-built_in">print</span>(df1)<br><span class="hljs-built_in">print</span>(df2)<br><span class="hljs-built_in">print</span>(df3)<br><span class="hljs-built_in">print</span>(df4)<br><span class="hljs-built_in">print</span>(df5)<br></code></pre></td></tr></table></figure><h2 id="3-异常值的检测与处理"><a href="#3-异常值的检测与处理" class="headerlink" title="3. 异常值的检测与处理"></a>3. 异常值的检测与处理</h2><p>在数据分析中异常值是指超出或者低于正常范围的值，检测方法如下：</p><p>(1) 根据给定的范围进行判断，不在范围内即为异常值。</p><p>(2) 均方差。</p><p>在统计学中，如果一个数据分布近似正态分布，<br>那么大约68%的数据会在均值的一个标准差范围内，<br>大约95%会在两个标准差范围内，<br>大约99.7%会在3个标准差范围内。</p><p>(3) 箱形图。<br>箱形图是显示一组数据分散情况资料的统计图。<br>它可以将数据通过四分位数的形式进行图形化描述。<br>箱形图通过上限和下限作为数据分布的边界。<br>任何高于上限或者低于下限的数据都可以认为是异常值。</p><p>但是，具体如何操作目前还没给出，大概要过几章才有</p><p>处理异常值的方法：<br>（1） 删除</p><p>（2） 填充</p><p>（3） 当特殊情况处理，研究为何出现异常值。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>pandas</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Pandas数据的增加、修改和删除</title>
+    <link href="/2021/09/28/python_pandas/pandas_data/"/>
+    <url>/2021/09/28/python_pandas/pandas_data/</url>
+    
+    <content type="html"><![CDATA[<h1 id="数据的增加、修改和删除"><a href="#数据的增加、修改和删除" class="headerlink" title="数据的增加、修改和删除"></a>数据的增加、修改和删除</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br>pd.set_option(<span class="hljs-string">&#x27;display.unicode.east_asian_width&#x27;</span>, <span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure><ol><li><p>创建表格</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">data = [[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>],[<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>],[<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]]<br>columns = [<span class="hljs-string">&#x27;天&#x27;</span>,<span class="hljs-string">&#x27;地&#x27;</span>,<span class="hljs-string">&#x27;人&#x27;</span>]<br>index = [<span class="hljs-string">&#x27;金&#x27;</span>,<span class="hljs-string">&#x27;木&#x27;</span>,<span class="hljs-string">&#x27;水&#x27;</span>]<br><br>df = pd.DataFrame(data=data, columns=columns, index=index)<br>df.head()<br></code></pre></td></tr></table></figure></li><li><p>增加数据–按列添加</p></li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">df[<span class="hljs-string">&#x27;亓&#x27;</span>]=[<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>]<br>df.head<br><br>df.loc[:,<span class="hljs-string">&#x27;亓&#x27;</span>] = [<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>]<br>df.head()<br><br>qi = [<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>]<br>df.insert(<span class="hljs-number">4</span>,<span class="hljs-string">&#x27;精&#x27;</span>,qi)<br>df.head()<br></code></pre></td></tr></table></figure><ol start="3"><li>增加数据–按行添加数据</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">df.loc[<span class="hljs-string">&#x27;火&#x27;</span>] = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>]<br>df.head()<br><br>df_insert = pd.DataFrame(&#123;<span class="hljs-string">&#x27;天&#x27;</span>:[<span class="hljs-number">1</span>,<span class="hljs-number">0</span>],<span class="hljs-string">&#x27;地&#x27;</span>:[<span class="hljs-number">3</span>,<span class="hljs-number">0</span>],<span class="hljs-string">&#x27;人&#x27;</span>:[<span class="hljs-number">2</span>,<span class="hljs-number">0</span>],<span class="hljs-string">&#x27;亓&#x27;</span>:[<span class="hljs-number">3</span>,<span class="hljs-number">0</span>],<span class="hljs-string">&#x27;精&#x27;</span>:[<span class="hljs-number">3</span>,<span class="hljs-number">0</span>]&#125;,index=[<span class="hljs-string">&#x27;土&#x27;</span>,<span class="hljs-string">&#x27;无&#x27;</span>])<br>df=df.append(df_insert)<br><span class="hljs-comment"># 可以反复插入相同行名</span><br><span class="hljs-built_in">print</span>(df)<br></code></pre></td></tr></table></figure><ol start="4"><li><p>修改数据–修改列标题</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">df.columns=[<span class="hljs-string">&#x27;天&#x27;</span>,<span class="hljs-string">&#x27;地&#x27;</span>,<span class="hljs-string">&#x27;人&#x27;</span>,<span class="hljs-string">&#x27;亓&#x27;</span>,<span class="hljs-string">&#x27;神&#x27;</span>]<br>df.columns<br><br>df.rename(columns=&#123;<span class="hljs-string">&quot;亓&quot;</span>:<span class="hljs-string">&#x27;气&#x27;</span>&#125;, inplace = <span class="hljs-literal">True</span>)<br>df.columns<br><br>df.rename(columns=&#123;<span class="hljs-string">&#x27;气&#x27;</span>:<span class="hljs-string">&#x27;亓&#x27;</span>,<span class="hljs-string">&#x27;神&#x27;</span>:<span class="hljs-string">&#x27;精&#x27;</span>&#125;,inplace=<span class="hljs-literal">True</span>)<br>df.head()<br></code></pre></td></tr></table></figure></li><li><p>修改数据–修改行标题</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">df.index=<span class="hljs-built_in">list</span>(<span class="hljs-string">&#x27;123456&#x27;</span>)<br><span class="hljs-built_in">print</span>(df)<br><br>df.rename(&#123;<span class="hljs-string">&#x27;1&#x27;</span>: <span class="hljs-string">&#x27;金&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>: <span class="hljs-string">&#x27;木&#x27;</span>, <span class="hljs-string">&#x27;3&#x27;</span>: <span class="hljs-string">&#x27;水&#x27;</span>, <span class="hljs-string">&#x27;4&#x27;</span>: <span class="hljs-string">&#x27;火&#x27;</span>,<br>           <span class="hljs-string">&#x27;5&#x27;</span>: <span class="hljs-string">&#x27;土&#x27;</span>&#125;, axis=<span class="hljs-number">0</span>, inplace=<span class="hljs-literal">True</span>)<br><span class="hljs-built_in">print</span>(df)<br>df.index<br></code></pre></td></tr></table></figure></li><li><p>修改数据</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 直接使用loc/iloc定位到想要修改的数据，然后复制即可</span><br>df.loc[<span class="hljs-string">&#x27;6&#x27;</span>,<span class="hljs-string">&#x27;天&#x27;</span>]=<span class="hljs-number">3</span><br><br>df.iloc[<span class="hljs-number">5</span>,<span class="hljs-number">4</span>]=<span class="hljs-number">3</span><br>df.loc[<span class="hljs-string">&#x27;6&#x27;</span>,:]=df.loc[<span class="hljs-string">&#x27;6&#x27;</span>,:] + <span class="hljs-number">1</span><br>df.values<br></code></pre></td></tr></table></figure></li><li><p>删除数据</p></li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python">df.drop(labels=<span class="hljs-literal">None</span>, axis=<span class="hljs-number">0</span>, index=<span class="hljs-literal">None</span>, columns=<span class="hljs-literal">None</span>,level=<span class="hljs-literal">None</span>, inplace=<span class="hljs-literal">False</span>, errors=<span class="hljs-string">&#x27;raise&#x27;</span>)<br><br>labels: 表示行标签或者列标签；<br><br>axis: <span class="hljs-number">0</span> 代表按行删除，<span class="hljs-number">1</span> 代表按列删除，默认为 <span class="hljs-number">0</span>；<br><br>index: 删除行。默认值为<span class="hljs-literal">None</span>；<br><br>columns: 删除列。默认值为<span class="hljs-literal">None</span>；<br><br>level: 针对有两级索引的数据。level=<span class="hljs-number">0</span>，表示按第一级索引删除整行，默认值为<span class="hljs-literal">None</span>；<br><br>inplace: 可选参数，确定是否替换原数组；<br><br>errors: 参数值为ignore或<span class="hljs-keyword">raise</span>，默认值为<span class="hljs-keyword">raise</span>，若改为ignore，则取消错误。<br></code></pre></td></tr></table></figure><p>7.1 删除行</p><p><code>df.drop(index=&#39;6&#39;, axis=0, inplace=True) print(df)</code></p><p>7.2 删除列</p><p><code>df.drop(columns=&#39;精&#39;, axis=1, inplace=True) print(df)</code></p><p>7.3 删除特定行</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">df.drop(index=df[df[<span class="hljs-string">&#x27;人&#x27;</span>].isin([<span class="hljs-number">1</span>])].index[<span class="hljs-number">0</span>],inplace=<span class="hljs-literal">True</span>)<br><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">解析：上面的还可以理解，</span><br><span class="hljs-string">首先将&quot;人&quot;这一列的数据提取出来--df[&#x27;人&#x27;]</span><br><span class="hljs-string">然后检查是否存在与后面集合中的数据--df[&#x27;人&#x27;].isin([1])</span><br><span class="hljs-string">如果存在则将该数据对应的行索引提取出来--df[df[&#x27;人&#x27;].isin([1])].index[0]</span><br><span class="hljs-string">最后就是正常的删除行数据了</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>df.drop(index=df[df[<span class="hljs-string">&#x27;天&#x27;</span>]&lt;<span class="hljs-number">2</span>].index[<span class="hljs-number">0</span>],inplace=<span class="hljs-literal">True</span>)<br><span class="hljs-built_in">print</span>(df)<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>pandas</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>数据抽取</title>
+    <link href="/2021/09/28/python_pandas/pandas_loc/"/>
+    <url>/2021/09/28/python_pandas/pandas_loc/</url>
+    
+    <content type="html"><![CDATA[<h1 id="数据抽取"><a href="#数据抽取" class="headerlink" title="数据抽取"></a>数据抽取</h1><h2 id="1-数据抽取pandas属性"><a href="#1-数据抽取pandas属性" class="headerlink" title="1. 数据抽取pandas属性"></a>1. 数据抽取pandas属性</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">loc属性：以列名(column)和行名(index)作为参数，当只有一个参数时，默认是行名。<br><br>iloc属性：以行和列的位置索引(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2.</span>..)作为参数，<span class="hljs-number">0</span> 表示第一行（列）。<br></code></pre></td></tr></table></figure><h2 id="2-准备工作"><a href="#2-准备工作" class="headerlink" title="2. 准备工作"></a>2. 准备工作</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd <br>pd.set_option(<span class="hljs-string">&#x27;display.unicode.east_asian_width&#x27;</span>, <span class="hljs-literal">True</span>)<br>data = [[<span class="hljs-number">11</span>,<span class="hljs-number">12</span>,<span class="hljs-number">13</span>],[<span class="hljs-number">12</span>,<span class="hljs-number">13</span>,<span class="hljs-number">14</span>],[<span class="hljs-number">13</span>,<span class="hljs-number">14</span>,<span class="hljs-number">15</span>],[<span class="hljs-number">14</span>,<span class="hljs-number">15</span>,<span class="hljs-number">16</span>]]<br>columns = [<span class="hljs-string">&#x27;语文&#x27;</span>,<span class="hljs-string">&#x27;数学&#x27;</span>,<span class="hljs-string">&#x27;英语&#x27;</span>]<br>index = [<span class="hljs-string">&#x27;lili&#x27;</span>,<span class="hljs-string">&#x27;anan&#x27;</span>,<span class="hljs-string">&#x27;dan&#x27;</span>,<span class="hljs-string">&#x27;zhu&#x27;</span>]<br>df = pd.DataFrame(data=data, columns=columns,index=index)<br></code></pre></td></tr></table></figure><h2 id="3-属性应用"><a href="#3-属性应用" class="headerlink" title="3. 属性应用"></a>3. 属性应用</h2><p>3.1. 抽取某一行的数据<br><code>df.loc[&#39;lili&#39;]</code></p><p>3.2. 抽取某行某列的特定单元格的数据<br><code>df.loc[&#39;lili&#39;, &#39;语文&#39;]</code></p><p>3.3. 抽取某一行的数据<br><code>df.iloc[0]</code></p><p>3.4. 抽取某行某列的特定单元格的数据<br><code>df.iloc[0, 0]</code></p><p>3.5. 抽取多行数据<br>3.5.1. 抽取任意多行数据<br><code>df.loc[[&#39;lili&#39;, &#39;dan&#39;]]</code></p><p><code>df.iloc[[0, 2]]</code></p><p>3.5.2. 抽取连续多行数据</p><p><code>df.loc[&#39;lili&#39;:&#39;anan&#39;]</code></p><p><code>df.loc[:&#39;anan&#39;]</code></p><p><code>df.loc[&#39;anan&#39;:]</code></p><p><code>df.iloc[1:3]</code></p><p><code>df.iloc[:3]</code></p><p><code>df.iloc[2:]</code></p><p>3.6. 抽取列数据</p><p><code>print(df[&#39;语文&#39;])</code></p><p><code>print(df.loc[:, &#39;语文&#39;:&#39;英语&#39;])</code></p><p><code>print(df.iloc[:, [0, 1]])</code></p><p>3.7. 抽取行、列数据</p><p><code>print(df.loc[[&#39;lili&#39;,&#39;anan&#39;],[&#39;语文&#39;,&#39;数学&#39;]])</code></p><p><code>print(df.loc[&#39;lili&#39;:&#39;dan&#39;,&#39;语文&#39;:&#39;英语&#39;])</code></p><p><code>print(df.iloc[0:2,0:1]) # 这种形式下输出结果不包含:右边的数据</code></p><p><code>print(df.iloc[[0,2],[0,1]])</code></p><p>3.8. 按照指定条件获取数据</p><p><code>df.loc[(df[&#39;语文&#39;]&gt;10) &amp;( df[&#39;数学&#39;]&lt;14)]</code></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>pandas</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>pandas导入外部数据</title>
+    <link href="/2021/09/27/python_pandas/pandas_read/"/>
+    <url>/2021/09/27/python_pandas/pandas_read/</url>
+    
+    <content type="html"><![CDATA[<h1 id="pandas导入外部数据"><a href="#pandas导入外部数据" class="headerlink" title="pandas导入外部数据"></a>pandas导入外部数据</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br>pd.set_option(<span class="hljs-string">&#x27;display.unicode.east_asian_width&#x27;</span>,<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure><h2 id="1-导入-XLS或-xlsx文件"><a href="#1-导入-XLS或-xlsx文件" class="headerlink" title="1. 导入.XLS或.xlsx文件"></a>1. 导入.XLS或.xlsx文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">pd.read_excel(io,sheet_name=<span class="hljs-number">0</span>,header=<span class="hljs-number">0</span>,names=<span class="hljs-literal">None</span>,index_col=<span class="hljs-literal">None</span>,usecols=<span class="hljs-literal">None</span>,squeeze=<span class="hljs-literal">False</span>,<br>dtype=<span class="hljs-literal">None</span>,engine=<span class="hljs-literal">None</span>,converters=<span class="hljs-literal">None</span>,true_values=<span class="hljs-literal">None</span>,false_values=<span class="hljs-literal">None</span>,skiprows=<span class="hljs-literal">None</span>,nrow=<span class="hljs-literal">None</span>,<br>na_values=<span class="hljs-literal">None</span>,keep_default_na=<span class="hljs-literal">True</span>,verbose=<span class="hljs-literal">False</span>,date_parser=<span class="hljs-literal">None</span>,thousands=<span class="hljs-literal">None</span>,comment=<span class="hljs-literal">None</span>,<br>skipfooter=<span class="hljs-number">0</span>,convert_float=<span class="hljs-literal">True</span>,mangle_dupe_cols=<span class="hljs-literal">True</span>,**kwds)<br></code></pre></td></tr></table></figure><p>io:文件路径或类文件对象；</p><p>sheet_name: 通过字符串\整数\字符串列表\整数列表来索引单个或多个工作表。默认值为0；</p><p>header: 制定作为列名的行，默认值为0，即第一行为列名，根据实际表头来确定header；</p><p>names：默认值为None，要使用的列名列表；</p><p>idex_col:指定列为索引列，默认值为None，索引0是DataFrame的行标签；</p><p>usecols: 可以是int\list列表\字符串，默认值为None。导入指定列；</p><p>squeeze:布尔值，默认值为None，如果解析的数据只包含一列，则返回一个series;</p><p>dtype:列的数据类型名称或字典，默认值为None。（不懂）</p><p>skiprows:省略指定行数的数据，从第一行开始；</p><p>skipfooter:省略指定行数的数据，从最后一行开始。</p><p>1.1. 导入工作表(不指定工作表，则默认第一个)</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">df = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/12/1月.xlsx&#x27;</span>)<br>df1= df.head()<br><span class="hljs-built_in">print</span>(df1)<br></code></pre></td></tr></table></figure><p>1.2. 导入指定工作表</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">df = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/12/1月.xlsx&#x27;</span>,sheet_name=<span class="hljs-string">&#x27;莫寒&#x27;</span>)<br>df.head()<br><br>df = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/12/1月.xlsx&#x27;</span>,sheet_name=<span class="hljs-string">&#x27;莫寒&#x27;</span>,names=<span class="hljs-string">&#x27;联系手机&#x27;</span>)<br>df.head()<br></code></pre></td></tr></table></figure><p>1.2.1 为表格指定行索引</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">df = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/12/1月.xlsx&#x27;</span>,index_col=<span class="hljs-number">0</span>)<br>df.head()<br></code></pre></td></tr></table></figure><p>1.2.2 设置列索引</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 设置第一行为列索引</span><br>df = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/12/1月.xlsx&#x27;</span>,index_col=<span class="hljs-number">0</span>, header=<span class="hljs-number">0</span>)<br>df.head()<br></code></pre></td></tr></table></figure><p>1.2.3 列索引为默认数字</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">df1 = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/12/1月.xlsx&#x27;</span>,header=<span class="hljs-literal">None</span>)<br>df1.head()<br></code></pre></td></tr></table></figure><p>1.3. 导入指定列数据</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">df = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/12/1月.xlsx&#x27;</span>,usecols=[<span class="hljs-number">0</span>])<br>df1 = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/12/1月.xlsx&#x27;</span>, usecols=[<span class="hljs-number">0</span>,<span class="hljs-number">3</span>])<br>df2 = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/12/1月.xlsx&#x27;</span>, usecols=[<span class="hljs-string">&#x27;买家会员名&#x27;</span>,<span class="hljs-string">&#x27;收货人姓名&#x27;</span>])<br><br><span class="hljs-built_in">print</span>(df.head())<br><span class="hljs-built_in">print</span>(df1.head())<br><span class="hljs-built_in">print</span>(df2.head())<br></code></pre></td></tr></table></figure><h2 id="2-导入-csv文件"><a href="#2-导入-csv文件" class="headerlink" title="2. 导入.csv文件"></a>2. 导入.csv文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">pd.read_csv(filepath_or_buffer=<span class="hljs-string">&quot;xxx&quot;</span>,sep=<span class="hljs-string">&#x27;,&#x27;</span>,delimiter=<span class="hljs-literal">None</span>,header=<span class="hljs-string">&#x27;infer&#x27;</span>,names=<span class="hljs-literal">None</span>, index_col=<span class="hljs-literal">None</span>,<br>usecols=<span class="hljs-literal">None</span>, squeeze = <span class="hljs-literal">False</span>, prefix=<span class="hljs-literal">None</span>, mangle_dupe_cols=<span class="hljs-literal">True</span>, dtype=<span class="hljs-literal">None</span>, engine=<span class="hljs-literal">None</span>, converters=<span class="hljs-literal">None</span>, <br>true_values=<span class="hljs-literal">None</span>, false_values=<span class="hljs-literal">None</span>, skipinitialspace=<span class="hljs-literal">False</span>, skiprows=<span class="hljs-literal">None</span>, nrows=<span class="hljs-literal">None</span>, na_values=<span class="hljs-literal">None</span>,<br>keep_default_na=<span class="hljs-literal">True</span>, na_filter=<span class="hljs-literal">True</span>, verbose=<span class="hljs-literal">False</span>, skip_blank_lines=<span class="hljs-literal">True</span>, parse_dates=<span class="hljs-literal">False</span>, <br>infer_datetime_format=<span class="hljs-literal">False</span>, keep_date_col=<span class="hljs-literal">False</span>, date_parser=<span class="hljs-literal">None</span>, dayfirst=<span class="hljs-literal">False</span>, iterator=<span class="hljs-literal">False</span>, <br>chunksize=<span class="hljs-literal">None</span>, compression=<span class="hljs-string">&#x27;infer&#x27;</span>, thousands=<span class="hljs-literal">None</span>, decimal=<span class="hljs-string">b&#x27;.&#x27;</span>, lineterminator=<span class="hljs-literal">None</span>, <br>quotechar=<span class="hljs-string">&quot;&quot;</span>, quoting=<span class="hljs-number">0</span>, escapechar=<span class="hljs-literal">None</span>,  comment=<span class="hljs-literal">None</span>, encoding=<span class="hljs-literal">None</span>)<br></code></pre></td></tr></table></figure><p>常用参数说明：<br>filepath_or_buffer: 字符串，文件路径或者URL链接；</p><p>sep\delimiter: 字符串、分隔符；</p><p>header:见第一节；</p><p>names:见第一节；</p><p>index_col:见第一节；</p><p>usecols:见第一节；</p><p>dtype:见第一节；</p><p>parse_dates: 通过该参数将某列直接转换为datetime64日期类型。</p><p>encoding：编码。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">df = pd.read_csv(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/16/1月.csv&#x27;</span>,encoding=<span class="hljs-string">&#x27;gbk&#x27;</span>)<br>df.head()<br></code></pre></td></tr></table></figure><h2 id="3-导入-txt文件"><a href="#3-导入-txt文件" class="headerlink" title="3. 导入.txt文件"></a>3. 导入.txt文件</h2><p>同样使用pd.read_csv()函数来读取，不同的是，必须指定分隔符。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">df = pd.read_csv(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/17/1月.txt&#x27;</span>,sep=<span class="hljs-string">&#x27;\t&#x27;</span>, encoding=<span class="hljs-string">&#x27;gbk&#x27;</span>)<br>df.head()<br></code></pre></td></tr></table></figure><h2 id="4-导入HTML网页"><a href="#4-导入HTML网页" class="headerlink" title="4. 导入HTML网页"></a>4. 导入HTML网页</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs PYTHON">pd.read_html(io,match=<span class="hljs-string">&#x27;.+&#x27;</span>, flavor=<span class="hljs-literal">None</span>, header=<span class="hljs-literal">None</span>, index_col=<span class="hljs-literal">None</span>, skiprows=<span class="hljs-literal">None</span>,<br>attrs=<span class="hljs-literal">None</span>, parse_dates=<span class="hljs-literal">False</span>, thousands=<span class="hljs-string">&#x27;,&#x27;</span>, encoding=<span class="hljs-literal">None</span>, decimal=<span class="hljs-string">&#x27;,&#x27;</span>, converters=<span class="hljs-literal">None</span>, <br>na_values=<span class="hljs-literal">None</span>, keep_default_na=<span class="hljs-literal">True</span>, displayed_only=<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure><p>常用参数说明：<br>io: 字符串，文件路径或者URL链接。不接受https网址，可以去掉s，如<a href="http://www.baidu.com;/">http://www.baidu.com；</a></p><p>match: 正则表达式，返回与正则表达式匹配的表格；</p><p>flavor: 解析器默认为lxml；</p><p>header: 确定列标题所在行；</p><p>index_col: 指定行索引；</p><p>encoding: 编码方式。</p><p>ps：使用pd.read_html()，首先要检查网页表格是否为table类型，或者含有<code>&lt;table&gt;····&lt;/table&gt;</code>的字样</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">df = pd.DataFrame()<br>url_list = [<span class="hljs-string">&#x27;http://www.espn.com/nba/salaries/_/seasontype/4&#x27;</span>]<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>,<span class="hljs-number">13</span>):<br>    url = <span class="hljs-string">&#x27;http://www.espn.com/nba/salaries/_/page/%s/seasontype/4&#x27;</span>%i<br>    url_list.append(url)<br><span class="hljs-comment"># 遍历网页中的table读取网页表格数据</span><br><span class="hljs-keyword">for</span> url <span class="hljs-keyword">in</span> url_list:<br>    df = df.append(pd.read_html(url), ignore_index=<span class="hljs-literal">True</span>)<br><span class="hljs-comment"># 列表解析：遍历dataframe第三列，以字符串$开头</span><br>df = df[[x.startswith(<span class="hljs-string">&#x27;$&#x27;</span>) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> df[<span class="hljs-number">3</span>]]]<br><span class="hljs-comment"># 导出为csv文件</span><br>df.to_csv(<span class="hljs-string">&#x27;F: / project2_pandas/Python数据分析从入门到精通/NBA.csv&#x27;</span>, header=[<span class="hljs-string">&#x27;RK&#x27;</span>,<span class="hljs-string">&#x27;NAME&#x27;</span>,<span class="hljs-string">&#x27;TEAM&#x27;</span>,<span class="hljs-string">&#x27;SALARY&#x27;</span>],index=<span class="hljs-literal">False</span>)<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>pandas</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Pandas数据分析</title>
+    <link href="/2021/09/26/python_pandas/pandas_base/"/>
+    <url>/2021/09/26/python_pandas/pandas_base/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Pandas数据分析"><a href="#Pandas数据分析" class="headerlink" title="Pandas数据分析"></a>Pandas数据分析</h1><p>导入文件-数据清理-统计分析-导出文件</p><h2 id="pandas对象"><a href="#pandas对象" class="headerlink" title="pandas对象"></a>pandas对象</h2><p>series + DataFrame</p><p>pandas是python数据分析重要的库，而Series和DataFrame是pandas库中两个重要的对象和两个重要的数据结构。</p><p>*Series:*是带标签的一维同构数组；<br>*DataFrame:*是带标签的，大小可变的，二维异构表格。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 引入pandas库</span><br><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br><span class="hljs-comment"># 解决数据输出时列名不对齐的问题</span><br>pd.set_option(<span class="hljs-string">&#x27;display.unicode.east_asian_width&#x27;</span>,<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure><h3 id="Series对象"><a href="#Series对象" class="headerlink" title="Series对象"></a>Series对象</h3><p>s = pd.Series(data,index=index)</p><p>创建Series对象时需要输入数据和索引；</p><p>数据可以是python字典、多维数组、数值等；</p><p>索引index可以自己定义，也可以采用默认的从0开始的索引。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python">s1 = pd.Series([<span class="hljs-number">8</span>,<span class="hljs-number">54</span>,<span class="hljs-number">3</span>])<br><span class="hljs-built_in">print</span>(s1)<br>s2 = pd.Series([<span class="hljs-number">8</span>,<span class="hljs-number">45</span>,<span class="hljs-number">32</span>],index=[<span class="hljs-string">&#x27;一&#x27;</span>,<span class="hljs-string">&#x27;二&#x27;</span>,<span class="hljs-string">&#x27;三&#x27;</span>])<br><span class="hljs-built_in">print</span>(s2)<br><br><span class="hljs-comment"># 通过索引来搜索数据，但是当索引数大于等于2时，需要使用两个[]</span><br><span class="hljs-built_in">print</span>(s2[<span class="hljs-string">&#x27;一&#x27;</span>])<br><span class="hljs-built_in">print</span>(s2[[<span class="hljs-string">&#x27;一&#x27;</span>,<span class="hljs-string">&#x27;二&#x27;</span>]])<br><span class="hljs-built_in">print</span>(s2[[<span class="hljs-string">&#x27;一&#x27;</span>,<span class="hljs-string">&#x27;二&#x27;</span>,<span class="hljs-string">&#x27;三&#x27;</span>]])<br><br><span class="hljs-comment"># 获取全部索引名称或值</span><br><span class="hljs-built_in">print</span>(s2.index)<br><span class="hljs-built_in">print</span>(s2.values)<br></code></pre></td></tr></table></figure><h3 id="DataFrame-对象"><a href="#DataFrame-对象" class="headerlink" title="DataFrame 对象"></a>DataFrame 对象</h3><p>创建DataFrame表格<br><code>df = pd.DataFrame(data=data, index=index, columns=columns, dtype=dtype)</code><br>data: 表示数据，可以是ndarray数组、Series对象、列表、字典等。<br>index: 行索引<br>columns:列标签<br>dtype: 每一列数据的数据类型。pandas数据类型与python本身数据类型有所差异。(见df2)</p><ol><li><p>常规方法创建DataFrame</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 定义数据集</span><br>data = [[<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>],[<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>],[<span class="hljs-number">4</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]]<br><span class="hljs-comment"># 定义行索引</span><br>index = [<span class="hljs-string">&#x27;ming&#x27;</span>,<span class="hljs-string">&#x27;lili&#x27;</span>,<span class="hljs-string">&#x27;ann&#x27;</span>]<br><span class="hljs-comment"># 定义列索引</span><br>columns = [<span class="hljs-string">&#x27;数学&#x27;</span>,<span class="hljs-string">&#x27;语文&#x27;</span>,<span class="hljs-string">&#x27;英语&#x27;</span>]<br><span class="hljs-comment"># 创建DataFrame表格</span><br>df = pd.DataFrame(data=data, index=index, columns=columns)<br><span class="hljs-built_in">print</span>(df)<br></code></pre></td></tr></table></figure></li><li><p>使用二维数组创建DataFrame</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">data = [[<span class="hljs-number">110</span>,<span class="hljs-number">120</span>,<span class="hljs-number">120</span>],[<span class="hljs-number">100</span>,<span class="hljs-number">125</span>,<span class="hljs-number">122</span>],[<span class="hljs-number">111</span>,<span class="hljs-number">122</span>,<span class="hljs-number">133</span>]]<br>columns = [<span class="hljs-string">&#x27;语文&#x27;</span>,<span class="hljs-string">&#x27;数学&#x27;</span>,<span class="hljs-string">&#x27;英语&#x27;</span>]<br>df1 = pd.DataFrame(data=data, columns=columns)<br><span class="hljs-built_in">print</span>(df1)<br></code></pre></td></tr></table></figure></li><li><p>使用字典创建DataFrame</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">pd.set_option(<span class="hljs-string">&#x27;display.unicode.east_asian_width&#x27;</span>, <span class="hljs-literal">True</span>)<br>df2 = pd.DataFrame(<br>    &#123;<span class="hljs-string">&#x27;Pandas dtype&#x27;</span>:[<span class="hljs-string">&#x27;object&#x27;</span>,<span class="hljs-string">&#x27;int64&#x27;</span>,<span class="hljs-string">&#x27;float64&#x27;</span>,<span class="hljs-string">&#x27;bool&#x27;</span>,<span class="hljs-string">&#x27;datetime64&#x27;</span>,<span class="hljs-string">&#x27;timedalta[ns]&#x27;</span>,<span class="hljs-string">&#x27;category&#x27;</span>],<br>    <span class="hljs-string">&#x27;python type&#x27;</span>:[<span class="hljs-string">&#x27;str&#x27;</span>,<span class="hljs-string">&#x27;int&#x27;</span>,<span class="hljs-string">&#x27;float&#x27;</span>,<span class="hljs-string">&#x27;bool&#x27;</span>,<span class="hljs-string">&#x27;datetime64[ns]&#x27;</span>,<span class="hljs-string">&#x27;NA&#x27;</span>,<span class="hljs-string">&#x27;NA&#x27;</span>]&#125;,<br>    index=[<span class="hljs-string">&#x27;字符串&#x27;</span>,<span class="hljs-string">&#x27;整数&#x27;</span>,<span class="hljs-string">&#x27;浮点数&#x27;</span>,<span class="hljs-string">&#x27;布尔值&#x27;</span>,<span class="hljs-string">&#x27;日期值&#x27;</span>,<span class="hljs-string">&#x27;日期值&#x27;</span>,<span class="hljs-string">&#x27;分类&#x27;</span>]<br>)<br><span class="hljs-built_in">print</span>(df2)<br></code></pre></td></tr></table></figure></li><li><p>遍历DataFrame</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> col <span class="hljs-keyword">in</span> df.columns:<br>    series = df[col]<br>    <span class="hljs-built_in">print</span>(series)<br></code></pre></td></tr></table></figure></li></ol><h4 id="DataFrame重要属性"><a href="#DataFrame重要属性" class="headerlink" title="DataFrame重要属性"></a>DataFrame重要属性</h4><table><thead><tr><th>属性作用</th><th align="center">属性名称</th></tr></thead><tbody><tr><td>查看所有元素的值</td><td align="center">df.values</td></tr><tr><td>查看所有列的数据类型</td><td align="center">df.dtypes</td></tr><tr><td>查看行名</td><td align="center">df.index</td></tr><tr><td>对行名进行重命名</td><td align="center">df.index=[‘ming’,’li’,’an’]</td></tr><tr><td>查看所有列名</td><td align="center">df.columns</td></tr><tr><td>对列名进行重命名</td><td align="center">df.columns=[‘语’,’数’,’外’]</td></tr><tr><td>行列数据转换</td><td align="center">df.T</td></tr><tr><td>查看前n条数据（默认前5）</td><td align="center">df.head()</td></tr><tr><td>查看后n行数据（默认后5）</td><td align="center">print(df.tail())</td></tr><tr><td>统计行数和列数（0代表行，1代表列）</td><td align="center">df.shape[0]</td></tr><tr><td>统计行数和列数（0代表行，1代表列）</td><td align="center">df.shape[1]</td></tr><tr><td>查看索引。数据类型和内存信息</td><td align="center">df.info()</td></tr></tbody></table><h4 id="DataFrame重要函数"><a href="#DataFrame重要函数" class="headerlink" title="DataFrame重要函数"></a>DataFrame重要函数</h4><table><thead><tr><th align="center">函数作用</th><th align="center">函数名称</th></tr></thead><tbody><tr><td align="center">查看每列的统计汇总信息</td><td align="center">df1.describe()</td></tr><tr><td align="center">返回每一列中的非空值的个数</td><td align="center">df1.count()</td></tr><tr><td align="center">返回每一列的和，无法计算则返回空值</td><td align="center">df.sum()</td></tr><tr><td align="center">返回每一列最大值</td><td align="center">df.max()</td></tr><tr><td align="center">返回每一列最小值</td><td align="center">df.min()</td></tr><tr><td align="center">返回最大值所在的自定义索引位置</td><td align="center">df1.idxmax()</td></tr><tr><td align="center">返回最小值所在的自定义索引位置</td><td align="center">df1.idxmin()</td></tr><tr><td align="center">返回每一列的平均值</td><td align="center">df1.mean()</td></tr><tr><td align="center">返回每一列的中位数</td><td align="center">df.median()</td></tr><tr><td align="center">返回每一列的方差</td><td align="center">df.var()</td></tr><tr><td align="center">返回每一列的标准差</td><td align="center">df.std()</td></tr><tr><td align="center">检查表格是否存在空值</td><td align="center">df.isnull() # True为空值</td></tr><tr><td align="center">检查表格是否存在空值</td><td align="center">df.notnull() # True为非空值</td></tr></tbody></table>]]></content>
+    
+    
+    <categories>
+      
+      <category>pandas</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>学习记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>精益数据分析-第一部分</title>
+    <link href="/2021/09/16/%E7%B2%BE%E7%9B%8A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86/"/>
+    <url>/2021/09/16/%E7%B2%BE%E7%9B%8A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86/</url>
+    
+    <content type="html"><![CDATA[<h1 id="别再欺骗自己了"><a href="#别再欺骗自己了" class="headerlink" title="别再欺骗自己了"></a>别再欺骗自己了</h1><p>本书的第一部分将介绍为什么你要依靠数据才能成功。这部分涉及一些基本的分析概念，比如定性数据和定量数据、虚荣指标、相关性、同期群、细分、先见性指标。</p><h2 id="我们都在说谎"><a href="#我们都在说谎" class="headerlink" title="我们都在说谎"></a>我们都在说谎</h2><p>请直面这样一个事实：你其实沉迷在妄想之中。</p><p>创业者尤甚。</p><p>创业者尤其擅长于对自己说谎，说谎甚至可以说是创业者取得成功的必备条件。</p><p>创业者需要处于一种半妄想状态，方能直面创业过程之中不可避免的高潮与低估。</p><p>微小的谎言创建<strong>现实扭曲场</strong>，当现实扭曲场侵蚀你自己，连你自己都相信自己的谎言的时候，你就离失败不远了。</p><p>因此，我们需要用数据来验证我们的假设。</p><p>彼得·德鲁克说过：无法衡量的东西，你无法管理。</p><h2 id="如何验证假设"><a href="#如何验证假设" class="headerlink" title="如何验证假设"></a>如何验证假设</h2><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs brainfuck"><span class="hljs-comment">提出假设</span>--<span class="hljs-comment">构建最小可行化产品</span>--<span class="hljs-comment">验证假设</span><br></code></pre></td></tr></table></figure><p><strong>最小可行化产品</strong>指足以向市场传达你所主张的价值的最小化产品。</p><p>但定义中未对产品的真实程度做出假设。</p><p>例如，如果你正在考虑创建一种拼车服务，则可以试着用人工牵线搭桥这种原始方式将司机和乘客联系起来。我们需要调研的风险的本质不在于我能不能开发一款拼车服务的软件，而在于人们会不会接受陌生人搭车。</p><p><em><strong>最小可行化产品并不会大规模生产，但却可以在短时间内以最低的成本帮你尽快测试自己的想法。</strong></em></p><p>有时，增长来自于你未曾想到的方面。在你认为自己找到了值得一试的想法时，先想一想应如何以最小的投入快速完成测试。然后事先为成功下定义，并明确如果直觉准确的话，下一步要如何走。</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">ps:</span>上一句话真值得好好想一想，目前在这个转折点上，接下来如何走，如何选择，都可以先以最小的投入快速完成测试，然后决定继续坚持还是改变目标。<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>数据分析</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>精益数据分析</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>精益数据分析-序+前言</title>
     <link href="/2021/09/12/%E7%B2%BE%E7%9B%8A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%BA%8F/"/>
     <url>/2021/09/12/%E7%B2%BE%E7%9B%8A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%BA%8F/</url>
@@ -46,756 +346,6 @@
     <tags>
       
       <tag>学习记录</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper30</title>
-    <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper30/"/>
-    <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper30/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Understanding-information-security-stress-focusing-on-the-type-of-information-security-compliance-activity"><a href="#Understanding-information-security-stress-focusing-on-the-type-of-information-security-compliance-activity" class="headerlink" title="Understanding information security stress focusing on the type of information security compliance activity"></a>Understanding information security stress focusing on the type of information security compliance activity</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Chunghun Lee, Choong C.Lee, Suhyun Kim</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>person-environment fit theory</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量</p><ol><li>Prior security knowledge</li><li>Perceived security threat</li></ol><p>一级中介</p><ol><li>Adaptation</li><li>Attitude to ISP compliance</li></ol><p>二级中介</p><ol><li>Invasion of privacy</li><li>Work overload</li></ol><p>调节变量<br>Type of information security compliance activities</p><p>结果变量<br>Information security stress</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results show that work overload and invasion of privacy are information security stressors.</p><p>Furthermore, work overload has a greater effect on ISS in managerial security-oriented organizations, while invasion of privacy exerts a greater influence on ISS in technical security-oriented organization.</p><p>In addition, attitude to compliance with the information security policy mitigates work overload and invasion of privacy.</p><ul><li>第一次读到人与环境匹配模型的信息安全研究，对我来说有一些借鉴意义。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>员工因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper29</title>
-    <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper29/"/>
-    <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper29/</url>
-    
-    <content type="html"><![CDATA[<h1 id="The-theory-of-planned-behavior-and-information-policy-compliance"><a href="#The-theory-of-planned-behavior-and-information-policy-compliance" class="headerlink" title="The theory of planned behavior and information policy compliance"></a>The theory of planned behavior and information policy compliance</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Teodor Sommestad, Hentik Karlzen, Jonas Hallberg</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>TPB(the theory of planned behavior)</p><ol><li>attitude</li><li>subjective norms</li><li>perceived behavioral control</li></ol><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>Background factors:</p><ol><li>individual(e.g., personality)</li><li>social(e.g., culture)</li><li>information(e.g., knowledge)</li></ol><p>general information security awareness<br>information security policy awareness<br>anticipated regret of non-compliance(an attitude)<br>work impediment of compliance<br>cost of compliance<br>involvement in information security capability<br>respondent’s information security capability<br>organization’s information security capability<br>habit<br>information security threat severity<br>information security education, training and awareness</p><p>一级中介变量<br>the theory of planned behavior:</p><ol><li>Attitude towards the behavior</li><li>Perceived norm</li><li>Perceived behavioral control</li></ol><p>二级中介变量<br>Intention</p><p>调节变量<br>Actual behavioral control</p><p>结果变量<br>Behavior</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results suggest that the variables anticipated regret and habit improve the predictions.</p><ul><li>本文章首先运用元分析法，分析了之前基于TPB研究的信息安全策略行为的文章，找出存在的普遍影响因素。</li><li>其次，列举11个信息安全行为的潜在影响因素，研究结果支出习惯和预料到的遗憾也是重要的影响因素。</li><li>本篇文章对我而言，最重要的反而不是他的调查研究，而是对前人研究的总结。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>混合因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper28</title>
-    <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper28/"/>
-    <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper28/</url>
-    
-    <content type="html"><![CDATA[<h1 id="The-mediating-role-调节作用-of-psychological-empowerment-心理授权-in-information-security-compliance-intentions"><a href="#The-mediating-role-调节作用-of-psychological-empowerment-心理授权-in-information-security-compliance-intentions" class="headerlink" title="The mediating role(调节作用) of psychological empowerment(心理授权) in information security compliance intentions"></a>The mediating role(调节作用) of psychological empowerment(心理授权) in information security compliance intentions</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Gurpreet Dhillon, Yurita Yakimini Abdul T alib, Winnie Ng Picoto</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>psychological empowerment theory</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>empowerment structures:</p><ol><li>SETA programs(教育培训：制定规则告诉员工如何行动)</li><li>Access(授权：给予员工权力自己行动)</li><li>Participation(参与：员工参与规则制定)</li></ol><p>中介变量<br>Psychological empowerment</p><p>结果变量<br>ISP Compliance intention</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>This study conceptualizes the role of psychological as a mediator between structural empowerment and the intention to comply with information security policy.</p><p>It suggests that <strong>empowerment work structures</strong>, which include information security education, training, and awareness(SETA), access to information security strategics goals, and participation in information security decision-making all <strong>increase employees’ feelings of being psychologically empowered</strong>, <strong>which consequently leads to positive intentions to comply with information security policy.</strong></p><ul><li>三种方式增加心理授权，最终促进策略遵守。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>组织因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper27</title>
-    <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper27/"/>
-    <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper27/</url>
-    
-    <content type="html"><![CDATA[<h1 id="The-influence-of-organizational-culture-and-information-security-culture-on-employee-compliance-behavior"><a href="#The-influence-of-organizational-culture-and-information-security-culture-on-employee-compliance-behavior" class="headerlink" title="The influence of organizational culture and information security culture on employee compliance behavior"></a>The influence of organizational culture and information security culture on employee compliance behavior</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Grant Solomon, Irwin Brown</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>TPB(the theory of planned behavior)</p><ol><li>attitude</li><li>subjective norms</li><li>perceived behavioral control</li></ol><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><ol><li>组织文化–&gt;遵守行为</li><li>信息安全文化–&gt;遵守行为</li><li>组织文化–&gt;信息安全文化</li></ol><p>组织文化(organizational culture):</p><ol><li>Rule orientation(规制方向)</li><li>Goal orientation(目标方向)</li></ol><p>信息安全文化(information security culture):</p><ol><li>Top management commitment to security</li><li>Communication</li><li>Monitoring</li></ol><p>遵守行为<br>Compliance behavior</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>Organizational culture and information security culture have significant, yet similar influences on employee compliance.</p><p>In addition, organizational culture has a strong causal influence on information security culture.</p><ul><li>本文大体上都懂了，只有一个小细节，它是如何将两种文化与TPB结合的呢？</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>员工因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper26</title>
-    <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper26/"/>
-    <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper26/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Social-control-through-deterrence-on-the-compliance-with-information-security-policy"><a href="#Social-control-through-deterrence-on-the-compliance-with-information-security-policy" class="headerlink" title="Social control through deterrence on the compliance with information security policy"></a>Social control through deterrence on the compliance with information security policy</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Myeonggil Choi, Jeongseok Song</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>social control theory(SCT)</p><p>social bond theory(SBT)<br>Commitment/belief/attachment</p><p>general deterrence theory(GDT)</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>SBT:</p><ol><li>commitment</li><li>belief</li><li>attachment</li></ol><p>中介变量<br>deterrence</p><p>结果变量<br>compliance</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>First, we show that IS misuse appears to be more strongly influenced by informal sanction–shame–than formal sanction.</p><p>Second, social bonds an employee has play a significant and positive role on formal deterrence the employee perceive.</p><ul><li>本文又出现一个之前没出现过的理论：社会控制理论。</li><li>但是，本文的模型还是缺少逻辑解释，一眼看去不懂。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>员工因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper25</title>
-    <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper25/"/>
-    <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper25/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Security-awareness-The-first-step-in-information-security-compliance-behavior"><a href="#Security-awareness-The-first-step-in-information-security-compliance-behavior" class="headerlink" title="Security awareness: The first step in information security compliance behavior"></a>Security awareness: The first step in information security compliance behavior</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Inho Hwang, Robin Wakefield, Sanghyun Kin, Taeha Kim</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>Social learning theory</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量</p><ol><li>security education </li><li>security policy</li><li>physical system</li><li>security visibility</li><li>Management participation</li></ol><p>中介变量：<br>Information security awareness</p><p>因变量：<br>compliance intention</p><p>控制变量</p><ol><li>firm</li><li>size</li><li>industry</li></ol><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results show security awareness arises from both explicit and subjective security experiences in the workplace.</p><p>Our respondents indicate knowledge of a physical system has little, if any, effect on security awareness.</p><p>However, security education, policy, visibility and managerial security participation are important for producing security awareness.</p><p>Furthermore, managerial participation strengthens the links between organization security efforts and security awareness.</p><ul><li>自变量中有一些需要去文章内去查看真实涵义。</li><li>这一篇应该还是有一些欠缺。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>组织因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper24</title>
-    <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper24/"/>
-    <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper24/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Sanction-severity-and-employees’-information-security-policy-compliance-Investigating-mediating-moderating-and-control-variables"><a href="#Sanction-severity-and-employees’-information-security-policy-compliance-Investigating-mediating-moderating-and-control-variables" class="headerlink" title="Sanction severity and employees’ information security policy compliance: Investigating mediating, moderating, and control variables"></a>Sanction severity and employees’ information security policy compliance: Investigating mediating, moderating, and control variables</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Xianfeng Chen, Dazhong Wu, Liqiang Chen, Joe K.L. Teng</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>GDT(general deterrence theory)</p><p>RCT(rational choice theory)</p><p>PMT(protection motivation theory)</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：<br>Perceived sanction severity</p><p>结果变量：<br>Compliance Intention</p><p>有调节的中介：</p><ol><li>Perceived response cost</li><li>Perceived self-efficacy to compliance</li><li>Perceived descriptive cost</li></ol><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results show that none of the investigated moderating variables interacts with sanction severity on employees’ ISP compliance intentions.</p><p>However, the significant impact of sanction severity on employees’ ISP CI disappears when the investigated variables are included, and the impact of sanction severity is mediated by perceived efficacy and descriptive norm.</p><ul><li>惩罚严厉性对信息安全策略遵守行为的影响。</li><li>感觉翻来覆去还是这几个元素的胡乱组合。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>员工因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper23</title>
-    <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper23/"/>
-    <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper23/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Reliability-validity-and-strength-of-a-unified-model-for-information-security-policy-compliance"><a href="#Reliability-validity-and-strength-of-a-unified-model-for-information-security-policy-compliance" class="headerlink" title="Reliability, validity, and strength of a unified model for information security policy compliance"></a>Reliability, validity, and strength of a unified model for information security policy compliance</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Alex Koohang, Jeretta Horn Nord, Zoroayka V.Sandoval, Joanna Paliszkiewicz</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>UMISPC(a unified model of information security policy compliance proposed by Moody, Siponen, &amp;Pahnila)</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量1<br>Response efficacy</p><p>一级中介变量：<br>Threat</p><p>二级中介变量：<br>Fear</p><p>结果变量：<br>Intention<br>Reactance</p><hr><p>自变量2<br>Habit<br>Role Values<br>Neutralization</p><p>结果变量：<br>Intention<br>Reactance</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><ol><li>Role values significant influenced an individual’s intention to comply;</li><li>Response efficacy significant influenced threat;Threat significant influenced fear; fear significant influenced reactance;</li><li>Neutralization significant influenced reactance.</li></ol><ul><li>习惯不重要</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>员工因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper22</title>
-    <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper22/"/>
-    <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper22/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Predicting-employee-information-security-policy-compliance-on-a-daily-basis-The-interplay-of-security-related-stress-emotions-and-neutralization"><a href="#Predicting-employee-information-security-policy-compliance-on-a-daily-basis-The-interplay-of-security-related-stress-emotions-and-neutralization" class="headerlink" title="Predicting employee information security policy compliance on a daily basis: The interplay of security-related stress, emotions, and neutralization"></a>Predicting employee information security policy compliance on a daily basis: The interplay of security-related stress, emotions, and neutralization</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>John D’Arcy, Pei-Lee Teh</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>AET(affective events theory)</p><blockquote><p>The theory recognizes the multidimensional nature of job attitude and behaviors, in which each have separate affective and cognitive dimensions.</p></blockquote><p>coping theory</p><blockquote><p>Coping theory originally focused exclusively on appraisals of stress and its resultant choice of coping mechanisms.</p></blockquote><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：<br>security-related stress</p><p>一级中介变量：<br>Emotional reactions:</p><ol><li>frustration</li><li>fatigue</li></ol><p>二级中介变量：<br>Coping response: Neutralization</p><p>结果变量：<br>Behavioral Outcome: ISP compliance</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>We observed that SRS had a positive association with frustration and fatigue, and these negative emotions were associated with neutralization of ISP violations.</p><p>Additionally, frustration and fatigue make employees more likely to follow through on their rationalizations of ISP violations by decreased ISP compliance.</p><p>Our findings provide evidence that neutralization is not a completely stable phenomenon but can vary  within individuals from one time point to another.</p><ul><li>安全压力引起情绪变化；情绪变化引发推脱机制；推脱机制改变遵守行为。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>员工因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper21</title>
-    <link href="/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper21/"/>
-    <url>/2021/06/23/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper21/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Potential-measures-to-enhance-information-security-compliance-in-the-healthcare-internet-of-things"><a href="#Potential-measures-to-enhance-information-security-compliance-in-the-healthcare-internet-of-things" class="headerlink" title="Potential measures to enhance information security compliance in the healthcare internet of things"></a>Potential measures to enhance information security compliance in the healthcare internet of things</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Premylla Jeremiah, Ganthan Narayana Samy, Bharanidaran Shanmugam, Kannan Ponkoodalingam, Sundresan Perumal</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>无</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>无</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><ul><li>哗众取宠，看似将信息安全与物联网结合，但是，实质上新瓶装旧药。</li><li>唯一需要注意的是在文章中，有一个关于马来西亚的员工信息安全策略不遵守行为的原因分析图表。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>组织因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper20</title>
-    <link href="/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper20/"/>
-    <url>/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper20/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Peers-matter-The-moderating-role-of-social-influence-on-information-security-policy-compliance"><a href="#Peers-matter-The-moderating-role-of-social-influence-on-information-security-policy-compliance" class="headerlink" title="Peers matter: The moderating role of social influence on information security policy compliance"></a>Peers matter: The moderating role of social influence on information security policy compliance</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Adel Yazdanmehr, Jingguo Wang, Zhiyong Yang</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p><strong>The command-and-control approach</strong> comprises extrinsic enforcement of the rules through incentives and sanctions as well as implementation of detection mechanisms to ensure discovery of wrongdoing(Tyler,209)</p><p><strong>The self-regulatory approach</strong> treats intrinsic desires as primary drivers of behavior, with the intrinsic desire for compliance rooted in two types of employee perceptions:(a)value congruence and (b)legitimacy.</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量1<br>command-and-control approach</p><p>调节变量<br>Rules-oriented ethical climate<br>susceptibility to interpersonal influence</p><p>结果变量：<br>ISP Compliance</p><hr><p>自变量2<br>self-regulatory approach</p><p>调节变量<br>Rules-oriented ethical climate<br>susceptibility to interpersonal influence</p><p>结果变量：<br>ISP Compliance</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>We found that these two social influence factors weaken the effects of both approaches on ISP compliance.</p><ul><li>纯粹的员工角度分析不同心理路径对员工行为遵守的影响。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>员工因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper19</title>
-    <link href="/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper19/"/>
-    <url>/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper19/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Motivating-information-security-policy-compliance-the-critical-role-of-supervisor-subordinate-guanxi-and-organizational-commitment"><a href="#Motivating-information-security-policy-compliance-the-critical-role-of-supervisor-subordinate-guanxi-and-organizational-commitment" class="headerlink" title="Motivating information security policy compliance: the critical role of supervisor-subordinate guanxi and organizational commitment"></a>Motivating information security policy compliance: the critical role of supervisor-subordinate guanxi and organizational commitment</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Chenhui Liu, Nengmin Wang, Huigang Liang</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>RCT(rational choice theory)</p><ol><li>costs</li><li>benefits</li></ol><p>GDT(general deterrence theory)</p><p>PMT(protection motivation theory)</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>S-S guanxi</p><p>RCT:perceived costs</p><p>GDT:perceived threat</p><p>PMT:</p><ol><li>organizational commitment</li><li>perceived effectiveness</li><li>self-efficacy</li></ol><p>结果变量：<br>Compliance Behavior</p><p>调节变量：<br>organizational commitment<br>(既是S-S guanxi的结果变量，又是compliance behavior众多前因变量中的一个，同时还是其他前因变量与compliance behavior关系中的调节变量)</p><p>控制变量：<br>Age, gender, Job position, education level, work experience, computer usage, awareness</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>Results not only confirm the direct effect of SSG on government employees’ ISP compliance but also suggest that SSG indirectly influences compliance behavior via the mediation of organizational commitment.</p><p>Organization commitment weakens the negative influential of perceived costs on compliance behavior and also weakens the positive effect of efficacy on ISP compliance.</p><ul><li>对本论文无感</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>员工因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper18</title>
-    <link href="/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper18/"/>
-    <url>/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper18/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Motivating-information-security-policy-compliance-insights-from-perceived-organizational-formalization"><a href="#Motivating-information-security-policy-compliance-insights-from-perceived-organizational-formalization" class="headerlink" title="Motivating information security policy compliance: insights from perceived organizational formalization"></a>Motivating information security policy compliance: insights from perceived organizational formalization</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Yuxiang Hong, Steven Furnell</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>TPB(the theory of planned behavior):</p><ol><li>Attitude</li><li>Subjective norms</li><li>Perceived behavioral control</li></ol><p>GDT(general deterrence theory):</p><ol><li>deterrence certainty（确定性）</li><li>deterrence severity（严厉性）</li><li>deterrence instantaneity（实时性）</li></ol><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>Formalization</p><p>中介变量<br>GDT:<br>deterrence certainty</p><p>TPB:</p><ol><li>attitude</li><li>subjective norms</li><li>perceived behavioral control</li></ol><p>Behavioral habit</p><p>结果变量<br>Information security behavioral intention</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The empirical results reveal that perceived organizational formalization significant affected cognitive processes theorized by TPB, behavioral habits, and deterrence certainty.</p><p>This study suggests that formalized rules, procedures, and communications should be designed to improve employee information security policy compliance behavioral habits and intentions.</p><ul><li>大概formalized的具体化就是SETA programs。</li><li>本文与其他同类文章相比，大概就是多了一个behavioral habits</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>组织因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper17</title>
-    <link href="/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper17/"/>
-    <url>/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper17/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Leadership-power-and-employees’-information-security-policy-compliance"><a href="#Leadership-power-and-employees’-information-security-policy-compliance" class="headerlink" title="Leadership power and employees’ information security policy compliance"></a>Leadership power and employees’ information security policy compliance</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Hyungjin Lukas Kim, HanByeol Stella Choi, Jinyoung Han</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>Leader power base:</p><ol><li>Expert</li><li>Referent</li><li>Reward</li><li>Coercive</li><li>Legitimate</li></ol><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>SETA program awareness</p><p>调节变量<br>Leader power base:</p><ol><li>Expert</li><li>Referent</li><li>Reward</li><li>Coercive</li><li>Legitimate</li></ol><p>结果变量<br>ISP compliance intention</p><p>控制变量<br>ISP awareness<br>Age<br>Gender</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The moderating effects differ by leader power base type, and expertise, reward, as well as legitimate power have a positive impact on the relationship between SETA programs and employees’ ISP compliance intention. Referent power have a negative impact.</p><p>ISP awareness and age were influential in ISP compliance intention, not gender.</p><ul><li>以领导者权力基础为调节变量，研究SETA项目对信息安全策略遵守的影响。</li><li>同时，以性别，年龄和信息安全意识为控制变量。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>领导者因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper16</title>
-    <link href="/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper16/"/>
-    <url>/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper16/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Integrating-cognition-with-an-affective-lens-to-better-understand-information-security-policy-compliance"><a href="#Integrating-cognition-with-an-affective-lens-to-better-understand-information-security-policy-compliance" class="headerlink" title="Integrating cognition with an affective lens to better understand information security policy compliance"></a>Integrating cognition with an affective lens to better understand information security policy compliance</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Dustin Ormond, Merrill Warkentin, Robert E.Crossler</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>Affective events theory</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>perceived organizational injustice:</p><ol><li>Distributive injustice</li><li>Procedural injustice</li><li>Interpersonal injustice</li><li>Informational injustice</li></ol><p>中介变量<br>Negative Affective Flow</p><p>调节变量<br>Negative affective absorption</p><p>因变量<br>Information security policy compliance</p><p>控制变量<br>Attitude towards specific information security policy</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>We found that individuals who were frustrated by work-related tasks experienced negative affective flow and violated information security policies.</p><p>Furthermore, perceptions of organizational injustice increased negative affective flow.</p><ul><li>企业内不公平增加员工负面情绪流动；</li><li>这种增加的程度受到员工负面情绪吸收能力的影响；</li><li>员工负面情绪流动与员工信息安全策略不遵守行为有关；</li><li>对具体的信息安全策略的态度的不同，会加剧或者缓解由负面情绪流动导致的信息安全策略不遵守行为。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>员工因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper15</title>
-    <link href="/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper15/"/>
-    <url>/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper15/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Information-security-policy-compliance-model-in-organizations"><a href="#Information-security-policy-compliance-model-in-organizations" class="headerlink" title="Information security policy compliance model in organizations"></a>Information security policy compliance model in organizations</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Nader Sohrabi Safa, Rossouw Von Solms, Steven Furnell</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>Social bond theory</p><p>Involvement theory</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>SBT(Social bond theory):<br>Attachment<br>Commitment<br>Personal Norms</p><p>Involvement theory:<br>Knowledge sharing<br>Collaboration<br>Intervention<br>Experience</p><p>中介变量<br>Attitude toward Compliance with ISOP</p><p>结果变量<br>ISOP Compliance Behavioral Intentions</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results of the data analysis revealed that information security knowledge sharing, collaboration, intervention and experience all have a significant effect on employees’ attitude towards compliance with organization information security policies.</p><p>However, attachment does not have significant effect on employees’ attitude towards information security policy compliance.</p><p>In addition, the findings have shown that commitment and personal norms affect employees’ attitude.</p><p>Attitude towards compliance with information security organizational policies also have a significant effect on the behavioral intention regarding information security compliance.</p><ul><li>只有attachment相关关系不显著。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>员工因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper14</title>
-    <link href="/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper14/"/>
-    <url>/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper14/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Information-security-policy-compliance-leadership-trust-role-values-and-awareness"><a href="#Information-security-policy-compliance-leadership-trust-role-values-and-awareness" class="headerlink" title="Information security policy compliance: leadership, trust, role, values and awareness"></a>Information security policy compliance: leadership, trust, role, values and awareness</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Alex Koohang, Alojzy Nowak, Joanna Paliszkiewcz, Jeretta Horn Nord</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>无明显理论</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>Leadership<br>Trust<br>Role value<br>Awareness</p><p>中介变量：<br>Intention to comply</p><p>因变量<br>ISP compliance</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>Results indicated that all four predictor variables were influential in predicting employees’ intention to comply with organizational information security policy requirements.</p><ul><li>领导、信任、角色价值和员工信息安全意识，通过员工信息安全策略遵守意图影响信息安全策略遵守行为。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>混合因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper13</title>
-    <link href="/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper13/"/>
-    <url>/2021/06/22/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper13/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Information-security-policy-compliance-leadership-and-trust"><a href="#Information-security-policy-compliance-leadership-and-trust" class="headerlink" title="Information security policy compliance: leadership and trust"></a>Information security policy compliance: leadership and trust</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Joanna Paliszkiewicz</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>无明显理论</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：<br>leadership</p><p>中介变量：<br>trust</p><p>因变量：<br>Information security policy compliance</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>Results revealed that all trust variables(trust:competence, trust:benevolence, trust:integrity) were influential in predicting the leadership regarding the organization’s ISP compliance.</p><p>Leadership must make every effort to increase employees trust. SETA programs must be a top priority in organizations.</p><ul><li>领导者通过影响员工信任来影响员工信息安全策略遵守行为。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>领导者因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper12</title>
-    <link href="/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper12/"/>
-    <url>/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper12/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Indirect-effect-of-management-support-on-users’-compliance-behavior-towards-information-security-policies"><a href="#Indirect-effect-of-management-support-on-users’-compliance-behavior-towards-information-security-policies" class="headerlink" title="Indirect effect of management support on users’ compliance behavior towards information security policies"></a>Indirect effect of management support on users’ compliance behavior towards information security policies</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Norshima Humaidi, Vimala Balakrishnan</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>TPB(the theory of planned behavior):</p><ol><li>attitude</li><li>subjective norms</li><li>perceived behavioral control</li></ol><p>PBC(perceived behavioral control):</p><ol><li>self-efficacy</li><li>facilitating conditions</li></ol><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：<br>Management support</p><p>中介变量：<br>self-efficacy（来源于TPB理论中的PBC理论）<br>perceived trust</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The analysis revealed that the most significant impact on health professionals’ trust in organizational security policies.</p><p>The effect of PT(perceived trust) was also a more significant predict than SE(self-efficacy).</p><ul><li>管理支持通过员工自我效能感和员工可感知的信任影响员工信息安全策略遵守行为。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>组织因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper11</title>
-    <link href="/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper11/"/>
-    <url>/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper11/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Impact-of-employees’-demographic-characteristics-on-the-awareness-and-compliance-of-information-security-policy-in-organizations"><a href="#Impact-of-employees’-demographic-characteristics-on-the-awareness-and-compliance-of-information-security-policy-in-organizations" class="headerlink" title="Impact of employees’ demographic characteristics on the awareness and compliance of information security policy in organizations"></a>Impact of employees’ demographic characteristics on the awareness and compliance of information security policy in organizations</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Hui Na Chua, Siew Fan Wang, Yeh Ching Low, Younghoon Chang</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>相当于无</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>Demographic characteristic:<br>Gender<br>Age<br>Ethnicity(国籍)<br>Education<br>Work experience<br>Industry</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>This paper used demographic factors to develop profiles of employee awareness and their intention to comply with the PDPA</p><p>Age, working industry and education levels have significant effects on information security policy awareness and compliance.</p><ul><li>该论文单独研究个体特征，并认为个体特征对ISPC有影响，还有一篇认为没有影响。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>员工因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper10</title>
-    <link href="/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper10/"/>
-    <url>/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper10/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Examining-techno-stress-creators-and-role-stress-as-potential-threats-to-employees’-information-security-compliance"><a href="#Examining-techno-stress-creators-and-role-stress-as-potential-threats-to-employees’-information-security-compliance" class="headerlink" title="Examining techno-stress creators and role stress as potential threats to employees’ information security compliance"></a>Examining techno-stress creators and role stress as potential threats to employees’ information security compliance</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Inho Hwang, Oona Cha</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p><strong>Regulatory focus theory</strong>(Higgins,1997;Keller,2006) assumes that there are two distinct types of motivational orientation (promotion focus and prevention focus), which serve fundamentally different needs.</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>Security-related techno-stress creator</p><p>中介变量<br>Organizational commitment</p><p>调节变量<br>Security-related roles stress</p><p>控制变量<br>Promotion focus（促进聚焦：专注完成目标与理想上）<br>Prevention focus（预防聚焦：专注履行应有的责任上）</p><p>因变量<br>Compliance intention</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>It was found that security-related techno-stress creators negatively affected employees’ organizational commitment, both directly and indirectly through role stress, and further lower compliance intention regarding information security.</p><p>In addition, it was found that employees’ regulatory focus(promotion focus/prevention focus) moderated the relationship between techno-stress and role stress.</p><p>Employees with a high level of promotion focus were more resistant to the adverse effect of techno-stress creators and thus experienced less role stress.</p><ul><li>技术压力创造者们通过角色压力来影响员工的组织承诺；</li><li>员工组织承诺影响员工的信息安全策略遵守行为。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>组织因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper9</title>
-    <link href="/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper9/"/>
-    <url>/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper9/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Employees’-information-security-policy-compliance-A-norm-activation-perspective"><a href="#Employees’-information-security-policy-compliance-A-norm-activation-perspective" class="headerlink" title="Employees’ information security policy compliance:A norm activation perspective"></a>Employees’ information security policy compliance:A norm activation perspective</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Adel Yazdanmehr , Jingguo Wang</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>norm activation theory<br>个人规范激励个人</p><p>social norm theory<br>社会规范约束自己</p><p>ethical climate literature</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：<br>道德氛围：</p><ol><li>Principle Ethical Climate</li></ol><p>一级中间变量：<br>社会规范：</p><ol><li>ISP-Related Descriptive Norms</li><li>ISP-Related Injunctive Norms</li><li>ISP-Related subjective Norms</li></ol><p>二级中间变量</p><ol><li>个人规范：<br>ISP-Related Personal Norms</li></ol><p>调节个人规范的变量：</p><ol><li><p>个人意识：<br>ISP-Related Awareness of Consequences</p></li><li><p>个人责任：<br>ISP-Related Ascription of Personal Responsibility</p></li></ol><p>结果变量：<br>ISP Compliance Behavior</p><p>控制变量：</p><ol><li>Deterrence</li><li>Gender</li><li>Age</li><li>Race</li><li>ISP Knowledge</li><li>Type of Job</li><li>Position</li><li>Company Size</li><li>Tenure</li><li>Information Intensity</li><li>IT related Job</li></ol><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results show that ISP-Related personal norms lead to ISP compliance behavior, and the effect is strengthened by ISP-related ascription of personal responsibility.</p><p>Social norms related to ISP(including injunctive and subjective norms), awareness of consequences, and ascription of personal responsibility shape personal norms.</p><p>Social norms related to ISP are the product of principe ethical in an organization.</p><ul><li>道德氛围影响社会规范；</li><li>社会规范同个人意识和个人责任一起影响个人规范；</li><li>个人规范同个人意识和个人责任一起影响ISP策略遵守行为；</li><li>个人特征影响不大。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>组织因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper8</title>
-    <link href="/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper8/"/>
-    <url>/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper8/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Don’t-Even-Think-About-It-The-Effects-of-Anti-neutralization-Information-and-Normative-Communication-on-Information-Security-Compliance"><a href="#Don’t-Even-Think-About-It-The-Effects-of-Anti-neutralization-Information-and-Normative-Communication-on-Information-Security-Compliance" class="headerlink" title="Don’t Even Think About It! The Effects of Anti-neutralization, Information, and Normative Communication on Information Security Compliance"></a>Don’t Even Think About It! The Effects of Anti-neutralization, Information, and Normative Communication on Information Security Compliance</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Jordan B Barlow, Merrill Warkentin, Dustin Ormond, Alan R.Dennis</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>SETA:security education, training and awareness programs.</p><p>Neutralizing Theory:rationalize noncompliance behavior</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：</p><p>SETA Communication:</p><ol><li>Informational Communication（在SETA项目中，告诉员工信息安全行为遵守的重要性）</li><li>Normative Communication（在SETA项目中，告诉员工其他员工将遵守信息安全行为策略）</li><li>Anti-neutralization Communication（在SETA项目中，告诉员工不能为不遵守行为找借口）</li></ol><p>因变量：<br>Information Security Policy Violation Intention</p><p>控制变量：<br>Neutralization（是否找借口为自己的不遵守行为开脱）</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>We found that both informational(weakly) and anti-neutralization communication(strongly) decreased violate intention, but that normative communication had no effect.</p><p>In scenarios where neutralization where explicitly suggested to participants, anti-neutralization communication was the only approach that worked.</p><ul><li>第二中交流方式没用，第一种微弱，第三种强。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>组织因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper7</title>
-    <link href="/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper7/"/>
-    <url>/2021/06/21/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper7/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Do-I-really-belong-Impact-of-employment-status-on-information-security-policy-compliance"><a href="#Do-I-really-belong-Impact-of-employment-status-on-information-security-policy-compliance" class="headerlink" title="Do I really belong?:Impact of employment status on information security policy compliance"></a>Do I really belong?:Impact of employment status on information security policy compliance</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Shwadin Sharma, Merrill Warkentin</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>Social exchange theory</p><p>Organizational Support Theory</p><p>Rational Choice Theory</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：<br>perceived Organizational Support</p><p>一级中介变量：<br>Organizational Commitment</p><p>二级中介变量：<br>Response Cost</p><p>因变量：<br>Behavioral Intention</p><p>控制变量：<br>employment status:<br>permanent employees &amp; temporary employees</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>Employment status, specifically permanent versus temporary status, can result in different levels of organizational commitment and perceived organizational support.</p><p>The result of the study supports the notion that the effect of organizational commitment and perceived organizational support on behavioral intention to use ISP will be stronger among permanent employees.</p><p>The research also found that perceived response cost of performing a behavior would negatively impact intention to comply with ISP.</p><ul><li>通过划分不同的雇佣关系（长久性和短暂性），研究可感知的组织支持与员工信息安全策略遵守意图的相关关系，及其如何通过影响组织承诺来影响员工信息安全策略遵守意愿；以及可感知的组织支持和组织承诺通过影响员工反应成本来影响员工信息安全策略遵守意图。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>员工因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper6</title>
-    <link href="/2021/06/19/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper6/"/>
-    <url>/2021/06/19/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper6/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Cognitive-affective-drivers-of-employees’-daily-compliance-with-information-security-policies-A-multilevel-longitudinal-study"><a href="#Cognitive-affective-drivers-of-employees’-daily-compliance-with-information-security-policies-A-multilevel-longitudinal-study" class="headerlink" title="Cognitive-affective drivers of employees’ daily compliance with information security policies: A multilevel, longitudinal study"></a>Cognitive-affective drivers of employees’ daily compliance with information security policies: A multilevel, longitudinal study</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>John D’Arcy, Paul Benjamin Lowry</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>RCT: rational choice theory</p><ul><li>costs</li><li>benefits</li></ul><p>TPB:the theory of planned behavior</p><ul><li>attitude</li><li>subjective norms</li><li>perceived behavioral control</li></ul><blockquote><p>还有学者想要将personal moral norms添加到TPB理论中，与subjective norms相对应。</p></blockquote><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：</p><ol><li>Affective Status: positive affect, negative affect</li><li>Appraisal of Consequence(RCT): <ul><li>costs of compliance(Work impediment)</li><li>Benefits of compliance</li><li>costs/risks of noncompliance(Computer monitoring) </li></ul></li></ol><p>中介变量：<br>Attitude towards compliance(TPB理论的内容之一)</p><p>自变量：<br>Compliance behavior</p><p>控制变量：</p><ol><li>subjective norms</li><li>self-efficacy</li><li>moral considerations</li></ol><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results of our multilevel analysis suggest that a combination of state-based affective factors and stable, cognitive beliefs work in parallel to predict daily compliance attitude, which in turn predicts daily compliance behavior.</p><p>Consistent with the TPB portion of our model, we found that daily compliance attitudes, moral beliefs, organizational deviance, and descriptive norms were each significantly associated with daily compliance behavior.</p><ul><li>情绪影响态度，态度影响行为。</li><li>TPB理论各因素对信息安全策略遵守行为都有影响</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>员工因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper5</title>
-    <link href="/2021/06/19/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper5/"/>
-    <url>/2021/06/19/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper5/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Building-an-awareness-centered-information-security-policy-compliance-model"><a href="#Building-an-awareness-centered-information-security-policy-compliance-model" class="headerlink" title="Building an awareness-centered information security policy compliance model"></a>Building an awareness-centered information security policy compliance model</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Alex Koohang, Jonathan Anderson</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>本文没有明确的指出理论基础</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：</p><ol><li>Leadership</li><li>trust</li></ol><p>一级中介变量：</p><ol><li>Information security issues awareness</li><li>Information security policy awareness</li></ol><p>二级中介变量：</p><ol><li>understanding of resource vulnerability</li><li>self-efficacy</li></ol><p>结果变量：</p><ol><li>intention to comply</li></ol><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The findings indicated that IS awareness depends on effective organizational leadership and elevated employees’ trusting beliefs.</p><p>The understanding of resource vulnerability(URV) and SE are influenced by IS awareness resulting from effective leadership and elevated employees trusting beliefs which guide employees to comply with ISP requirements.</p><ul><li>领导力和信任影响员工安全意识；员工安全意识影响员工自我效能和脆弱性感知；员工自我效能和脆弱性感知影响员工信息安全策略遵守意图。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>领导者因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper4</title>
-    <link href="/2021/06/19/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper4/"/>
-    <url>/2021/06/19/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper4/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Theory-Based-Model-and-Prediction-Analysis-of-Information-Security-Compliance-Behavior-in-the-Saudi-Healthcare-Sector"><a href="#Theory-Based-Model-and-Prediction-Analysis-of-Information-Security-Compliance-Behavior-in-the-Saudi-Healthcare-Sector" class="headerlink" title="Theory-Based Model and Prediction Analysis of Information Security Compliance Behavior in the Saudi Healthcare Sector"></a>Theory-Based Model and Prediction Analysis of Information Security Compliance Behavior in the Saudi Healthcare Sector</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Sultan T.Alanazi, Mohammed Anbar, Shouki A.Ebad, Shankar Karuppayah, Hadeer A.Al-Ani</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p><strong>Theory of Planned Behavior:</strong></p><ul><li>attitude</li><li>subjective norms</li><li>perceived behavior control</li></ul><p><strong>General Deterrence Theory/Neutralization Theory</strong></p><p><strong>Protection Motivation Theory:</strong><br>This theory posits that human protection behavior is based on three processes:</p><ul><li>cognitive appraisal</li><li>threat appraisal</li><li>coping response appraisal</li></ul><p><strong>Diffusion of Innovation</strong></p><ul><li>the innovation technology</li><li>the communication channel through which it spreads</li><li>the time it takes to do so</li><li>the social system it cares to</li></ul><p><strong>Th technology acceptance model(TAM)</strong></p><ul><li>perceived usefulness</li><li>perceived ease-of-use</li></ul><p><strong>Rational Choice Theory</strong></p><ul><li>costs</li><li>benefits</li></ul><p><strong>Cognitive Moral Development Theory</strong></p><ul><li>pre-conventional</li><li>conventional</li><li>post-conventional</li></ul><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量<br>Deterrence Theory: </p><ol><li>Legal/punishment</li></ol><p>Protection Motivation Theory: </p><ol><li>Personality</li><li>Self-efficacy</li></ol><p>Rational Choice Theory:</p><ol><li>cost of compliance/noncompliance</li></ol><p>Theory of Planned Behavior:</p><ol><li>subjective norms</li></ol><p>Cognitive Moral Development Theory</p><ol><li>religion and moral</li></ol><p>Diffusion of Innovation</p><ol><li>Information security policy</li><li>general information security</li><li>Technology awareness</li></ol><p>控制变量<br>Controlled variables</p><ol><li>demographics</li></ol><p>因变量<br>Information security compliance behavior</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results suggests that moderating and non-common factors(e.g., religion and morality) impact ISCB, while demographic characteristics(e.g., age, marital status, and work experice) do not.</p><p>The theory-based model of ISCB establishes the main domains of theory for this study, which were religion,/morality, self-efficacy, legal/punishment, personality traits, cost of compliance/noncompliance, subjective norms, information security policy, general information security, and technology awareness.</p><p>Predictors of ISCB indicate that general information security, followed by self-efficacy and religion/morality, is the most influential factor on ISCB among healthcare workers in the Kingdom of Saudi Arabia.</p><ul><li>主要得出的理论是某些具体的个人特征对ISCB的影响不大。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>员工因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper3</title>
-    <link href="/2021/06/19/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper3/"/>
-    <url>/2021/06/19/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper3/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Organizational-Governance-Social-Bonds-and-Information-Security-Policy-Compliance-A-Perspective-towards-Oil-and-Gas-Employees"><a href="#Organizational-Governance-Social-Bonds-and-Information-Security-Policy-Compliance-A-Perspective-towards-Oil-and-Gas-Employees" class="headerlink" title="Organizational Governance, Social Bonds and Information Security Policy Compliance:A Perspective towards Oil and Gas Employees"></a>Organizational Governance, Social Bonds and Information Security Policy Compliance:A Perspective towards Oil and Gas Employees</h1><h2 id="作者："><a href="#作者：" class="headerlink" title="作者："></a>作者：</h2><p>Rao Faizan Ali, P.D.D.Dominic and Kashif Ali</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>Organization governance –&gt; Social Bond Theory –&gt; ISPC</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>Organization governance:</p><ul><li>SETA Programs(Security education and training programs), </li><li>Security Policies and Procedures, </li><li>Workplace Capabilities.</li></ul><p>Social Bond Theory: </p><ul><li>Attachment to ISec Related Tasks, </li><li>Commitment to ISec Related Tasks, </li><li>Involvement to ISec Related Tasks, </li><li>Personal Norms to ISec Related to ISec Related Tasks</li></ul><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results provide evidence that organization governance factors proved to enhance social bonding among employees, and improved social behavior among employees enhances information security policy compliance in the O&amp;G sector.</p><ul><li>组织治理（SETA项目、安全策略和程序、工作场所能力）通过员工（对与安全相关的任务的依恋、承诺、投入与个人规范）影响信息安全遵守意图(ISPC intention)</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>组织因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper2</title>
-    <link href="/2021/06/18/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper2/"/>
-    <url>/2021/06/18/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper2/</url>
-    
-    <content type="html"><![CDATA[<h1 id="A-Model-of-Information-Security-Policy-Compliance-for-Public-Universities-A-Conceptual-Model"><a href="#A-Model-of-Information-Security-Policy-Compliance-for-Public-Universities-A-Conceptual-Model" class="headerlink" title="A Model of Information Security Policy Compliance for Public Universities: A Conceptual Model"></a>A Model of Information Security Policy Compliance for Public Universities: A Conceptual Model</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p> Angraini, Rose Alinda Alias, and Okfalisa</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>combine behavioral theory and organizational theory </p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量1：self efficacy; attitude; moral belief<br>中介变量： Behavior intention<br>因变量： Information security policy compliance</p><p>自变量2： Organization commitment; Organization culture; reward; perceived of cost<br>因变量： Information security policy compliance</p><p>自变量3： Habit<br>因变量： Information security policy compliance</p><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>The results in the conceptual model found several variables, namely habits, attitudes, moral beliefs, self-efficacy from behavioral theories and human culture, commitment, rewards, cost can be used to evaluate user compliance with information security polices.</p><ul><li>结合行为理论和组织理论，探讨影响ISC的因素：习惯、态度、道德信仰、自我效能和文化、承诺、奖励、成本。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>混合因素</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>paper1</title>
-    <link href="/2021/06/18/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper1/"/>
-    <url>/2021/06/18/%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%E6%A2%B3%E7%90%86/paper1/</url>
-    
-    <content type="html"><![CDATA[<h1 id="A-Meta-Analysis-of-Deterrence-Theory-in-Information-Security-Policy-Compliance-Research"><a href="#A-Meta-Analysis-of-Deterrence-Theory-in-Information-Security-Policy-Compliance-Research" class="headerlink" title="A Meta_Analysis of Deterrence Theory in Information Security Policy Compliance Research"></a>A Meta_Analysis of Deterrence Theory in Information Security Policy Compliance Research</h1><h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p>Simon Trang, Benedikt Brendel</p><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>Deterrence Theory</p><h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>自变量：</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">sanction</span> severity; <span class="hljs-attribute">sanction</span> certainty; <span class="hljs-attribute">sanction</span> celerity<br></code></pre></td></tr></table></figure><p>因变量：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">ISP compliance behavior</span><br></code></pre></td></tr></table></figure><p>与环境相关的调节变量：</p><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">Behavior <span class="hljs-keyword">type</span>(Maliciousness,compliance);<br><br><span class="hljs-constructor">Culture(<span class="hljs-params">power</span> <span class="hljs-params">distance</span>, <span class="hljs-params">uncertainty</span> <span class="hljs-params">avoidance</span>)</span><br></code></pre></td></tr></table></figure><p>与方法论相关的调节变量：</p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-keyword">Behaviorally </span>vs. <span class="hljs-keyword">scenario_based </span>measurement;<br><br>Generic vs specific measurement<br></code></pre></td></tr></table></figure><h2 id="基本结论"><a href="#基本结论" class="headerlink" title="基本结论"></a>基本结论</h2><p>Applying a meta-analysis, the results suggest that sanctions have an overall effect on deviant behavior.</p><p>However, the results also indicate that this relationship is dependent on the study’s context.</p><p>Deterrence theory better predicts deviant behavior in malicious contexts, cultures with a high degree of power distance, and cultures with a high uncertainty avoidance.</p><p>The mete-analysis also reveals no meaningful differences arising from the methodological context in terms of scenario-based and behavior-specific measurement.</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>信息安全策略遵守</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>组织因素</tag>
       
     </tags>
     
@@ -1771,31 +1321,6 @@
     <tags>
       
       <tag>学习记录</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>画龙七式</title>
-    <link href="/2021/05/10/%E7%94%BB%E9%BE%99%E4%B8%83%E5%BC%8F/%E7%94%BB%E9%BE%99%E4%B8%83%E5%BC%8F%E5%86%99%E4%BD%9C%E6%B3%95/"/>
-    <url>/2021/05/10/%E7%94%BB%E9%BE%99%E4%B8%83%E5%BC%8F/%E7%94%BB%E9%BE%99%E4%B8%83%E5%BC%8F%E5%86%99%E4%BD%9C%E6%B3%95/</url>
-    
-    <content type="html"><![CDATA[<h1 id="画龙七式写作法"><a href="#画龙七式写作法" class="headerlink" title="画龙七式写作法"></a>画龙七式写作法</h1><h2 id="第一式-冥想"><a href="#第一式-冥想" class="headerlink" title="第一式  冥想"></a>第一式  冥想</h2><p>在画龙正式开始前，首先要做的不是去做，而是去想。这一片文章的写作目的、写作目标和写作方式等。</p><h2 id="第二式-画骨"><a href="#第二式-画骨" class="headerlink" title="第二式  画骨"></a>第二式  画骨</h2><p>画龙画虎难画骨，画骨这一节可谓是重中之重，甚至直接决定了你的文章的质量。什么是文章的骨？拿我现在写的这一片综述性质的文章来说，文章的骨也就是框架，并不是你这一篇综述里每一篇文章具体写的是什么，而在于，你如何选择的文章，以及文章大致写的是什么。</p><p>这一节的表现形式就是标题，把每一篇文章的标题罗列出来，画骨就算完成了。</p><h2 id="第三式-充肌"><a href="#第三式-充肌" class="headerlink" title="第三式  充肌"></a>第三式  充肌</h2><p>本节的目标在于充实你的文章的骨架。</p><p>就本综述而言，大致包括每一篇文章的关键词、主客体、研究方法和核心观点等。</p><h2 id="第四式-描皮"><a href="#第四式-描皮" class="headerlink" title="第四式  描皮"></a>第四式  描皮</h2><p>“皮”就是最外部的表现形式了，也是对于文章的直观区分。而皮与皮之间既有相似连续性又有相对中断性，就如本综述所想，在众多文章中寻找其继承性如同一理论，同一问题下的A对B的补充；又如针对同一问题的不同研究方法、不同视角的对立或相互论证。</p><h2 id="第五式-雕头"><a href="#第五式-雕头" class="headerlink" title="第五式  雕头"></a>第五式  雕头</h2><p>头是统领。雕头即是对前述步骤的总结与概括。</p><h2 id="第六式-收尾"><a href="#第六式-收尾" class="headerlink" title="第六式  收尾"></a>第六式  收尾</h2><p>尾部最不受关注，但却最能提升龙像精气神的地方。收尾要注意灵活。具体到综述中，可评、可述、可点、可叹。</p><h2 id="第七式-点睛"><a href="#第七式-点睛" class="headerlink" title="第七式  点睛"></a>第七式  点睛</h2><p>人人说画龙点睛，这眼睛一点，龙即飞走。所以这眼睛可点，但不可让人看见你点。搜着藏着自己看，不要发表出来。因为这一部分，对应的综述中，就是对自己的研究的参悟。也就是自己本文章对自己研究的重要性。</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>Paper</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Paper</tag>
       
     </tags>
     

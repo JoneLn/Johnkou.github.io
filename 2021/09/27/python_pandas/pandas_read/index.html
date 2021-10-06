@@ -1,0 +1,499 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bg/bigimg.png">
+  <link rel="icon" href="/img/bg/bigimg.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+  <title>pandas导入外部数据 - JoneLn</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"joneln.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>JoneLn</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="pandas导入外部数据">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-09-27 09:00" pubdate>
+        2021年9月27日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      17
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">pandas导入外部数据</h1>
+            
+            <div class="markdown-body">
+              <h1 id="pandas导入外部数据"><a href="#pandas导入外部数据" class="headerlink" title="pandas导入外部数据"></a>pandas导入外部数据</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br>pd.set_option(<span class="hljs-string">&#x27;display.unicode.east_asian_width&#x27;</span>,<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure>
+<h2 id="1-导入-XLS或-xlsx文件"><a href="#1-导入-XLS或-xlsx文件" class="headerlink" title="1. 导入.XLS或.xlsx文件"></a>1. 导入.XLS或.xlsx文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">pd.read_excel(io,sheet_name=<span class="hljs-number">0</span>,header=<span class="hljs-number">0</span>,names=<span class="hljs-literal">None</span>,index_col=<span class="hljs-literal">None</span>,usecols=<span class="hljs-literal">None</span>,squeeze=<span class="hljs-literal">False</span>,<br>dtype=<span class="hljs-literal">None</span>,engine=<span class="hljs-literal">None</span>,converters=<span class="hljs-literal">None</span>,true_values=<span class="hljs-literal">None</span>,false_values=<span class="hljs-literal">None</span>,skiprows=<span class="hljs-literal">None</span>,nrow=<span class="hljs-literal">None</span>,<br>na_values=<span class="hljs-literal">None</span>,keep_default_na=<span class="hljs-literal">True</span>,verbose=<span class="hljs-literal">False</span>,date_parser=<span class="hljs-literal">None</span>,thousands=<span class="hljs-literal">None</span>,comment=<span class="hljs-literal">None</span>,<br>skipfooter=<span class="hljs-number">0</span>,convert_float=<span class="hljs-literal">True</span>,mangle_dupe_cols=<span class="hljs-literal">True</span>,**kwds)<br></code></pre></td></tr></table></figure>
+<p>io:文件路径或类文件对象；</p>
+<p>sheet_name: 通过字符串\整数\字符串列表\整数列表来索引单个或多个工作表。默认值为0；</p>
+<p>header: 制定作为列名的行，默认值为0，即第一行为列名，根据实际表头来确定header；</p>
+<p>names：默认值为None，要使用的列名列表；</p>
+<p>idex_col:指定列为索引列，默认值为None，索引0是DataFrame的行标签；</p>
+<p>usecols: 可以是int\list列表\字符串，默认值为None。导入指定列；</p>
+<p>squeeze:布尔值，默认值为None，如果解析的数据只包含一列，则返回一个series;</p>
+<p>dtype:列的数据类型名称或字典，默认值为None。（不懂）</p>
+<p>skiprows:省略指定行数的数据，从第一行开始；</p>
+<p>skipfooter:省略指定行数的数据，从最后一行开始。</p>
+<p>1.1. 导入工作表(不指定工作表，则默认第一个)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">df = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/12/1月.xlsx&#x27;</span>)<br>df1= df.head()<br><span class="hljs-built_in">print</span>(df1)<br></code></pre></td></tr></table></figure>
+
+<p>1.2. 导入指定工作表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">df = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/12/1月.xlsx&#x27;</span>,sheet_name=<span class="hljs-string">&#x27;莫寒&#x27;</span>)<br>df.head()<br><br>df = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/12/1月.xlsx&#x27;</span>,sheet_name=<span class="hljs-string">&#x27;莫寒&#x27;</span>,names=<span class="hljs-string">&#x27;联系手机&#x27;</span>)<br>df.head()<br></code></pre></td></tr></table></figure>
+<p>1.2.1 为表格指定行索引</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">df = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/12/1月.xlsx&#x27;</span>,index_col=<span class="hljs-number">0</span>)<br>df.head()<br></code></pre></td></tr></table></figure>
+<p>1.2.2 设置列索引</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 设置第一行为列索引</span><br>df = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/12/1月.xlsx&#x27;</span>,index_col=<span class="hljs-number">0</span>, header=<span class="hljs-number">0</span>)<br>df.head()<br></code></pre></td></tr></table></figure>
+
+<p>1.2.3 列索引为默认数字</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">df1 = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/12/1月.xlsx&#x27;</span>,header=<span class="hljs-literal">None</span>)<br>df1.head()<br></code></pre></td></tr></table></figure>
+
+<p>1.3. 导入指定列数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">df = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/12/1月.xlsx&#x27;</span>,usecols=[<span class="hljs-number">0</span>])<br>df1 = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/12/1月.xlsx&#x27;</span>, usecols=[<span class="hljs-number">0</span>,<span class="hljs-number">3</span>])<br>df2 = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/12/1月.xlsx&#x27;</span>, usecols=[<span class="hljs-string">&#x27;买家会员名&#x27;</span>,<span class="hljs-string">&#x27;收货人姓名&#x27;</span>])<br><br><span class="hljs-built_in">print</span>(df.head())<br><span class="hljs-built_in">print</span>(df1.head())<br><span class="hljs-built_in">print</span>(df2.head())<br></code></pre></td></tr></table></figure>
+<h2 id="2-导入-csv文件"><a href="#2-导入-csv文件" class="headerlink" title="2. 导入.csv文件"></a>2. 导入.csv文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">pd.read_csv(filepath_or_buffer=<span class="hljs-string">&quot;xxx&quot;</span>,sep=<span class="hljs-string">&#x27;,&#x27;</span>,delimiter=<span class="hljs-literal">None</span>,header=<span class="hljs-string">&#x27;infer&#x27;</span>,names=<span class="hljs-literal">None</span>, index_col=<span class="hljs-literal">None</span>,<br>usecols=<span class="hljs-literal">None</span>, squeeze = <span class="hljs-literal">False</span>, prefix=<span class="hljs-literal">None</span>, mangle_dupe_cols=<span class="hljs-literal">True</span>, dtype=<span class="hljs-literal">None</span>, engine=<span class="hljs-literal">None</span>, converters=<span class="hljs-literal">None</span>, <br>true_values=<span class="hljs-literal">None</span>, false_values=<span class="hljs-literal">None</span>, skipinitialspace=<span class="hljs-literal">False</span>, skiprows=<span class="hljs-literal">None</span>, nrows=<span class="hljs-literal">None</span>, na_values=<span class="hljs-literal">None</span>,<br>keep_default_na=<span class="hljs-literal">True</span>, na_filter=<span class="hljs-literal">True</span>, verbose=<span class="hljs-literal">False</span>, skip_blank_lines=<span class="hljs-literal">True</span>, parse_dates=<span class="hljs-literal">False</span>, <br>infer_datetime_format=<span class="hljs-literal">False</span>, keep_date_col=<span class="hljs-literal">False</span>, date_parser=<span class="hljs-literal">None</span>, dayfirst=<span class="hljs-literal">False</span>, iterator=<span class="hljs-literal">False</span>, <br>chunksize=<span class="hljs-literal">None</span>, compression=<span class="hljs-string">&#x27;infer&#x27;</span>, thousands=<span class="hljs-literal">None</span>, decimal=<span class="hljs-string">b&#x27;.&#x27;</span>, lineterminator=<span class="hljs-literal">None</span>, <br>quotechar=<span class="hljs-string">&quot;&quot;</span>, quoting=<span class="hljs-number">0</span>, escapechar=<span class="hljs-literal">None</span>,  comment=<span class="hljs-literal">None</span>, encoding=<span class="hljs-literal">None</span>)<br></code></pre></td></tr></table></figure>
+<p>常用参数说明：<br>filepath_or_buffer: 字符串，文件路径或者URL链接；</p>
+<p>sep\delimiter: 字符串、分隔符；</p>
+<p>header:见第一节；</p>
+<p>names:见第一节；</p>
+<p>index_col:见第一节；</p>
+<p>usecols:见第一节；</p>
+<p>dtype:见第一节；</p>
+<p>parse_dates: 通过该参数将某列直接转换为datetime64日期类型。</p>
+<p>encoding：编码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">df = pd.read_csv(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/16/1月.csv&#x27;</span>,encoding=<span class="hljs-string">&#x27;gbk&#x27;</span>)<br>df.head()<br></code></pre></td></tr></table></figure>
+
+<h2 id="3-导入-txt文件"><a href="#3-导入-txt文件" class="headerlink" title="3. 导入.txt文件"></a>3. 导入.txt文件</h2><p>同样使用pd.read_csv()函数来读取，不同的是，必须指定分隔符。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">df = pd.read_csv(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/03/17/1月.txt&#x27;</span>,sep=<span class="hljs-string">&#x27;\t&#x27;</span>, encoding=<span class="hljs-string">&#x27;gbk&#x27;</span>)<br>df.head()<br></code></pre></td></tr></table></figure>
+
+<h2 id="4-导入HTML网页"><a href="#4-导入HTML网页" class="headerlink" title="4. 导入HTML网页"></a>4. 导入HTML网页</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs PYTHON">pd.read_html(io,match=<span class="hljs-string">&#x27;.+&#x27;</span>, flavor=<span class="hljs-literal">None</span>, header=<span class="hljs-literal">None</span>, index_col=<span class="hljs-literal">None</span>, skiprows=<span class="hljs-literal">None</span>,<br>attrs=<span class="hljs-literal">None</span>, parse_dates=<span class="hljs-literal">False</span>, thousands=<span class="hljs-string">&#x27;,&#x27;</span>, encoding=<span class="hljs-literal">None</span>, decimal=<span class="hljs-string">&#x27;,&#x27;</span>, converters=<span class="hljs-literal">None</span>, <br>na_values=<span class="hljs-literal">None</span>, keep_default_na=<span class="hljs-literal">True</span>, displayed_only=<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure>
+<p>常用参数说明：<br>io: 字符串，文件路径或者URL链接。不接受https网址，可以去掉s，如<a target="_blank" rel="noopener" href="http://www.baidu.com;/">http://www.baidu.com；</a></p>
+<p>match: 正则表达式，返回与正则表达式匹配的表格；</p>
+<p>flavor: 解析器默认为lxml；</p>
+<p>header: 确定列标题所在行；</p>
+<p>index_col: 指定行索引；</p>
+<p>encoding: 编码方式。</p>
+<p>ps：使用pd.read_html()，首先要检查网页表格是否为table类型，或者含有<code>&lt;table&gt;····&lt;/table&gt;</code>的字样</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">df = pd.DataFrame()<br>url_list = [<span class="hljs-string">&#x27;http://www.espn.com/nba/salaries/_/seasontype/4&#x27;</span>]<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>,<span class="hljs-number">13</span>):<br>    url = <span class="hljs-string">&#x27;http://www.espn.com/nba/salaries/_/page/%s/seasontype/4&#x27;</span>%i<br>    url_list.append(url)<br><span class="hljs-comment"># 遍历网页中的table读取网页表格数据</span><br><span class="hljs-keyword">for</span> url <span class="hljs-keyword">in</span> url_list:<br>    df = df.append(pd.read_html(url), ignore_index=<span class="hljs-literal">True</span>)<br><span class="hljs-comment"># 列表解析：遍历dataframe第三列，以字符串$开头</span><br>df = df[[x.startswith(<span class="hljs-string">&#x27;$&#x27;</span>) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> df[<span class="hljs-number">3</span>]]]<br><span class="hljs-comment"># 导出为csv文件</span><br>df.to_csv(<span class="hljs-string">&#x27;F: / project2_pandas/Python数据分析从入门到精通/NBA.csv&#x27;</span>, header=[<span class="hljs-string">&#x27;RK&#x27;</span>,<span class="hljs-string">&#x27;NAME&#x27;</span>,<span class="hljs-string">&#x27;TEAM&#x27;</span>,<span class="hljs-string">&#x27;SALARY&#x27;</span>],index=<span class="hljs-literal">False</span>)<br></code></pre></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/pandas/">pandas</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/09/28/python_pandas/pandas_loc/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">数据抽取</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/09/26/python_pandas/pandas_base/">
+                        <span class="hidden-mobile">Pandas数据分析</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -1,0 +1,524 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bg/bigimg.png">
+  <link rel="icon" href="/img/bg/bigimg.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+  <title>Pandas数据格式化 - JoneLn</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"joneln.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>JoneLn</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Pandas数据格式化">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-04 09:00" pubdate>
+        2021年10月4日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      20
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Pandas数据格式化</h1>
+            
+            <div class="markdown-body">
+              <h1 id="数据格式化"><a href="#数据格式化" class="headerlink" title="数据格式化"></a>数据格式化</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+<li><p>数值类型格式化</p>
+</li>
+<li><ol>
+<li>设置小数位数</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>设置百分比</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>设置千位分隔符</li>
+</ol>
+</li>
+<li><p>文本类型格式化</p>
+</li>
+<li><ol>
+<li>一列数据转换为多列数据</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>行列转换</li>
+</ol>
+</li>
+<li><p>日期类型格式化</p>
+</li>
+<li><ol>
+<li>批量处理日期数据转换(to_datetime())</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>日期判断(df[‘column’].dt.year())</li>
+</ol>
+</li>
+</ol>
+<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd <br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br>pd.set_option(<span class="hljs-string">&#x27;display.unicode.east_asian_width&#x27;</span>,<span class="hljs-literal">True</span>)<br><br>df = pd.read_excel(<span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/04/47/mingribooks.xls&#x27;</span>)<br>df.info()<br><br>ft = pd.DataFrame(np.random.random([<span class="hljs-number">5</span>,<span class="hljs-number">5</span>]), columns = [<span class="hljs-string">&#x27;A1&#x27;</span>,<span class="hljs-string">&#x27;A2&#x27;</span>,<span class="hljs-string">&#x27;A3&#x27;</span>,<span class="hljs-string">&#x27;A4&#x27;</span>,<span class="hljs-string">&#x27;A5&#x27;</span>])<br><span class="hljs-built_in">print</span>(ft)<br></code></pre></td></tr></table></figure>
+
+<h2 id="1-数值类型格式化"><a href="#1-数值类型格式化" class="headerlink" title="1. 数值类型格式化"></a>1. 数值类型格式化</h2><p>1.1. 设置浮点数小数位数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">DataFrame.round(decimals=0, *args, **kwargs)</span><br><span class="hljs-string">decimals: 保留的小数位数</span><br><span class="hljs-string">*args: 附加的关键字参数</span><br><span class="hljs-string">**kwargs: 附加的关键字参数</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><br><span class="hljs-comment"># 所有小数全部设置成为保留小数点后两位</span><br>ft11 = ft.<span class="hljs-built_in">round</span>(<span class="hljs-number">2</span>)<br><span class="hljs-built_in">print</span>(ft11.head(<span class="hljs-number">2</span>))<br>ft11.head(<span class="hljs-number">2</span>)<br><br><span class="hljs-comment"># 也可以使用函数，为所有浮点数保留小数点后两位</span><br>ft12 = ft.applymap(<span class="hljs-keyword">lambda</span> x:<span class="hljs-string">&#x27;%.2f&#x27;</span>%x)<br><span class="hljs-built_in">print</span>(ft12)<br><br><span class="hljs-comment"># 对不同列应用不同的小数位保留规则</span><br>ft13 = ft.<span class="hljs-built_in">round</span>(&#123;<span class="hljs-string">&#x27;A1&#x27;</span>:<span class="hljs-number">2</span>,<span class="hljs-string">&#x27;A2&#x27;</span>:<span class="hljs-number">0</span>&#125;)<br><span class="hljs-built_in">print</span>(ft13.head(<span class="hljs-number">2</span>))<br></code></pre></td></tr></table></figure>
+
+
+<p>1.2. 设置百分比</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&#x27;&#x27;&#x27; </span><br><span class="hljs-string">使用format()函数，保留n位小数的百分比形式</span><br><span class="hljs-string">df[&#x27;new_column&#x27;] = df[&#x27;column&#x27;].apply(lambda x: format(x,&#x27;.n%&#x27;))</span><br><span class="hljs-string">使用map()函数，整列保留n位小数的百分比形式</span><br><span class="hljs-string">df[&#x27;new_column&#x27;] = df[&#x27;column&#x27;].map(lambda x : &#x27;&#123;.n%&#125;&#x27;.format(x))</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><br>ft[<span class="hljs-string">&#x27;A1百分比&#x27;</span>] = ft[<span class="hljs-string">&#x27;A1&#x27;</span>].apply(<span class="hljs-keyword">lambda</span> x: <span class="hljs-built_in">format</span>(x,<span class="hljs-string">&#x27;.2%&#x27;</span>))<br><span class="hljs-built_in">print</span>(ft)<br><br>ft[<span class="hljs-string">&#x27;A2百分比&#x27;</span>] = ft[<span class="hljs-string">&#x27;A2&#x27;</span>].<span class="hljs-built_in">map</span>(<span class="hljs-keyword">lambda</span> x: <span class="hljs-string">&#x27;&#123;:.2%&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(x))<br><span class="hljs-built_in">print</span>(ft)<br></code></pre></td></tr></table></figure>
+
+<p>1.3. 设置千位分隔符</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&#x27;&#x27;&#x27; </span><br><span class="hljs-string">将数值类型的金额转换为带千位分隔符的字符串</span><br><span class="hljs-string">df[&#x27;column&#x27;] = df[&#x27;column&#x27;].apply(lambda x: format(int(x),&#x27;,&#x27;))</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br>data = [[<span class="hljs-string">&#x27;1月&#x27;</span>,<span class="hljs-string">&#x27;199237&#x27;</span>],[<span class="hljs-string">&#x27;2月&#x27;</span>,<span class="hljs-string">&#x27;222222&#x27;</span>]]<br>columns = [<span class="hljs-string">&#x27;月份&#x27;</span>,<span class="hljs-string">&#x27;销售额&#x27;</span>]<br>ff = pd.DataFrame(data=data,columns=columns)<br><span class="hljs-built_in">print</span>(ff)<br>ff[<span class="hljs-string">&#x27;销售额&#x27;</span>] = ff[<span class="hljs-string">&#x27;销售额&#x27;</span>].apply(<span class="hljs-keyword">lambda</span> x: <span class="hljs-built_in">format</span>(<span class="hljs-built_in">int</span>(x),<span class="hljs-string">&#x27;,&#x27;</span>))<br><span class="hljs-built_in">print</span>(ff)<br></code></pre></td></tr></table></figure>
+
+<h2 id="2-文本数据格式化"><a href="#2-文本数据格式化" class="headerlink" title="2. 文本数据格式化"></a>2. 文本数据格式化</h2><p>2.1 一列转多列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&#x27;&#x27;&#x27; </span><br><span class="hljs-string">在实际应用中，我们常常需要将复合的文本拆分，如详细的地址拆分为XX省，XX市等，这需要做的就是一列转多列。</span><br><span class="hljs-string"></span><br><span class="hljs-string">函数名称为：split()</span><br><span class="hljs-string"></span><br><span class="hljs-string">Series.str.split(pat=None, n=-1, expand=False)</span><br><span class="hljs-string"></span><br><span class="hljs-string">pat: 可以是字符串、符号或正则表达式，其作为字符串分割的依据，默认为空格；</span><br><span class="hljs-string"></span><br><span class="hljs-string">n: 整型，默认值是-1，0或者-1都将返回所有拆分；</span><br><span class="hljs-string"></span><br><span class="hljs-string">expand: 分割后的结果是否转换为DataFrame，默认值为False。</span><br><span class="hljs-string"></span><br><span class="hljs-string">返回值：系列、索引、dataframe或多重索引。</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><br>sf = pd.read_excel(<br>    <span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/04/26/mrbooks.xls&#x27;</span>,usecols=[<span class="hljs-string">&#x27;买家会员名&#x27;</span>,<span class="hljs-string">&#x27;收货地址&#x27;</span>])<br><br>sf.head()<br><br>series = sf[<span class="hljs-string">&#x27;收货地址&#x27;</span>].<span class="hljs-built_in">str</span>.split(<span class="hljs-string">&#x27; &#x27;</span>,expand = <span class="hljs-literal">True</span>)<br><br>sf[<span class="hljs-string">&#x27;省&#x27;</span>] = series[<span class="hljs-number">0</span>]<br>sf[<span class="hljs-string">&#x27;市&#x27;</span>] = series[<span class="hljs-number">1</span>]<br>sf[<span class="hljs-string">&#x27;区&#x27;</span>] = series[<span class="hljs-number">2</span>]<br><br>sf.head()<br><br><span class="hljs-string">&#x27;&#x27;&#x27; </span><br><span class="hljs-string">从上面的代码中，我们看到，如果想要将分割后的数据添加到DataFrame中，需要创建新列，重新赋值等。</span><br><span class="hljs-string">下面的方法，让我们将生成的结果自动衔接到原表格中</span><br><span class="hljs-string">sf=sf.join(sf[&#x27;column&#x27;].str.split())</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br>sjf = pd.read_excel(<br>    <span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/04/26/mrbooks.xls&#x27;</span>, usecols=[<span class="hljs-string">&#x27;买家会员名&#x27;</span>, <span class="hljs-string">&#x27;收货地址&#x27;</span>])<br><br>sjf = sjf.join(sjf[<span class="hljs-string">&#x27;收货地址&#x27;</span>].<span class="hljs-built_in">str</span>.split(<span class="hljs-string">&#x27; &#x27;</span>,expand=<span class="hljs-literal">True</span>))<br>sjf.head()<br></code></pre></td></tr></table></figure>
+
+<p>2.2. 行列转换</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><br><span class="hljs-comment"># 行转列--针对索引</span><br>DataFrame.stack(level=-<span class="hljs-number">1</span>, dropna = <span class="hljs-literal">True</span>)<br><span class="hljs-comment"># 列转行--针对索引</span><br>DataFrame.unstack(level=-<span class="hljs-number">1</span>, fill_value=<span class="hljs-literal">None</span>)<br><span class="hljs-comment"># 列转行--针对数值</span><br>DataFrame.pivot(index=<span class="hljs-literal">None</span>, columns=<span class="hljs-literal">None</span>, values=<span class="hljs-literal">None</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 设置准备条件</span><br>ci = pd.read_excel(<br>    <span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/04/29/grade.xls&#x27;</span>)<br><br><span class="hljs-built_in">print</span>(ci.head())<br></code></pre></td></tr></table></figure>
+<p>2.2.1. 行转列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">ci = ci.set_index([<span class="hljs-string">&#x27;序号&#x27;</span>, <span class="hljs-string">&#x27;班级&#x27;</span>])<br><span class="hljs-comment"># 设置2级索引（列表中有几个值，索引为几级）</span><br><span class="hljs-comment"># 必须将设置结果重新赋予ci，否则白费力气</span><br><span class="hljs-comment"># 设置好行索引之后，其他所有列都将归为一列</span><br>ci1 = ci.stack()<br><span class="hljs-built_in">print</span>(ci1.head())<br></code></pre></td></tr></table></figure>
+
+<p>2.2.2. 列转行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">ic = pd.read_excel(<br>    <span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/04/30/grade.xls&#x27;</span>,sheet_name=<span class="hljs-string">&#x27;英语2&#x27;</span>)<br><span class="hljs-built_in">print</span>(ic.head())<br><span class="hljs-comment">## 设置多行索引</span><br>ic = ic.set_index([<span class="hljs-string">&#x27;班级&#x27;</span>,<span class="hljs-string">&#x27;序号&#x27;</span>,<span class="hljs-string">&#x27;Unnamed: 2&#x27;</span>])<br><span class="hljs-comment">## 确定好索引后，最后一个行索引下面的值将会成为列索引</span><br>ic = ic.unstack()<br><span class="hljs-built_in">print</span>(ic.head())<br></code></pre></td></tr></table></figure>
+
+<p>2.2.3. 行列转换pivot()</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">pv = pd.read_excel(<br>    <span class="hljs-string">&#x27;F:/project2_pandas/Python数据分析从入门到精通/MR/Code/04/30/grade.xls&#x27;</span>, sheet_name=<span class="hljs-string">&#x27;英语3&#x27;</span>)<br><span class="hljs-built_in">print</span>(pv.head())<br><br>pv = pv.pivot(index=<span class="hljs-string">&#x27;序号&#x27;</span>,columns=<span class="hljs-string">&#x27;班级&#x27;</span>,values=<span class="hljs-string">&#x27;得分&#x27;</span>)<br><span class="hljs-built_in">print</span>(pv)<br></code></pre></td></tr></table></figure>
+
+<h2 id="3-日期数据格式化"><a href="#3-日期数据格式化" class="headerlink" title="3. 日期数据格式化"></a>3. 日期数据格式化</h2><p>3.1. 统一日期格式</p>
+<p><code>DataFrame.to_datetime()</code></p>
+<p>该函数还有很多参数可以选择，</p>
+<p>但是一般不会用到，</p>
+<p>什么时候需要用的时候再去百度就好</p>
+<p>3.2. 获取日期属性</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">df[<span class="hljs-string">&#x27;星期几&#x27;</span>] = df[<span class="hljs-string">&#x27;datetime_columns&#x27;</span>].dt.day_name()<br><br>df[<span class="hljs-string">&#x27;季度&#x27;</span>] = df[<span class="hljs-string">&#x27;datetime_columns&#x27;</span>].dt.quarter<br><br>df[<span class="hljs-string">&#x27;是否年底&#x27;</span>] = df[<span class="hljs-string">&#x27;datetime_column&#x27;</span>].dt.is_year_end<br></code></pre></td></tr></table></figure>
+
+<p>3.3. 获取某个日期或者日期范围所记录的所有记录</p>
+<p>使用DataFrame可以获取某个时间段内所有记录，但是，<strong>前提必须将时间列设置为索引</strong>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-number">1.</span> 获取<span class="hljs-number">2018</span>年所有记录<br>df[<span class="hljs-string">&#x27;2018&#x27;</span>]<br><br><span class="hljs-number">2.</span> 获取<span class="hljs-number">2018</span>年和<span class="hljs-number">2019</span>年所有记录<br>   <br>df[<span class="hljs-string">&#x27;2018&#x27;</span>:<span class="hljs-string">&#x27;2019&#x27;</span>]<br><br><span class="hljs-number">3.</span> 获取<span class="hljs-number">2018</span>年<span class="hljs-number">5</span>月的所有记录<br><br>df[<span class="hljs-string">&#x27;2018_05&#x27;</span>]<br><br><span class="hljs-number">4.</span> 获取某一天的记录<br><br>df[<span class="hljs-string">&#x27;2021-01-01&#x27;</span>:<span class="hljs-string">&#x27;2020-01-01&#x27;</span>]<br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/pandas/">pandas</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/10/05/python_pandas/pandas_conversion/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Pandas数据输出</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/03/python_pandas/pandas_calculation/">
+                        <span class="hidden-mobile">Pandas数据计算</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
