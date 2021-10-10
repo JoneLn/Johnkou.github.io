@@ -379,31 +379,6 @@
   
   
   <entry>
-    <title>Numpy基础</title>
-    <link href="/2021/08/20/Numpy%E5%9F%BA%E7%A1%80/"/>
-    <url>/2021/08/20/Numpy%E5%9F%BA%E7%A1%80/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Numpy-基础知识"><a href="#Numpy-基础知识" class="headerlink" title="Numpy 基础知识"></a>Numpy 基础知识</h1><h2 id="什么是-Numpy"><a href="#什么是-Numpy" class="headerlink" title="什么是 Numpy"></a>什么是 Numpy</h2><p>Numpy (Numerical Python) 是Python 数值计算最重要的基础包。大多数提供科学计算的包都是以其数组作为构建基础。</p><p>NumPy本身并没有多么高级的数据分析功能，但是，理解NumPy数组以及面向数组的计算有助于你更加高效的使用诸如pandas之类的工具。</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>python</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Numpy</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>python基础10</title>
     <link href="/2021/06/13/python%E5%9F%BA%E7%A1%80/python%E5%9F%BA%E7%A1%8010/"/>
     <url>/2021/06/13/python%E5%9F%BA%E7%A1%80/python%E5%9F%BA%E7%A1%8010/</url>
