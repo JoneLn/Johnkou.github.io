@@ -63,14 +63,14 @@
     
     <categories>
       
-      <category>pandas</category>
+      <category>python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>pandas</tag>
       
     </tags>
     
@@ -88,14 +88,14 @@
     
     <categories>
       
-      <category>pandas</category>
+      <category>python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>pandas</tag>
       
     </tags>
     
@@ -113,14 +113,14 @@
     
     <categories>
       
-      <category>pandas</category>
+      <category>python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>pandas</tag>
       
     </tags>
     
@@ -138,14 +138,14 @@
     
     <categories>
       
-      <category>pandas</category>
+      <category>python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>pandas</tag>
       
     </tags>
     
@@ -163,14 +163,14 @@
     
     <categories>
       
-      <category>pandas</category>
+      <category>python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>pandas</tag>
       
     </tags>
     
@@ -188,14 +188,14 @@
     
     <categories>
       
-      <category>pandas</category>
+      <category>python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>pandas</tag>
       
     </tags>
     
@@ -213,14 +213,14 @@
     
     <categories>
       
-      <category>pandas</category>
+      <category>python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>pandas</tag>
       
     </tags>
     
@@ -238,14 +238,14 @@
     
     <categories>
       
-      <category>pandas</category>
+      <category>python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>pandas</tag>
       
     </tags>
     
@@ -263,14 +263,14 @@
     
     <categories>
       
-      <category>pandas</category>
+      <category>python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>pandas</tag>
       
     </tags>
     
@@ -288,14 +288,14 @@
     
     <categories>
       
-      <category>pandas</category>
+      <category>python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>pandas</tag>
       
     </tags>
     
@@ -313,14 +313,14 @@
     
     <categories>
       
-      <category>pandas</category>
+      <category>python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>pandas</tag>
       
     </tags>
     
@@ -345,7 +345,7 @@
     
     <tags>
       
-      <tag>精益数据分析</tag>
+      <tag>《精益数据分析》</tag>
       
     </tags>
     
@@ -370,7 +370,7 @@
     
     <tags>
       
-      <tag>精益数据分析</tag>
+      <tag>《精益数据分析》</tag>
       
     </tags>
     
@@ -388,39 +388,14 @@
     
     <categories>
       
-      <category>Numpy</category>
+      <category>python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>自我介绍</title>
-    <link href="/2021/08/20/README/"/>
-    <url>/2021/08/20/README/</url>
-    
-    <content type="html"><![CDATA[ <center>     <h1>蔺孝众</h1> </center><hr><h2 id="个人信息"><a href="#个人信息" class="headerlink" title="个人信息"></a>个人信息</h2><ul><li>性 别： 男 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; 年 龄：26  </li><li>手 机： 19932716635&ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&ensp;&ensp;邮 箱：419916368.qq.com    </li><li>专 业： 企业管理 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; 岗 位：数据分析方向-管培生</li></ul><hr><h2 id="工作及教育经历"><a href="#工作及教育经历" class="headerlink" title="工作及教育经历"></a>工作及教育经历</h2><ul><li>燕山大学&emsp;&emsp;&emsp;&emsp;&emsp;2019.9~&emsp;&emsp;&emsp;&emsp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; 企业管理专业-研究生         </li><li>湘潭大学&emsp;&emsp;&emsp;&emsp;&emsp;2014.9~2018.7&emsp;&emsp;&emsp;&emsp; 市场营销专业-本科  </li></ul><hr><h2 id="专业技能"><a href="#专业技能" class="headerlink" title="专业技能"></a>专业技能</h2><ul><li>掌握EXCEL，并了解透视表、仪表盘以及VBA等相关操作；</li><li>熟练使用 sql，并掌握Python可视化相关库（pandas,matplotlib,numpy等）；</li><li>熟练掌握Markdown语言，以及git系统，并基于Github构建个人网页；</li></ul><hr><h2 id="获奖经历"><a href="#获奖经历" class="headerlink" title="获奖经历"></a>获奖经历</h2><ul><li>湘潭大学优秀毕业生</li><li>湘潭大学优秀班干部</li><li>2020年燕山大学“挑战杯”大学生课外学术科技作品竞赛–三等奖</li></ul><hr><h2 id="个人账号"><a href="#个人账号" class="headerlink" title="个人账号"></a>个人账号</h2><ul><li>个人网页： <code>https://joneln.github.io</code></li><li>牛客博客： <code>https://blog.nowcoder.net/johnkou</code></li></ul><hr><h2 id="其他信息"><a href="#其他信息" class="headerlink" title="其他信息"></a>其他信息</h2><ul><li>对数据敏感，喜欢数据分析；</li><li>性格开朗，热爱运动。</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>自我介绍</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>自我介绍</tag>
+      <tag>Numpy</tag>
       
     </tags>
     
@@ -438,14 +413,14 @@
     
     <categories>
       
-      <category>Python基础</category>
+      <category>Python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>Python</tag>
+      <tag>python基础</tag>
       
     </tags>
     
@@ -463,14 +438,14 @@
     
     <categories>
       
-      <category>Python基础</category>
+      <category>Python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>Python</tag>
+      <tag>python基础</tag>
       
     </tags>
     
@@ -488,14 +463,14 @@
     
     <categories>
       
-      <category>Python基础</category>
+      <category>Python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>Python</tag>
+      <tag>python基础</tag>
       
     </tags>
     
@@ -513,14 +488,14 @@
     
     <categories>
       
-      <category>Python基础</category>
+      <category>Python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>Python</tag>
+      <tag>python基础</tag>
       
     </tags>
     
@@ -538,14 +513,14 @@
     
     <categories>
       
-      <category>Python基础</category>
+      <category>Python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>Python</tag>
+      <tag>python基础</tag>
       
     </tags>
     
@@ -563,14 +538,14 @@
     
     <categories>
       
-      <category>Python基础</category>
+      <category>Python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>Python</tag>
+      <tag>python基础</tag>
       
     </tags>
     
@@ -588,14 +563,14 @@
     
     <categories>
       
-      <category>Python基础</category>
+      <category>Python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>Python</tag>
+      <tag>python基础</tag>
       
     </tags>
     
@@ -613,14 +588,14 @@
     
     <categories>
       
-      <category>Python基础</category>
+      <category>Python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>Python</tag>
+      <tag>python基础</tag>
       
     </tags>
     
@@ -638,14 +613,14 @@
     
     <categories>
       
-      <category>Python基础</category>
+      <category>Python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>Python</tag>
+      <tag>python基础</tag>
       
     </tags>
     
@@ -663,14 +638,14 @@
     
     <categories>
       
-      <category>Python基础</category>
+      <category>Python</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>Python</tag>
+      <tag>Python基础</tag>
       
     </tags>
     
@@ -688,14 +663,14 @@
     
     <categories>
       
-      <category>MySQL</category>
+      <category>SQL</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《MySQL必知必会》</tag>
       
     </tags>
     
@@ -713,14 +688,14 @@
     
     <categories>
       
-      <category>MySQL</category>
+      <category>SQL</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《MySQL必知必会》</tag>
       
     </tags>
     
@@ -738,14 +713,14 @@
     
     <categories>
       
-      <category>MySQL</category>
+      <category>SQL</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《MySQL必知必会》</tag>
       
     </tags>
     
@@ -763,14 +738,14 @@
     
     <categories>
       
-      <category>MySQL</category>
+      <category>SQL</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《MySQL必知必会》</tag>
       
     </tags>
     
@@ -788,14 +763,14 @@
     
     <categories>
       
-      <category>MySQL</category>
+      <category>SQL</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《MySQL必知必会》</tag>
       
     </tags>
     
@@ -813,14 +788,14 @@
     
     <categories>
       
-      <category>MySQL</category>
+      <category>SQL</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《MySQL必知必会》</tag>
       
     </tags>
     
@@ -838,14 +813,14 @@
     
     <categories>
       
-      <category>MySQL</category>
+      <category>SQL</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《MySQL必知必会》</tag>
       
     </tags>
     
@@ -863,14 +838,14 @@
     
     <categories>
       
-      <category>MySQL</category>
+      <category>SQL</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《MySQL必知必会》</tag>
       
     </tags>
     
@@ -888,14 +863,14 @@
     
     <categories>
       
-      <category>MySQL</category>
+      <category>SQL</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《MySQL必知必会》</tag>
       
     </tags>
     
@@ -913,14 +888,14 @@
     
     <categories>
       
-      <category>MySQL</category>
+      <category>SQL</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《MySQL必知必会》</tag>
       
     </tags>
     
@@ -945,7 +920,7 @@
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《SQL必知必会》</tag>
       
     </tags>
     
@@ -970,7 +945,7 @@
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《SQL必知必会》</tag>
       
     </tags>
     
@@ -995,7 +970,7 @@
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《SQL必知必会》</tag>
       
     </tags>
     
@@ -1020,7 +995,7 @@
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《SQL必知必会》</tag>
       
     </tags>
     
@@ -1045,7 +1020,7 @@
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《SQL必知必会》</tag>
       
     </tags>
     
@@ -1070,7 +1045,7 @@
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《SQL必知必会》</tag>
       
     </tags>
     
@@ -1095,7 +1070,7 @@
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《SQL必知必会》</tag>
       
     </tags>
     
@@ -1120,7 +1095,7 @@
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《SQL必知必会》</tag>
       
     </tags>
     
@@ -1145,7 +1120,7 @@
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《SQL必知必会》</tag>
       
     </tags>
     
@@ -1170,7 +1145,7 @@
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《SQL必知必会》</tag>
       
     </tags>
     
@@ -1195,7 +1170,7 @@
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《SQL必知必会》</tag>
       
     </tags>
     
@@ -1220,7 +1195,7 @@
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《SQL必知必会》</tag>
       
     </tags>
     
@@ -1245,7 +1220,7 @@
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《SQL必知必会》</tag>
       
     </tags>
     
@@ -1270,7 +1245,7 @@
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《SQL必知必会》</tag>
       
     </tags>
     
@@ -1295,7 +1270,7 @@
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《SQL必知必会》</tag>
       
     </tags>
     
@@ -1320,7 +1295,7 @@
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《SQL必知必会》</tag>
       
     </tags>
     
@@ -1345,7 +1320,7 @@
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《SQL必知必会》</tag>
       
     </tags>
     
@@ -1370,7 +1345,7 @@
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《SQL必知必会》</tag>
       
     </tags>
     
@@ -1395,7 +1370,7 @@
     
     <tags>
       
-      <tag>学习记录</tag>
+      <tag>《SQL必知必会》</tag>
       
     </tags>
     
